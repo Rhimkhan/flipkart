@@ -1,47 +1,79 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { ShoppingBag, Menu, X, PhoneCall, ShieldCheck } from "lucide-react";
 import { useCart } from "@/lib/cart-context";
 import { BRAND } from "@/lib/brand";
 import { WHATSAPP_NUMBER, WHATSAPP_DEFAULT_MESSAGE } from "@/lib/config";
 
-export default function Navbar() {
+function NavbarContent() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const [isPastVideo, setIsPastVideo] = useState(!isHome);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { totalItemsCount, setIsDrawerOpen } = useCart();
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
+    if (!isHome) {
+      setIsPastVideo(true);
+      const handleScroll = () => {
+        setIsScrolled(window.scrollY > 20);
+      };
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
+
+    const checkScrollPosition = () => {
+      const heroEl = document.getElementById("hero-section");
+      if (heroEl) {
+        const rect = heroEl.getBoundingClientRect();
+        // Once hero-section arrives at or above the navbar (top <= 90px)
+        setIsPastVideo(rect.top <= 90);
       } else {
-        setIsScrolled(false);
+        setIsPastVideo(window.scrollY > window.innerHeight * 2.2);
       }
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+
+    checkScrollPosition();
+    window.addEventListener("scroll", checkScrollPosition, { passive: true });
+    window.addEventListener("resize", checkScrollPosition, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", checkScrollPosition);
+      window.removeEventListener("resize", checkScrollPosition);
+    };
+  }, [isHome]);
 
   return (
     <>
-      {/* Top artisanal announcement bar (Deep Clay & Soft Butter) */}
-      <div className="bg-[#4A231B] text-[#FFF1A6] text-xs py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2 border-b border-[#6B352A]/40">
-        <span className="inline-block w-2 h-2 rounded-full bg-[#FFF1A6] animate-pulse"></span>
-        <span>
-          Handcrafted in Jhansi, UP • FSSAI Lic. No. 22726293000001 • Free Shipping over ₹{BRAND.freeShippingThreshold} • Code:{" "}
-          <strong className="underline underline-offset-2 tracking-wider text-[#FFF1A6]">AKHIL10</strong>
-        </span>
-      </div>
+      {/* Top artisanal announcement bar (hidden on Home page intro so video is pure 100vh) */}
+      {!isHome && (
+        <div className="bg-[#4A231B] text-[#FFF1A6] text-xs py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2 border-b border-[#6B352A]/40">
+          <span className="inline-block w-2 h-2 rounded-full bg-[#FFF1A6] animate-pulse"></span>
+          <span>
+            Handcrafted in Jhansi, UP • FSSAI Lic. No. 22726293000001 • Free Shipping over ₹{BRAND.freeShippingThreshold} • Code:{" "}
+            <strong className="underline underline-offset-2 tracking-wider text-[#FFF1A6]">AKHIL10</strong>
+          </span>
+        </div>
+      )}
 
-      {/* Main Sticky Navbar (Shrinks smoothly on scroll) */}
+      {/* Main Navbar (Transparent over video on Home, then Clay Brown after scrolling past it) */}
       <header
-        className={`sticky top-0 z-40 w-full transition-all duration-300 ${
-          isScrolled
-            ? "bg-[#6B352A]/95 backdrop-blur-md shadow-lg py-2 border-b border-[#FFF1A6]/15"
-            : "bg-[#6B352A] py-3.5 border-b border-[#4A231B]"
+        className={`w-full transition-all duration-500 z-40 ${
+          isHome
+            ? `fixed top-0 left-0 right-0 ${
+                isPastVideo
+                  ? "bg-[#6B352A]/95 backdrop-blur-md shadow-lg py-2.5 border-b border-[#FFF1A6]/15"
+                  : "bg-gradient-to-b from-[#2B1B17]/70 via-[#2B1B17]/25 to-transparent py-3 sm:py-4 border-b border-transparent"
+              }`
+            : `sticky top-0 ${
+                isScrolled
+                  ? "bg-[#6B352A]/95 backdrop-blur-md shadow-lg py-2 border-b border-[#FFF1A6]/15"
+                  : "bg-[#6B352A] py-3.5 border-b border-[#4A231B]"
+              }`
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -257,5 +289,19 @@ export default function Navbar() {
         )}
       </header>
     </>
+  );
+}
+
+export default function Navbar() {
+  return (
+    <Suspense
+      fallback={
+        <header className="sticky top-0 z-40 w-full bg-[#6B352A] py-3.5 border-b border-[#4A231B]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center justify-between" />
+        </header>
+      }
+    >
+      <NavbarContent />
+    </Suspense>
   );
 }

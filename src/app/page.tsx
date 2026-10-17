@@ -35,9 +35,15 @@ export default function HomePage() {
   };
 
   return (
-    <div className="space-y-20 sm:space-y-28 bg-[#FFFBEF] overflow-hidden">
-      {/* 1. HERO SECTION WITH BACKGROUND VIDEO & PLAYABLE CARD */}
-      <section className="relative min-h-[90vh] lg:min-h-screen flex items-center justify-center pt-8 pb-16 sm:py-20 overflow-hidden bg-[#2B1B17]">
+    <div className="bg-[#FFFBEF]">
+      {/* 1. SCROLL-DRIVEN VIDEO INTRO (Sticky 100vh with 350vh scroll scrubbing) */}
+      <ScrollVideo />
+
+      {/* 2. HERO SECTION WITH BACKGROUND VIDEO & PLAYABLE CARD */}
+      <section
+        id="hero-section"
+        className="relative min-h-[90vh] lg:min-h-screen flex items-center justify-center pt-12 pb-16 sm:py-20 overflow-hidden bg-[#2B1B17]"
+      >
         {/* Full-screen background video with Deep Clay 55% overlay */}
         <HeroVideoBackground />
 
@@ -126,8 +132,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. SCROLL-DRIVEN VIDEO SCRUBBING SECTION (Apple-Style 400vh) */}
-      <ScrollVideo />
+      {/* REST OF SECTIONS WITH ARTISANAL SPACING */}
+      <div className="space-y-20 sm:space-y-28">
 
       {/* STATS STRIP */}
       <section className="bg-[#E5D3C0]/70 border-y border-[#D1B89F] py-10">
@@ -569,6 +575,7 @@ export default function HomePage() {
           </div>
         </div>
       </motion.section>
+      </div>
     </div>
   );
 }
