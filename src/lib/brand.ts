@@ -1,0 +1,20 @@
+export const BRAND = {
+  name: "AKHIL FOODS",
+  shortName: "AKHIL FOODS",
+  tagline: "Good Food, Better Life",
+  subTagline: "Handcrafted Artisanal Himalayan Mushroom Pickles in Mitti Handi & Cold-Pressed Mustard Oil",
+  logo: "/images/akhil-foods-logo.png",
+  phone: "+91 98765 43210",
+  whatsappNumber: "919876543210",
+  email: "care@akhilfoods.com",
+  adminEmail: "orders@akhilfoods.com",
+  address: "Akhil Organic Agro Farms, High-Altitude Valley Estate, Solan, Himachal Pradesh 173212, India",
+  fssaiLicense: "FSSAI Lic. No. 10923999000184",
+  socials: {
+    instagram: "https://instagram.com/akhilfoods",
+    facebook: "https://facebook.com/akhilfoods",
+    youtube: "https://youtube.com/@akhilfoods",
+  },
+  freeShippingThreshold: 699,
+  defaultShippingCost: 60,
+};
