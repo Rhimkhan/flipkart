@@ -529,6 +529,17 @@ If you have any questions, reply here.
             <h1 className="font-serif text-3xl sm:text-4xl font-extrabold text-[#4A231B]">
               Store Management Portal
             </h1>
+            <div className="flex flex-wrap items-center gap-2 pt-1.5 text-[11px] font-mono text-[#6B352A]">
+              <span className="bg-[#FFF1A6] px-2.5 py-0.5 rounded-lg border border-[#6B352A]/20 shadow-xs">
+                FSSAI: <strong>{BRAND.fssaiNumber}</strong> (till {BRAND.fssaiValidity})
+              </span>
+              <span className="bg-white px-2.5 py-0.5 rounded-lg border border-[#6B352A]/20 shadow-xs">
+                GSTIN: <strong>{BRAND.gstNumber}</strong>
+              </span>
+              <span className="bg-white px-2.5 py-0.5 rounded-lg border border-[#6B352A]/20 shadow-xs">
+                Udyam: <strong>{BRAND.udyamNumber}</strong>
+              </span>
+            </div>
           </div>
 
           <div className="flex items-center gap-3">

@@ -2,14 +2,12 @@
 
 import React, { useState } from "react";
 import { MessageCircle, X } from "lucide-react";
-import { BRAND } from "@/lib/brand";
+import { WHATSAPP_NUMBER, WHATSAPP_DEFAULT_MESSAGE } from "@/lib/config";
 
 export default function FloatingWhatsApp() {
   const [showTooltip, setShowTooltip] = useState(true);
 
-  const defaultMessage = encodeURIComponent(
-    `Hello Akhil Foods! I'm visiting your website and would like assistance with ordering your artisanal mushroom pickles.`
-  );
+  const defaultMessage = encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE);
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-end gap-3">
@@ -29,7 +27,7 @@ export default function FloatingWhatsApp() {
 
       {/* Floating Button */}
       <a
-        href={`https://wa.me/${BRAND.whatsappNumber}?text=${defaultMessage}`}
+        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${defaultMessage}`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Order or Chat on WhatsApp"

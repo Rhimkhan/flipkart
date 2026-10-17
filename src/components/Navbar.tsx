@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ShoppingBag, Menu, X, PhoneCall, ShieldCheck } from "lucide-react";
 import { useCart } from "@/lib/cart-context";
 import { BRAND } from "@/lib/brand";
+import { WHATSAPP_NUMBER, WHATSAPP_DEFAULT_MESSAGE } from "@/lib/config";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -67,7 +68,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center space-x-7 text-sm font-medium text-[#FFF8E7]">
+            <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium text-[#FFF8E7]">
               <Link
                 href="/"
                 className="hover:text-[#FFF1A6] transition-colors py-1 relative group"
@@ -87,6 +88,20 @@ export default function Navbar() {
                 className="hover:text-[#FFF1A6] transition-colors py-1 relative group"
               >
                 Our Story
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFF1A6] transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <Link
+                href="/gallery"
+                className="hover:text-[#FFF1A6] transition-colors py-1 relative group"
+              >
+                Gallery
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFF1A6] transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <Link
+                href="/faq"
+                className="hover:text-[#FFF1A6] transition-colors py-1 relative group"
+              >
+                FAQ
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFF1A6] transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
@@ -116,7 +131,7 @@ export default function Navbar() {
             {/* Right actions: WhatsApp CTA + Cart trigger with item count */}
             <div className="flex items-center gap-3 sm:gap-4">
               <a
-                href={`https://wa.me/${BRAND.whatsappNumber}?text=Hi%20Akhil%20Foods,%20I%20would%20like%20to%20order%20artisanal%20mushroom%20pickles!`}
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-full bg-[#A8553F] hover:bg-[#873E2C] text-[#FFF1A6] border border-[#FFF1A6]/30 shadow-sm transition-all"
@@ -178,6 +193,20 @@ export default function Navbar() {
               Our Story
             </Link>
             <Link
+              href="/gallery"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3 py-2 rounded-md text-base font-medium text-[#FFF8E7] hover:bg-[#6B352A] hover:text-[#FFF1A6]"
+            >
+              Gallery
+            </Link>
+            <Link
+              href="/faq"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3 py-2 rounded-md text-base font-medium text-[#FFF8E7] hover:bg-[#6B352A] hover:text-[#FFF1A6]"
+            >
+              FAQ
+            </Link>
+            <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
               className="block px-3 py-2 rounded-md text-base font-medium text-[#FFF8E7] hover:bg-[#6B352A] hover:text-[#FFF1A6]"
@@ -201,7 +230,7 @@ export default function Navbar() {
 
             <div className="pt-2 border-t border-[#6B352A]/80">
               <a
-                href={`https://wa.me/${BRAND.whatsappNumber}?text=Hi%20Akhil%20Foods,%20I%20would%20like%20to%20order%20mushroom%20pickles!`}
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#A8553F] text-[#FFF1A6] font-semibold text-sm shadow-md"

@@ -109,12 +109,19 @@ function OrderSuccessContent() {
         {/* Order Details Receipt */}
         {order && (
           <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#6B352A]/15 shadow-sm space-y-6">
-            <div className="flex items-center justify-between pb-4 border-b border-stone-100">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-stone-100 gap-3">
               <div>
                 <h3 className="font-serif text-lg font-bold text-[#6B352A]">Receipt Summary</h3>
                 <p className="text-xs text-stone-500">{new Date(order.createdAt).toLocaleDateString("en-IN", { dateStyle: "long" })}</p>
+                <div className="text-[10px] text-stone-500 font-mono mt-1 flex flex-wrap gap-x-2 gap-y-0.5">
+                  <span>FSSAI: <strong>{BRAND.fssaiNumber}</strong></span>
+                  <span>•</span>
+                  <span>GSTIN: <strong>{BRAND.gstNumber}</strong></span>
+                  <span>•</span>
+                  <span>Udyam: <strong>{BRAND.udyamNumber}</strong></span>
+                </div>
               </div>
-              <span className="text-xs font-bold text-[#4A231B] bg-[#FFF1A6] px-3 py-1 rounded-full">
+              <span className="text-xs font-bold text-[#4A231B] bg-[#FFF1A6] px-3 py-1 rounded-full self-start sm:self-center">
                 Status: {order.orderStatus}
               </span>
             </div>

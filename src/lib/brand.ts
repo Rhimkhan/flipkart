@@ -1,15 +1,29 @@
+import {
+  PHONE_DISPLAY,
+  WHATSAPP_NUMBER,
+  FSSAI_NUMBER,
+  FSSAI_VALIDITY,
+  FSSAI_DISPLAY,
+  GST_NUMBER,
+  UDYAM_NUMBER,
+} from "./config";
+
 export const BRAND = {
   name: "AKHIL FOODS",
   shortName: "AKHIL FOODS",
   tagline: "Good Food, Better Life",
   subTagline: "Handcrafted Artisanal Himalayan Mushroom Pickles in Mitti Handi & Cold-Pressed Mustard Oil",
   logo: "/images/akhil-foods-logo.png",
-  phone: "+91 98765 43210",
-  whatsappNumber: "919876543210",
+  phone: PHONE_DISPLAY,
+  whatsappNumber: WHATSAPP_NUMBER,
   email: "care@akhilfoods.com",
   adminEmail: "orders@akhilfoods.com",
   address: "Akhil Organic Agro Farms, High-Altitude Valley Estate, Solan, Himachal Pradesh 173212, India",
-  fssaiLicense: "FSSAI Lic. No. 10923999000184",
+  fssaiNumber: FSSAI_NUMBER,
+  fssaiValidity: FSSAI_VALIDITY,
+  fssaiLicense: `FSSAI Reg. No. ${FSSAI_NUMBER}`,
+  gstNumber: GST_NUMBER,
+  udyamNumber: UDYAM_NUMBER,
   socials: {
     instagram: "https://instagram.com/akhilfoods",
     facebook: "https://facebook.com/akhilfoods",

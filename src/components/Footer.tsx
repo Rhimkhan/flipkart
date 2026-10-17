@@ -5,6 +5,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { BRAND } from "@/lib/brand";
 import {
+  WHATSAPP_NUMBER,
+  PHONE_DISPLAY,
+  TEL_LINK,
+  WHATSAPP_DEFAULT_MESSAGE,
+  FSSAI_NUMBER,
+  FSSAI_VALIDITY,
+  GST_NUMBER,
+  UDYAM_NUMBER,
+} from "@/lib/config";
+import {
   Mail,
   Phone,
   MapPin,
@@ -85,10 +95,23 @@ export default function Footer() {
               {BRAND.subTagline}. Every batch is crafted in small micro-lots using ancient Himalayan recipes and 100% natural ingredients.
             </p>
 
-            {/* FSSAI License Number Placeholder */}
-            <div className="text-xs text-[#FFF1A6] font-mono bg-[#6B352A]/60 px-3.5 py-2 rounded-xl inline-flex items-center gap-2 border border-[#FFF1A6]/25">
-              <span>🛡️</span>
-              <span><strong>FSSAI Lic. No.</strong> 10923999000184</span>
+            {/* Government & Food Safety Registrations */}
+            <div className="space-y-2 pt-1">
+              <div className="text-xs text-[#FFF1A6] font-mono bg-[#6B352A]/60 px-3.5 py-2 rounded-xl flex flex-wrap items-center gap-x-2.5 gap-y-1 border border-[#FFF1A6]/25">
+                <span className="flex items-center gap-1.5 font-bold">
+                  <span>🛡️</span>
+                  <span>FSSAI Reg. No. {FSSAI_NUMBER}</span>
+                </span>
+                <span className="text-[11px] text-[#FFF8E7]/70">(Valid till {FSSAI_VALIDITY})</span>
+              </div>
+              <div className="flex flex-wrap gap-2 text-[11px] font-mono text-[#FFF8E7]/80">
+                <span className="bg-[#6B352A]/40 px-2.5 py-1 rounded-lg border border-[#FFF1A6]/15">
+                  GSTIN: <strong className="text-[#FFF1A6]">{GST_NUMBER}</strong>
+                </span>
+                <span className="bg-[#6B352A]/40 px-2.5 py-1 rounded-lg border border-[#FFF1A6]/15">
+                  Udyam: <strong className="text-[#FFF1A6]">{UDYAM_NUMBER}</strong>
+                </span>
+              </div>
             </div>
 
             {/* Social Icons */}
@@ -136,7 +159,7 @@ export default function Footer() {
 
                 {/* WhatsApp */}
                 <a
-                  href={`https://wa.me/${BRAND.whatsappNumber}`}
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-9 h-9 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white flex items-center justify-center transition-all shadow-sm"
@@ -197,8 +220,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-[#FFF1A6] shrink-0" />
-                <a href={`tel:${BRAND.phone}`} className="hover:text-[#FFF1A6]">
-                  {BRAND.phone}
+                <a href={TEL_LINK} className="hover:text-[#FFF1A6]">
+                  {PHONE_DISPLAY}
                 </a>
               </li>
               <li className="flex items-center gap-2">

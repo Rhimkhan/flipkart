@@ -80,8 +80,12 @@ const INITIAL_ORDERS: Order[] = [
   },
 ];
 
+// Server-side in-memory persistence when window is undefined
+let serverMemoryOrders: Order[] = [...INITIAL_ORDERS];
+let serverMemoryProducts: Product[] = [...INITIAL_PRODUCTS];
+
 export function getLocalProducts(): Product[] {
-  if (typeof window === "undefined") return INITIAL_PRODUCTS;
+  if (typeof window === "undefined") return serverMemoryProducts;
   try {
     const raw = localStorage.getItem(LOCAL_STORAGE_PRODUCTS_KEY);
     if (!raw) {
@@ -91,12 +95,15 @@ export function getLocalProducts(): Product[] {
     return JSON.parse(raw);
   } catch (err) {
     console.error("Error reading local products:", err);
-    return INITIAL_PRODUCTS;
+    return serverMemoryProducts;
   }
 }
 
 export function saveLocalProducts(products: Product[]): void {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined") {
+    serverMemoryProducts = products;
+    return;
+  }
   try {
     localStorage.setItem(LOCAL_STORAGE_PRODUCTS_KEY, JSON.stringify(products));
   } catch (err) {
@@ -105,7 +112,7 @@ export function saveLocalProducts(products: Product[]): void {
 }
 
 export function getLocalOrders(): Order[] {
-  if (typeof window === "undefined") return INITIAL_ORDERS;
+  if (typeof window === "undefined") return serverMemoryOrders;
   try {
     const raw = localStorage.getItem(LOCAL_STORAGE_ORDERS_KEY);
     if (!raw) {
@@ -115,12 +122,15 @@ export function getLocalOrders(): Order[] {
     return JSON.parse(raw);
   } catch (err) {
     console.error("Error reading local orders:", err);
-    return INITIAL_ORDERS;
+    return serverMemoryOrders;
   }
 }
 
 export function saveLocalOrders(orders: Order[]): void {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined") {
+    serverMemoryOrders = orders;
+    return;
+  }
   try {
     localStorage.setItem(LOCAL_STORAGE_ORDERS_KEY, JSON.stringify(orders));
   } catch (err) {

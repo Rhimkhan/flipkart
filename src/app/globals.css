@@ -50,22 +50,22 @@
 }
 
 :root {
-  --background: #FFFBEF;
-  --foreground: #1F0E12;
+  --background: #FFF8E7;
+  --foreground: #2B1B17;
 }
 
 body {
-  background-color: #FFFBEF;
-  color: #1F0E12;
+  background-color: #FFF8E7;
+  color: #2B1B17;
   font-family: var(--font-poppins), system-ui, sans-serif;
   overflow-x: hidden;
-  selection-background-color: #4E111B;
-  selection-color: #FFFBEF;
+  selection-background-color: #6B352A;
+  selection-color: #FFF1A6;
 }
 
 ::selection {
-  background: #4E111B;
-  color: #FFFBEF;
+  background: #6B352A;
+  color: #FFF1A6;
 }
 
 /* Custom scrollbar in Deep Burgundy and Mocha */

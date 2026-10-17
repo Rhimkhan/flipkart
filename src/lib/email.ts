@@ -135,8 +135,9 @@ export async function sendOrderNotificationEmail(order: Order): Promise<EmailRes
     </div>
 
     <!-- Footer -->
-    <div style="background-color: #F7EFE2; padding: 16px; text-align: center; font-size: 11px; color: #736b63; border-top: 1px solid #E5D3C0;">
-      ${BRAND.name} Store Dispatch • High-Altitude Valley Estate, Solan, HP • FSSAI Lic. 10923999000184
+    <div style="background-color: #F7EFE2; padding: 16px; text-align: center; font-size: 11px; color: #736b63; border-top: 1px solid #E5D3C0; line-height: 1.6;">
+      ${BRAND.name} Store Dispatch • High-Altitude Valley Estate, Solan, HP<br>
+      <strong>FSSAI Reg. No.</strong> ${BRAND.fssaiNumber} (Valid till ${BRAND.fssaiValidity}) • <strong>GSTIN:</strong> ${BRAND.gstNumber} • <strong>Udyam:</strong> ${BRAND.udyamNumber}
     </div>
 
   </div>

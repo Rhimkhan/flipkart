@@ -24,6 +24,8 @@ import { INITIAL_PRODUCTS, REVIEWS, FAQS } from "@/lib/data";
 import { useCart } from "@/lib/cart-context";
 import { BRAND } from "@/lib/brand";
 import { ProductSize } from "@/lib/types";
+import HeroVideoBackground from "@/components/HeroVideoBackground";
+import { WHATSAPP_NUMBER, WHATSAPP_DEFAULT_MESSAGE } from "@/lib/config";
 
 export default function HomePage() {
   const { addToCart, buyNow } = useCart();
@@ -58,13 +60,12 @@ export default function HomePage() {
 
   return (
     <div className="space-y-20 sm:space-y-32 bg-[#FFFBEF] overflow-hidden">
-      {/* 1. FULL-SCREEN HERO SECTION */}
+      {/* 1. FULL-SCREEN HERO SECTION WITH BACKGROUND VIDEO */}
       <section className="relative min-h-[90vh] lg:min-h-screen flex items-center justify-center pt-8 pb-16 sm:py-20 overflow-hidden">
-        {/* Subtle decorative background gradient glows */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[#FFF1A6]/30 rounded-full blur-3xl pointer-events-none -z-10" />
-        <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-[#E5D3C0]/40 rounded-full blur-2xl pointer-events-none -z-10" />
+        {/* Full-screen background video with Deep Clay 55% overlay */}
+        <HeroVideoBackground />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left Column: Hero Text Content */}
             <motion.div
@@ -74,19 +75,19 @@ export default function HomePage() {
               className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left"
             >
               {/* Badge Pill in Clay Palette */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E5D3C0] text-[#4A231B] border border-[#6B352A]/20 shadow-sm text-xs font-semibold">
-                <Sparkles className="w-4 h-4 text-[#A8553F]" />
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2B1B17]/85 backdrop-blur-md text-[#FFF1A6] border border-[#FFF1A6]/30 shadow-lg text-xs font-semibold">
+                <Sparkles className="w-4 h-4 text-[#FFF1A6]" />
                 <span>Mitti Handi Fermentation • Zero Chemical Preservatives</span>
               </div>
 
               {/* Tagline & Main Title */}
               <div className="space-y-3">
-                <p className="text-xs sm:text-sm uppercase tracking-widest font-bold text-[#A8553F]">
-                  {BRAND.tagline}
+                <p className="text-xs sm:text-sm uppercase tracking-widest font-extrabold text-[#FFF1A6] drop-shadow">
+                  Handcrafted Mushroom Pickle, Made the Traditional Way
                 </p>
-                <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold text-[#4A231B] leading-[1.12] tracking-tight">
+                <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold text-[#FFF8E7] leading-[1.12] tracking-tight drop-shadow-md">
                   Pure Himalayan Mushroom Pickles, Handcrafted in{" "}
-                  <span className="italic underline decoration-[#FFF1A6] decoration-4 underline-offset-8 text-[#6B352A]">
+                  <span className="italic underline decoration-[#FFF1A6] decoration-4 underline-offset-8 text-[#FFF1A6]">
                     Clay Pots
                   </span>
                   .
@@ -94,7 +95,7 @@ export default function HomePage() {
               </div>
 
               {/* Brand Description */}
-              <p className="text-base sm:text-lg text-[#2B1B17]/85 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-sans">
+              <p className="text-base sm:text-lg text-[#FFF8E7]/95 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-sans drop-shadow-sm font-light">
                 Experience the authentic, pungent tang of wild mountain mushrooms steeped in cold-pressed Kacchi Ghani mustard oil, fragrant Himalayan whole spices, and cured under the golden sun. 100% natural, 0% chemicals.
               </p>
 
@@ -102,37 +103,37 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
                 <Link
                   href="/shop"
-                  className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#6B352A] hover:bg-[#4A231B] text-[#FFF1A6] font-semibold text-base shadow-xl hover:shadow-2xl hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2.5 group"
+                  className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#6B352A] hover:bg-[#4A231B] text-[#FFF1A6] font-semibold text-base shadow-xl hover:shadow-2xl hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2.5 group border border-[#FFF1A6]/30"
                 >
                   <span>Shop Now</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
                 </Link>
 
                 <a
-                  href={`https://wa.me/${BRAND.whatsappNumber}?text=Hi%20Akhil%20Foods!%20I%20would%20like%20to%20order%20artisanal%20mushroom%20pickles.`}
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#FFF1A6] hover:bg-[#FFF9D6] text-[#4A231B] border-2 border-[#6B352A]/30 font-semibold text-base shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2.5"
+                  className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white border-2 border-white/20 font-semibold text-base shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2.5"
                 >
-                  <MessageSquare className="w-5 h-5 text-[#6B352A]" />
+                  <MessageSquare className="w-5 h-5 fill-white text-white" />
                   <span>Order on WhatsApp</span>
                 </a>
               </div>
 
               {/* Social Proof & Quick Trust Badges */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 pt-4 text-xs text-[#2B1B17]/75 font-medium">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 pt-4 text-xs text-[#FFF8E7]/90 font-medium">
                 <div className="flex items-center gap-1.5">
-                  <div className="flex text-amber-500">
+                  <div className="flex text-amber-400">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-500 text-amber-500" />
+                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <span className="font-bold text-[#4A231B]">4.9 / 5</span>
+                  <span className="font-bold text-[#FFF1A6]">4.9 / 5</span>
                   <span>(450+ Real Customer Reviews)</span>
                 </div>
-                <span className="hidden sm:inline text-stone-400">•</span>
+                <span className="hidden sm:inline text-white/40">•</span>
                 <div className="flex items-center gap-1.5">
-                  <Truck className="w-4 h-4 text-[#A8553F]" />
+                  <Truck className="w-4 h-4 text-[#FFF1A6]" />
                   <span>Pan-India 2-4 Day Express Delivery</span>
                 </div>
               </div>
@@ -243,47 +244,47 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Card 1: Clay Pot Fermentation */}
-          <div className="clay-card p-8 bg-white rounded-3xl space-y-5 hover:-translate-y-1.5 transition-all duration-300 shadow-md hover:shadow-xl border border-[#6B352A]/15">
-            <div className="w-16 h-16 rounded-2xl bg-[#FFF1A6] flex items-center justify-center text-3xl shadow-inner border border-[#6B352A]/20">
-              🏺
+          {/* Card 1: 100% Homemade */}
+          <div className="clay-card p-8 bg-white rounded-[24px] space-y-5 hover:-translate-y-1.5 transition-all duration-300 shadow-md hover:shadow-xl border border-[#6B352A]/15">
+            <div className="w-16 h-16 rounded-[20px] bg-[#FFF1A6] flex items-center justify-center text-3xl shadow-inner border border-[#6B352A]/20">
+              🏡
             </div>
-            <h3 className="font-serif text-xl font-bold text-[#4A231B]">Clay-Pot Fermentation</h3>
+            <h3 className="font-serif text-xl font-bold text-[#4A231B]">100% Homemade</h3>
             <p className="text-xs sm:text-sm text-[#2B1B17]/75 leading-relaxed font-sans">
-              We age our pickles in porous earthenware Mitti Handis. The clay breathes micro-amounts of oxygen, naturally mellowing spice bitterness and fostering healthy probiotic cultures.
+              Handcrafted in home-style micro-batches using small stone cauldrons and earthenware pots, preserving the comforting warmth of maternal kitchen love.
             </p>
           </div>
 
-          {/* Card 2: Zero Preservatives */}
-          <div className="clay-card p-8 bg-white rounded-3xl space-y-5 hover:-translate-y-1.5 transition-all duration-300 shadow-md hover:shadow-xl border border-[#6B352A]/15">
-            <div className="w-16 h-16 rounded-2xl bg-[#FFF1A6] flex items-center justify-center text-3xl shadow-inner border border-[#6B352A]/20">
+          {/* Card 2: No Preservatives */}
+          <div className="clay-card p-8 bg-white rounded-[24px] space-y-5 hover:-translate-y-1.5 transition-all duration-300 shadow-md hover:shadow-xl border border-[#6B352A]/15">
+            <div className="w-16 h-16 rounded-[20px] bg-[#FFF1A6] flex items-center justify-center text-3xl shadow-inner border border-[#6B352A]/20">
               🌿
             </div>
-            <h3 className="font-serif text-xl font-bold text-[#4A231B]">0% Chemical Preservatives</h3>
+            <h3 className="font-serif text-xl font-bold text-[#4A231B]">No Preservatives</h3>
             <p className="text-xs sm:text-sm text-[#2B1B17]/75 leading-relaxed font-sans">
-              No artificial acid regulators, no synthetic dyes, and absolutely no factory vinegar. Preserved purely through Himalayan pink rock salt and natural wood-pressed mustard oil.
+              Zero chemical preservatives, zero synthetic vinegar (acetic acid), and zero artificial food coloring. Naturally preserved with rock salt and mustard oil.
             </p>
           </div>
 
           {/* Card 3: Farm-Fresh Mushrooms */}
-          <div className="clay-card p-8 bg-white rounded-3xl space-y-5 hover:-translate-y-1.5 transition-all duration-300 shadow-md hover:shadow-xl border border-[#6B352A]/15">
-            <div className="w-16 h-16 rounded-2xl bg-[#FFF1A6] flex items-center justify-center text-3xl shadow-inner border border-[#6B352A]/20">
+          <div className="clay-card p-8 bg-white rounded-[24px] space-y-5 hover:-translate-y-1.5 transition-all duration-300 shadow-md hover:shadow-xl border border-[#6B352A]/15">
+            <div className="w-16 h-16 rounded-[20px] bg-[#FFF1A6] flex items-center justify-center text-3xl shadow-inner border border-[#6B352A]/20">
               🍄
             </div>
-            <h3 className="font-serif text-xl font-bold text-[#4A231B]">Solan Valley Mushrooms</h3>
+            <h3 className="font-serif text-xl font-bold text-[#4A231B]">Farm-Fresh Mushrooms</h3>
             <p className="text-xs sm:text-sm text-[#2B1B17]/75 leading-relaxed font-sans">
-              Fresh Oyster, Button, and medicinal Shiitake mushrooms picked daily at dawn in Solan agro farms, hand-trimmed, and sun-dried on bamboo screens for an irresistible meaty texture.
+              Plucked fresh at dawn from organic agro beds in Solan (Mushroom City of India), sun-steeped on bamboo mats for a rich, tender, and meaty bite.
             </p>
           </div>
 
-          {/* Card 4: Cold-Pressed Mustard Oil */}
-          <div className="clay-card p-8 bg-white rounded-3xl space-y-5 hover:-translate-y-1.5 transition-all duration-300 shadow-md hover:shadow-xl border border-[#6B352A]/15">
-            <div className="w-16 h-16 rounded-2xl bg-[#FFF1A6] flex items-center justify-center text-3xl shadow-inner border border-[#6B352A]/20">
-              🌻
+          {/* Card 4: Traditional Recipe */}
+          <div className="clay-card p-8 bg-white rounded-[24px] space-y-5 hover:-translate-y-1.5 transition-all duration-300 shadow-md hover:shadow-xl border border-[#6B352A]/15">
+            <div className="w-16 h-16 rounded-[20px] bg-[#FFF1A6] flex items-center justify-center text-3xl shadow-inner border border-[#6B352A]/20">
+              🏺
             </div>
-            <h3 className="font-serif text-xl font-bold text-[#4A231B]">Cold-Pressed Mustard Oil</h3>
+            <h3 className="font-serif text-xl font-bold text-[#4A231B]">Traditional Recipe</h3>
             <p className="text-xs sm:text-sm text-[#2B1B17]/75 leading-relaxed font-sans">
-              100% single-origin Kacchi Ghani mustard oil extracted in traditional wooden expellers without heat. Golden, richly pungent, and naturally rich in heart-healthy antioxidants.
+              Generational Himalayan heirloom spice blend aged slowly inside porous clay Mitti Handis with cold-pressed Kacchi Ghani mustard oil for deep umami tang.
             </p>
           </div>
         </div>

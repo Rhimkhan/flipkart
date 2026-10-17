@@ -13,9 +13,11 @@ import {
   Tag,
   Sparkles,
   ShieldCheck,
+  MessageCircle,
 } from "lucide-react";
 import { useCart } from "@/lib/cart-context";
 import { BRAND } from "@/lib/brand";
+import { WHATSAPP_NUMBER } from "@/lib/config";
 
 export default function CartPage() {
   const {
@@ -247,6 +249,21 @@ export default function CartPage() {
               <span>Proceed to Checkout</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
+
+            {/* Order on WhatsApp */}
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                `Hi, I want to order mushroom pickle from Akhil Foods!\nMy Cart Items:\n${items
+                  .map((i) => `- ${i.name} (${i.size}) x${i.quantity} = ₹${i.price * i.quantity}`)
+                  .join("\n")}\nTotal Amount: ₹${total}`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-3.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs shadow-md transition-all flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95"
+            >
+              <MessageCircle className="w-4 h-4 fill-white" />
+              <span>Order on WhatsApp (+91 69665 58899)</span>
+            </a>
 
             <div className="flex items-center justify-center gap-2 text-[11px] text-stone-500 text-center">
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
