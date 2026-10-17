@@ -4,29 +4,29 @@ import FAQClient from "@/components/FAQClient";
 import { FAQ_DATA } from "@/lib/faq-data";
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions (FAQ) | AKHIL FOODS Mushroom Pickles",
+  title: "Frequently Asked Questions (FAQ) | AKHIL FOODS",
   description:
-    "Got questions about our artisanal mushroom pickles? Learn about traditional clay-pot aging in Solan, wood-pressed mustard oil, vegan ingredients, shelf life, and courier delivery.",
+    "Got questions about our Oyster Mushroom Pickle? Learn about our real ingredients, FSSAI registration, storage instructions, and pan-India delivery from Jhansi, Uttar Pradesh.",
   keywords: [
     "akhil foods faq",
-    "mushroom pickle ingredients",
-    "is mushroom pickle healthy",
-    "clay pot aging pickle",
-    "how to store artisanal pickle",
+    "mushroom mela pickle",
+    "oyster mushroom pickle ingredients",
+    "how to store mushroom pickle",
     "akhil foods delivery time",
+    "fssai license akhil foods",
   ],
   openGraph: {
     title: "Frequently Asked Questions | AKHIL FOODS",
     description:
-      "All answers about our Himalayan mushroom pickles, earthenware fermentation, courier safety, and zero chemical preservatives.",
+      "All answers about our Mushroom Mela Oyster Mushroom Pickle, genuine ingredients, packaging safety, and delivery.",
     url: "https://akhilfoods.com/faq",
     siteName: "AKHIL FOODS",
     images: [
       {
-        url: "/images/clay-pot-aging.jpg",
+        url: "/images/products/mushroom-mela-front.jpg",
         width: 1200,
         height: 900,
-        alt: "Traditional Indian ceramic pickle jars and terracotta handis",
+        alt: "AKHIL FOODS Mushroom Mela Jar",
       },
     ],
     locale: "en_IN",
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "FAQ | AKHIL FOODS Artisanal Mushroom Pickles",
-    description: "Learn about traditional clay-pot fermentation, purity, and shelf life.",
-    images: ["/images/clay-pot-aging.jpg"],
+    title: "FAQ | AKHIL FOODS Oyster Mushroom Pickles",
+    description: "Learn about Mushroom Mela ingredients, purity, and shelf life.",
+    images: ["/images/products/mushroom-mela-front.jpg"],
   },
   alternates: {
     canonical: "/faq",

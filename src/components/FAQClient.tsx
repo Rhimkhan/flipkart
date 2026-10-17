@@ -15,7 +15,7 @@ export default function FAQClient() {
   const categories = [
     { key: "all", label: "All Questions" },
     { key: "ingredients", label: "Ingredients & Purity" },
-    { key: "clay", label: "Clay Aging & Solan Heritage" },
+    { key: "preparation", label: "Preparation & Location" },
     { key: "storage", label: "Shelf Life & Care" },
     { key: "shipping", label: "Packaging & Delivery" },
   ];
@@ -41,7 +41,7 @@ export default function FAQClient() {
             Frequently Asked Questions
           </h1>
           <p className="text-xs sm:text-sm text-stone-600 max-w-xl mx-auto">
-            Everything you need to know about our Himalayan mushroom cultivation, traditional earthenware aging, cold-pressed oils, and courier delivery.
+            Everything you need to know about our Mushroom Mela Oyster Mushroom Pickle, ingredients, certifications, and delivery.
           </p>
         </div>
 
@@ -129,7 +129,7 @@ export default function FAQClient() {
           <div className="space-y-1">
             <h3 className="font-serif text-2xl font-bold text-[#6B352A]">Still Have Any Questions?</h3>
             <p className="text-xs sm:text-sm text-[#4A231B]/80 max-w-md mx-auto leading-relaxed">
-              Our pickling artisans in Solan are always happy to discuss traditional recipes, ingredients, and delivery statuses directly.
+              Our team in Jhansi is always happy to discuss ingredients, certificates, and delivery statuses directly.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">

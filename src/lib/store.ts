@@ -1,8 +1,8 @@
 import { Product, Order, OrderStatus } from "./types";
 import { INITIAL_PRODUCTS } from "./data";
 
-const LOCAL_STORAGE_PRODUCTS_KEY = "akhil_foods_products_v1";
-const LOCAL_STORAGE_ORDERS_KEY = "akhil_foods_orders_v1";
+const LOCAL_STORAGE_PRODUCTS_KEY = "akhil_foods_products_v2";
+const LOCAL_STORAGE_ORDERS_KEY = "akhil_foods_orders_v2";
 
 // Helper for initial seed orders so Admin has realistic live data to view and update
 const INITIAL_ORDERS: Order[] = [
@@ -19,27 +19,19 @@ const INITIAL_ORDERS: Order[] = [
     pincode: "110049",
     items: [
       {
-        productId: "prod-1",
-        name: "Classic Masala Oyster Mushroom Pickle",
-        size: "500g",
-        price: 549,
-        quantity: 1,
-        image: "/images/classic-masala.jpg",
-      },
-      {
-        productId: "prod-2",
-        name: "Slow-Roasted Garlic Shiitake Mushroom Pickle",
-        size: "250g",
-        price: 349,
-        quantity: 1,
-        image: "/images/garlic-shiitake.jpg",
+        productId: "prod-mushroom-mela",
+        name: "Mushroom Mela Oyster Mushroom Pickle",
+        size: "400g",
+        price: 399,
+        quantity: 2,
+        image: "/images/products/mushroom-mela-front.jpg",
       },
     ],
-    subtotal: 898,
+    subtotal: 798,
     shipping: 0,
     discount: 50,
     couponCode: "AKHIL10",
-    total: 848,
+    total: 748,
     paymentMethod: "Cash on Delivery",
     paymentStatus: "Pending",
     orderStatus: "Packed",
@@ -50,27 +42,27 @@ const INITIAL_ORDERS: Order[] = [
   {
     id: "ord-1002",
     orderNumber: "AF-8922",
-    customerName: "Ananya Iyer",
-    email: "ananya.iyer@outlook.com",
+    customerName: "Ananya Sharma",
+    email: "ananya.s@outlook.com",
     phone: "9988776655",
-    address: "Flat 402, Prestige Hermitage, Indiranagar",
-    city: "Bengaluru",
-    state: "Karnataka",
-    pincode: "560038",
+    address: "Flat 402, Civil Lines",
+    city: "Jhansi",
+    state: "Uttar Pradesh",
+    pincode: "284001",
     items: [
       {
-        productId: "prod-4",
-        name: "Spicy Red Chilli Pahadi Mushroom Pickle",
-        size: "500g",
-        price: 579,
-        quantity: 2,
-        image: "/images/spicy-chilli.jpg",
+        productId: "prod-mushroom-mela",
+        name: "Mushroom Mela Oyster Mushroom Pickle",
+        size: "400g",
+        price: 399,
+        quantity: 1,
+        image: "/images/products/mushroom-mela-front.jpg",
       },
     ],
-    subtotal: 1158,
-    shipping: 0,
+    subtotal: 399,
+    shipping: 60,
     discount: 0,
-    total: 1158,
+    total: 459,
     paymentMethod: "Razorpay Online (UPI / Cards / Netbanking)",
     paymentStatus: "Paid",
     orderStatus: "Shipped",

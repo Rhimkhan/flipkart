@@ -56,7 +56,7 @@ export default function ContactClient() {
             Get In Touch With Our Kitchen
           </h1>
           <p className="text-xs sm:text-sm text-stone-600">
-            Have questions about ingredients, bulk family orders, wedding gifting, or courier delivery? We are right here in Solan, HP.
+            Have questions about ingredients, bulk family orders, wedding gifting, or courier delivery? We are right here in Moth, Jhansi, UP.
           </p>
         </div>
 
@@ -65,10 +65,10 @@ export default function ContactClient() {
           <div className="lg:col-span-5 bg-[#6B352A] text-[#FFF8E7] p-8 sm:p-10 rounded-3xl shadow-xl space-y-8 flex flex-col justify-between relative overflow-hidden">
             <div className="space-y-6">
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#FFF1A6]">
-                Our Kitchen & Agro Farm
+                Our Kitchen & Workshop
               </h2>
               <p className="text-xs sm:text-sm text-[#FFF8E7]/80 leading-relaxed">
-                Visit our organic mushroom cultivation beds and traditional earthen pickling cellars in Solan, the Mushroom Capital of India.
+                Handcrafting authentic Oyster Mushroom Pickles in Village Nandsiya, Moth, Jhansi, Uttar Pradesh.
               </p>
 
               <div className="space-y-4 pt-2 text-xs">
@@ -250,8 +250,8 @@ export default function ContactClient() {
                   >
                     <option value="Order Inquiry">Order Inquiry / Delivery Status Tracking</option>
                     <option value="Bulk Order">Bulk Family / Wedding Gifting / Corporate Hampers</option>
-                    <option value="Recipe & Ingredients">Recipe, Spices & Clay Fermentation Question</option>
-                    <option value="Farm Visit">Solan Mushroom Agro Farm & Kitchen Tour</option>
+                    <option value="Recipe & Ingredients">Recipe, Spices & Ingredients Question</option>
+                    <option value="Production Inquiry">Kitchen & Production Inquiry</option>
                   </select>
                 </div>
 
@@ -287,14 +287,14 @@ export default function ContactClient() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div>
               <h3 className="font-serif text-2xl font-bold text-[#6B352A]">
-                Locate Us in Solan (Mushroom City of India)
+                Locate Us in Moth, Jhansi (Uttar Pradesh)
               </h3>
               <p className="text-xs text-stone-600">
-                Solan, Himachal Pradesh 173212 &bull; Near Himalayan Pine Forests
+                {BRAND.address}
               </p>
             </div>
             <a
-              href="https://maps.google.com/?q=Solan,+Himachal+Pradesh"
+              href="https://maps.google.com/?q=Village+Nandsiya,+Moth,+Jhansi,+Uttar+Pradesh+284303"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-[#6B352A]/20 text-[#6B352A] text-xs font-bold hover:bg-[#FFF8E7] transition-colors shadow-sm self-start"
@@ -306,14 +306,14 @@ export default function ContactClient() {
 
           <div className="w-full h-96 rounded-3xl overflow-hidden border-2 border-[#6B352A]/15 shadow-lg bg-stone-200">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54832.0831627993!2d77.06943896066228!3d30.908351586790906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390f8407ee2ff5a9%3A0xc3ce703ec4c8bdf1!2sSolan%2C%20Himachal%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57545.33405788484!2d78.91924515!3d25.71480115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39775f0a4f5b5f89%3A0x6e2c3a5b06ec9047!2sMoth%2C%20Uttar%20Pradesh%20284303!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Akhil Foods Solan Himachal Pradesh Farm Location Map"
+              title="AKHIL FOODS Moth Jhansi Uttar Pradesh Location Map"
             />
           </div>
         </div>

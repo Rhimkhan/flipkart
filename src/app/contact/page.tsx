@@ -4,29 +4,28 @@ import ContactClient from "@/components/ContactClient";
 import { BRAND } from "@/lib/brand";
 
 export const metadata: Metadata = {
-  title: "Contact Us & Solan Kitchen Location | AKHIL FOODS",
+  title: "Contact Us & Location in Jhansi | AKHIL FOODS",
   description:
-    "Get in touch with Akhil Foods in Solan, Himachal Pradesh. Inquire about bulk gifting, organic ingredients, courier delivery, or message our customer care team.",
+    "Get in touch with AKHIL FOODS in Village Nandsiya, Moth, Jhansi, Uttar Pradesh - 284303. Order inquiries, customer support, and direct WhatsApp ordering on 6966558899.",
   keywords: [
     "contact akhil foods",
-    "akhil foods solan",
-    "himachal pickle farm contact",
-    "buy mushroom pickle bulk",
-    "wedding gifting pickle hampers",
+    "akhil foods jhansi",
+    "mushroom pickle moth jhansi",
+    "mushroom mela contact",
     "akhil foods customer care",
   ],
   openGraph: {
-    title: "Contact Us & Solan Location | AKHIL FOODS",
+    title: "Contact Us & Location | AKHIL FOODS",
     description:
-      "Reach out to our kitchen in Solan, HP. Quick WhatsApp support, bulk orders, and delivery assistance.",
+      "Reach out to AKHIL FOODS in Village Nandsiya, Moth, Jhansi, Uttar Pradesh. Quick WhatsApp support on 6966558899.",
     url: "https://akhilfoods.com/contact",
     siteName: "AKHIL FOODS",
     images: [
       {
-        url: "/images/hero-pickle.jpg",
+        url: "/images/products/mushroom-mela-front.jpg",
         width: 1200,
         height: 630,
-        alt: "Akhil Foods Artisanal Mushroom Pickles Customer Care and Farm",
+        alt: "AKHIL FOODS Mushroom Pickles Customer Care and Location",
       },
     ],
     locale: "en_IN",
@@ -34,9 +33,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Us | AKHIL FOODS Solan",
-    description: "Get in touch with our kitchen and farm in Solan, Himachal Pradesh.",
-    images: ["/images/hero-pickle.jpg"],
+    title: "Contact Us | AKHIL FOODS Jhansi",
+    description: "Get in touch with our team in Village Nandsiya, Moth, Jhansi, Uttar Pradesh.",
+    images: ["/images/products/mushroom-mela-front.jpg"],
   },
   alternates: {
     canonical: "/contact",
@@ -48,22 +47,23 @@ export default function ContactPage() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: BRAND.name,
-    image: "https://akhilfoods.com/images/hero-pickle.jpg",
+    image: "https://akhilfoods.com/images/products/mushroom-mela-front.jpg",
     telephone: BRAND.phone,
     email: BRAND.email,
     url: "https://akhilfoods.com",
+    taxID: BRAND.gstNumber,
     address: {
       "@type": "PostalAddress",
       streetAddress: BRAND.address,
-      addressLocality: "Solan",
-      addressRegion: "Himachal Pradesh",
-      postalCode: "173212",
+      addressLocality: BRAND.city,
+      addressRegion: BRAND.state,
+      postalCode: BRAND.pincode,
       addressCountry: "IN",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 30.9084,
-      longitude: 77.0694,
+      latitude: 25.7148,
+      longitude: 78.9535,
     },
     openingHoursSpecification: [
       {
@@ -80,7 +80,6 @@ export default function ContactPage() {
         closes: "19:00",
       },
     ],
-    priceRange: "₹₹",
   };
 
   return (

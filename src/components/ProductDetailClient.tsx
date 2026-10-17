@@ -110,9 +110,9 @@ function ProductDetailContent() {
             <div className="relative aspect-square rounded-[36px] overflow-hidden bg-white border-2 border-[#6B352A]/20 shadow-2xl group cursor-zoom-in">
               <Image
                 src={selectedImage}
-                alt={`${product.name} - Handcrafted Himalayan Mushroom Pickle in clay pot`}
+                alt={`${product.name} - Handcrafted Oyster Mushroom Pickle`}
                 fill
-                className="object-cover group-hover:scale-125 transition-transform duration-700 ease-out origin-center"
+                className="object-contain p-4 group-hover:scale-110 transition-transform duration-700 ease-out origin-center"
                 priority
               />
               {/* Badges on main image */}
@@ -138,7 +138,7 @@ function ProductDetailContent() {
                   key={i}
                   type="button"
                   onClick={() => setSelectedImage(img)}
-                  className={`relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 transition-all ${
+                  className={`relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 transition-all bg-white ${
                     selectedImage === img
                       ? "border-[#6B352A] ring-4 ring-[#FFF1A6] scale-105"
                       : "border-stone-200 opacity-70 hover:opacity-100"
@@ -151,7 +151,7 @@ function ProductDetailContent() {
                     fill
                     loading="lazy"
                     sizes="96px"
-                    className="object-cover"
+                    className="object-contain p-1"
                   />
                 </button>
               ))}
@@ -183,17 +183,26 @@ function ProductDetailContent() {
                 {product.name}
               </h1>
 
-              <div className="flex items-center gap-3 text-xs pt-1">
-                <div className="flex text-amber-500">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-500 text-amber-500" />
-                  ))}
-                </div>
-                <span className="font-bold text-[#4A231B]">{product.rating}</span>
-                <span className="text-stone-400">({product.reviewsCount} customer ratings)</span>
+              <div className="flex flex-wrap items-center gap-3 text-xs pt-1">
+                {product.reviewsCount > 0 ? (
+                  <>
+                    <div className="flex text-amber-500">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-amber-500 text-amber-500" />
+                      ))}
+                    </div>
+                    <span className="font-bold text-[#4A231B]">{product.rating}</span>
+                    <span className="text-stone-400">({product.reviewsCount} customer ratings)</span>
+                  </>
+                ) : (
+                  <div className="flex items-center gap-1.5 text-xs text-stone-600 font-medium">
+                    <Star className="w-4 h-4 text-amber-400" />
+                    <span className="italic">Be the first to review</span>
+                  </div>
+                )}
                 <span>•</span>
                 <span className="text-emerald-800 font-semibold bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                  In Stock ({product.stockCount} jars aged)
+                  In Stock ({product.stockCount} jars available)
                 </span>
               </div>
             </div>
@@ -204,14 +213,18 @@ function ProductDetailContent() {
                 <span className="font-serif text-3xl sm:text-4xl font-extrabold text-[#4A231B]">
                   ₹{currentSizeOption.price * quantity}
                 </span>
-                <span className="text-sm text-stone-400 line-through">
-                  ₹{currentSizeOption.originalPrice * quantity}
-                </span>
-                <span className="text-xs font-bold text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-xl">
-                  Save ₹{(currentSizeOption.originalPrice - currentSizeOption.price) * quantity}
-                </span>
+                {currentSizeOption.originalPrice > currentSizeOption.price && (
+                  <>
+                    <span className="text-sm text-stone-400 line-through">
+                      ₹{currentSizeOption.originalPrice * quantity}
+                    </span>
+                    <span className="text-xs font-bold text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-xl">
+                      Save ₹{(currentSizeOption.originalPrice - currentSizeOption.price) * quantity}
+                    </span>
+                  </>
+                )}
               </div>
-              <span className="text-[11px] text-stone-500">Inclusive of all taxes</span>
+              <span className="text-[11px] text-stone-500">MRP Inclusive of all taxes</span>
             </div>
 
             {/* Size Selector Switcher */}
@@ -222,20 +235,20 @@ function ProductDetailContent() {
                 </span>
                 <span className="text-[#6B352A] font-semibold">Active: {selectedSize}</span>
               </div>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="flex flex-wrap gap-3">
                 {product.sizes?.map((s) => (
                   <button
                     key={s.size}
                     type="button"
                     onClick={() => setSelectedSize(s.size)}
-                    className={`py-3.5 px-4 rounded-2xl border-2 text-center transition-all flex flex-col items-center justify-center ${
+                    className={`py-3 px-6 rounded-2xl border-2 text-center transition-all flex items-center gap-3 ${
                       selectedSize === s.size
                         ? "border-[#6B352A] bg-[#6B352A] text-[#FFF1A6] shadow-md scale-[1.02]"
                         : "border-[#6B352A]/20 bg-white text-[#2B1B17] hover:border-[#6B352A]"
                     }`}
                   >
                     <span className="font-bold text-sm sm:text-base">{s.size}</span>
-                    <span className="text-xs opacity-90">₹{s.price}</span>
+                    <span className="text-xs opacity-90">• ₹{s.price}</span>
                   </button>
                 ))}
               </div>
@@ -308,15 +321,22 @@ function ProductDetailContent() {
               <PincodeChecker />
             </div>
 
-            {/* Trust Points */}
-            <div className="grid grid-cols-2 gap-3 pt-4 border-t border-stone-200 text-xs text-stone-600">
-              <div className="flex items-center gap-2">
-                <Truck className="w-4 h-4 text-[#6B352A]" />
-                <span>2-4 Days Fast Air Courier</span>
+            {/* Trust & Certification Points */}
+            <div className="space-y-2.5 pt-4 border-t border-stone-200 text-xs text-stone-600">
+              <div className="grid grid-cols-2 gap-3">
+                <div className="flex items-center gap-2">
+                  <Truck className="w-4 h-4 text-[#6B352A]" />
+                  <span>2-4 Days Express Delivery</span>
+                </div>
+                <div className="flex items-center gap-2 font-semibold text-[#4A231B]">
+                  <ShieldCheck className="w-4 h-4 text-emerald-700" />
+                  <span>{BRAND.fssaiLicense}</span>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#6B352A]" />
-                <span>FSSAI Reg. {BRAND.fssaiNumber}</span>
+              <div className="bg-[#FFF8E7] p-2.5 rounded-xl border border-[#6B352A]/15 text-[11px] font-mono text-[#6B352A] flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span>GSTIN: <strong>{BRAND.gstNumber}</strong></span>
+                <span>•</span>
+                <span>Udyam: <strong>{BRAND.udyamNumber}</strong></span>
               </div>
             </div>
           </div>
@@ -326,14 +346,14 @@ function ProductDetailContent() {
         <div className="bg-white rounded-[32px] p-6 sm:p-10 border border-[#6B352A]/15 shadow-md space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-3">
-              <h3 className="font-serif text-xl font-bold text-[#4A231B]">Traditional Recipe</h3>
+              <h3 className="font-serif text-xl font-bold text-[#4A231B]">Product Overview</h3>
               <p className="text-xs sm:text-sm text-[#2B1B17]/80 leading-relaxed font-sans">
                 {product.description}
               </p>
             </div>
 
             <div className="space-y-3">
-              <h3 className="font-serif text-xl font-bold text-[#4A231B]">100% Pure Ingredients</h3>
+              <h3 className="font-serif text-xl font-bold text-[#4A231B]">Ingredients from Label</h3>
               <ul className="space-y-2 text-xs sm:text-sm text-[#2B1B17]/80 font-sans">
                 {product.ingredients?.map((ing, i) => (
                   <li key={i} className="flex items-start gap-2">
@@ -345,13 +365,13 @@ function ProductDetailContent() {
             </div>
 
             <div className="space-y-3">
-              <h3 className="font-serif text-xl font-bold text-[#4A231B]">Shelf Life & Care</h3>
+              <h3 className="font-serif text-xl font-bold text-[#4A231B]">Storage & Care</h3>
               <p className="text-xs sm:text-sm text-[#2B1B17]/80 leading-relaxed font-sans">
                 <strong>{product.shelfLife}</strong>
               </p>
               <div className="bg-[#FFFBEF] p-4 rounded-2xl border border-[#6B352A]/20 text-xs text-[#2B1B17] space-y-1.5 font-sans">
-                <p>🏺 <strong>Pro Tip:</strong> Always use a clean dry wooden or stainless spoon.</p>
-                <p>🌿 Keep mushrooms fully submerged under the golden mustard oil layer for lasting natural freshness.</p>
+                <p>🏺 <strong>Pro Tip:</strong> Always use a clean dry spoon.</p>
+                <p>☀️ Keep away from direct sunlight.</p>
               </div>
             </div>
           </div>
@@ -360,31 +380,51 @@ function ProductDetailContent() {
         {/* Customer Reviews for this item */}
         <div className="space-y-6">
           <h2 className="font-serif text-2xl font-bold text-[#4A231B]">
-            Verified Customer Impressions
+            Customer Reviews
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {REVIEWS.slice(0, 2).map((rev) => (
-              <div
-                key={rev.id}
-                className="bg-white p-6 rounded-3xl border border-[#6B352A]/15 shadow-sm space-y-3"
-              >
-                <div className="flex text-amber-500">
-                  {[...Array(rev.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-500 text-amber-500" />
-                  ))}
+          {REVIEWS.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {REVIEWS.map((rev) => (
+                <div
+                  key={rev.id}
+                  className="bg-white p-6 rounded-3xl border border-[#6B352A]/15 shadow-sm space-y-3"
+                >
+                  <div className="flex text-amber-500">
+                    {[...Array(rev.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-amber-500 text-amber-500" />
+                    ))}
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#2B1B17]/85 italic leading-relaxed font-serif">
+                    &ldquo;{rev.comment}&rdquo;
+                  </p>
+                  <div className="pt-2 border-t border-stone-100 flex justify-between items-center text-xs font-sans">
+                    <span className="font-bold text-[#4A231B]">
+                      {rev.author} ({rev.location})
+                    </span>
+                    <span className="text-stone-400 text-[11px]">{rev.date}</span>
+                  </div>
                 </div>
-                <p className="text-xs sm:text-sm text-[#2B1B17]/85 italic leading-relaxed font-serif">
-                  &ldquo;{rev.comment}&rdquo;
-                </p>
-                <div className="pt-2 border-t border-stone-100 flex justify-between items-center text-xs font-sans">
-                  <span className="font-bold text-[#4A231B]">
-                    {rev.author} ({rev.location})
-                  </span>
-                  <span className="text-stone-400 text-[11px]">{rev.date}</span>
-                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="bg-white p-8 sm:p-10 rounded-3xl border border-[#6B352A]/15 text-center space-y-3 shadow-sm">
+              <Star className="w-8 h-8 text-amber-400 fill-amber-400 mx-auto" />
+              <p className="font-serif text-lg font-bold text-[#4A231B]">Be the first to review</p>
+              <p className="text-xs sm:text-sm text-stone-600 max-w-md mx-auto leading-relaxed">
+                Have you tasted our Mushroom Mela Oyster Mushroom Pickle? We would love to hear your honest thoughts and feedback!
+              </p>
+              <div className="pt-2">
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi Akhil Foods, I would like to review Mushroom Mela Oyster Mushroom Pickle!")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#FFF1A6] text-[#4A231B] border border-[#6B352A]/30 text-xs font-bold hover:bg-[#FFF8E7] transition-all shadow-sm"
+                >
+                  Share Your Review on WhatsApp
+                </a>
               </div>
-            ))}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

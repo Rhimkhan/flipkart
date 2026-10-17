@@ -79,13 +79,13 @@ export default function ShopClient() {
         {/* Page Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <span className="text-xs font-bold uppercase tracking-widest text-[#A8553F] bg-[#FFF1A6] px-4 py-1.5 rounded-full border border-[#6B352A]/15 shadow-sm">
-            Harvested & Aged In Solan, HP
+            Handcrafted in Jhansi, Uttar Pradesh
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#4A231B]">
-            Artisanal Mushroom Pickles
+            Authentic Mushroom Pickles
           </h1>
           <p className="text-sm sm:text-base text-[#2B1B17]/75 font-sans leading-relaxed">
-            Every jar is individually slow-fermented in earthen Mitti Handis with cold-pressed Kacchi Ghani mustard oil and zero synthetic preservatives.
+            Prepared with tender oyster mushrooms, pure mustard oil, natural vinegar, and traditional stone-ground Indian spices.
           </p>
         </div>
 
@@ -169,7 +169,7 @@ export default function ShopClient() {
                       fill
                       loading="lazy"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-contain p-3 group-hover:scale-105 transition-transform duration-500"
                     />
                     {product.badges?.[0] && (
                       <span className="absolute top-3.5 left-3.5 bg-[#4A231B] text-[#FFF1A6] text-[10px] font-bold px-3 py-1 rounded-full shadow-md border border-[#FFF1A6]/20">
@@ -183,11 +183,18 @@ export default function ShopClient() {
 
                   {/* Card Content Details */}
                   <div className="p-5 sm:p-6 space-y-3">
-                    <div className="flex items-center gap-1.5 text-xs text-amber-500 font-semibold">
-                      <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
-                      <span>{product.rating}</span>
-                      <span className="text-stone-400">({product.reviewsCount} reviews)</span>
-                    </div>
+                    {product.reviewsCount > 0 ? (
+                      <div className="flex items-center gap-1.5 text-xs text-amber-500 font-semibold">
+                        <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+                        <span>{product.rating}</span>
+                        <span className="text-stone-400">({product.reviewsCount} reviews)</span>
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-1.5 text-xs text-stone-500 font-medium">
+                        <Star className="w-3.5 h-3.5 text-amber-400" />
+                        <span className="italic">Be the first to review</span>
+                      </div>
+                    )}
 
                     <Link href={`/product/${product.slug}`} className="block">
                       <h3 className="font-serif text-lg font-bold text-[#2B1B17] group-hover:text-[#6B352A] transition-colors leading-snug">
@@ -202,37 +209,41 @@ export default function ShopClient() {
                     {/* Size Selector Switcher */}
                     <div className="pt-2">
                       <label className="text-[11px] font-semibold text-stone-500 block mb-1.5 uppercase tracking-wider">
-                        Select Jar Size:
+                        Net Quantity / Size:
                       </label>
-                      <div className="grid grid-cols-3 gap-1 bg-[#FFFBEF] p-1.5 rounded-2xl border border-[#6B352A]/15">
+                      <div className="flex flex-wrap gap-1.5 bg-[#FFFBEF] p-1.5 rounded-2xl border border-[#6B352A]/15">
                         {product.sizes?.map((s) => (
                           <button
                             key={s.size}
                             type="button"
                             onClick={() => handleSizeChange(product.id, s.size)}
-                            className={`py-1.5 text-xs font-semibold rounded-xl transition-all ${
+                            className={`px-3 py-1.5 text-xs font-semibold rounded-xl transition-all ${
                               currentSize === s.size
                                 ? "bg-[#6B352A] text-[#FFF1A6] shadow-sm"
                                 : "text-stone-600 hover:text-[#6B352A]"
                             }`}
                           >
-                            {s.size}
+                            {s.size} (MRP ₹{s.price})
                           </button>
                         ))}
                       </div>
                     </div>
 
-                    {/* Price and Savings Calculation */}
+                    {/* Price */}
                     <div className="flex items-baseline gap-2 pt-2">
                       <span className="font-serif text-2xl font-extrabold text-[#4A231B]">
                         ₹{sizeOption.price}
                       </span>
-                      <span className="text-xs text-stone-400 line-through">
-                        ₹{sizeOption.originalPrice}
-                      </span>
-                      <span className="text-[11px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">
-                        Save ₹{sizeOption.originalPrice - sizeOption.price}
-                      </span>
+                      {sizeOption.originalPrice > sizeOption.price && (
+                        <>
+                          <span className="text-xs text-stone-400 line-through">
+                            ₹{sizeOption.originalPrice}
+                          </span>
+                          <span className="text-[11px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">
+                            Save ₹{sizeOption.originalPrice - sizeOption.price}
+                          </span>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>

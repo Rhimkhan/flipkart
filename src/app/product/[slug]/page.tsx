@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const title = `${product.name} | AKHIL FOODS`;
-  const description = `${product.subtitle || product.description.slice(0, 150)}. Handcrafted in Solan, HP with cold-pressed mustard oil.`;
+  const description = `${product.subtitle || product.description.slice(0, 150)}. Handcrafted in Jhansi, Uttar Pradesh by AKHIL FOODS with pure mustard oil.`;
 
   return {
     title,
@@ -37,8 +37,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       product.flavour,
       "mushroom pickle",
       "akhil foods",
-      "clay pot pickle",
-      "himachal pradesh",
+      "mushroom mela",
+      "jhansi uttar pradesh",
       "buy pickle online",
     ],
     openGraph: {
