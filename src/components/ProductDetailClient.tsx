@@ -333,10 +333,15 @@ function ProductDetailContent() {
                   <span>{BRAND.fssaiLicense}</span>
                 </div>
               </div>
-              <div className="bg-[#FFF8E7] p-2.5 rounded-xl border border-[#6B352A]/15 text-[11px] font-mono text-[#6B352A] flex flex-wrap items-center gap-x-3 gap-y-1">
-                <span>GSTIN: <strong>{BRAND.gstNumber}</strong></span>
-                <span>•</span>
-                <span>Udyam: <strong>{BRAND.udyamNumber}</strong></span>
+              <div className="bg-[#FFF8E7] p-2.5 rounded-xl border border-[#6B352A]/15 text-[11px] font-mono text-[#6B352A] flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <span>GSTIN: <strong>{BRAND.gstNumber}</strong></span>
+                  <span>•</span>
+                  <span>Udyam: <strong>{BRAND.udyamNumber}</strong></span>
+                </div>
+                <Link href="/certificates" className="text-[10px] font-sans font-bold text-[#A8553F] hover:underline">
+                  View Certificates →
+                </Link>
               </div>
             </div>
           </div>

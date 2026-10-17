@@ -73,7 +73,7 @@ function OrderSuccessContent() {
               Thank You For Your Order!
             </h1>
             <p className="text-xs sm:text-sm text-stone-600 max-w-md mx-auto">
-              Your artisanal mushroom pickle is being prepared in our Solan kitchen. We will dispatch your jar with love within 24 hours.
+              Your artisanal mushroom pickle is being prepared in our Jhansi kitchen. We will dispatch your jar with care within 24 hours.
             </p>
           </div>
 

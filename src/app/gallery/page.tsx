@@ -5,27 +5,27 @@ import GalleryClient from "@/components/GalleryClient";
 export const metadata: Metadata = {
   title: "Artisanal Gallery | AKHIL FOODS Mushroom Pickles",
   description:
-    "Explore our visual chronicle — fresh mushroom harvesting in Solan Himachal Pradesh, traditional clay-pot sun-curing handis, cold-pressed mustard oils, and small-batch jars.",
+    "Explore our visual chronicle — real Mushroom Mela Oyster Mushroom Pickle jars, ingredients, nutrition label, and small-batch packaging in Jhansi, Uttar Pradesh.",
   keywords: [
     "akhil foods gallery",
     "mushroom pickle photos",
-    "himachal pickle jars",
-    "clay pot aging photography",
-    "solan mushroom farm",
+    "mushroom mela jar photos",
+    "jhansi pickle jars",
+    "oyster mushroom pickle",
     "artisanal food packaging",
   ],
   openGraph: {
     title: "Artisanal Gallery | AKHIL FOODS Mushroom Pickles",
     description:
-      "A photographic journey through Solan mushroom harvests, porous clay handis, cold-pressed mustard oil, and handcrafted batches.",
+      "A photographic journey through our real 400g Mushroom Mela Oyster Mushroom Pickle jars, label ingredients, and artisanal packing in Jhansi, Uttar Pradesh.",
     url: "https://akhilfoods.com/gallery",
     siteName: "AKHIL FOODS",
     images: [
       {
-        url: "/images/solan-harvest.jpg",
+        url: "/images/products/mushroom-mela-front.jpg",
         width: 1200,
         height: 900,
-        alt: "Freshly harvested oyster and button mushrooms on woven bamboo trays in Solan",
+        alt: "Mushroom Mela Oyster Mushroom Pickle 400g Jar - Akhil Foods Jhansi",
       },
     ],
     locale: "en_IN",
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Artisanal Gallery | AKHIL FOODS",
-    description: "Visual chronicle of handcrafted mushroom pickling in Solan, Himachal Pradesh.",
-    images: ["/images/solan-harvest.jpg"],
+    description: "Visual chronicle of handcrafted mushroom pickling in Jhansi, Uttar Pradesh.",
+    images: ["/images/products/mushroom-mela-front.jpg"],
   },
   alternates: {
     canonical: "/gallery",

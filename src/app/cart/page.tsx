@@ -56,7 +56,7 @@ export default function CartPage() {
         </div>
         <h1 className="font-serif text-3xl font-bold text-[#4A231B]">Your Pickle Basket is Empty</h1>
         <p className="text-sm text-[#2B1B17]/70 font-sans">
-          Looks like you haven&apos;t added any handcrafted mushroom pickles yet. Experience our rich clay-pot flavours!
+          Looks like you haven&apos;t added any handcrafted mushroom pickles yet. Experience our authentic Mushroom Mela flavours!
         </p>
         <Link
           href="/shop"
@@ -112,8 +112,8 @@ export default function CartPage() {
                 className="bg-white p-4 sm:p-6 rounded-3xl border border-[#6B352A]/15 shadow-sm flex flex-col sm:flex-row gap-5 items-center justify-between"
               >
                 <div className="flex items-center gap-4 w-full sm:w-auto">
-                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-[#FFFBEF] shrink-0 border border-[#6B352A]/15">
-                    <Image src={item.image} alt={item.name} fill className="object-cover" />
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-[#FFFBEF] shrink-0 border border-[#6B352A]/15 flex items-center justify-center p-1">
+                    <Image src={item.image} alt={item.name} fill className="object-contain p-1" />
                   </div>
                   <div>
                     <h3 className="font-serif text-base sm:text-lg font-bold text-[#2B1B17]">

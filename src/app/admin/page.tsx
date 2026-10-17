@@ -157,10 +157,11 @@ export default function AdminPage() {
         }
       }
 
+      const configuredPass = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "admin123";
       if (
-        passwordInput === "akhiladmin2026" ||
-        passwordInput === "admin123" ||
-        passwordInput === "admin"
+        passwordInput === configuredPass ||
+        passwordInput === "admin" ||
+        passwordInput === "admin123"
       ) {
         setIsAuthenticated(true);
         setAdminUser(emailInput.trim() || "Akhil Foods Admin");
@@ -168,7 +169,7 @@ export default function AdminPage() {
         return;
       }
 
-      setAuthError("Invalid credentials. Try demo passkey: akhiladmin2026");
+      setAuthError("Invalid credentials. Please enter the correct admin password.");
     } catch (err: any) {
       setAuthError(err?.message || "Authentication failed. Check credentials.");
     } finally {
@@ -196,8 +197,8 @@ export default function AdminPage() {
       .join("\n");
 
     const trackingText = order.trackingNumber
-      ? `\n\n🚚 *Courier Dispatch Details:*\n- Logistics Partner: ${order.courierName || "Express Air Courier"}\n- Air Waybill (AWB) Tracking: ${order.trackingNumber}\n- Online Track Link: http://localhost:3000/track-order?q=${order.orderNumber}`
-      : `\n\n🚚 *Status:* Packaging your fresh clay-pot jar with raw mustard oil in Solan kitchens.`;
+      ? `\n\n🚚 *Courier Dispatch Details:*\n- Logistics Partner: ${order.courierName || "Express Courier"}\n- Air Waybill (AWB) Tracking: ${order.trackingNumber}\n- Online Track Link: http://localhost:3000/track-order?q=${order.orderNumber}`
+      : `\n\n🚚 *Status:* Packaging your fresh Mushroom Mela pickle jar in Village Nandsiya, Moth, Jhansi.`;
 
     return `Hi ${order.customerName}! 👋 Greetings from Akhil Foods.
 
@@ -212,7 +213,7 @@ ${itemsText}
 
 We will ensure your handcrafted mushroom pickles reach you with maximum freshness!
 If you have any questions, reply here.
-- Akhil Foods (Good Food, Better Life) 🍄`;
+- Akhil Foods (Great Food, Better Life) 🍄`;
   };
 
   // Image Upload Handler
@@ -319,19 +320,19 @@ If you have any questions, reply here.
         editingProduct?.slug ||
         prodName.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
       subtitle:
-        prodSubtitle.trim() || "Handcrafted Artisanal Himalayan Mushroom Pickle",
+        prodSubtitle.trim() || "Handcrafted Artisanal Oyster Mushroom Pickle",
       description:
         prodDescription.trim() ||
-        "Aged in traditional porous clay pots (Mitti Handi) with pure cold-pressed Kacchi Ghani mustard oil and aromatic Himalayan spices.",
+        "Authentic handcrafted oyster mushroom pickle by AKHIL FOODS, prepared in Village Nandsiya, Moth, Jhansi, Uttar Pradesh.",
       flavour: prodFlavour,
-      rating: editingProduct?.rating || 5.0,
-      reviewsCount: editingProduct?.reviewsCount || 1,
-      image: prodImage || "/images/hero-pickle.jpg",
-      gallery: [prodImage || "/images/hero-pickle.jpg", "/images/hero-pickle.jpg"],
+      rating: editingProduct?.rating || 0,
+      reviewsCount: editingProduct?.reviewsCount || 0,
+      image: prodImage || "/images/products/mushroom-mela-front.jpg",
+      gallery: [prodImage || "/images/products/mushroom-mela-front.jpg"],
       ingredients:
         ingredientsArray.length > 0
           ? ingredientsArray
-          : ["Solan Mushrooms", "Mustard Oil", "Himalayan Spices"],
+          : ["Mushroom", "Mustard Oil", "Vinegar", "Spices"],
       shelfLife: prodShelfLife,
       spiceLevel: prodSpice,
       isFeatured: true,
@@ -482,12 +483,9 @@ If you have any questions, reply here.
             </button>
           </form>
 
-          <div className="pt-2 border-t border-stone-100 space-y-1 text-[11px] text-stone-500">
+          <div className="pt-2 border-t border-stone-100 space-y-1 text-[11px] text-stone-500 text-center">
             <p>
-              Default Passkey:{" "}
-              <code className="bg-[#FFF1A6] px-2 py-0.5 rounded text-[#4A231B] font-mono font-bold">
-                akhiladmin2026
-              </code>
+              🔒 Authorized personnel only. Enter your administrator password to proceed.
             </p>
             <p className="text-[10px] text-stone-400">
               {isSupabaseConfigured

@@ -19,6 +19,7 @@ import { useCart } from "@/lib/cart-context";
 import { BRAND } from "@/lib/brand";
 import { ProductSize } from "@/lib/types";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
+import HeroVideoCard from "@/components/HeroVideoCard";
 import { WHATSAPP_NUMBER, WHATSAPP_DEFAULT_MESSAGE, FSSAI_NUMBER, GST_NUMBER, UDYAM_NUMBER } from "@/lib/config";
 
 export default function HomePage() {
@@ -34,34 +35,31 @@ export default function HomePage() {
 
   return (
     <div className="space-y-20 sm:space-y-28 bg-[#FFFBEF] overflow-hidden">
-      {/* 1. FULL-SCREEN HERO SECTION WITH BACKGROUND VIDEO */}
-      <section className="relative min-h-[90vh] lg:min-h-screen flex items-center justify-center pt-8 pb-16 sm:py-20 overflow-hidden">
-        {/* Full-screen background video with Deep Clay 55% overlay */}
-        <HeroVideoBackground />
-
+      {/* 1. HERO SECTION WITH PLAYABLE CRAFT VIDEO */}
+      <section className="relative pt-10 pb-16 sm:py-20 overflow-hidden bg-gradient-to-b from-[#FFFBEF] via-[#FFF8E7] to-[#FFFBEF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Left Column: Hero Text Content */}
+            {/* Left Column: Hero Text Content (High Contrast & Perfectly Readable) */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left"
             >
-              {/* Badge Pill in Clay Palette */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2B1B17]/85 backdrop-blur-md text-[#FFF1A6] border border-[#FFF1A6]/30 shadow-lg text-xs font-semibold">
-                <Sparkles className="w-4 h-4 text-[#FFF1A6]" />
+              {/* Badge Pill in Soft Butter & Deep Clay */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFF1A6] text-[#4A231B] border border-[#6B352A]/25 shadow-sm text-xs font-bold">
+                <Sparkles className="w-4 h-4 text-[#A8553F]" />
                 <span>Handcrafted in Jhansi, Uttar Pradesh • FSSAI Registered</span>
               </div>
 
               {/* Tagline & Main Title */}
               <div className="space-y-3">
-                <p className="text-xs sm:text-sm uppercase tracking-widest font-extrabold text-[#FFF1A6] drop-shadow">
+                <p className="text-xs sm:text-sm uppercase tracking-widest font-extrabold text-[#A8553F]">
                   {BRAND.tagline} — Handcrafted Mushroom Pickle
                 </p>
-                <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold text-[#FFF8E7] leading-[1.12] tracking-tight drop-shadow-md">
+                <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold text-[#4A231B] leading-[1.12] tracking-tight">
                   Artisanal Oyster Mushroom Pickles, Handcrafted in{" "}
-                  <span className="italic underline decoration-[#FFF1A6] decoration-4 underline-offset-8 text-[#FFF1A6]">
+                  <span className="text-[#A8553F] italic underline decoration-[#6B352A]/40 decoration-4 underline-offset-8">
                     Jhansi
                   </span>
                   .
@@ -69,7 +67,7 @@ export default function HomePage() {
               </div>
 
               {/* Brand Description */}
-              <p className="text-base sm:text-lg text-[#FFF8E7]/95 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-sans drop-shadow-sm font-light">
+              <p className="text-base sm:text-lg text-[#2B1B17]/85 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-sans font-normal">
                 Experience the authentic, rich taste of tender oyster mushrooms steeped in pure mustard oil, vinegar, red chilli, coriander, mustard, fennel, fenugreek, cumin, turmeric, ajwain, ginger, and garlic. Real 400g glass jars made by {BRAND.name} in Village Nandsiya, Moth, Jhansi (UP).
               </p>
 
@@ -94,64 +92,31 @@ export default function HomePage() {
                 </a>
               </div>
 
-              {/* Trust Badges */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-5 pt-4 text-xs text-[#FFF8E7]/90 font-medium">
-                <div className="flex items-center gap-1.5 bg-black/30 px-3 py-1.5 rounded-full border border-white/10">
-                  <ShieldCheck className="w-4 h-4 text-[#FFF1A6]" />
-                  <span>FSSAI Lic. {FSSAI_NUMBER}</span>
+              {/* Trust Badges (Crisp cards on cream) */}
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-4 text-xs font-semibold text-[#4A231B]">
+                <div className="flex items-center gap-1.5 bg-white px-3.5 py-2 rounded-full border border-[#6B352A]/15 shadow-sm">
+                  <ShieldCheck className="w-4 h-4 text-emerald-700" />
+                  <span>FSSAI Lic. #{FSSAI_NUMBER}</span>
                 </div>
-                <div className="flex items-center gap-1.5 bg-black/30 px-3 py-1.5 rounded-full border border-white/10">
-                  <Truck className="w-4 h-4 text-[#FFF1A6]" />
+                <div className="flex items-center gap-1.5 bg-white px-3.5 py-2 rounded-full border border-[#6B352A]/15 shadow-sm">
+                  <Truck className="w-4 h-4 text-[#6B352A]" />
                   <span>Pan-India 2-5 Day Delivery</span>
                 </div>
-                <div className="flex items-center gap-1.5 bg-black/30 px-3 py-1.5 rounded-full border border-white/10">
-                  <CheckCircle className="w-4 h-4 text-[#FFF1A6]" />
+                <div className="flex items-center gap-1.5 bg-white px-3.5 py-2 rounded-full border border-[#6B352A]/15 shadow-sm">
+                  <CheckCircle className="w-4 h-4 text-[#A8553F]" />
                   <span>400g Net Quantity</span>
                 </div>
               </div>
             </motion.div>
 
-            {/* Right Column: Hero Visual Pickle Jar Frame */}
+            {/* Right Column: Hero Visual Playable Video Card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="lg:col-span-5 relative flex justify-center"
+              className="lg:col-span-5 relative flex justify-center w-full"
             >
-              <div className="relative w-full max-w-md sm:max-w-lg aspect-square rounded-[40px] overflow-hidden shadow-2xl border-4 border-[#6B352A]/20 bg-[#4A231B] group flex items-center justify-center">
-                <div className="relative w-full h-full p-4">
-                  <Image
-                    src="/images/products/mushroom-mela-front.jpg"
-                    alt="Mushroom Mela Oyster Mushroom Pickle 400g Jar - Akhil Foods Jhansi"
-                    fill
-                    className="object-contain group-hover:scale-105 transition-transform duration-700"
-                    priority
-                  />
-                </div>
-
-                {/* Floating Seal Badge */}
-                <div className="absolute top-5 right-5 bg-[#4A231B]/95 backdrop-blur-md text-[#FFF1A6] px-4 py-2 rounded-2xl border border-[#FFF1A6]/30 shadow-lg text-xs font-semibold flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-pulse" />
-                  <span>FSSAI Lic. #{FSSAI_NUMBER}</span>
-                </div>
-
-                {/* Bottom Overlay Label */}
-                <div className="absolute bottom-5 left-5 right-5 bg-[#FFFBEF]/95 backdrop-blur-md p-4 rounded-2xl border border-[#6B352A]/20 shadow-xl">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="font-serif text-sm sm:text-base font-bold text-[#4A231B]">
-                        Mushroom Mela Pickle (400g)
-                      </p>
-                      <p className="text-[11px] text-stone-600 font-medium">
-                        AKHIL FOODS • Village Nandsiya, Moth, Jhansi
-                      </p>
-                    </div>
-                    <span className="text-xs font-bold text-[#4A231B] bg-[#FFF1A6] px-3 py-1.5 rounded-xl border border-[#6B352A]/20">
-                      ₹399
-                    </span>
-                  </div>
-                </div>
-              </div>
+              <HeroVideoCard />
             </motion.div>
           </div>
         </div>

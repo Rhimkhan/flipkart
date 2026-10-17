@@ -102,7 +102,7 @@ export default function CartDrawer() {
                 </div>
                 <h3 className="font-serif text-lg font-bold text-[#4A231B]">Your basket is empty</h3>
                 <p className="text-xs text-[#2B1B17]/70 max-w-xs mx-auto">
-                  Our micro-lots sell fast. Add your favourite artisanal Himalayan mushroom pickle to taste the difference.
+                  Add our signature 400g Mushroom Mela Oyster Mushroom Pickle to your basket.
                 </p>
                 <button
                   onClick={() => setIsDrawerOpen(false)}

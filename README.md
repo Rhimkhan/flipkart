@@ -1,62 +1,62 @@
 # 🏺 AKHIL FOODS — Artisanal Mushroom Pickles Store
 
-> **Good Food, Better Life.** Handcrafted Himalayan Mushroom Pickles aged in traditional clay pots (*Mitti Handi*) with virgin cold-pressed mustard oil, whole spices, and zero chemical preservatives.
+> **Great Food, Better Life.** Handcrafted Artisanal Oyster Mushroom Pickles made with pure mustard oil, whole stone-ground spices, and zero chemical shortcuts. Prepared in Village Nandsiya, Moth, Jhansi, Uttar Pradesh.
 
 ---
 
-## 🎨 Color Palette & Design System (Cosmic Latte, Mocha Cream & Deep Burgundy)
-- **Primary / Headings / Buttons:** Deep Burgundy `#4E111B` / `#34080F` (royal, grounded, rich gourmet wine tone)
-- **Background:** Cosmic Latte `#FFFBEF` (soft, luxurious, warm off-white canvas)
-- **Accents & Highlights:** Mocha Cream `#E5D3C0` / `#D1B89F` (smooth, warm latte/cream tone for pills, badges, and meters)
-- **Supporting Tones:**
-  - Burgundy Rose: `#8C2D3C` (secondary badges and alerts)
-  - Deep Espresso / Wine: `#28050B` / `#1F0E12` (dark luxury editorial sections & text)
-- **Typography:**
-  - Headings: `Playfair Display` (gourmet editorial serif)
-  - Body: `Poppins` (clean, rounded, friendly sans-serif)
+## 🎨 Brand Identity & Theme
+- **Brand:** AKHIL FOODS
+- **Tagline:** Great Food, Better Life
+- **Location:** Village Nandsiya, Karguwan Road, Near Ambedkar Murti, Moth, Jhansi, Uttar Pradesh - 284303
+- **FSSAI Lic. No.:** 22726293000001
+- **GSTIN:** 09FTOPD3011E1ZZ
+- **Udyam Reg. No.:** UDYAM-UP-39-0059446
+- **WhatsApp / Phone:** 6966558899
 
 ---
 
 ## ✨ Features Built & Tested
 
-1. **Brand Identity & Logo:**
+1. **Brand Identity & Certificates (`/certificates`):**
    - Official **AKHIL FOODS** emblem integrated across the navbar, footer, admin portal, and order receipts.
+   - Dedicated Licenses & Certifications page showcasing FSSAI (with PDF view button), GST, and Udyam details.
+
 2. **Interactive Storefront (`/shop`):**
-   - 4 Seed Products:
-     1. *Classic Masala Oyster Mushroom Pickle*
-     2. *Slow-Roasted Garlic Shiitake Mushroom Pickle*
-     3. *Heritage Mustard Oil Button Mushroom Pickle*
-     4. *Spicy Red Chilli Pahadi Mushroom Pickle*
-   - Interactive jar size selector (`250g` / `500g` / `1kg`) with live price recalculation.
-   - Flavour category filters & sorting by price/rating.
+   - Signature Product: *Mushroom Mela Oyster Mushroom Pickle* (400g glass jar, MRP ₹399).
+   - High-resolution multi-angle jar photography (front, side, ingredients label, back instructions).
+   - Live ingredients breakdown, storage instructions, and "Be the first to review" community state.
+
 3. **Cart & Slide-in Drawer:**
    - Drawer slide-in animation powered by Framer Motion.
    - Persistent `localStorage` basket (survives page refreshes).
    - Dynamic Free Shipping Progress Meter (Free above ₹699).
    - Working coupon code discounts (`AKHIL10` for 10% off, `FREESHIP` for free delivery).
+
 4. **Checkout & Payments (`/checkout`):**
    - Complete address form with Indian postal pincode validation.
-   - Cash on Delivery (COD) and Razorpay test mode integration.
+   - Cash on Delivery (COD) and Razorpay test mode integration with cryptographic HMAC verification.
+   - Prominent FSSAI and legal business address trust lines near checkout.
+
 5. **Order Success & Tracking:**
    - Celebratory confetti on order placement.
    - Click-to-chat WhatsApp button with pre-filled order receipt details for instant dispatch confirmation.
    - Printable order invoice.
    - Live Order Tracking (`/track-order`) by Order ID or 10-digit mobile number with step-by-step progress pipeline.
+
 6. **Password-Protected Admin Portal (`/admin`):**
-   - Default Passkey: `akhiladmin2026`
+   - Secure staff passkey configured via `ADMIN_PASSWORD` in `.env.local`.
    - Real-time revenue & order statistics.
    - Order Status updates (`New` → `Packed` → `Shipped` → `Delivered`).
    - Add Courier Name & AWB Tracking numbers.
    - Direct WhatsApp message customer button.
-   - Live Price & Stock Editor for products + capability to add new varieties.
+
 7. **Pincode Delivery Availability Checker:**
    - Instant verification of 19,000+ Indian postal codes with estimated delivery timelines.
-8. **Floating WhatsApp Assistance:**
-   - Floating quick-help button on every page with pre-filled greeting message.
-9. **Story & Gallery Pages:**
-   - Heritage Solan mushroom cultivation story (`/our-story`).
-   - Full photography showcase modal (`/gallery`).
-   - Contact form with interactive Google Map embed (`/contact`).
+
+8. **Story, Certificates, & Contact Pages:**
+   - Authentic story rooted in Village Nandsiya, Moth, Jhansi (`/our-story`).
+   - Direct view of FSSAI Food Safety Certificate PDF (`/certificates`).
+   - Contact form with interactive Google Map embed centered on Nandsiya, Moth, Jhansi (`/contact`).
    - Comprehensive searchable FAQ with shelf-life guide (`/faq`).
 
 ---
@@ -82,7 +82,7 @@ The website is architected with a dual persistence layer:
 - **Production Supabase Integration:**
   1. Create a project at [supabase.com](https://supabase.com).
   2. Open the **SQL Editor** in your Supabase Dashboard.
-  3. Copy and run the contents of [`supabase_schema.sql`](file:///c:/Users/rhim7/Downloads/project/flipkart/supabase_schema.sql).
+  3. Copy and run the contents of `supabase_schema.sql`.
   4. Paste your `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` into `.env.local`.
 
 ---

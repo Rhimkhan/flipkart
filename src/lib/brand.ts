@@ -10,7 +10,9 @@ import {
 
 export const BRAND = {
   name: "AKHIL FOODS",
+  legalName: "AKHIL FOODS",
   shortName: "AKHIL FOODS",
+  url: process.env.NEXT_PUBLIC_APP_URL || "https://akhilfoods.com",
   tagline: "Great Food, Better Life",
   subTagline: "Handcrafted Artisanal Oyster Mushroom Pickles in Pure Mustard Oil & Traditional Spices",
   logo: "/images/akhil-foods-logo.png",

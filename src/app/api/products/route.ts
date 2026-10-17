@@ -117,7 +117,7 @@ export async function POST(request: NextRequest) {
       reviewsCount: 1,
       image: body.image || "/images/hero-pickle.jpg",
       gallery: body.gallery || [body.image || "/images/hero-pickle.jpg"],
-      ingredients: body.ingredients || ["Farm Mushrooms", "Mustard Oil", "Himalayan Spices"],
+      ingredients: body.ingredients || ["Mushroom", "Mustard Oil", "Vinegar", "Indian Spices"],
       shelfLife: body.shelfLife || "12 Months",
       spiceLevel: body.spiceLevel || "Medium",
       isFeatured: Boolean(body.isFeatured),

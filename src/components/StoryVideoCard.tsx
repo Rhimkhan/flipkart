@@ -87,15 +87,15 @@ export default function StoryVideoCard() {
           <div className="relative w-full h-full">
             <Image
               src="/images/clay-pot-aging.jpg"
-              alt="Artisanal pickle making process in Solan earthenware pots"
+              alt="Artisanal oyster mushroom pickle making process in Jhansi"
               fill
               className="object-cover"
               priority
             />
             <div className="absolute inset-0 bg-[#4A231B]/40 flex items-center justify-center p-6 text-center">
               <div className="bg-[#2B1B17]/90 backdrop-blur-md px-6 py-4 rounded-2xl border border-[#FFF1A6]/20 text-[#FFF8E7] text-xs max-w-md">
-                <p className="font-semibold text-[#FFF1A6] mb-1">Porous Clay Handi Aging Process</p>
-                <p className="text-[#FFF8E7]/80">Motion reduced per system settings. Fresh mountain mushrooms slow-steeped in raw cold-pressed mustard oil.</p>
+                <p className="font-semibold text-[#FFF1A6] mb-1">Traditional Preparation Process</p>
+                <p className="text-[#FFF8E7]/80">Motion reduced per system settings. Fresh oyster mushrooms slow-steeped in pure mustard oil and authentic spices in Jhansi, Uttar Pradesh.</p>
               </div>
             </div>
           </div>
@@ -132,7 +132,7 @@ export default function StoryVideoCard() {
                   Watch The Artisanal Craft
                 </span>
                 <span className="text-xs text-[#FFF8E7]/90 mt-1 max-w-sm text-center px-4 font-light">
-                  From fresh Solan oyster harvest to porous clay barni aging in cold-pressed mustard oil
+                  From tender oyster mushrooms to rich mustard oil infusion with authentic Indian spices
                 </span>
               </div>
             )}
@@ -162,10 +162,10 @@ export default function StoryVideoCard() {
 
       <div className="p-6 bg-white rounded-b-[24px] space-y-2 text-[#2B1B17]">
         <h3 className="font-serif text-xl font-bold text-[#6B352A]">
-          Generational Himalayan Kitchen in Motion
+          Artisanal Kitchen Craft in Motion
         </h3>
         <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-          See how our master picklers pluck fresh mountain mushrooms, hand-pound roasted spices on granite mortars, and seal earthenware clay barnis for 21 days under the gentle morning mountain sun.
+          See how our small-batch kitchen prepares tender oyster mushrooms, mixes aromatic whole spices in pure mustard oil, and bottles each jar with care in Village Nandsiya, Moth, Jhansi, Uttar Pradesh.
         </p>
       </div>
     </div>

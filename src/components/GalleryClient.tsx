@@ -9,7 +9,7 @@ interface GalleryItem {
   id: string;
   title: string;
   subtitle: string;
-  category: "jars" | "harvest" | "aging" | "studio";
+  category: "jars" | "ingredients" | "packaging";
   categoryLabel: string;
   image: string;
   alt: string;
@@ -19,89 +19,52 @@ interface GalleryItem {
 const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-1",
-    title: "Signature Hexagonal Jar in Clay Setting",
-    subtitle: "Sealed with natural jute twine, wooden cork lid, and handcrafted calligraphic label.",
+    title: "Mushroom Mela 400g Glass Jar (Front View)",
+    subtitle: "Artisanal handcrafted Oyster Mushroom Pickle sealed in a sturdy glass jar with golden metal lid.",
     category: "jars",
-    categoryLabel: "Signature Jars",
-    image: "/images/hero-pickle.jpg",
-    alt: "Handcrafted glass jar of Akhil Foods mushroom pickle sealed with cork and jute twine",
-    shopSlug: "classic-masala-oyster-mushroom-pickle",
+    categoryLabel: "Product Jar",
+    image: "/images/products/mushroom-mela-front.jpg",
+    alt: "Mushroom Mela Oyster Mushroom Pickle front view jar 400g by Akhil Foods Jhansi",
+    shopSlug: "mushroom-mela-oyster-mushroom-pickle",
   },
   {
     id: "gal-2",
-    title: "Morning Mushroom Harvest in Solan Valley",
-    subtitle: "Freshly plucked oyster and button mushrooms air-drying on woven bamboo trays under mountain sun.",
-    category: "harvest",
-    categoryLabel: "Farm Harvest",
-    image: "/images/solan-harvest.jpg",
-    alt: "Freshly harvested oyster and button mushrooms on woven bamboo trays in Solan Himachal Pradesh",
+    title: "Jar Profile & Product Presentation (Side View)",
+    subtitle: "Generous chunks of tender oyster mushrooms steeped in golden mustard oil with stone-ground Indian spices.",
+    category: "jars",
+    categoryLabel: "Product Jar",
+    image: "/images/products/mushroom-mela-side.jpg",
+    alt: "Mushroom Mela jar side profile showcasing oyster mushroom pickle texture",
+    shopSlug: "mushroom-mela-oyster-mushroom-pickle",
   },
   {
     id: "gal-3",
-    title: "Sun-Curing in Glazed Ceramic Martabans",
-    subtitle: "Generational earthen handis and traditional barnis absorbing natural mountain sunlight.",
-    category: "aging",
-    categoryLabel: "Clay Aging & Spices",
-    image: "/images/clay-pot-aging.jpg",
-    alt: "Traditional Indian ceramic pickle barni and terracotta handis on stone courtyard",
+    title: "Official Label & Complete Ingredients List",
+    subtitle: "Transparent labelling: Mushroom, mustard oil, vinegar, red chilli, coriander, mustard, fennel, fenugreek, cumin, turmeric, ajwain, ginger, garlic.",
+    category: "ingredients",
+    categoryLabel: "Ingredients & Label",
+    image: "/images/products/mushroom-mela-ingredients.jpg",
+    alt: "Mushroom Mela label showing ingredients, manufacturing, and storage directions",
+    shopSlug: "mushroom-mela-oyster-mushroom-pickle",
   },
   {
     id: "gal-4",
-    title: "Cold-Pressed Mustard Oil & Spices Alchemy",
-    subtitle: "Golden virgin mustard oil infused over roasted fenugreek, yellow mustard, and kalonji seeds.",
-    category: "aging",
-    categoryLabel: "Clay Aging & Spices",
-    image: "/images/spices-mustard-oil.jpg",
-    alt: "Golden virgin mustard oil pouring over whole spices and mushrooms in terracotta bowl",
+    title: "Packaging & Directions for Use (Back View)",
+    subtitle: "Net Quantity 400g, MRP ₹399. Storage: cool, dry place, keep away from direct sunlight, use a clean dry spoon.",
+    category: "packaging",
+    categoryLabel: "Packaging & Details",
+    image: "/images/products/mushroom-mela-back.jpg",
+    alt: "Mushroom Mela back label with net weight 400g, MRP, and use directions",
+    shopSlug: "mushroom-mela-oyster-mushroom-pickle",
   },
   {
     id: "gal-5",
-    title: "Classic Masala Oyster Mushroom Pickle",
-    subtitle: "Velvety oyster mushroom florets soaked in kacchi ghani mustard oil with whole roasted spices.",
-    category: "jars",
-    categoryLabel: "Signature Jars",
-    image: "/images/classic-masala.jpg",
-    alt: "Classic Masala Oyster Mushroom Pickle jar with roasted spices and fresh coriander",
-    shopSlug: "classic-masala-oyster-mushroom-pickle",
-  },
-  {
-    id: "gal-6",
-    title: "Slow-Roasted Garlic & Shiitake Gourmet Reserve",
-    subtitle: "Whole golden caramelized garlic cloves steeped with medicinal shiitake in mountain spices.",
-    category: "jars",
-    categoryLabel: "Signature Jars",
-    image: "/images/garlic-shiitake.jpg",
-    alt: "Slow Roasted Garlic Shiitake Mushroom Pickle with golden garlic cloves and black peppercorn",
-    shopSlug: "slow-roasted-garlic-shiitake-mushroom-pickle",
-  },
-  {
-    id: "gal-7",
-    title: "Traditional Mustard Oil Button Mushroom",
-    subtitle: "Tender button mushroom caps aged in wood-pressed mustard oil with Himalayan sendha namak.",
-    category: "jars",
-    categoryLabel: "Signature Jars",
-    image: "/images/mustard-oil.jpg",
-    alt: "Traditional Mustard Oil Button Mushroom Pickle in rustic glass jar",
-    shopSlug: "traditional-mustard-oil-button-mushroom-pickle",
-  },
-  {
-    id: "gal-8",
-    title: "Pahadi Red Chilli & Wild Timur Blend",
-    subtitle: "Hand-pounded mountain red chillies with tingling wild timur pepper for bold spice lovers.",
-    category: "jars",
-    categoryLabel: "Signature Jars",
-    image: "/images/spicy-chilli.jpg",
-    alt: "Spicy Pahadi Red Chilli Mushroom Pickle with dried whole red chillies and mustard oil",
-    shopSlug: "spicy-pahadi-red-chilli-mushroom-pickle",
-  },
-  {
-    id: "gal-9",
-    title: "The Artisanal Studio & Culinary Aesthetic",
-    subtitle: "Warm earth tones, rustic terracotta textures, and minimal clay pottery aesthetics.",
-    category: "studio",
-    categoryLabel: "Kitchen Studio",
-    image: "/images/moodboard-brown.jpg",
-    alt: "Warm clay brown terracotta kitchen moodboard with artisanal food design elements",
+    title: "Cold-Pressed Mustard Oil & Roasted Spices",
+    subtitle: "Pure mustard oil infused with roasted mustard, fenugreek, cumin, and whole spices.",
+    category: "ingredients",
+    categoryLabel: "Ingredients & Label",
+    image: "/images/spices-mustard-oil.jpg",
+    alt: "Pure mustard oil pouring over whole spices in artisanal bowl",
   },
 ];
 
@@ -110,11 +73,10 @@ export default function GalleryClient() {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
 
   const categories = [
-    { key: "all", label: "All Works" },
-    { key: "jars", label: "Signature Jars" },
-    { key: "harvest", label: "Farm Harvest" },
-    { key: "aging", label: "Clay Aging & Spices" },
-    { key: "studio", label: "Kitchen Studio" },
+    { key: "all", label: "All Photos" },
+    { key: "jars", label: "Product Jars" },
+    { key: "ingredients", label: "Ingredients & Label" },
+    { key: "packaging", label: "Packaging & Details" },
   ];
 
   const filteredItems =
@@ -151,7 +113,7 @@ export default function GalleryClient() {
             The Artisanal Gallery
           </h1>
           <p className="text-xs sm:text-sm text-stone-600">
-            A photographic look into our sunlit Solan harvests, clay-pot aging handis, stone-ground whole spices, and hand-bottled batches.
+            A real photographic look into our Mushroom Mela 400g jars, complete label ingredients, and artisanal packing in Village Nandsiya, Moth, Jhansi, Uttar Pradesh.
           </p>
         </div>
 
@@ -160,14 +122,12 @@ export default function GalleryClient() {
           {categories.map((cat) => (
             <button
               key={cat.key}
-              onClick={() => {
-                setActiveCategory(cat.key);
-                setModalIndex(null);
-              }}
-              className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all ${
+              type="button"
+              onClick={() => setActiveCategory(cat.key)}
+              className={`px-4 py-2 rounded-full text-xs font-bold transition-all shadow-sm ${
                 activeCategory === cat.key
-                  ? "bg-[#6B352A] text-[#FFF1A6] shadow-md scale-105"
-                  : "bg-white text-[#2B1B17]/80 hover:bg-[#FFF8E7] border border-[#6B352A]/15"
+                  ? "bg-[#6B352A] text-[#FFF1A6] shadow-md"
+                  : "bg-white text-stone-700 hover:bg-[#FFF8E7] border border-stone-200"
               }`}
             >
               {cat.label}
@@ -175,46 +135,48 @@ export default function GalleryClient() {
           ))}
         </div>
 
-        {/* Gallery Grid with Alt text & Lazy Loading */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredItems.map((item, index) => (
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {filteredItems.map((item, idx) => (
             <div
               key={item.id}
-              onClick={() => setModalIndex(index)}
-              className="clay-card overflow-hidden cursor-pointer group flex flex-col justify-between bg-white border border-[#6B352A]/15 rounded-3xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              onClick={() => setModalIndex(idx)}
+              className="clay-card rounded-3xl overflow-hidden bg-white border border-[#6B352A]/15 shadow-md hover:shadow-2xl transition-all duration-300 group cursor-pointer flex flex-col justify-between"
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-[#FFF8E7]">
+              <div className="relative aspect-square overflow-hidden bg-[#FFFBEF] flex items-center justify-center p-3">
                 <Image
                   src={item.image}
                   alt={item.alt}
                   fill
-                  loading="lazy"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
                 />
-                <span className="absolute top-3 left-3 bg-[#6B352A]/90 backdrop-blur-sm text-[#FFF1A6] text-[10px] font-bold px-3 py-1 rounded-full shadow-md">
+                <span className="absolute top-3 left-3 bg-[#4A231B]/90 backdrop-blur-sm text-[#FFF1A6] text-[10px] font-bold px-3 py-1 rounded-full shadow-md border border-[#FFF1A6]/20">
                   {item.categoryLabel}
                 </span>
-                <div className="absolute inset-0 bg-[#4A231B]/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <div className="w-11 h-11 rounded-full bg-white/95 text-[#6B352A] flex items-center justify-center shadow-lg">
+                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span className="p-3 rounded-full bg-white/90 text-[#4A231B] shadow-lg">
                     <Eye className="w-5 h-5" />
-                  </div>
+                  </span>
                 </div>
               </div>
 
               <div className="p-5 space-y-2">
-                <h3 className="font-serif text-base sm:text-lg font-bold text-[#6B352A] group-hover:text-[#A8553F] transition-colors leading-snug">
+                <h3 className="font-serif text-base font-bold text-[#4A231B] group-hover:text-[#6B352A] transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-xs text-stone-600 leading-relaxed">
+                <p className="text-xs text-stone-600 line-clamp-2 leading-relaxed">
                   {item.subtitle}
                 </p>
                 {item.shopSlug && (
                   <div className="pt-2">
-                    <span className="text-[11px] font-bold text-[#A8553F] flex items-center gap-1 group-hover:underline">
-                      <span>View in Shop</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </span>
+                    <Link
+                      href={`/product/${item.shopSlug}`}
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A8553F] hover:text-[#6B352A] underline underline-offset-4"
+                    >
+                      <span>View Product</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
                   </div>
                 )}
               </div>
@@ -222,7 +184,7 @@ export default function GalleryClient() {
           ))}
         </div>
 
-        {/* Lightbox Modal */}
+        {/* Modal Lightbox */}
         {activeItem && modalIndex !== null && (
           <div
             onClick={() => setModalIndex(null)}
@@ -230,68 +192,62 @@ export default function GalleryClient() {
           >
             <div
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-3xl overflow-hidden max-w-3xl w-full border border-[#6B352A]/20 shadow-2xl space-y-4 p-6 relative animate-fadeIn"
+              className="bg-white rounded-[32px] max-w-3xl w-full overflow-hidden shadow-2xl border border-white/20 relative animate-in zoom-in-95"
             >
-              {/* Close Button */}
               <button
+                type="button"
                 onClick={() => setModalIndex(null)}
-                className="absolute top-4 right-4 bg-[#6B352A] text-[#FFF1A6] hover:bg-[#4A231B] rounded-full w-9 h-9 flex items-center justify-center text-sm font-bold z-20 shadow-lg"
+                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/50 text-white hover:bg-black/80 flex items-center justify-center transition-colors"
+                aria-label="Close"
               >
                 <X className="w-5 h-5" />
               </button>
 
-              {/* Prev / Next Nav */}
-              {filteredItems.length > 1 && (
-                <>
-                  <button
-                    onClick={handlePrev}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-[#6B352A] text-white p-2.5 rounded-full z-20 backdrop-blur-sm transition-all"
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                  <button
-                    onClick={handleNext}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-[#6B352A] text-white p-2.5 rounded-full z-20 backdrop-blur-sm transition-all"
-                  >
-                    <ChevronRight className="w-5 h-5" />
-                  </button>
-                </>
-              )}
+              <button
+                type="button"
+                onClick={handlePrev}
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/80 hover:bg-white text-[#4A231B] flex items-center justify-center shadow-lg transition-all"
+                aria-label="Previous"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
 
-              {/* Image Preview */}
-              <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-[#FFF8E7]">
+              <button
+                type="button"
+                onClick={handleNext}
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/80 hover:bg-white text-[#4A231B] flex items-center justify-center shadow-lg transition-all"
+                aria-label="Next"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+
+              <div className="relative aspect-[4/3] bg-[#FFFBEF] flex items-center justify-center p-6">
                 <Image
                   src={activeItem.image}
                   alt={activeItem.alt}
                   fill
-                  sizes="100vw"
-                  className="object-cover"
+                  className="object-contain p-4"
                 />
               </div>
 
-              {/* Metadata */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
-                <div className="space-y-1 max-w-lg">
-                  <span className="text-[10px] uppercase font-bold text-[#A8553F] bg-[#FFF1A6] px-2.5 py-0.5 rounded-full">
+              <div className="p-6 bg-[#4A231B] text-[#FFF8E7] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                  <span className="text-[11px] font-bold text-[#FFF1A6] uppercase tracking-wider">
                     {activeItem.categoryLabel}
                   </span>
-                  <h3 className="font-serif text-xl font-bold text-[#6B352A]">{activeItem.title}</h3>
-                  <p className="text-xs text-stone-600">{activeItem.subtitle}</p>
+                  <h4 className="font-serif text-lg font-bold text-white mt-0.5">
+                    {activeItem.title}
+                  </h4>
+                  <p className="text-xs text-[#FFF8E7]/80 max-w-xl mt-1">
+                    {activeItem.subtitle}
+                  </p>
                 </div>
-                {activeItem.shopSlug ? (
+                {activeItem.shopSlug && (
                   <Link
                     href={`/product/${activeItem.shopSlug}`}
-                    className="px-6 py-3 rounded-full bg-[#6B352A] text-[#FFF1A6] text-xs font-bold hover:bg-[#4A231B] transition-colors shrink-0 flex items-center justify-center gap-1.5 shadow-md"
+                    className="shrink-0 px-5 py-2.5 rounded-full bg-[#FFF1A6] hover:bg-[#FFF9D6] text-[#4A231B] font-bold text-xs shadow-md transition-all flex items-center gap-1.5"
                   >
-                    <span>Order This Flavour</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                ) : (
-                  <Link
-                    href="/shop"
-                    className="px-6 py-3 rounded-full bg-[#6B352A] text-[#FFF1A6] text-xs font-bold hover:bg-[#4A231B] transition-colors shrink-0 flex items-center justify-center gap-1.5 shadow-md"
-                  >
-                    <span>Browse Collection</span>
+                    <span>Order Now</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 )}
@@ -306,7 +262,7 @@ export default function GalleryClient() {
             Taste The Artistry in Every Spoon
           </h3>
           <p className="text-xs sm:text-sm text-stone-600 max-w-md mx-auto">
-            Order fresh small-batch jars directly from our Solan kitchen to your doorstep.
+            Order fresh 400g jars directly from our Jhansi kitchen to your doorstep.
           </p>
           <div className="pt-2">
             <Link
