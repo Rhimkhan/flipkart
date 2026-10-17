@@ -20,6 +20,7 @@ import { BRAND } from "@/lib/brand";
 import { ProductSize } from "@/lib/types";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
 import HeroVideoCard from "@/components/HeroVideoCard";
+import ScrollVideo from "@/components/ScrollVideo";
 import { WHATSAPP_NUMBER, WHATSAPP_DEFAULT_MESSAGE, FSSAI_NUMBER, GST_NUMBER, UDYAM_NUMBER } from "@/lib/config";
 
 export default function HomePage() {
@@ -35,16 +36,19 @@ export default function HomePage() {
 
   return (
     <div className="space-y-20 sm:space-y-28 bg-[#FFFBEF] overflow-hidden">
-      {/* 1. HERO SECTION WITH PLAYABLE CRAFT VIDEO */}
-      <section className="relative pt-10 pb-16 sm:py-20 overflow-hidden bg-gradient-to-b from-[#FFFBEF] via-[#FFF8E7] to-[#FFFBEF]">
+      {/* 1. HERO SECTION WITH BACKGROUND VIDEO & PLAYABLE CARD */}
+      <section className="relative min-h-[90vh] lg:min-h-screen flex items-center justify-center pt-8 pb-16 sm:py-20 overflow-hidden bg-[#2B1B17]">
+        {/* Full-screen background video with Deep Clay 55% overlay */}
+        <HeroVideoBackground />
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Left Column: Hero Text Content (High Contrast & Perfectly Readable) */}
+            {/* Left Column: Hero Text Content (With Dark Glass Backdrop for 100% Crisp Readability) */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left"
+              className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left bg-[#2B1B17]/65 backdrop-blur-md p-6 sm:p-10 rounded-[36px] border border-[#FFF1A6]/20 shadow-2xl"
             >
               {/* Badge Pill in Soft Butter & Deep Clay */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFF1A6] text-[#4A231B] border border-[#6B352A]/25 shadow-sm text-xs font-bold">
@@ -54,12 +58,12 @@ export default function HomePage() {
 
               {/* Tagline & Main Title */}
               <div className="space-y-3">
-                <p className="text-xs sm:text-sm uppercase tracking-widest font-extrabold text-[#A8553F]">
+                <p className="text-xs sm:text-sm uppercase tracking-widest font-extrabold text-[#FFF1A6]">
                   {BRAND.tagline} — Handcrafted Mushroom Pickle
                 </p>
-                <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold text-[#4A231B] leading-[1.12] tracking-tight">
+                <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold text-[#FFF8E7] leading-[1.12] tracking-tight drop-shadow-md">
                   Artisanal Oyster Mushroom Pickles, Handcrafted in{" "}
-                  <span className="text-[#A8553F] italic underline decoration-[#6B352A]/40 decoration-4 underline-offset-8">
+                  <span className="text-[#FFF1A6] italic underline decoration-[#FFF1A6] decoration-4 underline-offset-8">
                     Jhansi
                   </span>
                   .
@@ -67,7 +71,7 @@ export default function HomePage() {
               </div>
 
               {/* Brand Description */}
-              <p className="text-base sm:text-lg text-[#2B1B17]/85 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-sans font-normal">
+              <p className="text-base sm:text-lg text-[#FFF8E7]/90 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-sans font-light drop-shadow-sm">
                 Experience the authentic, rich taste of tender oyster mushrooms steeped in pure mustard oil, vinegar, red chilli, coriander, mustard, fennel, fenugreek, cumin, turmeric, ajwain, ginger, and garlic. Real 400g glass jars made by {BRAND.name} in Village Nandsiya, Moth, Jhansi (UP).
               </p>
 
@@ -92,18 +96,18 @@ export default function HomePage() {
                 </a>
               </div>
 
-              {/* Trust Badges (Crisp cards on cream) */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-4 text-xs font-semibold text-[#4A231B]">
-                <div className="flex items-center gap-1.5 bg-white px-3.5 py-2 rounded-full border border-[#6B352A]/15 shadow-sm">
-                  <ShieldCheck className="w-4 h-4 text-emerald-700" />
+              {/* Trust Badges */}
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-4 text-xs font-semibold text-[#FFF8E7]">
+                <div className="flex items-center gap-1.5 bg-[#4A231B]/80 px-3.5 py-2 rounded-full border border-[#FFF1A6]/20 shadow-sm">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
                   <span>FSSAI Lic. #{FSSAI_NUMBER}</span>
                 </div>
-                <div className="flex items-center gap-1.5 bg-white px-3.5 py-2 rounded-full border border-[#6B352A]/15 shadow-sm">
-                  <Truck className="w-4 h-4 text-[#6B352A]" />
+                <div className="flex items-center gap-1.5 bg-[#4A231B]/80 px-3.5 py-2 rounded-full border border-[#FFF1A6]/20 shadow-sm">
+                  <Truck className="w-4 h-4 text-[#FFF1A6]" />
                   <span>Pan-India 2-5 Day Delivery</span>
                 </div>
-                <div className="flex items-center gap-1.5 bg-white px-3.5 py-2 rounded-full border border-[#6B352A]/15 shadow-sm">
-                  <CheckCircle className="w-4 h-4 text-[#A8553F]" />
+                <div className="flex items-center gap-1.5 bg-[#4A231B]/80 px-3.5 py-2 rounded-full border border-[#FFF1A6]/20 shadow-sm">
+                  <CheckCircle className="w-4 h-4 text-[#FFF1A6]" />
                   <span>400g Net Quantity</span>
                 </div>
               </div>
@@ -121,6 +125,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* 2. SCROLL-DRIVEN VIDEO SCRUBBING SECTION (Apple-Style 400vh) */}
+      <ScrollVideo />
 
       {/* STATS STRIP */}
       <section className="bg-[#E5D3C0]/70 border-y border-[#D1B89F] py-10">
