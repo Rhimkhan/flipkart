@@ -1,26 +1,117 @@
 @import "tailwindcss";
 
+@theme {
+  /* Original Clay & Earthy Theme */
+  --color-clay-brown: #6B352A;
+  --color-soft-butter: #FFF1A6;
+  --color-deep-clay: #4A231B;
+  --color-terracotta: #A8553F;
+  --color-warm-cream: #FFF8E7;
+  --color-charcoal: #2B1B17;
+
+  /* Deep Burgundy Shades */
+  --color-burgundy: #4E111B;
+  --color-burgundy-dark: #34080F;
+  --color-burgundy-deep: #28050B;
+  --color-burgundy-light: #6E1B29;
+  --color-burgundy-rose: #8C2D3C;
+
+  /* Cosmic Latte & Creams */
+  --color-cosmic-latte: #FFFBEF;
+  --color-cosmic-pure: #FFFDF5;
+  --color-cosmic-dark: #F7EEDB;
+
+  /* Mocha Cream Shades */
+  --color-mocha-cream: #E5D3C0;
+  --color-mocha-light: #F2E7DC;
+  --color-mocha-medium: #D1B89F;
+  --color-mocha-dark: #9E7459;
+  --color-mocha-espresso: #2A1713;
+
+  /* Semantic Theme Aliases */
+  --color-clay: #4E111B;
+  --color-clay-light: #6E1B29;
+  --color-clay-dark: #34080F;
+  --color-butter: #E5D3C0;
+  --color-butter-light: #F2E7DC;
+  --color-butter-dark: #D1B89F;
+  --color-cream: #FFFBEF;
+  --color-cream-light: #FFFDF5;
+  --color-espresso: #28050B;
+  --color-mocha: #9E7459;
+  --color-stone: #E5D3C0;
+  --color-gold: #C99757;
+
+  /* Typography */
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-poppins), system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-poppins), system-ui, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #FFFBEF;
+  --foreground: #1F0E12;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FFFBEF;
+  color: #1F0E12;
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  overflow-x: hidden;
+  selection-background-color: #4E111B;
+  selection-color: #FFFBEF;
+}
+
+::selection {
+  background: #4E111B;
+  color: #FFFBEF;
+}
+
+/* Custom scrollbar in Deep Burgundy and Mocha */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FFFBEF;
+}
+::-webkit-scrollbar-thumb {
+  background: #8C2D3C;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4E111B;
+}
+
+/* Smooth interactive transitions */
+button, a {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.font-editorial {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.clay-card {
+  border-radius: 24px;
+  background-color: #ffffff;
+  border: 1px solid rgba(78, 17, 27, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(78, 17, 27, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.clay-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 35px -10px rgba(78, 17, 27, 0.12);
+}
+
+.clay-pill {
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
