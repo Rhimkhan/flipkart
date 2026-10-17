@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { useCart } from "@/lib/cart-context";
 import { BRAND } from "@/lib/brand";
+import { FSSAI_NUMBER } from "@/lib/config";
 import { PaymentMethod } from "@/lib/types";
 
 export default function CheckoutPage() {
@@ -591,14 +592,25 @@ export default function CheckoutPage() {
               )}
             </button>
 
+            {/* FSSAI License & Trust Line near checkout */}
+            <div className="bg-[#FFFBEF] p-3.5 rounded-2xl border border-[#6B352A]/15 text-center space-y-1">
+              <div className="text-xs font-mono font-bold text-[#4A231B] flex items-center justify-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                <span>FSSAI Lic. No. {FSSAI_NUMBER}</span>
+              </div>
+              <p className="text-[11px] text-stone-600">
+                {BRAND.legalName} • Village Nandsiya, Moth, Jhansi, UP - 284303
+              </p>
+            </div>
+
             <div className="space-y-2 text-[11px] text-stone-500 text-center">
               <div className="flex items-center justify-center gap-1.5">
                 <Truck className="w-3.5 h-3.5 text-[#6B352A]" />
-                <span>Dispatches within 24 hours in sealed glass packaging</span>
+                <span>Dispatches within 24 hours in sealed 400g glass jar</span>
               </div>
               <div className="flex items-center justify-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                <span>100% Traditional Himalayan Recipe Guarantee</span>
+                <span>100% Authentic Mushroom Mela Quality Guarantee</span>
               </div>
             </div>
           </div>

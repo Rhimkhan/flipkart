@@ -22,6 +22,8 @@ import {
   Heart,
   Award,
   Sparkles,
+  ShieldCheck,
+  FileText,
 } from "lucide-react";
 
 export default function Footer() {
@@ -45,29 +47,29 @@ export default function Footer() {
             <div className="w-12 h-12 rounded-2xl bg-[#6B352A] flex items-center justify-center text-[#FFF1A6] mb-3 shadow-sm border border-[#FFF1A6]/20">
               <Award className="w-6 h-6" />
             </div>
-            <h4 className="font-semibold text-sm text-[#FFF1A6]">Clay Pot Aged</h4>
-            <p className="text-xs text-[#FFF8E7]/70 mt-1">Fermented naturally in Mitti Handi</p>
+            <h4 className="font-semibold text-sm text-[#FFF1A6]">Handcrafted in Jhansi</h4>
+            <p className="text-xs text-[#FFF8E7]/70 mt-1">Village Nandsiya, Moth (UP)</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-12 h-12 rounded-2xl bg-[#6B352A] flex items-center justify-center text-[#FFF1A6] mb-3 shadow-sm border border-[#FFF1A6]/20">
               <Sparkles className="w-6 h-6" />
             </div>
-            <h4 className="font-semibold text-sm text-[#FFF1A6]">0% Preservatives</h4>
-            <p className="text-xs text-[#FFF8E7]/70 mt-1">No sodium benzoate or chemicals</p>
+            <h4 className="font-semibold text-sm text-[#FFF1A6]">Pure Spices & Oil</h4>
+            <p className="text-xs text-[#FFF8E7]/70 mt-1">Real mustard oil & stone-ground spices</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-12 h-12 rounded-2xl bg-[#6B352A] flex items-center justify-center text-[#FFF1A6] mb-3 shadow-sm border border-[#FFF1A6]/20">
               <Heart className="w-6 h-6" />
             </div>
-            <h4 className="font-semibold text-sm text-[#FFF1A6]">Cold-Pressed Mustard Oil</h4>
-            <p className="text-xs text-[#FFF8E7]/70 mt-1">Pure wood-pressed Kacchi Ghani</p>
+            <h4 className="font-semibold text-sm text-[#FFF1A6]">Oyster Mushrooms</h4>
+            <p className="text-xs text-[#FFF8E7]/70 mt-1">Tender 400g glass jar packaging</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-12 h-12 rounded-2xl bg-[#6B352A] flex items-center justify-center text-[#FFF1A6] mb-3 shadow-sm border border-[#FFF1A6]/20">
-              <CheckCircle2 className="w-6 h-6" />
+              <ShieldCheck className="w-6 h-6" />
             </div>
-            <h4 className="font-semibold text-sm text-[#FFF1A6]">Fresh Farm Harvested</h4>
-            <p className="text-xs text-[#FFF8E7]/70 mt-1">Button, Oyster & Shiitake daily</p>
+            <h4 className="font-semibold text-sm text-[#FFF1A6]">FSSAI Registered</h4>
+            <p className="text-xs text-[#FFF8E7]/70 mt-1">Lic. No. {FSSAI_NUMBER}</p>
           </div>
         </div>
 
@@ -92,23 +94,23 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm text-[#FFF8E7]/80 leading-relaxed max-w-sm">
-              {BRAND.subTagline}. Every batch is crafted in small micro-lots using ancient Himalayan recipes and 100% natural ingredients.
+              Artisanal oyster mushroom pickles handcrafted with love in Village Nandsiya, Moth, Jhansi, Uttar Pradesh. Dedicated to honesty, safety, and authentic Indian taste.
             </p>
 
-            {/* Government & Food Safety Registrations */}
+            {/* Government & Food Safety Registrations Trust Box */}
             <div className="space-y-2 pt-1">
-              <div className="text-xs text-[#FFF1A6] font-mono bg-[#6B352A]/60 px-3.5 py-2 rounded-xl flex flex-wrap items-center gap-x-2.5 gap-y-1 border border-[#FFF1A6]/25">
+              <div className="text-xs text-[#FFF1A6] font-mono bg-[#6B352A]/70 px-3.5 py-2.5 rounded-xl flex flex-wrap items-center justify-between gap-x-2.5 gap-y-1 border border-[#FFF1A6]/30">
                 <span className="flex items-center gap-1.5 font-bold">
-                  <span>🛡️</span>
-                  <span>FSSAI Reg. No. {FSSAI_NUMBER}</span>
+                  <ShieldCheck className="w-4 h-4 text-[#FFF1A6]" />
+                  <span>FSSAI Lic. No. {FSSAI_NUMBER}</span>
                 </span>
-                <span className="text-[11px] text-[#FFF8E7]/70">(Valid till {FSSAI_VALIDITY})</span>
+                <span className="text-[11px] text-[#FFF8E7]/80">(Valid till {FSSAI_VALIDITY})</span>
               </div>
-              <div className="flex flex-wrap gap-2 text-[11px] font-mono text-[#FFF8E7]/80">
-                <span className="bg-[#6B352A]/40 px-2.5 py-1 rounded-lg border border-[#FFF1A6]/15">
+              <div className="flex flex-wrap gap-2 text-[11px] font-mono text-[#FFF8E7]/90">
+                <span className="bg-[#6B352A]/50 px-3 py-1.5 rounded-lg border border-[#FFF1A6]/20">
                   GSTIN: <strong className="text-[#FFF1A6]">{GST_NUMBER}</strong>
                 </span>
-                <span className="bg-[#6B352A]/40 px-2.5 py-1 rounded-lg border border-[#FFF1A6]/15">
+                <span className="bg-[#6B352A]/50 px-3 py-1.5 rounded-lg border border-[#FFF1A6]/20">
                   Udyam: <strong className="text-[#FFF1A6]">{UDYAM_NUMBER}</strong>
                 </span>
               </div>
@@ -116,8 +118,21 @@ export default function Footer() {
 
             {/* Social Icons */}
             <div className="pt-2">
-              <p className="text-xs font-semibold text-[#FFF1A6] mb-2 uppercase tracking-wider">Follow Our Harvest:</p>
+              <p className="text-xs font-semibold text-[#FFF1A6] mb-2 uppercase tracking-wider">Connect With Us:</p>
               <div className="flex items-center gap-2.5">
+                {/* WhatsApp */}
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white flex items-center justify-center transition-all shadow-sm"
+                  aria-label="WhatsApp"
+                >
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                  </svg>
+                </a>
+
                 {/* Instagram */}
                 <a
                   href={BRAND.socials.instagram}
@@ -143,32 +158,6 @@ export default function Footer() {
                     <path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.5 5H18V0h-3.8C10.5 0 9 1.5 9 4.5V8z"/>
                   </svg>
                 </a>
-
-                {/* YouTube */}
-                <a
-                  href={BRAND.socials.youtube}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-[#6B352A] hover:bg-[#FFF1A6] text-[#FFF1A6] hover:text-[#4A231B] flex items-center justify-center transition-all border border-[#FFF1A6]/20"
-                  aria-label="YouTube"
-                >
-                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                  </svg>
-                </a>
-
-                {/* WhatsApp */}
-                <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white flex items-center justify-center transition-all shadow-sm"
-                  aria-label="WhatsApp"
-                >
-                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                  </svg>
-                </a>
               </div>
             </div>
           </div>
@@ -184,17 +173,26 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/shop" className="hover:text-[#FFF1A6] transition-colors">
-                  Shop All Pickles
+                  Shop Mushroom Mela (400g)
                 </Link>
               </li>
               <li>
                 <Link href="/our-story" className="hover:text-[#FFF1A6] transition-colors">
-                  Our Clay-Pot Story
+                  Our Story
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/certificates"
+                  className="hover:text-[#FFF1A6] text-[#FFF1A6] font-semibold transition-colors flex items-center gap-1.5"
+                >
+                  <FileText className="w-3.5 h-3.5 text-[#FFF1A6]" />
+                  <span>Licenses & Certifications</span>
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:text-[#FFF1A6] transition-colors">
-                  Contact & Support
+                  Contact & Location
                 </Link>
               </li>
               <li>
@@ -204,19 +202,19 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/faq" className="hover:text-[#FFF1A6] transition-colors">
-                  FAQ & Shelf Life
+                  FAQ & Storage Guide
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Customer Care */}
+          {/* Customer Care & Address */}
           <div className="space-y-3">
-            <h4 className="font-serif text-lg font-semibold text-[#FFF1A6]">Customer Care</h4>
+            <h4 className="font-serif text-lg font-semibold text-[#FFF1A6]">Factory & Office</h4>
             <ul className="space-y-2.5 text-sm text-[#FFF8E7]/80">
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#FFF1A6] shrink-0 mt-0.5" />
-                <span>Solan, Himachal Pradesh 173212, India</span>
+                <span>{BRAND.address}</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-[#FFF1A6] shrink-0" />
@@ -245,7 +243,7 @@ export default function Footer() {
           <div className="space-y-3">
             <h4 className="font-serif text-lg font-semibold text-[#FFF1A6]">Stay in the Loop</h4>
             <p className="text-xs text-[#FFF8E7]/70">
-              Subscribe for harvest drops, seasonal flavours, and secret coupon discounts.
+              Subscribe for harvest drops, fresh batch alerts, and secret discount coupons.
             </p>
             {subscribed ? (
               <div className="bg-[#6B352A] p-3 rounded-xl border border-[#FFF1A6]/30 text-xs text-[#FFF1A6] flex items-center gap-2">
@@ -275,13 +273,15 @@ export default function Footer() {
 
         {/* Bottom copyright */}
         <div className="pt-8 border-t border-[#6B352A]/60 flex flex-col sm:flex-row items-center justify-between text-xs text-[#FFF8E7]/60 gap-4">
-          <p>© 2026 {BRAND.name}. All rights reserved. Handcrafted with pride in India.</p>
+          <p>© 2026 {BRAND.name}. All rights reserved. Handcrafted in Jhansi, Uttar Pradesh.</p>
           <div className="flex gap-4">
+            <Link href="/certificates" className="hover:text-[#FFF1A6]">Licenses & FSSAI</Link>
+            <span>•</span>
             <Link href="/faq" className="hover:text-[#FFF1A6]">Shipping & Returns</Link>
             <span>•</span>
-            <Link href="/contact" className="hover:text-[#FFF1A6]">Privacy & Terms</Link>
+            <Link href="/contact" className="hover:text-[#FFF1A6]">Contact</Link>
             <span>•</span>
-            <Link href="/admin" className="hover:text-[#FFF1A6]">Staff Login</Link>
+            <Link href="/admin" className="hover:text-[#FFF1A6]">Admin Login</Link>
           </div>
         </div>
       </div>

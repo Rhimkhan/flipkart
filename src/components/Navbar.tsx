@@ -31,7 +31,7 @@ export default function Navbar() {
       <div className="bg-[#4A231B] text-[#FFF1A6] text-xs py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2 border-b border-[#6B352A]/40">
         <span className="inline-block w-2 h-2 rounded-full bg-[#FFF1A6] animate-pulse"></span>
         <span>
-          Clay-Pot Aged Artisanal Mushroom Pickles | Free Shipping over ₹{BRAND.freeShippingThreshold} | Use Code:{" "}
+          Handcrafted in Jhansi, UP • FSSAI Lic. No. 22726293000001 • Free Shipping over ₹{BRAND.freeShippingThreshold} • Code:{" "}
           <strong className="underline underline-offset-2 tracking-wider text-[#FFF1A6]">AKHIL10</strong>
         </span>
       </div>
@@ -102,6 +102,13 @@ export default function Navbar() {
                 className="hover:text-[#FFF1A6] transition-colors py-1 relative group"
               >
                 FAQ
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFF1A6] transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <Link
+                href="/certificates"
+                className="hover:text-[#FFF1A6] transition-colors py-1 relative group"
+              >
+                Certificates
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFF1A6] transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
@@ -205,6 +212,13 @@ export default function Navbar() {
               className="block px-3 py-2 rounded-md text-base font-medium text-[#FFF8E7] hover:bg-[#6B352A] hover:text-[#FFF1A6]"
             >
               FAQ
+            </Link>
+            <Link
+              href="/certificates"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3 py-2 rounded-md text-base font-medium text-[#FFF8E7] hover:bg-[#6B352A] hover:text-[#FFF1A6]"
+            >
+              Certificates & FSSAI
             </Link>
             <Link
               href="/contact"
