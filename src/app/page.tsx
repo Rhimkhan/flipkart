@@ -18,9 +18,7 @@ import { INITIAL_PRODUCTS, REVIEWS, FAQS } from "@/lib/data";
 import { useCart } from "@/lib/cart-context";
 import { BRAND } from "@/lib/brand";
 import { ProductSize } from "@/lib/types";
-import HeroVideoBackground from "@/components/HeroVideoBackground";
-import HeroVideoCard from "@/components/HeroVideoCard";
-import ScrollVideo from "@/components/ScrollVideo";
+import HeroProductCard from "@/components/HeroProductCard";
 import { WHATSAPP_NUMBER, WHATSAPP_DEFAULT_MESSAGE, FSSAI_NUMBER, GST_NUMBER, UDYAM_NUMBER } from "@/lib/config";
 
 export default function HomePage() {
@@ -36,16 +34,24 @@ export default function HomePage() {
 
   return (
     <div className="bg-[#FFFBEF]">
-      {/* 1. SCROLL-DRIVEN VIDEO INTRO (Sticky 100vh with 350vh scroll scrubbing) */}
-      <ScrollVideo />
-
-      {/* 2. HERO SECTION WITH BACKGROUND VIDEO & PLAYABLE CARD */}
+      {/* HERO SECTION (Starting directly from hero with authentic artisanal background & product card) */}
       <section
         id="hero-section"
-        className="relative min-h-[90vh] lg:min-h-screen flex items-center justify-center pt-12 pb-16 sm:py-20 overflow-hidden bg-[#2B1B17]"
+        className="relative min-h-[90vh] lg:min-h-screen flex items-center justify-center pt-8 pb-16 sm:py-20 overflow-hidden bg-[#2B1B17]"
       >
-        {/* Full-screen background video with Deep Clay 55% overlay */}
-        <HeroVideoBackground />
+        {/* Full-screen rich photography background with Deep Clay overlay */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none -z-10">
+          <Image
+            src="/images/hero-pickle.jpg"
+            alt="Akhil Foods Artisanal Mushroom Pickle"
+            fill
+            priority
+            className="object-cover object-center scale-105"
+          />
+          {/* Deep Clay Dark Overlay (Deep Clay #4A231B at ~65% opacity) for rich warmth and crisp contrast */}
+          <div className="absolute inset-0 bg-[#2B1B17]/75 backdrop-blur-[1px]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#2B1B17] via-transparent to-[#2B1B17]/70" />
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -119,14 +125,14 @@ export default function HomePage() {
               </div>
             </motion.div>
 
-            {/* Right Column: Hero Visual Playable Video Card */}
+            {/* Right Column: Hero Visual Product Card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="lg:col-span-5 relative flex justify-center w-full"
             >
-              <HeroVideoCard />
+              <HeroProductCard />
             </motion.div>
           </div>
         </div>

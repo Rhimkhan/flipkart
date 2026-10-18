@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { ArrowRight, Sparkles, Heart, Award, ShieldCheck, CheckCircle, Leaf, MapPin } from "lucide-react";
 import { BRAND } from "@/lib/brand";
-import StoryVideoCard from "@/components/StoryVideoCard";
+import StoryCraftShowcase from "@/components/StoryCraftShowcase";
 
 export const metadata: Metadata = {
   title: "Our Story & Craft | AKHIL FOODS - Handcrafted Mushroom Pickles",
@@ -174,7 +174,7 @@ export default function OurStoryPage() {
           </div>
         </div>
 
-        {/* Story Video Showcase */}
+        {/* Story Craft Process Showcase (No video, authentic photography) */}
         <div className="space-y-6 pt-2">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <span className="text-xs font-bold uppercase tracking-widest text-[#A8553F] bg-[#FFF1A6] px-3.5 py-1 rounded-full border border-[#EAD075] inline-flex items-center gap-1.5 shadow-sm">
@@ -185,11 +185,11 @@ export default function OurStoryPage() {
               The Artisanal Pickling Process
             </h2>
             <p className="text-xs sm:text-sm text-[#2B1B17]/75">
-              Watch how our pickles are hand-cured with mustard oil and whole spices.
+              How our pickles are hand-cured with pure mustard oil and stone-ground spices in Village Nandsiya, Moth, Jhansi.
             </p>
           </div>
-          <div className="max-w-4xl mx-auto">
-            <StoryVideoCard />
+          <div className="max-w-5xl mx-auto">
+            <StoryCraftShowcase />
           </div>
         </div>
 
