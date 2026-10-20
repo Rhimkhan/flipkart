@@ -39,37 +39,37 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#4A231B] text-[#FFF8E7] border-t-4 border-[#6B352A] pt-16 pb-12 mt-20">
+    <footer className="bg-[#160E0A] text-[#FAF6EE] border-t border-[#C89B3C]/30 pt-16 pb-12 mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Trust Badges Strip */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pb-12 border-b border-[#6B352A]/60 text-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pb-12 border-b border-[#C89B3C]/20 text-center">
           <div className="flex flex-col items-center">
-            <div className="w-12 h-12 rounded-2xl bg-[#6B352A] flex items-center justify-center text-[#FFF1A6] mb-3 shadow-sm border border-[#FFF1A6]/20">
+            <div className="w-12 h-12 rounded-2xl bg-[#2A1D17] flex items-center justify-center text-[#D4AF37] mb-3 shadow-sm border border-[#C89B3C]/25">
               <Award className="w-6 h-6" />
             </div>
-            <h4 className="font-semibold text-sm text-[#FFF1A6]">Handcrafted in Jhansi</h4>
-            <p className="text-xs text-[#FFF8E7]/70 mt-1">Village Nandsiya, Moth (UP)</p>
+            <h3 className="font-serif font-semibold text-sm text-[#FAF6EE]">Handcrafted in Jhansi</h3>
+            <p className="text-xs text-[#EADBB6]/70 mt-1 font-light">Village Nandsiya, Moth (UP)</p>
           </div>
           <div className="flex flex-col items-center">
-            <div className="w-12 h-12 rounded-2xl bg-[#6B352A] flex items-center justify-center text-[#FFF1A6] mb-3 shadow-sm border border-[#FFF1A6]/20">
+            <div className="w-12 h-12 rounded-2xl bg-[#2A1D17] flex items-center justify-center text-[#D4AF37] mb-3 shadow-sm border border-[#C89B3C]/25">
               <Sparkles className="w-6 h-6" />
             </div>
-            <h4 className="font-semibold text-sm text-[#FFF1A6]">Pure Spices & Oil</h4>
-            <p className="text-xs text-[#FFF8E7]/70 mt-1">Real mustard oil & stone-ground spices</p>
+            <h3 className="font-serif font-semibold text-sm text-[#FAF6EE]">Pure Spices & Oil</h3>
+            <p className="text-xs text-[#EADBB6]/70 mt-1 font-light">Cold-pressed mustard oil & whole spices</p>
           </div>
           <div className="flex flex-col items-center">
-            <div className="w-12 h-12 rounded-2xl bg-[#6B352A] flex items-center justify-center text-[#FFF1A6] mb-3 shadow-sm border border-[#FFF1A6]/20">
+            <div className="w-12 h-12 rounded-2xl bg-[#2A1D17] flex items-center justify-center text-[#D4AF37] mb-3 shadow-sm border border-[#C89B3C]/25">
               <Heart className="w-6 h-6" />
             </div>
-            <h4 className="font-semibold text-sm text-[#FFF1A6]">Oyster Mushrooms</h4>
-            <p className="text-xs text-[#FFF8E7]/70 mt-1">Tender 400g glass jar packaging</p>
+            <h3 className="font-serif font-semibold text-sm text-[#FAF6EE]">Oyster Mushrooms</h3>
+            <p className="text-xs text-[#EADBB6]/70 mt-1 font-light">Tender 400g glass jar packaging</p>
           </div>
           <div className="flex flex-col items-center">
-            <div className="w-12 h-12 rounded-2xl bg-[#6B352A] flex items-center justify-center text-[#FFF1A6] mb-3 shadow-sm border border-[#FFF1A6]/20">
+            <div className="w-12 h-12 rounded-2xl bg-[#2A1D17] flex items-center justify-center text-[#D4AF37] mb-3 shadow-sm border border-[#C89B3C]/25">
               <ShieldCheck className="w-6 h-6" />
             </div>
-            <h4 className="font-semibold text-sm text-[#FFF1A6]">FSSAI Registered</h4>
-            <p className="text-xs text-[#FFF8E7]/70 mt-1">Lic. No. {FSSAI_NUMBER}</p>
+            <h3 className="font-serif font-semibold text-sm text-[#FAF6EE]">FSSAI Registered</h3>
+            <p className="text-xs text-[#EADBB6]/70 mt-1 font-light">Lic. No. {FSSAI_NUMBER}</p>
           </div>
         </div>
 
@@ -78,7 +78,7 @@ export default function Footer() {
           {/* Brand Info & Social Icons */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#FFF1A6]/80 bg-[#2B1B17]">
+              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-[#C89B3C]/50 bg-[#120B08]">
                 <Image
                   src={BRAND.logo}
                   alt={`${BRAND.name} Handcrafted Pickle Emblem`}
@@ -87,45 +87,45 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <span className="font-serif text-2xl font-bold tracking-wider text-[#FFF1A6]">
+                <span className="font-serif text-2xl font-bold tracking-wider text-[#FAF6EE]">
                   {BRAND.name}
                 </span>
-                <p className="text-sm text-[#FFF8E7]/90 font-medium tracking-wide">{BRAND.tagline}</p>
+                <p className="text-xs font-serif text-[#D4AF37] tracking-[0.2em] uppercase">{BRAND.tagline}</p>
               </div>
             </div>
-            <p className="text-sm text-[#FFF8E7]/85 leading-relaxed max-w-sm">
+            <p className="text-sm text-[#EADBB6]/85 leading-relaxed max-w-sm font-light">
               Artisanal oyster mushroom pickles handcrafted with love in Village Nandsiya, Moth, Jhansi, Uttar Pradesh. Dedicated to honesty, safety, and authentic Indian taste.
             </p>
 
             {/* Government & Food Safety Registrations Trust Box */}
             <div className="space-y-2 pt-1">
-              <div className="text-xs text-[#FFF1A6] font-mono bg-[#6B352A]/70 px-3.5 py-2.5 rounded-xl flex flex-wrap items-center justify-between gap-x-2.5 gap-y-1 border border-[#FFF1A6]/30">
+              <div className="text-xs text-[#D4AF37] font-serif bg-[#2A1D17] px-3.5 py-2.5 rounded-xl flex flex-wrap items-center justify-between gap-x-2.5 gap-y-1 border border-[#C89B3C]/30">
                 <span className="flex items-center gap-1.5 font-bold">
-                  <ShieldCheck className="w-4 h-4 text-[#FFF1A6]" />
+                  <ShieldCheck className="w-4 h-4 text-[#D4AF37]" />
                   <span>FSSAI Lic. No. {FSSAI_NUMBER}</span>
                 </span>
-                <span className="text-caption text-[#FFF8E7]/90">(Valid till {FSSAI_VALIDITY})</span>
+                <span className="text-caption text-[#EADBB6]/80">(Valid till {FSSAI_VALIDITY})</span>
               </div>
-              <div className="flex flex-wrap gap-2 text-caption font-mono text-[#FFF8E7]/90">
-                <span className="bg-[#6B352A]/50 px-3 py-1.5 rounded-lg border border-[#FFF1A6]/20">
-                  GSTIN: <strong className="text-[#FFF1A6]">{GST_NUMBER}</strong>
+              <div className="flex flex-wrap gap-2 text-caption font-serif text-[#EADBB6]">
+                <span className="bg-[#2A1D17] px-3 py-1.5 rounded-lg border border-[#C89B3C]/20">
+                  GSTIN: <strong className="text-[#D4AF37]">{GST_NUMBER}</strong>
                 </span>
-                <span className="bg-[#6B352A]/50 px-3 py-1.5 rounded-lg border border-[#FFF1A6]/20">
-                  Udyam: <strong className="text-[#FFF1A6]">{UDYAM_NUMBER}</strong>
+                <span className="bg-[#2A1D17] px-3 py-1.5 rounded-lg border border-[#C89B3C]/20">
+                  Udyam: <strong className="text-[#D4AF37]">{UDYAM_NUMBER}</strong>
                 </span>
               </div>
             </div>
 
             {/* Social Icons */}
             <div className="pt-2">
-              <p className="text-sm font-semibold text-[#FFF1A6] mb-2">Connect with Us:</p>
+              <p className="text-xs font-serif tracking-[0.18em] uppercase text-[#D4AF37] mb-2 font-medium">Connect with Us:</p>
               <div className="flex items-center gap-2.5">
                 {/* WhatsApp */}
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white flex items-center justify-center transition-all shadow-sm"
+                  className="w-9 h-9 rounded-full bg-[#2A1D17] hover:bg-[#C89B3C] text-[#D4AF37] hover:text-[#211612] flex items-center justify-center transition-all border border-[#C89B3C]/30"
                   aria-label="WhatsApp"
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -138,7 +138,7 @@ export default function Footer() {
                   href={BRAND.socials.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-[#6B352A] hover:bg-[#FFF1A6] text-[#FFF1A6] hover:text-[#4A231B] flex items-center justify-center transition-all border border-[#FFF1A6]/20"
+                  className="w-9 h-9 rounded-full bg-[#2A1D17] hover:bg-[#C89B3C] text-[#D4AF37] hover:text-[#211612] flex items-center justify-center transition-all border border-[#C89B3C]/30"
                   aria-label="Instagram"
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -151,7 +151,7 @@ export default function Footer() {
                   href={BRAND.socials.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-[#6B352A] hover:bg-[#FFF1A6] text-[#FFF1A6] hover:text-[#4A231B] flex items-center justify-center transition-all border border-[#FFF1A6]/20"
+                  className="w-9 h-9 rounded-full bg-[#2A1D17] hover:bg-[#C89B3C] text-[#D4AF37] hover:text-[#211612] flex items-center justify-center transition-all border border-[#C89B3C]/30"
                   aria-label="Facebook"
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -164,45 +164,40 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-3">
-            <h4 className="font-serif text-lg font-semibold text-[#FFF1A6]">Quick Links</h4>
-            <ul className="space-y-2 text-sm text-[#FFF8E7]/80">
+            <h3 className="font-serif text-sm font-semibold text-[#D4AF37] tracking-wider">The Atelier</h3>
+            <ul className="space-y-2.5 text-sm text-[#EADBB6]/80 font-light">
               <li>
-                <Link href="/" className="hover:text-[#FFF1A6] transition-colors">
-                  Home
+                <Link href="/" className="hover:text-[#D4AF37] transition-colors">
+                  The Atelier (Home)
                 </Link>
               </li>
               <li>
-                <Link href="/shop" className="hover:text-[#FFF1A6] transition-colors">
+                <Link href="/shop" className="hover:text-[#D4AF37] transition-colors">
                   Shop Mushroom Mela (400g)
                 </Link>
               </li>
               <li>
-                <Link href="/our-story" className="hover:text-[#FFF1A6] transition-colors">
-                  Our Story
+                <Link href="/our-story" className="hover:text-[#D4AF37] transition-colors">
+                  Our Story & Heritage
                 </Link>
               </li>
               <li>
                 <Link
                   href="/certificates"
-                  className="hover:text-[#FFF1A6] text-[#FFF1A6] font-semibold transition-colors flex items-center gap-1.5"
+                  className="hover:text-[#D4AF37] text-[#D4AF37] font-medium transition-colors flex items-center gap-1.5"
                 >
-                  <FileText className="w-3.5 h-3.5 text-[#FFF1A6]" />
-                  <span>Licenses & Certifications</span>
+                  <FileText className="w-3.5 h-3.5 text-[#D4AF37]" />
+                  <span>Provenance & Purity</span>
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#FFF1A6] transition-colors">
-                  Contact & Location
+                <Link href="/gallery" className="hover:text-[#D4AF37] transition-colors">
+                  Our Journey Gallery
                 </Link>
               </li>
               <li>
-                <Link href="/track-order" className="hover:text-[#FFF1A6] transition-colors">
-                  Track Your Order
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" className="hover:text-[#FFF1A6] transition-colors">
-                  FAQ & Storage Guide
+                <Link href="/contact" className="hover:text-[#D4AF37] transition-colors">
+                  Contact & Atelier Desk
                 </Link>
               </li>
             </ul>
@@ -210,30 +205,30 @@ export default function Footer() {
 
           {/* Customer Care & Address */}
           <div className="space-y-3">
-            <h4 className="font-serif text-lg font-semibold text-[#FFF1A6]">Factory & Office</h4>
-            <ul className="space-y-2.5 text-sm text-[#FFF8E7]/80">
+            <h3 className="font-serif text-sm font-semibold text-[#D4AF37] tracking-wider">Jhansi Atelier</h3>
+            <ul className="space-y-2.5 text-sm text-[#EADBB6]/80 font-light">
               <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#FFF1A6] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
                 <span>{BRAND.address}</span>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#FFF1A6] shrink-0" />
-                <a href={TEL_LINK} className="hover:text-[#FFF1A6]">
+                <Phone className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                <a href={TEL_LINK} className="hover:text-[#D4AF37]">
                   {PHONE_DISPLAY}
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#FFF1A6] shrink-0" />
-                <a href={`mailto:${BRAND.email}`} className="hover:text-[#FFF1A6]">
+                <Mail className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                <a href={`mailto:${BRAND.email}`} className="hover:text-[#D4AF37]">
                   {BRAND.email}
                 </a>
               </li>
               <li className="pt-2">
                 <Link
-                  href="/admin"
-                  className="text-xs text-[#FFF1A6]/80 hover:text-white underline underline-offset-4"
+                  href="/track-order"
+                  className="text-xs text-[#D4AF37] hover:underline"
                 >
-                  Store Admin Portal
+                  Track Dispatch Status ➔
                 </Link>
               </li>
             </ul>
@@ -241,14 +236,14 @@ export default function Footer() {
 
           {/* Newsletter Form */}
           <div className="space-y-3">
-            <h4 className="font-serif text-lg font-semibold text-[#FFF1A6]">Stay in the Loop</h4>
-            <p className="text-sm text-[#FFF8E7]/85">
-              Subscribe for harvest drops, fresh batch alerts, and secret discount coupons.
+            <h3 className="font-serif text-sm font-semibold text-[#D4AF37] tracking-wider">Private Tasting Club</h3>
+            <p className="text-sm text-[#EADBB6]/85 font-light">
+              Receive private notifications when a new micro-batch is cured and ready for dispatch.
             </p>
             {subscribed ? (
-              <div className="bg-[#6B352A] p-3 rounded-xl border border-[#FFF1A6]/30 text-xs text-[#FFF1A6] flex items-center gap-2">
+              <div className="bg-[#2A1D17] p-3 rounded-xl border border-[#C89B3C]/30 text-xs text-[#D4AF37] flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 shrink-0" />
-                <span>Thank you! Use coupon <strong>AKHIL10</strong> for 10% off.</span>
+                <span>Thank you for joining our private tasting circle.</span>
               </div>
             ) : (
               <form onSubmit={handleSubscribe} className="space-y-2">
@@ -258,11 +253,11 @@ export default function Footer() {
                   placeholder="Enter your email"
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#2B1B17] border border-[#6B352A] text-sm text-[#FFF8E7] placeholder-[#FFF8E7]/40 focus:outline-none focus:ring-2 focus:ring-[#FFF1A6]"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#120B08] border border-[#C89B3C]/30 text-xs text-[#FAF6EE] placeholder-[#EADBB6]/40 focus:outline-none focus:ring-1 focus:ring-[#C89B3C]"
                 />
                 <button
                   type="submit"
-                  className="btn-primary w-full"
+                  className="w-full py-3 px-4 rounded-xl bg-[#C89B3C] hover:bg-[#D4AF37] text-[#211612] font-serif font-bold text-xs tracking-[0.18em] uppercase transition-all shadow-md"
                 >
                   Join Tasting Club
                 </button>
@@ -272,16 +267,16 @@ export default function Footer() {
         </div>
 
         {/* Bottom copyright */}
-        <div className="pt-8 border-t border-[#6B352A]/60 flex flex-col sm:flex-row items-center justify-between text-xs text-[#FFF8E7]/90 gap-4">
+        <div className="pt-8 border-t border-[#C89B3C]/20 flex flex-col sm:flex-row items-center justify-between text-xs text-[#EADBB6]/70 gap-4 font-light">
           <p>© 2026 {BRAND.name}. All rights reserved. Handcrafted in Jhansi, Uttar Pradesh.</p>
           <div className="flex gap-4">
-            <Link href="/certificates" className="hover:text-[#FFF1A6]">Licenses & FSSAI</Link>
+            <Link href="/certificates" className="hover:text-[#D4AF37]">Provenance & FSSAI</Link>
             <span>•</span>
-            <Link href="/faq" className="hover:text-[#FFF1A6]">Shipping & Returns</Link>
+            <Link href="/faq" className="hover:text-[#D4AF37]">Shipping & Care</Link>
             <span>•</span>
-            <Link href="/contact" className="hover:text-[#FFF1A6]">Contact</Link>
+            <Link href="/contact" className="hover:text-[#D4AF37]">Concierge</Link>
             <span>•</span>
-            <Link href="/admin" className="hover:text-[#FFF1A6]">Admin Login</Link>
+            <Link href="/admin" className="hover:text-[#D4AF37]">Atelier Admin</Link>
           </div>
         </div>
       </div>

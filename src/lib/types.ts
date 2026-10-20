@@ -73,6 +73,7 @@ export interface Order {
   trackingNumber?: string;
   courierName?: string;
   notes?: string;
+  userId?: string;
   createdAt: string;
 }
 

@@ -417,20 +417,20 @@ If you have any questions, reply here.
   // 1. Password Protected Login Screen
   if (!isAuthenticated) {
     return (
-      <div className="min-h-[80vh] flex items-center justify-center px-4 py-16 bg-[#FFFBEF]">
-        <div className="bg-white p-8 sm:p-10 rounded-[36px] border-2 border-[#6B352A]/20 shadow-2xl max-w-md w-full space-y-6 text-center">
-          <div className="w-16 h-16 rounded-3xl bg-[#FFF1A6] text-[#6B352A] flex items-center justify-center mx-auto shadow-inner border border-[#6B352A]/20">
-            <Lock className="w-8 h-8" />
+      <div className="min-h-[80vh] flex items-center justify-center px-4 py-16 bg-[#FAF6EE]">
+        <div className="bg-[#FDFBF7] p-8 sm:p-10 rounded-3xl border border-[#E8DEC8] shadow-2xl max-w-md w-full space-y-6 text-center">
+          <div className="w-16 h-16 rounded-2xl bg-[#1C130E] text-[#FAF6EE] border border-[#C89B3C]/40 flex items-center justify-center mx-auto shadow-inner">
+            <Lock className="w-8 h-8 text-[#C89B3C]" />
           </div>
 
           <div className="space-y-1">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#A8553F] bg-[#FFF1A6] px-3 py-1 rounded-full border border-[#6B352A]/15">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#FAF6EE] bg-[#1C130E] border border-[#C89B3C]/30 px-3 py-1 rounded-full">
               Restricted Area
             </span>
-            <h1 className="font-serif text-2xl sm:text-3xl font-extrabold text-[#4A231B] pt-2">
+            <h1 className="font-serif text-2xl sm:text-3xl font-extrabold text-[#211612] pt-2">
               Staff & Admin Portal
             </h1>
-            <p className="text-xs text-[#2B1B17]/70 font-sans">
+            <p className="text-xs text-[#3D2C24]/70 font-sans">
               Sign in with Supabase Authentication or staff passkey to manage products, pricing, and orders.
             </p>
           </div>
@@ -444,8 +444,8 @@ If you have any questions, reply here.
 
           <form onSubmit={handleLogin} className="space-y-4 text-left">
             <div className="space-y-1">
-              <label className="text-[11px] font-bold text-[#2B1B17] flex items-center gap-1.5">
-                <Mail className="w-3.5 h-3.5 text-[#6B352A]" />
+              <label className="text-[11px] font-bold text-[#211612] flex items-center gap-1.5">
+                <Mail className="w-3.5 h-3.5 text-[#A87B28]" />
                 <span>Admin Email</span>
               </label>
               <input
@@ -454,13 +454,13 @@ If you have any questions, reply here.
                 value={emailInput}
                 onChange={(e) => setEmailInput(e.target.value)}
                 placeholder="admin@akhilfoods.com"
-                className="w-full px-4 py-3 rounded-2xl border border-[#6B352A]/25 text-xs text-[#2B1B17] focus:outline-none focus:ring-2 focus:ring-[#6B352A]"
+                className="w-full px-4 py-3 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-xs text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
               />
             </div>
 
             <div className="space-y-1">
-              <label className="text-[11px] font-bold text-[#2B1B17] flex items-center gap-1.5">
-                <Key className="w-3.5 h-3.5 text-[#6B352A]" />
+              <label className="text-[11px] font-bold text-[#211612] flex items-center gap-1.5">
+                <Key className="w-3.5 h-3.5 text-[#A87B28]" />
                 <span>Password / Passkey</span>
               </label>
               <input
@@ -469,21 +469,21 @@ If you have any questions, reply here.
                 placeholder="Enter password or passkey"
                 value={passwordInput}
                 onChange={(e) => setPasswordInput(e.target.value)}
-                className="w-full px-4 py-3 rounded-2xl border border-[#6B352A]/25 text-xs text-[#2B1B17] focus:outline-none focus:ring-2 focus:ring-[#6B352A]"
+                className="w-full px-4 py-3 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-xs text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
               />
             </div>
 
             <button
               type="submit"
               disabled={authLoading}
-              className="w-full py-3.5 rounded-full bg-[#6B352A] hover:bg-[#4A231B] text-[#FFF1A6] font-bold text-xs shadow-xl transition-all flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 disabled:opacity-50"
+              className="w-full py-3.5 rounded-full bg-[#211612] hover:bg-[#1C130E] text-[#FAF6EE] border border-[#C89B3C]/40 font-bold text-xs shadow-xl transition-all flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 disabled:opacity-50"
             >
-              <Unlock className="w-4 h-4" />
+              <Unlock className="w-4 h-4 text-[#C89B3C]" />
               <span>{authLoading ? "Authenticating..." : "Unlock Store Admin"}</span>
             </button>
           </form>
 
-          <div className="pt-2 border-t border-stone-100 space-y-1 text-[11px] text-stone-500 text-center">
+          <div className="pt-2 border-t border-[#E8DEC8] space-y-1 text-[11px] text-[#3D2C24]/60 text-center">
             <p>
               🔒 Authorized personnel only. Enter your administrator password to proceed.
             </p>
@@ -513,28 +513,28 @@ If you have any questions, reply here.
   );
 
   return (
-    <div className="py-10 sm:py-16 bg-[#FFFBEF]">
+    <div className="py-10 sm:py-16 bg-[#FAF6EE] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Top Header with Signed-in Info */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#6B352A]/20 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#E8DEC8] gap-4">
           <div>
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="text-xs font-bold text-[#A8553F] uppercase tracking-wider">
+              <span className="text-xs font-bold text-[#A87B28] uppercase tracking-wider">
                 Store Operations • {adminUser}
               </span>
             </div>
-            <h1 className="font-serif text-3xl sm:text-4xl font-extrabold text-[#4A231B]">
+            <h1 className="font-serif text-3xl sm:text-4xl font-extrabold text-[#211612]">
               Store Management Portal
             </h1>
-            <div className="flex flex-wrap items-center gap-2 pt-1.5 text-[11px] font-mono text-[#6B352A]">
-              <span className="bg-[#FFF1A6] px-2.5 py-0.5 rounded-lg border border-[#6B352A]/20 shadow-xs">
+            <div className="flex flex-wrap items-center gap-2 pt-1.5 text-[11px] font-mono text-[#211612]">
+              <span className="bg-[#FAF6EE] px-2.5 py-0.5 rounded-lg border border-[#E8DEC8] shadow-xs">
                 FSSAI: <strong>{BRAND.fssaiNumber}</strong> (till {BRAND.fssaiValidity})
               </span>
-              <span className="bg-white px-2.5 py-0.5 rounded-lg border border-[#6B352A]/20 shadow-xs">
+              <span className="bg-[#FAF6EE] px-2.5 py-0.5 rounded-lg border border-[#E8DEC8] shadow-xs">
                 GSTIN: <strong>{BRAND.gstNumber}</strong>
               </span>
-              <span className="bg-white px-2.5 py-0.5 rounded-lg border border-[#6B352A]/20 shadow-xs">
+              <span className="bg-[#FAF6EE] px-2.5 py-0.5 rounded-lg border border-[#E8DEC8] shadow-xs">
                 Udyam: <strong>{BRAND.udyamNumber}</strong>
               </span>
             </div>
@@ -543,7 +543,7 @@ If you have any questions, reply here.
           <div className="flex items-center gap-3">
             <button
               onClick={loadData}
-              className="px-4 py-2.5 rounded-full bg-white border border-[#6B352A]/20 text-xs font-semibold text-[#6B352A] hover:bg-[#FFF8E7] flex items-center gap-1.5 shadow-sm transition-all"
+              className="px-4 py-2.5 rounded-full bg-[#FDFBF7] border border-[#E8DEC8] text-xs font-semibold text-[#211612] hover:bg-[#FAF6EE] flex items-center gap-1.5 shadow-sm transition-all"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin" : ""}`} />
               <span>Refresh Data</span>
@@ -568,29 +568,29 @@ If you have any questions, reply here.
 
         {/* Dashboard Metrics */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          <div className="bg-white p-6 rounded-3xl border border-[#6B352A]/15 shadow-sm space-y-1">
+          <div className="bg-[#FDFBF7] p-6 rounded-3xl border border-[#E8DEC8] shadow-sm space-y-1">
             <div className="flex items-center justify-between text-stone-400">
               <span className="text-xs font-semibold uppercase">Total Revenue</span>
               <TrendingUp className="w-4 h-4 text-emerald-600" />
             </div>
-            <div className="font-serif text-2xl sm:text-3xl font-extrabold text-[#4A231B]">
+            <div className="font-serif text-2xl sm:text-3xl font-extrabold text-[#211612]">
               ₹{totalRevenue}
             </div>
-            <p className="text-[11px] text-stone-500">Gross order book</p>
+            <p className="text-[11px] text-[#3D2C24]/60">Gross order book</p>
           </div>
 
-          <div className="bg-white p-6 rounded-3xl border border-[#6B352A]/15 shadow-sm space-y-1">
+          <div className="bg-[#FDFBF7] p-6 rounded-3xl border border-[#E8DEC8] shadow-sm space-y-1">
             <div className="flex items-center justify-between text-stone-400">
               <span className="text-xs font-semibold uppercase">Total Orders</span>
-              <Package className="w-4 h-4 text-[#A8553F]" />
+              <Package className="w-4 h-4 text-[#A87B28]" />
             </div>
-            <div className="font-serif text-2xl sm:text-3xl font-extrabold text-[#4A231B]">
+            <div className="font-serif text-2xl sm:text-3xl font-extrabold text-[#211612]">
               {orders.length}
             </div>
-            <p className="text-[11px] text-stone-500">Recorded orders</p>
+            <p className="text-[11px] text-[#3D2C24]/60">Recorded orders</p>
           </div>
 
-          <div className="bg-white p-6 rounded-3xl border border-[#6B352A]/15 shadow-sm space-y-1">
+          <div className="bg-[#FDFBF7] p-6 rounded-3xl border border-[#E8DEC8] shadow-sm space-y-1">
             <div className="flex items-center justify-between text-stone-400">
               <span className="text-xs font-semibold uppercase">Pending Dispatch</span>
               <AlertCircle className="w-4 h-4 text-amber-600" />
@@ -598,44 +598,44 @@ If you have any questions, reply here.
             <div className="font-serif text-2xl sm:text-3xl font-extrabold text-amber-700">
               {pendingOrders}
             </div>
-            <p className="text-[11px] text-stone-500">New & Packed batches</p>
+            <p className="text-[11px] text-[#3D2C24]/60">New & Packed batches</p>
           </div>
 
-          <div className="bg-white p-6 rounded-3xl border border-[#6B352A]/15 shadow-sm space-y-1">
+          <div className="bg-[#FDFBF7] p-6 rounded-3xl border border-[#E8DEC8] shadow-sm space-y-1">
             <div className="flex items-center justify-between text-stone-400">
               <span className="text-xs font-semibold uppercase">Active Catalog</span>
-              <ShoppingBag className="w-4 h-4 text-[#6B352A]" />
+              <ShoppingBag className="w-4 h-4 text-[#A87B28]" />
             </div>
-            <div className="font-serif text-2xl sm:text-3xl font-extrabold text-[#4A231B]">
+            <div className="font-serif text-2xl sm:text-3xl font-extrabold text-[#211612]">
               {products.length}
             </div>
-            <p className="text-[11px] text-stone-500">Pickle varieties</p>
+            <p className="text-[11px] text-[#3D2C24]/60">Pickle varieties</p>
           </div>
         </div>
 
         {/* Tab Selector */}
-        <div className="flex gap-4 border-b border-stone-200">
+        <div className="flex gap-4 border-b border-[#E8DEC8]">
           <button
             onClick={() => setActiveTab("orders")}
             className={`pb-3 text-sm font-bold transition-all relative ${
-              activeTab === "orders" ? "text-[#6B352A]" : "text-stone-400 hover:text-stone-600"
+              activeTab === "orders" ? "text-[#211612]" : "text-stone-400 hover:text-stone-600"
             }`}
           >
             <span>Orders Management ({orders.length})</span>
             {activeTab === "orders" && (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#6B352A]" />
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#211612]" />
             )}
           </button>
 
           <button
             onClick={() => setActiveTab("products")}
             className={`pb-3 text-sm font-bold transition-all relative ${
-              activeTab === "products" ? "text-[#6B352A]" : "text-stone-400 hover:text-stone-600"
+              activeTab === "products" ? "text-[#211612]" : "text-stone-400 hover:text-stone-600"
             }`}
           >
             <span>Products & Inventory ({products.length})</span>
             {activeTab === "products" && (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#6B352A]" />
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#211612]" />
             )}
           </button>
         </div>
@@ -651,7 +651,7 @@ If you have any questions, reply here.
                   placeholder="Filter by Order #, Customer, Phone..."
                   value={searchOrder}
                   onChange={(e) => setSearchOrder(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 rounded-2xl bg-white border border-[#6B352A]/20 text-xs focus:outline-none focus:ring-2 focus:ring-[#6B352A]"
+                  className="w-full pl-9 pr-3 py-2 rounded-2xl bg-[#FDFBF7] border border-[#E8DEC8] text-xs focus:outline-none focus:ring-2 focus:ring-[#211612]"
                 />
               </div>
               <span className="text-xs text-stone-500">
@@ -659,10 +659,10 @@ If you have any questions, reply here.
               </span>
             </div>
 
-            <div className="bg-white rounded-[32px] border border-[#6B352A]/15 shadow-md overflow-hidden">
+            <div className="bg-[#FDFBF7] rounded-[32px] border border-[#E8DEC8] shadow-sm overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
-                  <thead className="bg-[#FFF8E7] text-[#4A231B] font-bold border-b border-[#6B352A]/10 uppercase tracking-wider text-[11px]">
+                  <thead className="bg-[#FAF6EE] text-[#211612] font-bold border-b border-[#E8DEC8] uppercase tracking-wider text-[11px]">
                     <tr>
                       <th className="p-4">Order #</th>
                       <th className="p-4">Customer</th>
@@ -673,7 +673,7 @@ If you have any questions, reply here.
                       <th className="p-4 text-right">Customer WhatsApp & Action</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-stone-100">
+                  <tbody className="divide-y divide-[#E8DEC8]/50">
                     {filteredOrders.map((order) => {
                       const cleanPhone = order.phone?.replace(/\D/g, "") || "";
                       const waUrl = `https://wa.me/91${cleanPhone}?text=${encodeURIComponent(
@@ -681,11 +681,11 @@ If you have any questions, reply here.
                       )}`;
 
                       return (
-                        <tr key={order.id} className="hover:bg-[#FFF8E7]/40 transition-colors">
-                          <td className="p-4 font-mono font-bold text-[#6B352A]">
+                        <tr key={order.id} className="hover:bg-[#FAF6EE]/50 transition-colors">
+                          <td className="p-4 font-mono font-bold text-[#211612]">
                             <button
                               onClick={() => setSelectedOrderForView(order)}
-                              className="hover:underline flex items-center gap-1 text-[#6B352A]"
+                              className="hover:underline flex items-center gap-1 text-[#211612]"
                             >
                               <span>{order.orderNumber}</span>
                               <Eye className="w-3 h-3 text-stone-400" />
@@ -699,7 +699,7 @@ If you have any questions, reply here.
                           </td>
 
                           <td className="p-4">
-                            <div className="font-bold text-[#2B1B17]">{order.customerName}</div>
+                            <div className="font-bold text-[#211612]">{order.customerName}</div>
                             <div className="text-stone-500 text-[11px] font-mono">{order.phone}</div>
                             <div className="text-stone-400 text-[10px] truncate max-w-[150px]">
                               {order.city}, {order.pincode}
@@ -709,9 +709,9 @@ If you have any questions, reply here.
                           <td className="p-4">
                             <div className="space-y-1">
                               {order.items?.map((item, i) => (
-                                <div key={i} className="text-stone-700">
+                                <div key={i} className="text-[#3D2C24]">
                                   <span className="font-medium">{item.name}</span>{" "}
-                                  <span className="text-[10px] text-[#4A231B] bg-[#FFF1A6] px-1.5 py-0.5 rounded font-bold">
+                                  <span className="text-[10px] text-[#211612] bg-[#FAF6EE] px-1.5 py-0.5 rounded font-bold border border-[#E8DEC8]">
                                     {item.size} × {item.quantity}
                                   </span>
                                 </div>
@@ -720,7 +720,7 @@ If you have any questions, reply here.
                           </td>
 
                           <td className="p-4">
-                            <span className="font-serif font-bold text-sm text-[#4A231B]">
+                            <span className="font-serif font-bold text-sm text-[#211612]">
                               ₹{order.total}
                             </span>
                           </td>
@@ -745,7 +745,7 @@ If you have any questions, reply here.
                               onChange={(e) =>
                                 handleStatusChange(order.id, e.target.value as OrderStatus)
                               }
-                              className="px-3 py-1.5 rounded-xl border border-[#6B352A]/25 bg-[#FFF8E7] text-xs font-semibold text-[#6B352A] focus:outline-none focus:ring-1 focus:ring-[#6B352A]"
+                              className="px-3 py-1.5 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-xs font-semibold text-[#211612] focus:outline-none focus:ring-1 focus:ring-[#211612]"
                             >
                               <option value="New">New</option>
                               <option value="Packed">Packed</option>
@@ -762,7 +762,7 @@ If you have any questions, reply here.
                                 href={waUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold shadow-sm transition-all hover:scale-105 active:scale-95 shrink-0"
+                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold shadow-sm transition-all hover:scale-105 active:scale-95 shrink-0"
                                 title="Open WhatsApp chat with pre-filled order receipt & dispatch updates"
                               >
                                 <MessageCircle className="w-3.5 h-3.5 fill-white" />
@@ -784,7 +784,7 @@ If you have any questions, reply here.
                                     handleUpdateTracking(order.id, trk, cour || "BlueDart Express");
                                   }
                                 }}
-                                className="p-2 rounded-xl bg-stone-100 text-stone-700 hover:bg-stone-200 transition-colors"
+                                className="p-2 rounded-full bg-stone-100 text-stone-700 hover:bg-stone-200 transition-colors"
                                 title="Add/Edit Courier Tracking"
                               >
                                 <Truck className="w-4 h-4" />
@@ -806,10 +806,10 @@ If you have any questions, reply here.
           <div className="space-y-4">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
               <div>
-                <h3 className="font-serif text-xl font-bold text-[#4A231B]">
+                <h3 className="font-serif text-xl font-bold text-[#211612]">
                   Pickle Catalog & Stock
                 </h3>
-                <p className="text-xs text-stone-500">
+                <p className="text-xs text-[#3D2C24]/60">
                   Update unit prices, modify stock inventory, and upload new bottle images.
                 </p>
               </div>
@@ -822,7 +822,7 @@ If you have any questions, reply here.
                     placeholder="Search product..."
                     value={searchProduct}
                     onChange={(e) => setSearchProduct(e.target.value)}
-                    className="w-full pl-9 pr-3 py-2 rounded-2xl bg-white border border-[#6B352A]/20 text-xs focus:outline-none"
+                    className="w-full pl-9 pr-3 py-2 rounded-2xl bg-[#FDFBF7] border border-[#E8DEC8] text-xs focus:outline-none"
                   />
                 </div>
 
@@ -836,12 +836,12 @@ If you have any questions, reply here.
                     setProdPrice500(549);
                     setProdPrice1kg(999);
                     setProdStock(50);
-                    setProdImage("/images/hero-pickle.jpg");
+                    setProdImage("/images/products/mushroom-mela-front.jpg");
                     setShowProductModal(true);
                   }}
-                  className="px-5 py-2.5 rounded-full bg-[#6B352A] hover:bg-[#4A231B] text-[#FFF1A6] text-xs font-bold flex items-center gap-1.5 shadow-md transition-all hover:scale-105 shrink-0"
+                  className="px-5 py-2.5 rounded-full bg-[#211612] hover:bg-[#1C130E] text-[#FAF6EE] border border-[#C89B3C]/40 text-xs font-bold flex items-center gap-1.5 shadow-md transition-all hover:scale-105 shrink-0"
                 >
-                  <Plus className="w-4 h-4" />
+                  <Plus className="w-4 h-4 text-[#C89B3C]" />
                   <span>Add New Pickle</span>
                 </button>
               </div>
@@ -851,35 +851,35 @@ If you have any questions, reply here.
               {filteredProducts.map((p) => (
                 <div
                   key={p.id}
-                  className="bg-white rounded-[32px] border border-[#6B352A]/15 shadow-md overflow-hidden flex flex-col justify-between group"
+                  className="bg-[#FDFBF7] rounded-[32px] border border-[#E8DEC8] shadow-sm overflow-hidden flex flex-col justify-between group"
                 >
                   <div>
-                    <div className="relative aspect-square bg-[#FFFBEF]">
+                    <div className="relative aspect-square bg-[#FAF6EE]">
                       <Image
-                        src={p.image || "/images/hero-pickle.jpg"}
+                        src={p.image || "/images/products/mushroom-mela-front.jpg"}
                         alt={p.name}
                         fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
                       />
-                      <span className="absolute top-3 left-3 bg-[#4A231B] text-[#FFF1A6] text-[10px] font-bold px-2.5 py-1 rounded-full shadow-md">
+                      <span className="absolute top-3 left-3 bg-[#1C130E] text-[#FAF6EE] text-[10px] font-bold px-2.5 py-1 rounded-full shadow-md border border-[#C89B3C]/40">
                         Stock: {p.stockCount} jars
                       </span>
                     </div>
 
                     <div className="p-5 space-y-2.5">
-                      <span className="text-[10px] font-bold text-[#A8553F] bg-[#FFF1A6] px-2.5 py-0.5 rounded-full border border-[#6B352A]/15">
+                      <span className="text-[10px] font-bold text-[#C89B3C] bg-[#1C130E] px-2.5 py-0.5 rounded-full border border-[#C89B3C]/30">
                         {p.flavour}
                       </span>
-                      <h4 className="font-serif text-base font-bold text-[#2B1B17] line-clamp-1 leading-snug">
+                      <h4 className="font-serif text-base font-bold text-[#211612] line-clamp-1 leading-snug">
                         {p.name}
                       </h4>
 
                       {/* Prices for sizes */}
-                      <div className="space-y-1 pt-1 text-xs text-stone-600 bg-[#FFFBEF] p-3 rounded-2xl border border-[#6B352A]/10">
+                      <div className="space-y-1 pt-1 text-xs text-[#3D2C24]/80 bg-[#FAF6EE] p-3 rounded-2xl border border-[#E8DEC8]">
                         {p.sizes?.map((s) => (
                           <div key={s.size} className="flex justify-between items-center">
                             <span className="font-medium">{s.size}:</span>
-                            <span className="font-serif font-extrabold text-[#4A231B]">
+                            <span className="font-serif font-extrabold text-[#211612]">
                               ₹{s.price}
                             </span>
                           </div>
@@ -888,17 +888,17 @@ If you have any questions, reply here.
                     </div>
                   </div>
 
-                  <div className="p-5 pt-0 grid grid-cols-2 gap-2 border-t border-stone-100 pt-3">
+                  <div className="p-5 pt-0 grid grid-cols-2 gap-2 border-t border-[#E8DEC8] pt-3">
                     <button
                       onClick={() => openEditModal(p)}
-                      className="py-2.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold flex items-center justify-center gap-1 transition-colors"
+                      className="py-2.5 rounded-full bg-[#FAF6EE] hover:bg-[#E8DEC8] text-[#211612] text-xs font-bold flex items-center justify-center gap-1 transition-colors border border-[#E8DEC8]"
                     >
                       <Edit className="w-3.5 h-3.5" />
                       <span>Edit & Stock</span>
                     </button>
                     <button
                       onClick={() => handleDeleteProduct(p.id)}
-                      className="py-2.5 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 text-xs font-bold flex items-center justify-center gap-1 transition-colors"
+                      className="py-2.5 rounded-full bg-red-50 hover:bg-red-100 text-red-700 text-xs font-bold flex items-center justify-center gap-1 transition-colors"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                       <span>Delete</span>
@@ -912,8 +912,8 @@ If you have any questions, reply here.
 
         {/* MODAL: VIEW ORDER DETAILS WITH WHATSAPP DISPATCH */}
         {selectedOrderForView && (
-          <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-            <div className="bg-white rounded-[32px] max-w-xl w-full p-6 sm:p-8 space-y-6 border border-[#6B352A]/20 shadow-2xl relative my-8">
+          <div className="fixed inset-0 z-50 bg-[#1C130E]/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+            <div className="bg-[#FDFBF7] rounded-[32px] max-w-xl w-full p-6 sm:p-8 space-y-6 border border-[#E8DEC8] shadow-2xl relative my-8">
               <button
                 onClick={() => setSelectedOrderForView(null)}
                 className="absolute top-5 right-5 text-stone-400 hover:text-stone-700 p-1"
@@ -922,22 +922,22 @@ If you have any questions, reply here.
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="flex items-center justify-between pb-4 border-b border-stone-100">
+              <div className="flex items-center justify-between pb-4 border-b border-[#E8DEC8]">
                 <div>
-                  <span className="text-xs font-bold text-[#A8553F] uppercase tracking-wider font-mono">
+                  <span className="text-xs font-bold text-[#A87B28] uppercase tracking-wider font-mono">
                     Order Reference
                   </span>
-                  <h3 className="font-serif text-2xl font-bold text-[#4A231B]">
+                  <h3 className="font-serif text-2xl font-bold text-[#211612]">
                     #{selectedOrderForView.orderNumber}
                   </h3>
                 </div>
-                <span className="text-xs font-bold bg-[#FFF1A6] text-[#4A231B] px-3 py-1 rounded-full border border-[#6B352A]/20">
+                <span className="text-xs font-bold bg-[#FAF6EE] text-[#211612] px-3 py-1 rounded-full border border-[#E8DEC8]">
                   {selectedOrderForView.orderStatus}
                 </span>
               </div>
 
               {/* Customer summary */}
-              <div className="bg-[#FFFBEF] p-4 rounded-2xl border border-[#6B352A]/15 text-xs space-y-1.5">
+              <div className="bg-[#FAF6EE] p-4 rounded-2xl border border-[#E8DEC8] text-xs space-y-1.5">
                 <p>
                   <strong>Customer:</strong> {selectedOrderForView.customerName}
                 </p>
@@ -959,22 +959,22 @@ If you have any questions, reply here.
 
               {/* Items */}
               <div className="space-y-2">
-                <h4 className="text-xs font-bold text-[#4A231B] uppercase tracking-wider">
+                <h4 className="text-xs font-bold text-[#211612] uppercase tracking-wider">
                   Ordered Jars:
                 </h4>
                 <div className="space-y-2">
                   {selectedOrderForView.items?.map((item, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center justify-between text-xs p-2.5 rounded-xl bg-stone-50 border border-stone-100"
+                      className="flex items-center justify-between text-xs p-2.5 rounded-xl bg-[#FAF6EE] border border-[#E8DEC8]"
                     >
                       <div>
-                        <span className="font-bold text-[#2B1B17]">{item.name}</span>
-                        <span className="text-stone-500 block text-[11px]">
+                        <span className="font-bold text-[#211612]">{item.name}</span>
+                        <span className="text-[#3D2C24]/60 block text-[11px]">
                           Weight: {item.size} • Quantity: {item.quantity}
                         </span>
                       </div>
-                      <span className="font-bold text-[#4A231B]">
+                      <span className="font-bold text-[#211612]">
                         ₹{item.price * item.quantity}
                       </span>
                     </div>
@@ -1005,8 +1005,8 @@ If you have any questions, reply here.
 
         {/* MODAL: ADD / EDIT PRODUCT WITH IMAGE UPLOAD */}
         {showProductModal && (
-          <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-            <div className="bg-white rounded-[32px] max-w-lg w-full p-6 sm:p-8 space-y-5 border border-[#6B352A]/20 shadow-2xl relative my-8">
+          <div className="fixed inset-0 z-50 bg-[#1C130E]/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+            <div className="bg-[#FDFBF7] rounded-[32px] max-w-lg w-full p-6 sm:p-8 space-y-5 border border-[#E8DEC8] shadow-2xl relative my-8">
               <button
                 onClick={() => setShowProductModal(false)}
                 className="absolute top-5 right-5 text-stone-400 hover:text-stone-700 p-1"
@@ -1016,22 +1016,22 @@ If you have any questions, reply here.
               </button>
 
               <div>
-                <h3 className="font-serif text-2xl font-bold text-[#4A231B]">
+                <h3 className="font-serif text-2xl font-bold text-[#211612]">
                   {editingProduct ? "Edit Pickle & Adjust Pricing" : "Add New Pickle Variety"}
                 </h3>
-                <p className="text-xs text-stone-500 mt-1">
+                <p className="text-xs text-[#3D2C24]/60 mt-1">
                   Changes save to Supabase / local storage and reflect on the storefront instantly.
                 </p>
               </div>
 
               <form onSubmit={handleSaveProduct} className="space-y-4 text-xs">
                 {/* Image Upload & Preview Section */}
-                <div className="space-y-2 p-3.5 rounded-2xl bg-[#FFFBEF] border border-[#6B352A]/20">
-                  <label className="font-bold text-[#4A231B] block">
+                <div className="space-y-2 p-3.5 rounded-2xl bg-[#FAF6EE] border border-[#E8DEC8]">
+                  <label className="font-bold text-[#211612] block">
                     Product Image & Visual
                   </label>
                   <div className="flex items-center gap-4">
-                    <div className="relative w-16 h-16 rounded-2xl overflow-hidden bg-white border border-stone-200 shrink-0">
+                    <div className="relative w-16 h-16 rounded-2xl overflow-hidden bg-white border border-[#E8DEC8] shrink-0">
                       <Image
                         src={prodImage}
                         alt="Product preview"
@@ -1040,8 +1040,8 @@ If you have any questions, reply here.
                       />
                     </div>
                     <div className="flex-1 space-y-1">
-                      <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#6B352A] text-[#FFF1A6] text-xs font-semibold hover:bg-[#4A231B] shadow-sm">
-                        <Upload className="w-3.5 h-3.5" />
+                      <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#211612] text-[#FAF6EE] border border-[#C89B3C]/40 text-xs font-semibold hover:bg-[#1C130E] shadow-sm">
+                        <Upload className="w-3.5 h-3.5 text-[#C89B3C]" />
                         <span>Upload New Image</span>
                         <input
                           type="file"
@@ -1050,7 +1050,7 @@ If you have any questions, reply here.
                           className="hidden"
                         />
                       </label>
-                      <p className="text-[10px] text-stone-500">
+                      <p className="text-[10px] text-[#3D2C24]/60">
                         Select a JPEG/PNG photo from your computer.
                       </p>
                     </div>
@@ -1058,35 +1058,35 @@ If you have any questions, reply here.
                 </div>
 
                 <div className="space-y-1">
-                  <label className="font-bold text-[#2B1B17]">Product Name</label>
+                  <label className="font-bold text-[#211612]">Product Name</label>
                   <input
                     type="text"
                     required
                     placeholder="e.g. Kashmiri Morel Morchella Mushroom Pickle"
                     value={prodName}
                     onChange={(e) => setProdName(e.target.value)}
-                    className="w-full px-3.5 py-2 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#6B352A]"
+                    className="w-full px-3.5 py-2 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="font-bold text-[#2B1B17]">Short Subtitle</label>
+                  <label className="font-bold text-[#211612]">Short Subtitle</label>
                   <input
                     type="text"
                     placeholder="e.g. Infused with wild mountain spices and raw mustard oil"
                     value={prodSubtitle}
                     onChange={(e) => setProdSubtitle(e.target.value)}
-                    className="w-full px-3.5 py-2 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#6B352A]"
+                    className="w-full px-3.5 py-2 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div className="space-y-1">
-                    <label className="font-bold text-[#2B1B17]">Flavour</label>
+                    <label className="font-bold text-[#211612]">Flavour</label>
                     <select
                       value={prodFlavour}
                       onChange={(e) => setProdFlavour(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl border border-stone-300 focus:outline-none bg-white"
+                      className="w-full px-3 py-2 rounded-xl border border-[#E8DEC8] focus:outline-none bg-[#FAF6EE] text-[#211612]"
                     >
                       <option value="Classic Masala">Classic Masala</option>
                       <option value="Garlic">Garlic</option>
@@ -1097,13 +1097,13 @@ If you have any questions, reply here.
                   </div>
 
                   <div className="space-y-1">
-                    <label className="font-bold text-[#2B1B17]">Spice Level</label>
+                    <label className="font-bold text-[#211612]">Spice Level</label>
                     <select
                       value={prodSpice}
                       onChange={(e) =>
                         setProdSpice(e.target.value as "Mild" | "Medium" | "Hot")
                       }
-                      className="w-full px-3 py-2 rounded-xl border border-stone-300 focus:outline-none bg-white"
+                      className="w-full px-3 py-2 rounded-xl border border-[#E8DEC8] focus:outline-none bg-[#FAF6EE] text-[#211612]"
                     >
                       <option value="Mild">Mild</option>
                       <option value="Medium">Medium</option>
@@ -1114,12 +1114,12 @@ If you have any questions, reply here.
 
                 {/* Price by Size with Instant Edit */}
                 <div className="space-y-1.5 pt-1">
-                  <label className="font-bold text-[#4A231B]">
+                  <label className="font-bold text-[#211612]">
                     Price by Jar Weight (₹):
                   </label>
                   <div className="grid grid-cols-3 gap-2.5">
                     <div>
-                      <span className="text-[10px] text-stone-500 font-semibold block mb-0.5">
+                      <span className="text-[10px] text-[#3D2C24]/60 font-semibold block mb-0.5">
                         250g Jar Price
                       </span>
                       <input
@@ -1127,11 +1127,11 @@ If you have any questions, reply here.
                         required
                         value={prodPrice250}
                         onChange={(e) => setProdPrice250(Number(e.target.value))}
-                        className="w-full px-2.5 py-1.5 rounded-xl border border-stone-300 font-bold font-serif text-[#4A231B]"
+                        className="w-full px-2.5 py-1.5 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] font-bold font-serif text-[#211612]"
                       />
                     </div>
                     <div>
-                      <span className="text-[10px] text-stone-500 font-semibold block mb-0.5">
+                      <span className="text-[10px] text-[#3D2C24]/60 font-semibold block mb-0.5">
                         500g Jar Price
                       </span>
                       <input
@@ -1139,11 +1139,11 @@ If you have any questions, reply here.
                         required
                         value={prodPrice500}
                         onChange={(e) => setProdPrice500(Number(e.target.value))}
-                        className="w-full px-2.5 py-1.5 rounded-xl border border-stone-300 font-bold font-serif text-[#4A231B]"
+                        className="w-full px-2.5 py-1.5 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] font-bold font-serif text-[#211612]"
                       />
                     </div>
                     <div>
-                      <span className="text-[10px] text-stone-500 font-semibold block mb-0.5">
+                      <span className="text-[10px] text-[#3D2C24]/60 font-semibold block mb-0.5">
                         1kg Jar Price
                       </span>
                       <input
@@ -1151,7 +1151,7 @@ If you have any questions, reply here.
                         required
                         value={prodPrice1kg}
                         onChange={(e) => setProdPrice1kg(Number(e.target.value))}
-                        className="w-full px-2.5 py-1.5 rounded-xl border border-stone-300 font-bold font-serif text-[#4A231B]"
+                        className="w-full px-2.5 py-1.5 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] font-bold font-serif text-[#211612]"
                       />
                     </div>
                   </div>
@@ -1159,7 +1159,7 @@ If you have any questions, reply here.
 
                 {/* Available Inventory (Stock) */}
                 <div className="space-y-1">
-                  <label className="font-bold text-[#2B1B17]">
+                  <label className="font-bold text-[#211612]">
                     Inventory Count (Available Jars)
                   </label>
                   <input
@@ -1167,21 +1167,21 @@ If you have any questions, reply here.
                     required
                     value={prodStock}
                     onChange={(e) => setProdStock(Number(e.target.value))}
-                    className="w-full px-3 py-2 rounded-xl border border-stone-300"
+                    className="w-full px-3 py-2 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-[#211612]"
                   />
                 </div>
 
-                <div className="pt-3 flex justify-end gap-2.5 border-t border-stone-100">
+                <div className="pt-3 flex justify-end gap-2.5 border-t border-[#E8DEC8]">
                   <button
                     type="button"
                     onClick={() => setShowProductModal(false)}
-                    className="px-4 py-2.5 rounded-full border border-stone-300 text-stone-600 font-bold"
+                    className="px-4 py-2.5 rounded-full border border-[#E8DEC8] text-stone-600 font-bold hover:bg-[#FAF6EE]"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="px-7 py-2.5 rounded-full bg-[#6B352A] hover:bg-[#4A231B] text-[#FFF1A6] font-bold shadow-md hover:scale-105 transition-all"
+                    className="px-7 py-2.5 rounded-full bg-[#211612] hover:bg-[#1C130E] text-[#FAF6EE] border border-[#C89B3C]/40 font-bold shadow-md hover:scale-105 transition-all"
                   >
                     Save Pickle
                   </button>

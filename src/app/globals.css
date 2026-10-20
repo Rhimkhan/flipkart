@@ -1,22 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  /* Clay Palette (#6B352A, #4A231B, #A8553F, #FFF1A6, #FFF8E7) */
-  --color-clay-brown: #6B352A;
-  --color-deep-clay: #4A231B;
-  --color-terracotta: #A8553F;
-  --color-soft-butter: #FFF1A6;
-  --color-warm-cream: #FFF8E7;
-  --color-charcoal: #2B1B17;
+  /* Warm Luxury Cream, Deep Espresso & Gold Palette (Derived from Photo) */
+  --color-clay-brown: #211612;
+  --color-deep-clay: #1C130E;
+  --color-terracotta: #A87B28;
+  --color-soft-butter: #EFE8DD;
+  --color-warm-cream: #FAF6EE;
+  --color-charcoal: #211612;
 
   /* Semantic Theme Aliases */
-  --color-clay: #6B352A;
-  --color-clay-light: #A8553F;
-  --color-clay-dark: #4A231B;
-  --color-butter: #FFF1A6;
-  --color-cream: #FFF8E7;
+  --color-clay: #211612;
+  --color-clay-light: #A87B28;
+  --color-clay-dark: #1C130E;
+  --color-butter: #EFE8DD;
+  --color-cream: #FAF6EE;
+  --color-gold: #C89B3C;
+  --color-gold-dark: #A87B28;
+  --color-espresso: #211612;
 
-  /* Typography */
+  /* Strict Luxury Typography System */
   --font-serif: var(--font-playfair), Georgia, serif;
   --font-sans: var(--font-poppins), system-ui, -apple-system, sans-serif;
   --font-heading: var(--font-playfair), Georgia, serif;
@@ -24,80 +27,112 @@
 }
 
 :root {
-  --background: #FFF8E7;
-  --foreground: #2B1B17;
+  --background: #FAF6EE;
+  --foreground: #211612;
 }
 
 body {
-  background-color: #FFF8E7;
-  color: #2B1B17;
+  background-color: #FAF6EE;
+  color: #211612;
   font-family: var(--font-poppins), system-ui, sans-serif;
   overflow-x: clip;
-  selection-background-color: #6B352A;
-  selection-color: #FFF1A6;
 }
 
 ::selection {
-  background: #6B352A;
-  color: #FFF1A6;
+  background: #211612;
+  color: #FAF6EE;
 }
 
 /* --------------------------------------------------------------
-   Accessibility: Visible focus states (Issue #15)
+   Accessibility: Visible focus states
    -------------------------------------------------------------- */
 :focus-visible {
-  outline: 2px solid #6B352A;
+  outline: 2px solid #211612;
   outline-offset: 2px;
 }
 
-.bg-\[\#4A231B\] :focus-visible,
-.bg-\[\#6B352A\] :focus-visible,
-.bg-\[\#2B1B17\] :focus-visible,
+.bg-\[\#1C130E\] :focus-visible,
+.bg-\[\#211612\] :focus-visible,
+.bg-\[\#2A1D17\] :focus-visible,
 header :focus-visible {
-  outline: 2px solid #FFF1A6;
+  outline: 2px solid #C89B3C;
   outline-offset: 2px;
 }
 
 /* --------------------------------------------------------------
-   Issue #12 & #14: Typography & Reusable Consistent Controls
+   Luxury Editorial Typography System & Reusable Controls
    -------------------------------------------------------------- */
 @layer utilities {
-  /* Body copy: 14px (Issue #12) */
+  /* High-contrast serif headlines */
+  .headline-luxury {
+    font-family: var(--font-playfair), Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+    color: #211612;
+  }
+
+  /* Refined, tracked-out sans-serif eyebrows and subtitles */
+  .eyebrow-luxury {
+    font-family: var(--font-playfair), Georgia, serif;
+    font-size: 0.75rem; /* 12px */
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #A87B28;
+  }
+
+  /* Editorial narrative body copy: standard 16px (text-base) */
+  .editorial-body {
+    font-family: var(--font-poppins), system-ui, sans-serif;
+    font-size: 1rem; /* 16px */
+    line-height: 1.75;
+    color: #3D2C24;
+  }
+
+  /* Body copy: 14px */
   .text-body {
     font-size: 0.875rem;
     line-height: 1.5rem;
   }
-  /* Caption & Badges: at least 12px (Issue #12) */
+  /* Caption & Badges: at least 12px */
   .text-caption {
     font-size: 0.75rem;
     line-height: 1.125rem;
   }
 
-  /* One consistent button radius across the site: rounded-xl (Issue #14) */
+  /* Unified Button System: 4 Clear Consistent Styles (Target < 5) */
+  /* Style 1: Primary Action (Deep Espresso Solid with warm cream text) */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 bg-[#6B352A] text-[#FFF1A6] hover:bg-[#4A231B] font-bold py-2.5 px-5 rounded-xl text-sm border border-[#6B352A] transition-all shadow-sm hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFF1A6];
+    @apply inline-flex items-center justify-center gap-2 bg-[#211612] text-[#FAF6EE] hover:bg-[#34221A] font-serif font-bold py-3 px-6 rounded-xl text-xs tracking-[0.18em] uppercase border border-[#211612] transition-all shadow-md hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C89B3C];
   }
+  /* Style 2: Secondary / Outline Action (Transparent with Espresso border) */
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 border-2 border-[#6B352A] text-[#6B352A] hover:bg-[#6B352A] hover:text-[#FFF1A6] font-bold py-2.5 px-5 rounded-xl text-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B352A];
+    @apply inline-flex items-center justify-center gap-2 border border-[#211612] text-[#211612] hover:bg-[#211612] hover:text-[#FAF6EE] font-serif font-semibold py-3 px-6 rounded-xl text-xs tracking-[0.18em] uppercase transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#211612];
   }
+  /* Style 3: Pill Action for Navbar & Badges */
+  .btn-pill {
+    @apply inline-flex items-center justify-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-serif tracking-[0.18em] uppercase transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#211612];
+  }
+  /* Style 4: Minimalist Icon-only Button */
   .btn-icon {
-    @apply flex items-center justify-center p-2 rounded-xl bg-[#FFF1A6] text-[#4A231B] hover:bg-[#FFF9D6] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4A231B];
+    @apply flex items-center justify-center p-2 rounded-xl text-[#211612] hover:bg-[#EDE3C8] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#211612];
   }
 }
 
-/* Custom scrollbar in Clay Palette */
+/* Custom scrollbar in Photo Warm Cream & Gold Palette */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #FFF8E7;
+  background: #FAF6EE;
 }
 ::-webkit-scrollbar-thumb {
-  background: #A8553F;
+  background: #C89B3C;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #6B352A;
+  background: #A87B28;
 }
 
 /* Smooth interactive transitions */
@@ -109,18 +144,19 @@ button, a {
   font-family: var(--font-playfair), Georgia, serif;
 }
 
-/* One consistent card radius across the site: rounded-2xl (Issue #14) */
+/* Consistent luxury card styling */
 .clay-card {
-  border-radius: 1rem; /* 16px = rounded-2xl */
-  background-color: #ffffff;
-  border: 1px solid rgba(107, 53, 42, 0.12);
-  box-shadow: 0 10px 30px -10px rgba(107, 53, 42, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 1.25rem; /* 20px */
+  background-color: #FDFBF7;
+  border: 1px solid #E8DEC8;
+  box-shadow: 0 10px 30px -10px rgba(33, 22, 18, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .clay-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 35px -10px rgba(107, 53, 42, 0.14);
+  border-color: rgba(200, 155, 60, 0.4);
+  box-shadow: 0 20px 35px -10px rgba(33, 22, 18, 0.12);
 }
 
 .clay-pill {
@@ -131,5 +167,8 @@ button, a {
   gap: 0.5rem;
   font-size: 0.75rem; /* 12px text-caption */
   font-weight: 600;
+  background-color: #EFE8DD;
+  color: #3D2C24;
+  border: 1px solid #DDD3C4;
   transition: all 0.2s ease;
 }

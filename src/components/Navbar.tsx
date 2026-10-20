@@ -1,19 +1,24 @@
 "use client";
 
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect, Suspense, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ShoppingBag, Menu, X, PhoneCall, ShieldCheck } from "lucide-react";
+import { ShoppingBag, Search, Menu, X, PhoneCall, User as UserIcon, Package, LogOut, ChevronDown } from "lucide-react";
 import { useCart } from "@/lib/cart-context";
-import { BRAND } from "@/lib/brand";
+import { useAuth } from "@/lib/auth-context";
 import { WHATSAPP_NUMBER, WHATSAPP_DEFAULT_MESSAGE } from "@/lib/config";
 
 function NavbarContent() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [userDropdownOpen, setUserDropdownOpen] = useState(false);
+  const userDropdownRef = useRef<HTMLDivElement>(null);
+
   const { totalItemsCount, setIsDrawerOpen } = useCart();
+  const { user, openAuthModal, signOut } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,260 +29,405 @@ function NavbarContent() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (userDropdownRef.current && !userDropdownRef.current.contains(event.target as Node)) {
+        setUserDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const leftNav = [
+    { href: "/our-story", label: "OUR STORY" },
+    { href: "/shop", label: "THE SHOP" },
+  ];
+
+  const rightNav = [
+    { href: "/certificates", label: "THE PROVENANCE" },
+    { href: "/gallery", label: "OUR JOURNEY" },
+  ];
+
+  const displayName = user?.user_metadata?.full_name || user?.email?.split("@")[0] || "Account";
+
   return (
     <>
-      {/* Top artisanal announcement bar */}
-      <div className="bg-[#4A231B] text-[#FFF1A6] text-xs py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2 border-b border-[#6B352A]/40">
-        <span className="inline-block w-2 h-2 rounded-full bg-[#FFF1A6] animate-pulse"></span>
-        <span>
-          Handcrafted in Jhansi, UP • FSSAI Lic. No. 22726293000001 • Free Shipping over ₹{BRAND.freeShippingThreshold} • Code:{" "}
-          <strong className="underline underline-offset-2 tracking-wider text-[#FFF1A6]">AKHIL10</strong>
-        </span>
+      {/* Top understated luxury atelier strip */}
+      <div className="bg-[#1A110D] text-[#EADBB6] text-xs py-1.5 px-4 text-center font-serif tracking-[0.28em] uppercase flex items-center justify-center gap-3 border-b border-[#C89B3C]/20">
+        <span>Jhansi Atelier</span>
+        <span className="text-[#C89B3C]/40">•</span>
+        <span>Artisanal Oyster Mushroom Pickle</span>
       </div>
 
-      {/* Main Sticky Navbar */}
+      {/* Main Luxury Navigation Bar with Centered Gold & Espresso Logo */}
       <header
-        className={`sticky top-0 w-full transition-all duration-300 z-40 ${
+        className={`sticky top-0 w-full transition-all duration-500 z-40 ${
           isScrolled
-            ? "bg-[#6B352A]/95 backdrop-blur-md shadow-lg py-2.5 border-b border-[#FFF1A6]/15"
-            : "bg-[#6B352A] py-3.5 border-b border-[#4A231B]"
+            ? "bg-[#FAF6EE]/95 backdrop-blur-md shadow-md py-3 border-b border-[#E6DCBF]"
+            : "bg-[#FAF6EE] py-4 border-b border-[#ECE2C8]"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Brand Logo & Name */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-[#FFF1A6]/80 shadow-md group-hover:scale-105 transition-transform bg-[#2B1B17]">
-                <Image
-                  src={BRAND.logo}
-                  alt={`${BRAND.name} Artisanal Mushroom Pickle Logo`}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-xl sm:text-2xl font-bold tracking-wider text-[#FFF1A6] drop-shadow-sm group-hover:text-white transition-colors">
-                  {BRAND.name}
-                </span>
-                <span className="text-caption tracking-wider font-medium text-[#FFF8E7]/90">
-                  {BRAND.tagline}
-                </span>
-              </div>
-            </Link>
-
-            {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium text-[#FFF8E7]">
+            {/* Desktop Left: Rounded Dark-Espresso Button for THE ATELIER + OUR STORY + THE SHOP */}
+            <nav className="hidden lg:flex items-center space-x-7 text-xs font-serif tracking-[0.22em] text-[#211612]">
+              {/* THE ATELIER in a thin, rounded dark-espresso button */}
               <Link
                 href="/"
-                className={`hover:text-[#FFF1A6] transition-colors py-1 relative group ${pathname === '/' ? 'text-[#FFF1A6] font-bold border-b-2 border-[#FFF1A6]' : 'text-[#FFF8E7]'}`}
+                className={`btn-pill ${
+                  pathname === "/"
+                    ? "bg-[#211612] text-[#FAF6EE] border border-[#211612] shadow"
+                    : "bg-[#211612] text-[#FAF6EE] hover:bg-[#34221A] border border-[#211612]"
+                }`}
               >
-                Home
+                THE ATELIER
               </Link>
-              <Link
-                href="/shop"
-                className={`hover:text-[#FFF1A6] transition-colors py-1 relative group ${pathname === '/shop' ? 'text-[#FFF1A6] font-bold border-b-2 border-[#FFF1A6]' : 'text-[#FFF8E7]'}`}
-              >
-                Shop
-              </Link>
-              <Link
-                href="/our-story"
-                className={`hover:text-[#FFF1A6] transition-colors py-1 relative group ${pathname === '/our-story' ? 'text-[#FFF1A6] font-bold border-b-2 border-[#FFF1A6]' : 'text-[#FFF8E7]'}`}
-              >
-                Our Story
-              </Link>
-              <Link
-                href="/gallery"
-                className={`hover:text-[#FFF1A6] transition-colors py-1 relative group ${pathname === '/gallery' ? 'text-[#FFF1A6] font-bold border-b-2 border-[#FFF1A6]' : 'text-[#FFF8E7]'}`}
-              >
-                Gallery
-              </Link>
-              <Link
-                href="/faq"
-                className={`hover:text-[#FFF1A6] transition-colors py-1 relative group ${pathname === '/faq' ? 'text-[#FFF1A6] font-bold border-b-2 border-[#FFF1A6]' : 'text-[#FFF8E7]'}`}
-              >
-                FAQ
-              </Link>
-              <Link
-                href="/certificates"
-                className={`hover:text-[#FFF1A6] transition-colors py-1 relative group ${pathname === '/certificates' ? 'text-[#FFF1A6] font-bold border-b-2 border-[#FFF1A6]' : 'text-[#FFF8E7]'}`}
-              >
-                Certificates
-              </Link>
-              <Link
-                href="/contact"
-                className={`hover:text-[#FFF1A6] transition-colors py-1 relative group ${pathname === '/contact' ? 'text-[#FFF1A6] font-bold border-b-2 border-[#FFF1A6]' : 'text-[#FFF8E7]'}`}
-              >
-                Contact
-              </Link>
-              <Link
-                href="/track-order"
-                className={`hover:text-[#FFF1A6] transition-colors py-1 relative group ${pathname === '/track-order' ? 'text-[#FFF1A6] font-bold border-b-2 border-[#FFF1A6]' : 'text-[#FFF8E7]'}`}
-              >
-                Track Order
-              </Link>
-              <Link
-                href="/admin"
-                className="text-xs px-3 py-1.5 rounded-xl bg-[#4A231B] text-[#FFF1A6] hover:bg-[#A8553F] font-semibold transition-all flex items-center gap-1 border border-[#FFF1A6]/20"
-                title="Admin Management Portal"
-              >
-                <ShieldCheck className="w-3.5 h-3.5 text-[#FFF1A6]" />
-                Admin
-              </Link>
+
+              {leftNav.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`transition-colors py-1 relative group ${
+                      isActive
+                        ? "text-[#211612] font-bold border-b-2 border-[#211612]"
+                        : "text-[#211612]/80 hover:text-[#C89B3C]"
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                  </Link>
+                );
+              })}
             </nav>
 
-            {/* Right actions: WhatsApp CTA + Cart trigger with item count */}
-            <div className="flex items-center gap-3 sm:gap-4">
-              <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2.5 rounded-xl bg-[#A8553F] hover:bg-[#873E2C] text-[#FFF1A6] border border-[#FFF1A6]/30 shadow-sm transition-all focus-visible:ring-2 focus-visible:ring-[#FFF1A6]"
-              >
-                <PhoneCall className="w-3.5 h-3.5" />
-                <span>Order on WhatsApp</span>
-              </a>
+            {/* Top Center: Centered Gold & Deep Espresso-Brown Logo */}
+            <div className="flex-1 lg:flex-initial text-center lg:px-8">
+              <Link href="/" className="inline-flex flex-col items-center group">
+                <span className="font-serif text-2xl sm:text-3xl font-extrabold tracking-[0.25em] text-[#211612] group-hover:text-[#A87B28] transition-colors">
+                  AKHIL FOODS
+                </span>
+                <span className="font-serif text-xs tracking-[0.2em] text-[#A87B28] font-medium mt-0.5">
+                  Jhansi • Artisanal
+                </span>
+              </Link>
+            </div>
 
-              {/* Cart Drawer Trigger with item count */}
+            {/* Desktop Right: THE PROVENANCE + OUR JOURNEY */}
+            <nav className="hidden lg:flex items-center space-x-7 text-xs font-serif tracking-[0.22em] text-[#211612]">
+              {rightNav.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`transition-colors py-1 relative group ${
+                      isActive
+                        ? "text-[#211612] font-bold border-b-2 border-[#211612]"
+                        : "text-[#211612]/80 hover:text-[#C89B3C]"
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                  </Link>
+                );
+              })}
+            </nav>
+
+            {/* Top Right: User Account, Search & Shopping Cart Icons */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              {/* Search Toggle Icon */}
+              <button
+                type="button"
+                onClick={() => setSearchOpen(!searchOpen)}
+                className="btn-icon"
+                aria-label="Search Collection"
+                title="Search Collection"
+              >
+                <Search className="w-4 h-4 sm:w-5 sm:h-5" />
+              </button>
+
+              {/* Shopping Bag Trigger Icon */}
               <button
                 type="button"
                 onClick={() => setIsDrawerOpen(true)}
-                className="relative p-2.5 rounded-xl bg-[#FFF1A6] hover:bg-[#FFF9D6] text-[#4A231B] shadow-md transition-transform active:scale-95 group focus-visible:ring-2 focus-visible:ring-[#4A231B]"
-                aria-label="View Cart"
+                className="btn-icon relative group"
+                aria-label="View Shopping Bag"
+                title="View Basket"
               >
-                <ShoppingBag className="w-5 h-5 text-[#6B352A] group-hover:scale-110 transition-transform" />
+                <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-105 transition-transform" />
                 {totalItemsCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-[#A8553F] text-[#FFF1A6] text-caption font-bold w-5 h-5 rounded-full flex items-center justify-center ring-2 ring-[#6B352A] animate-bounce">
+                  <span className="absolute top-0.5 right-0.5 bg-[#211612] text-[#FAF6EE] text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center shadow">
                     {totalItemsCount}
                   </span>
                 )}
               </button>
 
-              {/* Mobile hamburger menu toggle */}
+              {/* Customer Account Button / Dropdown */}
+              <div className="relative" ref={userDropdownRef}>
+                {!user ? (
+                  <button
+                    type="button"
+                    onClick={() => openAuthModal("signin")}
+                    className="btn-pill bg-transparent text-[#211612] border border-[#DDD3C4] hover:bg-[#EDE3C8] hover:border-[#211612]"
+                    title="Login / Sign up"
+                    aria-label="Login or Sign up"
+                  >
+                    <UserIcon className="w-3.5 h-3.5 text-[#211612]" />
+                    <span className="hidden sm:inline">Login / Sign up</span>
+                  </button>
+                ) : (
+                  <div>
+                    <button
+                      type="button"
+                      onClick={() => setUserDropdownOpen(!userDropdownOpen)}
+                      className="btn-pill bg-[#FDFBF7] text-[#211612] border border-[#DDD3C4] shadow-sm hover:bg-[#EDE3C8]"
+                      aria-label="User Account Menu"
+                    >
+                      <UserIcon className="w-3.5 h-3.5 text-[#A87B28]" />
+                      <span className="max-w-[100px] truncate hidden sm:inline capitalize">
+                        {displayName}
+                      </span>
+                      <ChevronDown className="w-3 h-3 text-[#211612]/60" />
+                    </button>
+
+                    {userDropdownOpen && (
+                      <div className="absolute right-0 mt-2 w-56 rounded-2xl bg-[#FAF6EE] border border-[#DDD3C4] shadow-2xl py-2 z-50 animate-in fade-in-50">
+                        <div className="px-4 py-2 border-b border-[#E8DEC8]">
+                          <p className="text-xs uppercase font-serif tracking-widest text-[#A87B28] font-bold">
+                            Atelier Member
+                          </p>
+                          <p className="text-xs font-medium text-[#211612] truncate mt-0.5">
+                            {user.email}
+                          </p>
+                        </div>
+
+                        <Link
+                          href="/account"
+                          onClick={() => setUserDropdownOpen(false)}
+                          className="flex items-center gap-2.5 px-4 py-2.5 text-xs text-[#211612] hover:bg-[#EDE3C8] transition-colors font-serif"
+                        >
+                          <Package className="w-4 h-4 text-[#A87B28]" />
+                          <span>My Orders</span>
+                        </Link>
+
+                        <div className="border-t border-[#E8DEC8] my-1" />
+
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setUserDropdownOpen(false);
+                            signOut();
+                          }}
+                          className="w-full flex items-center gap-2.5 px-4 py-2.5 text-xs text-red-700 hover:bg-red-50 transition-colors font-serif text-left"
+                        >
+                          <LogOut className="w-4 h-4 text-red-600" />
+                          <span>Logout</span>
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              {/* Mobile Menu Toggle Button */}
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-xl lg:hidden text-[#FFF1A6] hover:bg-[#4A231B] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFF1A6]"
+                className="p-2 rounded-lg lg:hidden text-[#211612] hover:bg-[#EDE3C8] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#211612]"
                 aria-label="Toggle menu"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
           </div>
+
+          {/* Expandable Search Input Bar */}
+          {searchOpen && (
+            <div className="pt-3 pb-1 border-t border-[#E6DCBF] mt-3 animate-in fade-in-50">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  if (searchQuery.trim()) {
+                    window.location.href = `/shop?q=${encodeURIComponent(searchQuery.trim())}`;
+                  }
+                }}
+                className="flex items-center gap-2 max-w-md mx-auto"
+              >
+                <div className="relative flex-1">
+                  <Search className="w-4 h-4 text-[#211612]/50 absolute left-3 top-2.5" />
+                  <input
+                    type="text"
+                    placeholder="Search artisanal jars, ingredients, spices..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full pl-9 pr-3 py-1.5 text-xs bg-[#FAF6EE] text-[#211612] rounded-lg border border-[#D5C6A0] focus:outline-none focus:ring-1 focus:ring-[#211612]"
+                    autoFocus
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="px-4 py-1.5 rounded-lg bg-[#211612] text-[#FAF6EE] text-xs font-serif tracking-wider uppercase hover:bg-[#34221A] transition-colors"
+                >
+                  Search
+                </button>
+              </form>
+            </div>
+          )}
         </div>
 
-        {/* Mobile Navigation Drawer / Menu */}
+        {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-[#4A231B] border-t border-[#6B352A] px-4 pt-4 pb-6 space-y-2 shadow-2xl animate-in slide-in-from-top-2">
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3.5 py-2.5 rounded-xl text-base font-medium transition-all ${
-                pathname === '/'
-                  ? 'bg-[#6B352A] text-[#FFF1A6] font-bold border-l-4 border-[#FFF1A6]'
-                  : 'text-[#FFF8E7] hover:bg-[#6B352A]/60 hover:text-[#FFF1A6]'
-              }`}
-            >
-              Home
-            </Link>
-            <Link
-              href="/shop"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3.5 py-2.5 rounded-xl text-base font-medium transition-all ${
-                pathname === '/shop'
-                  ? 'bg-[#6B352A] text-[#FFF1A6] font-bold border-l-4 border-[#FFF1A6]'
-                  : 'text-[#FFF8E7] hover:bg-[#6B352A]/60 hover:text-[#FFF1A6]'
-              }`}
-            >
-              Shop
-            </Link>
-            <Link
-              href="/our-story"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3.5 py-2.5 rounded-xl text-base font-medium transition-all ${
-                pathname === '/our-story'
-                  ? 'bg-[#6B352A] text-[#FFF1A6] font-bold border-l-4 border-[#FFF1A6]'
-                  : 'text-[#FFF8E7] hover:bg-[#6B352A]/60 hover:text-[#FFF1A6]'
-              }`}
-            >
-              Our Story
-            </Link>
-            <Link
-              href="/gallery"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3.5 py-2.5 rounded-xl text-base font-medium transition-all ${
-                pathname === '/gallery'
-                  ? 'bg-[#6B352A] text-[#FFF1A6] font-bold border-l-4 border-[#FFF1A6]'
-                  : 'text-[#FFF8E7] hover:bg-[#6B352A]/60 hover:text-[#FFF1A6]'
-              }`}
-            >
-              Gallery
-            </Link>
-            <Link
-              href="/faq"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3.5 py-2.5 rounded-xl text-base font-medium transition-all ${
-                pathname === '/faq'
-                  ? 'bg-[#6B352A] text-[#FFF1A6] font-bold border-l-4 border-[#FFF1A6]'
-                  : 'text-[#FFF8E7] hover:bg-[#6B352A]/60 hover:text-[#FFF1A6]'
-              }`}
-            >
-              FAQ
-            </Link>
-            <Link
-              href="/certificates"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3.5 py-2.5 rounded-xl text-base font-medium transition-all ${
-                pathname === '/certificates'
-                  ? 'bg-[#6B352A] text-[#FFF1A6] font-bold border-l-4 border-[#FFF1A6]'
-                  : 'text-[#FFF8E7] hover:bg-[#6B352A]/60 hover:text-[#FFF1A6]'
-              }`}
-            >
-              Certificates & FSSAI
-            </Link>
-            <Link
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3.5 py-2.5 rounded-xl text-base font-medium transition-all ${
-                pathname === '/contact'
-                  ? 'bg-[#6B352A] text-[#FFF1A6] font-bold border-l-4 border-[#FFF1A6]'
-                  : 'text-[#FFF8E7] hover:bg-[#6B352A]/60 hover:text-[#FFF1A6]'
-              }`}
-            >
-              Contact
-            </Link>
-            <Link
-              href="/track-order"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3.5 py-2.5 rounded-xl text-base font-medium transition-all ${
-                pathname === '/track-order'
-                  ? 'bg-[#6B352A] text-[#FFF1A6] font-bold border-l-4 border-[#FFF1A6]'
-                  : 'text-[#FFF1A6] hover:bg-[#6B352A]/60'
-              }`}
-            >
-              Track Order Status
-            </Link>
-            <Link
-              href="/admin"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all ${
-                pathname === '/admin'
-                  ? 'bg-[#6B352A] text-[#FFF1A6] font-bold border-l-4 border-[#FFF1A6]'
-                  : 'text-[#FFF1A6]/80 hover:bg-[#6B352A]/60'
-              }`}
-            >
-              🔒 Admin Portal
-            </Link>
+          <div className="lg:hidden bg-[#FAF6EE] border-t border-[#E6DCBF] px-5 pt-5 pb-7 space-y-5 shadow-2xl animate-in slide-in-from-top-2">
+            {/* Mobile Customer Authentication Section */}
+            <div className="p-3 bg-[#FDFBF7] rounded-2xl border border-[#DDD3C4]">
+              {!user ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    openAuthModal("signin");
+                  }}
+                  className="w-full py-2.5 px-4 rounded-xl bg-[#211612] text-[#FAF6EE] text-xs font-serif tracking-wider uppercase font-bold flex items-center justify-center gap-2 shadow"
+                >
+                  <UserIcon className="w-4 h-4 text-[#C89B3C]" />
+                  <span>Login / Sign up</span>
+                </button>
+              ) : (
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between pb-2 border-b border-[#E8DEC8]">
+                    <div className="flex items-center gap-2">
+                      <div className="w-7 h-7 rounded-full bg-[#211612] text-[#FAF6EE] flex items-center justify-center text-xs font-bold uppercase">
+                        {displayName.charAt(0)}
+                      </div>
+                      <div className="text-left">
+                        <p className="text-xs font-bold text-[#211612] leading-none capitalize">
+                          {displayName}
+                        </p>
+                        <p className="text-xs text-[#3D2C24]/60 truncate max-w-[170px] mt-0.5">
+                          {user.email}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 pt-1">
+                    <Link
+                      href="/account"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="py-2 px-3 rounded-lg bg-[#FAF6EE] border border-[#DDD3C4] text-xs font-serif text-[#211612] flex items-center justify-center gap-1.5"
+                    >
+                      <Package className="w-3.5 h-3.5 text-[#A87B28]" />
+                      <span>My Orders</span>
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        signOut();
+                      }}
+                      className="py-2 px-3 rounded-lg bg-red-50 border border-red-200 text-xs font-serif text-red-700 flex items-center justify-center gap-1.5"
+                    >
+                      <LogOut className="w-3.5 h-3.5" />
+                      <span>Logout</span>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
 
-            <div className="pt-2 border-t border-[#6B352A]/80">
+            <div className="space-y-1 font-serif tracking-[0.2em] text-xs">
+              <span className="text-xs tracking-[0.3em] uppercase font-sans text-[#211612]/50 px-3 block mb-1">
+                The Atelier & Collection
+              </span>
+              <Link
+                href="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-3.5 py-2.5 rounded-xl text-sm transition-all ${
+                  pathname === "/"
+                    ? "bg-[#211612] text-[#FAF6EE] font-bold"
+                    : "text-[#211612] hover:bg-[#EDE3C8]"
+                }`}
+              >
+                THE ATELIER
+              </Link>
+              {[...leftNav, ...rightNav].map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block px-3.5 py-2.5 rounded-xl text-sm transition-all ${
+                    pathname === link.href
+                      ? "bg-[#211612] text-[#FAF6EE] font-bold"
+                      : "text-[#211612] hover:bg-[#EDE3C8]"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
+            {/* Client Services & Utilities */}
+            <div className="pt-3 border-t border-[#E6DCBF] space-y-1 text-xs">
+              <span className="text-xs tracking-[0.3em] uppercase font-sans text-[#211612]/50 px-3 block mb-1">
+                Client Services
+              </span>
+              <Link
+                href="/account"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-3.5 py-2 rounded-xl transition-all ${
+                  pathname === "/account"
+                    ? "bg-[#211612] text-[#FAF6EE] font-bold"
+                    : "text-[#211612]/80 hover:bg-[#EDE3C8]"
+                }`}
+              >
+                Customer Account & Orders
+              </Link>
+              <Link
+                href="/track-order"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-3.5 py-2 rounded-xl transition-all ${
+                  pathname === "/track-order"
+                    ? "bg-[#211612] text-[#FAF6EE] font-bold"
+                    : "text-[#211612]/80 hover:bg-[#EDE3C8]"
+                }`}
+              >
+                Track Order
+              </Link>
+              <Link
+                href="/faq"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-3.5 py-2 rounded-xl transition-all ${
+                  pathname === "/faq"
+                    ? "bg-[#211612] text-[#FAF6EE] font-bold"
+                    : "text-[#211612]/80 hover:bg-[#EDE3C8]"
+                }`}
+              >
+                FAQ & Storage
+              </Link>
+              <Link
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-3.5 py-2 rounded-xl transition-all ${
+                  pathname === "/contact"
+                    ? "bg-[#211612] text-[#FAF6EE] font-bold"
+                    : "text-[#211612]/80 hover:bg-[#EDE3C8]"
+                }`}
+              >
+                Atelier Concierge
+              </Link>
+            </div>
+
+            {/* WhatsApp Atelier Direct Concierge */}
+            <div className="pt-2">
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#A8553F] text-[#FFF1A6] font-semibold text-sm shadow-md"
+                className="w-full py-3 rounded-xl bg-[#211612] text-[#FAF6EE] text-xs font-serif tracking-[0.2em] uppercase font-bold flex items-center justify-center gap-2 border border-[#211612] shadow"
               >
-                <PhoneCall className="w-4 h-4" />
-                <span>Instant WhatsApp Order</span>
+                <PhoneCall className="w-3.5 h-3.5 text-[#C89B3C]" />
+                <span>WhatsApp Concierge</span>
               </a>
             </div>
           </div>
@@ -291,8 +441,12 @@ export default function Navbar() {
   return (
     <Suspense
       fallback={
-        <header className="sticky top-0 z-40 w-full bg-[#6B352A] py-3.5 border-b border-[#4A231B]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center justify-between" />
+        <header className="sticky top-0 w-full z-40 bg-[#FAF6EE] py-4 border-b border-[#ECE2C8]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <span className="font-serif text-2xl font-bold tracking-[0.25em] text-[#211612]">
+              AKHIL FOODS
+            </span>
+          </div>
         </header>
       }
     >

@@ -8,10 +8,18 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const query = searchParams.get("q") || "";
+    const email = searchParams.get("email") || "";
+    const userId = searchParams.get("userId") || "";
 
     if (isSupabaseConfigured && supabase) {
       let req = supabase.from("orders").select("*").order("created_at", { ascending: false });
-      if (query) {
+      if (email && userId) {
+        req = req.or(`email.ilike.%${email}%,user_id.eq.${userId}`);
+      } else if (email) {
+        req = req.ilike("email", `%${email}%`);
+      } else if (userId) {
+        req = req.eq("user_id", userId);
+      } else if (query) {
         req = req.or(`order_number.ilike.%${query}%,phone.ilike.%${query}%,email.ilike.%${query}%`);
       }
       const { data, error } = await req;
@@ -21,6 +29,16 @@ export async function GET(request: NextRequest) {
     }
 
     const local = getLocalOrders();
+    if (email || userId) {
+      const emailLower = email.toLowerCase().trim();
+      const filtered = local.filter((o) => {
+        const matchesEmail = emailLower && o.email?.toLowerCase().trim() === emailLower;
+        const matchesUser = userId && o.userId === userId;
+        return matchesEmail || matchesUser;
+      });
+      return NextResponse.json({ success: true, orders: filtered });
+    }
+
     if (!query) {
       return NextResponse.json({ success: true, orders: local });
     }
@@ -68,6 +86,7 @@ export async function POST(request: NextRequest) {
       paymentStatus: body.paymentMethod.includes("Cash on Delivery") ? "Pending" : "Paid",
       orderStatus: "New",
       notes: body.notes || "",
+      userId: body.userId || undefined,
       createdAt: new Date().toISOString(),
     };
 
@@ -95,6 +114,7 @@ export async function POST(request: NextRequest) {
             payment_method: newOrder.paymentMethod,
             payment_status: newOrder.paymentStatus,
             order_status: newOrder.orderStatus,
+            user_id: newOrder.userId || null,
             created_at: newOrder.createdAt,
           },
         ]);

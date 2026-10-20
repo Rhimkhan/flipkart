@@ -101,18 +101,18 @@ export default function GalleryClient() {
   };
 
   return (
-    <div className="py-12 sm:py-20 bg-[#FFFBEF]">
+    <div className="py-12 sm:py-20 bg-[#FAF6EE] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <span className="text-xs font-bold text-[#A8553F] bg-[#FFF1A6] px-4 py-1.5 rounded-xl border border-[#EAD075] inline-flex items-center gap-1.5 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-[#6B352A]" />
+          <span className="text-xs font-bold text-[#FAF6EE] bg-[#1C130E] px-4 py-1.5 rounded-full border border-[#C89B3C]/40 inline-flex items-center gap-1.5 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-[#C89B3C]" />
             <span>Visual Chronicle</span>
           </span>
-          <h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#6B352A]">
+          <h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#211612]">
             The Artisanal Gallery
           </h1>
-          <p className="text-sm text-stone-600">
+          <p className="text-sm text-[#3D2C24]/80">
             A real photographic look into our Mushroom Mela 400g jars, complete label ingredients, and artisanal packing in Village Nandsiya, Moth, Jhansi, Uttar Pradesh.
           </p>
         </div>
@@ -124,10 +124,10 @@ export default function GalleryClient() {
               key={cat.key}
               type="button"
               onClick={() => setActiveCategory(cat.key)}
-              className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all shadow-sm ${
+              className={`px-4 py-2 rounded-full text-sm font-semibold transition-all shadow-sm ${
                 activeCategory === cat.key
-                  ? "bg-[#6B352A] text-[#FFF1A6] shadow-md"
-                  : "bg-white text-stone-700 hover:bg-[#FFF8E7] border border-stone-200"
+                  ? "bg-[#211612] text-[#FAF6EE] border border-[#C89B3C]/40 shadow-md"
+                  : "bg-[#FDFBF7] text-[#211612] hover:bg-[#FAF6EE] border border-[#E8DEC8]"
               }`}
             >
               {cat.label}
@@ -143,30 +143,30 @@ export default function GalleryClient() {
               <div
                 key={item.id}
                 onClick={() => setModalIndex(idx)}
-                className="clay-card rounded-2xl overflow-hidden bg-white border border-[#6B352A]/15 shadow-md hover:shadow-2xl transition-all duration-300 group cursor-pointer flex flex-col justify-between"
+                className="rounded-3xl overflow-hidden bg-[#FDFBF7] border border-[#E8DEC8] shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer flex flex-col justify-between"
               >
-                <div className="relative aspect-square overflow-hidden bg-[#FFF8E7] flex items-center justify-center p-3">
+                <div className="relative aspect-square overflow-hidden bg-[#FAF6EE] flex items-center justify-center p-3">
                   <Image
                     src={item.image}
                     alt={item.alt}
                     fill
                     className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
                   />
-                  <span className="absolute top-3 left-3 bg-[#4A231B]/90 backdrop-blur-sm text-[#FFF1A6] text-xs font-bold px-3 py-1 rounded-xl shadow-md border border-[#FFF1A6]/20">
+                  <span className="absolute top-3 left-3 bg-[#1C130E]/90 backdrop-blur-sm text-[#FAF6EE] text-xs font-bold px-3 py-1 rounded-full shadow-md border border-[#C89B3C]/40">
                     {item.categoryLabel}
                   </span>
                   <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="p-3 rounded-xl bg-white/90 text-[#4A231B] shadow-lg">
+                    <span className="p-3 rounded-full bg-[#FAF6EE]/90 text-[#211612] shadow-lg">
                       <Eye className="w-5 h-5" />
                     </span>
                   </div>
                 </div>
 
                 <div className="p-5 space-y-2">
-                  <h3 className="font-serif text-base font-bold text-[#4A231B] group-hover:text-[#6B352A] transition-colors">
+                  <h3 className="font-serif text-base font-bold text-[#211612] group-hover:text-[#A87B28] transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-stone-600 line-clamp-2 leading-relaxed">
+                  <p className="text-sm text-[#3D2C24]/80 line-clamp-2 leading-relaxed">
                     {item.subtitle}
                   </p>
                   {item.shopSlug && (
@@ -174,7 +174,7 @@ export default function GalleryClient() {
                       <Link
                         href={`/product/${item.shopSlug}`}
                         onClick={(e) => e.stopPropagation()}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A8553F] hover:text-[#6B352A] underline underline-offset-4"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A87B28] hover:text-[#211612] underline underline-offset-4"
                       >
                         <span>View Product</span>
                         <ArrowRight className="w-3.5 h-3.5" />
@@ -191,16 +191,16 @@ export default function GalleryClient() {
         {activeItem && modalIndex !== null && (
           <div
             onClick={() => setModalIndex(null)}
-            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-[#1C130E]/85 backdrop-blur-md flex items-center justify-center p-4"
           >
             <div
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl border border-white/20 relative animate-in zoom-in-95"
+              className="bg-[#FDFBF7] rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl border border-[#E8DEC8] relative animate-in zoom-in-95"
             >
               <button
                 type="button"
                 onClick={() => setModalIndex(null)}
-                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-xl bg-black/50 text-white hover:bg-black/80 flex items-center justify-center transition-colors"
+                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-[#1C130E]/70 text-[#FAF6EE] hover:bg-[#1C130E] flex items-center justify-center transition-colors"
                 aria-label="Close"
               >
                 <X className="w-5 h-5" />
@@ -209,7 +209,7 @@ export default function GalleryClient() {
               <button
                 type="button"
                 onClick={handlePrev}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-xl bg-white/80 hover:bg-white text-[#4A231B] flex items-center justify-center shadow-lg transition-all"
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-[#FDFBF7]/90 hover:bg-[#FDFBF7] text-[#211612] flex items-center justify-center shadow-lg transition-all border border-[#E8DEC8]"
                 aria-label="Previous"
               >
                 <ChevronLeft className="w-6 h-6" />
@@ -218,13 +218,13 @@ export default function GalleryClient() {
               <button
                 type="button"
                 onClick={handleNext}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-xl bg-white/80 hover:bg-white text-[#4A231B] flex items-center justify-center shadow-lg transition-all"
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-[#FDFBF7]/90 hover:bg-[#FDFBF7] text-[#211612] flex items-center justify-center shadow-lg transition-all border border-[#E8DEC8]"
                 aria-label="Next"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
 
-              <div className="relative aspect-[4/3] bg-[#FFF8E7] flex items-center justify-center p-6">
+              <div className="relative aspect-[4/3] bg-[#FAF6EE] flex items-center justify-center p-6">
                 <Image
                   src={activeItem.image}
                   alt={activeItem.alt}
@@ -233,25 +233,25 @@ export default function GalleryClient() {
                 />
               </div>
 
-              <div className="p-6 bg-[#4A231B] text-[#FFF8E7] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="p-6 bg-[#1C130E] text-[#FAF6EE] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-[#C89B3C]/30">
                 <div>
-                  <span className="text-xs font-bold text-[#FFF1A6]">
+                  <span className="text-xs font-bold text-[#C89B3C]">
                     {activeItem.categoryLabel}
                   </span>
-                  <h3 className="font-serif text-lg font-bold text-white mt-0.5">
+                  <h3 className="font-serif text-lg font-bold text-[#FAF6EE] mt-0.5">
                     {activeItem.title}
                   </h3>
-                  <p className="text-sm text-[#FFF8E7]/90 max-w-xl mt-1">
+                  <p className="text-sm text-[#FAF6EE]/80 max-w-xl mt-1">
                     {activeItem.subtitle}
                   </p>
                 </div>
                 {activeItem.shopSlug && (
                   <Link
                     href={`/product/${activeItem.shopSlug}`}
-                    className="shrink-0 px-5 py-2.5 rounded-xl bg-[#FFF1A6] hover:bg-[#FFF9D6] text-[#4A231B] font-bold text-sm shadow-md transition-all flex items-center gap-1.5"
+                    className="shrink-0 px-5 py-2.5 rounded-full bg-[#211612] hover:bg-[#2A1D17] text-[#FAF6EE] border border-[#C89B3C]/40 font-bold text-sm shadow-md transition-all flex items-center gap-1.5"
                   >
                     <span>Order Now</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 text-[#C89B3C]" />
                   </Link>
                 )}
               </div>
@@ -261,19 +261,19 @@ export default function GalleryClient() {
 
         {/* Bottom CTA */}
         <div className="text-center pt-8 space-y-3">
-          <h2 className="font-serif text-2xl font-bold text-[#6B352A]">
+          <h2 className="font-serif text-2xl font-bold text-[#211612]">
             Taste The Artistry in Every Spoon
           </h2>
-          <p className="text-sm text-stone-600 max-w-md mx-auto">
+          <p className="text-sm text-[#3D2C24]/80 max-w-md mx-auto">
             Order fresh 400g jars directly from our Jhansi kitchen to your doorstep.
           </p>
           <div className="pt-2">
             <Link
               href="/shop"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#6B352A] hover:bg-[#4A231B] text-[#FFF1A6] font-bold text-sm shadow-xl transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#211612] hover:bg-[#1C130E] text-[#FAF6EE] border border-[#C89B3C]/40 font-bold text-sm shadow-xl transition-all"
             >
               <span>Explore The Shop</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 text-[#C89B3C]" />
             </Link>
           </div>
         </div>

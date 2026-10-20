@@ -74,44 +74,44 @@ export default function ShopClient() {
   }, [productsList, selectedFlavour, searchQuery, sortBy, selectedSizes]);
 
   return (
-    <div className="py-10 sm:py-16 bg-[#FFFBEF]">
+    <div className="py-10 sm:py-16 bg-[#FAF6EE]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         {/* Page Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#A8553F] bg-[#FFF1A6] px-4 py-1.5 rounded-full border border-[#6B352A]/15 shadow-sm">
+          <span className="text-xs font-serif font-bold uppercase tracking-[0.25em] text-[#A87B28] bg-[#EFE8DD] px-4 py-1.5 rounded-full border border-[#DDD3C4] shadow-sm">
             Handcrafted in Jhansi, Uttar Pradesh
           </span>
-          <h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#4A231B]">
+          <h1 className="font-serif text-3xl sm:text-5xl font-normal text-[#211612]">
             Authentic Mushroom Pickles
           </h1>
-          <p className="text-sm sm:text-base text-[#2B1B17]/75 font-sans leading-relaxed">
-            Prepared with tender oyster mushrooms, pure mustard oil, natural vinegar, and traditional stone-ground Indian spices.
+          <p className="text-sm sm:text-base text-[#3D2C24] font-sans font-light leading-relaxed">
+            Prepared with tender oyster mushrooms, cold-pressed mustard oil, natural vinegar, and traditional stone-ground Indian spices.
           </p>
         </div>
 
         {/* Filter, Search & Sort Control Panel */}
-        <div className="bg-white p-5 sm:p-7 rounded-2xl border border-[#6B352A]/15 shadow-md space-y-5">
+        <div className="bg-[#FDFBF7] p-5 sm:p-7 rounded-2xl border border-[#E8DEC8] shadow-sm space-y-5">
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
             {/* Search Input */}
             <div className="relative w-full md:w-80">
-              <Search className="w-4 h-4 text-stone-400 absolute left-3.5 top-3.5" />
+              <Search className="w-4 h-4 text-[#A87B28] absolute left-3.5 top-3.5" />
               <input
                 type="text"
                 placeholder="Search flavour, ingredient, mushroom..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#FFFBEF]/60 border border-[#6B352A]/20 text-sm text-[#2B1B17] placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#6B352A]"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#FAF6EE] border border-[#E8DEC8] text-sm text-[#211612] placeholder-stone-400 focus:outline-none focus:ring-1 focus:ring-[#C89B3C]"
               />
             </div>
 
             {/* Sort Dropdown */}
             <div className="flex items-center gap-2 w-full md:w-auto justify-end">
-              <ArrowUpDown className="w-4 h-4 text-[#6B352A]" />
-              <span className="text-sm font-semibold text-[#4A231B]">Sort by:</span>
+              <ArrowUpDown className="w-4 h-4 text-[#A87B28]" />
+              <span className="text-xs font-serif font-bold uppercase tracking-wider text-[#211612]">Sort:</span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-3.5 py-2 rounded-xl bg-[#FFFBEF]/60 border border-[#6B352A]/20 text-sm font-medium text-[#2B1B17] focus:outline-none focus:ring-2 focus:ring-[#6B352A]"
+                className="px-3.5 py-2 rounded-xl bg-[#FAF6EE] border border-[#E8DEC8] text-xs font-serif text-[#211612] focus:outline-none focus:ring-1 focus:ring-[#C89B3C]"
               >
                 <option value="recommended">Featured / Recommended</option>
                 <option value="price-low">Price: Low to High</option>
@@ -123,18 +123,18 @@ export default function ShopClient() {
 
           {/* Flavour Filter Pills */}
           <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-2 scrollbar-none">
-            <span className="text-sm font-bold text-[#4A231B] flex items-center gap-1.5 shrink-0">
-              <Filter className="w-3.5 h-3.5 text-[#6B352A]" /> Flavour Filter:
+            <span className="text-xs font-serif font-bold uppercase tracking-wider text-[#211612] flex items-center gap-1.5 shrink-0">
+              <Filter className="w-3.5 h-3.5 text-[#A87B28]" /> Flavours:
             </span>
             {flavours.map((flavour) => (
               <button
                 key={flavour}
                 type="button"
                 onClick={() => setSelectedFlavour(flavour)}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold shrink-0 transition-all ${
+                className={`px-4 py-2 rounded-xl text-xs font-serif tracking-wider uppercase shrink-0 transition-all ${
                   selectedFlavour === flavour
-                    ? "bg-[#6B352A] text-[#FFF1A6] shadow-sm ring-2 ring-[#6B352A]/20"
-                    : "bg-[#FFFBEF] text-stone-600 hover:bg-[#E5D3C0] hover:text-[#4A231B]"
+                    ? "bg-[#211612] text-[#FAF6EE] shadow-sm border border-[#211612]"
+                    : "bg-[#FAF6EE] text-[#3D2C24] hover:bg-[#EFE8DD] hover:text-[#211612] border border-[#E8DEC8]"
                 }`}
               >
                 {flavour}
@@ -160,11 +160,11 @@ export default function ShopClient() {
             return (
               <div
                 key={product.id}
-                className="clay-card rounded-2xl overflow-hidden flex flex-col justify-between group bg-white border border-[#6B352A]/15 hover:shadow-2xl transition-all duration-300"
+                className="clay-card rounded-2xl overflow-hidden flex flex-col justify-between group bg-[#FDFBF7] border border-[#E8DEC8] hover:border-[#C89B3C]/50 hover:shadow-2xl transition-all duration-300"
               >
                 <div>
                   {/* Product Image Frame with lazy load and rich alt */}
-                  <div className="relative aspect-square overflow-hidden bg-[#FFFBEF]">
+                  <div className="relative aspect-square overflow-hidden bg-[#FAF6EE] border-b border-[#E8DEC8]">
                     <Image
                       src={product.image || "/images/hero-pickle.jpg"}
                       alt={`${product.name} - Handcrafted clay aged mushroom pickle from Akhil Foods`}
@@ -174,11 +174,11 @@ export default function ShopClient() {
                       className="object-contain p-3 group-hover:scale-105 transition-transform duration-500"
                     />
                     {product.badges?.[0] && (
-                      <span className="absolute top-3.5 left-3.5 bg-[#4A231B] text-[#FFF1A6] text-caption font-bold px-3 py-1 rounded-full shadow-md border border-[#FFF1A6]/20">
+                      <span className="absolute top-3.5 left-3.5 bg-[#211612] text-[#FAF6EE] text-caption font-serif tracking-wider px-3 py-1 rounded-full shadow-md border border-[#C89B3C]/30">
                         {product.badges[0]}
                       </span>
                     )}
-                    <span className="absolute top-3.5 right-3.5 bg-[#FFF1A6] text-[#4A231B] text-caption font-bold px-2.5 py-1 rounded-full shadow-md border border-[#6B352A]/20">
+                    <span className="absolute top-3.5 right-3.5 bg-[#EFE8DD] text-[#211612] text-caption font-serif font-bold px-2.5 py-1 rounded-full shadow-md border border-[#DDD3C4]">
                       {product.flavour}
                     </span>
                   </div>
@@ -186,43 +186,43 @@ export default function ShopClient() {
                   {/* Card Content Details */}
                   <div className="p-5 sm:p-6 space-y-3">
                     {product.reviewsCount > 0 ? (
-                      <div className="flex items-center gap-1.5 text-caption text-amber-500 font-semibold">
-                        <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+                      <div className="flex items-center gap-1.5 text-caption text-[#A87B28] font-semibold">
+                        <Star className="w-3.5 h-3.5 fill-[#C89B3C] text-[#C89B3C]" />
                         <span>{product.rating}</span>
                         <span className="text-stone-400">({product.reviewsCount} reviews)</span>
                       </div>
                     ) : (
                       <div className="flex items-center gap-1.5 text-caption text-stone-500 font-medium">
-                        <Star className="w-3.5 h-3.5 text-amber-400" />
-                        <span className="italic">Be the first to review</span>
+                        <Star className="w-3.5 h-3.5 text-[#C89B3C]" />
+                        <span className="italic font-serif">Atelier Micro-Batch</span>
                       </div>
                     )}
 
                     <Link href={`/product/${product.slug}`} className="block">
-                      <h3 className="font-serif text-lg font-bold text-[#2B1B17] group-hover:text-[#6B352A] transition-colors leading-snug">
+                      <h3 className="font-serif text-lg font-bold text-[#211612] group-hover:text-[#A87B28] transition-colors leading-snug">
                         {product.name}
                       </h3>
                     </Link>
 
-                    <p className="text-sm text-[#2B1B17]/80 line-clamp-2 leading-relaxed font-sans">
+                    <p className="text-sm text-[#3D2C24] line-clamp-2 leading-relaxed font-sans font-light">
                       {product.subtitle || product.description}
                     </p>
 
                     {/* Size Selector Switcher */}
                     <div className="pt-2">
-                      <label className="text-xs font-semibold text-[#4A231B] block mb-1.5">
+                      <label className="text-xs font-serif font-bold text-[#211612] block mb-1.5 uppercase tracking-wider">
                         Net Quantity / Size:
                       </label>
-                      <div className="flex flex-wrap gap-1.5 bg-[#FFFBEF] p-1.5 rounded-xl border border-[#6B352A]/15">
+                      <div className="flex flex-wrap gap-1.5 bg-[#FAF6EE] p-1.5 rounded-xl border border-[#E8DEC8]">
                         {product.sizes?.map((s) => (
                           <button
                             key={s.size}
                             type="button"
                             onClick={() => handleSizeChange(product.id, s.size)}
-                            className={`px-3 py-1.5 text-xs font-semibold rounded-xl transition-all ${
+                            className={`px-3 py-1.5 text-xs font-serif font-semibold rounded-lg transition-all ${
                               currentSize === s.size
-                                ? "bg-[#6B352A] text-[#FFF1A6] shadow-sm"
-                                : "text-stone-600 hover:text-[#6B352A]"
+                                ? "bg-[#211612] text-[#FAF6EE] shadow-sm"
+                                : "text-stone-600 hover:text-[#211612]"
                             }`}
                           >
                             {s.size} (MRP ₹{s.price})
@@ -233,7 +233,7 @@ export default function ShopClient() {
 
                     {/* Price */}
                     <div className="flex items-baseline gap-2 pt-2">
-                      <span className="font-serif text-2xl font-extrabold text-[#4A231B]">
+                      <span className="font-serif text-2xl font-bold text-[#211612]">
                         ₹{sizeOption.price}
                       </span>
                       {sizeOption.originalPrice > sizeOption.price && (
@@ -241,7 +241,7 @@ export default function ShopClient() {
                           <span className="text-caption text-stone-400 line-through">
                             ₹{sizeOption.originalPrice}
                           </span>
-                          <span className="text-caption font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">
+                          <span className="text-caption font-serif font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full">
                             Save ₹{sizeOption.originalPrice - sizeOption.price}
                           </span>
                         </>
@@ -255,18 +255,18 @@ export default function ShopClient() {
                   <button
                     type="button"
                     onClick={() => addToCart(product, currentSize, 1)}
-                    className="py-3 px-3 rounded-xl border-2 border-[#6B352A] text-[#6B352A] hover:bg-[#6B352A] hover:text-[#FFF1A6] text-sm font-bold transition-all text-center flex items-center justify-center gap-1.5"
+                    className="py-3 px-3 rounded-xl border border-[#211612] text-[#211612] hover:bg-[#211612] hover:text-[#FAF6EE] text-xs font-serif tracking-[0.16em] uppercase font-bold transition-all text-center flex items-center justify-center gap-1.5"
                   >
                     <ShoppingBag className="w-3.5 h-3.5" />
-                    <span>Add to Cart</span>
+                    <span>Add to Bag</span>
                   </button>
                   <button
                     type="button"
                     onClick={() => buyNow(product, currentSize, 1)}
-                    className="py-3 px-3 rounded-xl bg-[#6B352A] hover:bg-[#4A231B] text-[#FFF1A6] text-sm font-bold transition-all text-center shadow-md flex items-center justify-center gap-1.5"
+                    className="py-3 px-3 rounded-xl bg-[#211612] hover:bg-[#34221A] text-[#FAF6EE] text-xs font-serif tracking-[0.16em] uppercase font-bold transition-all text-center shadow-md flex items-center justify-center gap-1.5 border border-[#211612]"
                   >
-                    <Zap className="w-3.5 h-3.5" />
-                    <span>Buy Now</span>
+                    <Zap className="w-3.5 h-3.5 text-[#C89B3C]" />
+                    <span>Acquire</span>
                   </button>
                 </div>
               </div>

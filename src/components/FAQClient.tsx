@@ -28,18 +28,18 @@ export default function FAQClient() {
   });
 
   return (
-    <div className="py-12 sm:py-20 bg-[#FFFBEF]">
+    <div className="py-12 sm:py-20 bg-[#FAF6EE] min-h-screen">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Header */}
         <div className="text-center space-y-3">
-          <span className="text-xs font-bold text-[#A8553F] bg-[#FFF1A6] px-4 py-1.5 rounded-xl border border-[#EAD075] inline-flex items-center gap-1.5 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-[#6B352A]" />
+          <span className="text-xs font-bold text-[#FAF6EE] bg-[#1C130E] px-4 py-1.5 rounded-full border border-[#C89B3C]/40 inline-flex items-center gap-1.5 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-[#C89B3C]" />
             <span>Customer Knowledge Base</span>
           </span>
-          <h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#6B352A]">
+          <h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#211612]">
             Frequently Asked Questions
           </h1>
-          <p className="text-sm text-stone-600 max-w-xl mx-auto">
+          <p className="text-sm text-[#3D2C24]/80 max-w-xl mx-auto">
             Everything you need to know about our Mushroom Mela Oyster Mushroom Pickle, ingredients, certifications, and delivery.
           </p>
         </div>
@@ -52,7 +52,7 @@ export default function FAQClient() {
             placeholder="Search questions (e.g. oil, shelf life, shipping, vegan)..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white border border-[#6B352A]/20 text-sm text-[#2B1B17] focus:outline-none focus:ring-2 focus:ring-[#6B352A] shadow-sm"
+            className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-[#FDFBF7] border border-[#E8DEC8] text-sm text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612] shadow-sm"
           />
         </div>
 
@@ -65,10 +65,10 @@ export default function FAQClient() {
                 setActiveCategory(cat.key);
                 setOpenIndex(0);
               }}
-              className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
+              className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
                 activeCategory === cat.key
-                  ? "bg-[#6B352A] text-[#FFF1A6] shadow-sm scale-105"
-                  : "bg-white text-[#2B1B17]/80 hover:bg-[#FFF8E7] border border-[#6B352A]/15"
+                  ? "bg-[#211612] text-[#FAF6EE] border border-[#C89B3C]/40 shadow-sm scale-105"
+                  : "bg-[#FDFBF7] text-[#211612] hover:bg-[#FAF6EE] border border-[#E8DEC8]"
               }`}
             >
               {cat.label}
@@ -79,14 +79,14 @@ export default function FAQClient() {
         {/* FAQ List */}
         <div className="space-y-3">
           {filteredFaqs.length === 0 ? (
-            <div className="text-center py-12 bg-white rounded-2xl border border-[#6B352A]/15 p-8 space-y-3">
-              <p className="text-sm text-stone-600">No questions matched &ldquo;{search}&rdquo;.</p>
+            <div className="text-center py-12 bg-[#FDFBF7] rounded-3xl border border-[#E8DEC8] p-8 space-y-3">
+              <p className="text-sm text-[#3D2C24]/80">No questions matched &ldquo;{search}&rdquo;.</p>
               <button
                 onClick={() => {
                   setSearch("");
                   setActiveCategory("all");
                 }}
-                className="text-sm font-bold text-[#6B352A] underline"
+                className="text-sm font-bold text-[#211612] underline"
               >
                 Clear Search Filter
               </button>
@@ -97,22 +97,22 @@ export default function FAQClient() {
               return (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl border border-[#6B352A]/15 overflow-hidden shadow-sm transition-all"
+                  className="bg-[#FDFBF7] rounded-2xl border border-[#E8DEC8] overflow-hidden shadow-sm transition-all"
                 >
                   <button
                     type="button"
                     onClick={() => setOpenIndex(isOpen ? null : idx)}
-                    className="w-full p-5 text-left flex items-center justify-between font-serif font-bold text-sm sm:text-base text-[#6B352A] hover:bg-[#FFF8E7]/40 transition-colors gap-4"
+                    className="w-full p-5 text-left flex items-center justify-between font-serif font-bold text-sm sm:text-base text-[#211612] hover:bg-[#FAF6EE]/60 transition-colors gap-4"
                   >
                     <span>{faq.question}</span>
                     <ChevronDown
-                      className={`w-5 h-5 text-[#A8553F] shrink-0 transition-transform duration-300 ${
+                      className={`w-5 h-5 text-[#A87B28] shrink-0 transition-transform duration-300 ${
                         isOpen ? "rotate-180" : ""
                       }`}
                     />
                   </button>
                   {isOpen && (
-                    <div className="p-5 pt-0 text-sm text-[#2B1B17]/85 leading-relaxed border-t border-stone-100 bg-[#FFF8E7]/20">
+                    <div className="p-5 pt-0 text-sm text-[#3D2C24]/85 leading-relaxed border-t border-[#E8DEC8] bg-[#FAF6EE]/50">
                       {faq.answer}
                     </div>
                   )}
@@ -123,11 +123,11 @@ export default function FAQClient() {
         </div>
 
         {/* Still Have Questions CTA */}
-        <div className="bg-[#FFF1A6] p-8 sm:p-10 rounded-2xl border border-[#EAD075] text-center space-y-4 shadow-sm">
-          <HelpCircle className="w-10 h-10 text-[#6B352A] mx-auto" />
+        <div className="bg-[#1C130E] p-8 sm:p-10 rounded-3xl border border-[#C89B3C]/30 text-center space-y-4 shadow-xl text-[#FAF6EE]">
+          <HelpCircle className="w-10 h-10 text-[#C89B3C] mx-auto" />
           <div className="space-y-1">
-            <h2 className="font-serif text-2xl font-bold text-[#6B352A]">Still Have Any Questions?</h2>
-            <p className="text-sm text-[#4A231B] max-w-md mx-auto leading-relaxed">
+            <h2 className="font-serif text-2xl font-bold text-[#FAF6EE]">Still Have Any Questions?</h2>
+            <p className="text-sm text-[#FAF6EE]/80 max-w-md mx-auto leading-relaxed">
               Our team in Jhansi is always happy to discuss ingredients, certificates, and delivery statuses directly.
             </p>
           </div>
@@ -136,14 +136,14 @@ export default function FAQClient() {
               href={`https://wa.me/${BRAND.whatsappNumber}?text=Hi%20Akhil%20Foods,%20I%20have%20a%20question%20about%20your%20artisanal%20mushroom%20pickles.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-7 py-3 rounded-xl bg-[#25D366] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md hover:bg-[#20ba59] transition-all"
+              className="px-7 py-3 rounded-full bg-[#25D366] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md hover:bg-[#20ba59] transition-all"
             >
               <MessageCircle className="w-4 h-4 fill-white" />
               <span>Ask on WhatsApp Directly</span>
             </a>
             <Link
               href="/contact"
-              className="px-7 py-3 rounded-xl bg-[#6B352A] text-[#FFF1A6] font-bold text-sm hover:bg-[#4A231B] transition-colors"
+              className="px-7 py-3 rounded-full bg-[#211612] hover:bg-[#2A1D17] text-[#FAF6EE] border border-[#C89B3C]/40 font-bold text-sm transition-colors"
             >
               Contact Support Desk
             </Link>

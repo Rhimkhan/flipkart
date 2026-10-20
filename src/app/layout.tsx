@@ -5,7 +5,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import CartDrawer from "@/components/CartDrawer";
+import AuthModal from "@/components/AuthModal";
 import { CartProvider } from "@/lib/cart-context";
+import { AuthProvider } from "@/lib/auth-context";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -92,14 +94,17 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/images/akhil-foods-logo.png" />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#FFF8E7] text-[#2B1B17] antialiased selection:bg-[#6B352A] selection:text-[#FFF1A6]">
-        <CartProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <CartDrawer />
-          <FloatingWhatsApp />
-        </CartProvider>
+      <body className="min-h-screen flex flex-col bg-[#FAF6EE] text-[#211612] antialiased selection:bg-[#211612] selection:text-[#FAF6EE]">
+        <AuthProvider>
+          <CartProvider>
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <CartDrawer />
+            <AuthModal />
+            <FloatingWhatsApp />
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );

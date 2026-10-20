@@ -9,7 +9,7 @@ export default function StoryCraftShowcase() {
       step: "01",
       title: "Fresh Oyster Harvest & Prep",
       desc: "Selected fresh oyster mushrooms are hand-trimmed, washed in filtered water, and gently prepared to lock in tenderness and meaty texture.",
-      image: "/images/solan-harvest.jpg",
+      image: "/images/jhansi-harvest.jpg",
     },
     {
       step: "02",
@@ -32,9 +32,9 @@ export default function StoryCraftShowcase() {
         {steps.map((item) => (
           <div
             key={item.step}
-            className="clay-card rounded-2xl overflow-hidden bg-white border border-[#6B352A]/15 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col group"
+            className="rounded-2xl overflow-hidden bg-[#FDFBF7] border border-[#E8DEC8] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
           >
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#2B1B17]">
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#1C130E]">
               <Image
                 src={item.image}
                 alt={item.title}
@@ -42,21 +42,21 @@ export default function StoryCraftShowcase() {
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#2B1B17]/80 via-transparent to-transparent" />
-              <span className="absolute top-3.5 left-3.5 bg-[#FFF1A6] text-[#4A231B] text-xs font-black px-3 py-1 rounded-xl shadow-md border border-[#6B352A]/20">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1C130E]/80 via-transparent to-transparent" />
+              <span className="absolute top-3.5 left-3.5 bg-[#1C130E]/90 text-[#FAF6EE] text-xs font-bold px-3 py-1 rounded-full shadow-md border border-[#C89B3C]/40 backdrop-blur-sm">
                 Step {item.step}
               </span>
             </div>
             <div className="p-6 flex-1 flex flex-col justify-between space-y-3">
               <div>
-                <h3 className="font-serif text-lg font-bold text-[#4A231B] group-hover:text-[#6B352A] transition-colors">
+                <h3 className="font-serif text-lg font-bold text-[#211612] group-hover:text-[#A87B28] transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-sm text-stone-600 mt-2 leading-relaxed">
+                <p className="text-sm text-[#3D2C24]/80 mt-2 leading-relaxed">
                   {item.desc}
                 </p>
               </div>
-              <div className="pt-2 flex items-center gap-1.5 text-xs font-semibold text-[#6B352A]">
+              <div className="pt-2 flex items-center gap-1.5 text-xs font-semibold text-[#A87B28]">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                 <span>100% Homemade Process</span>
               </div>
@@ -66,23 +66,23 @@ export default function StoryCraftShowcase() {
       </div>
 
       {/* Trust & Craft Banner */}
-      <div className="bg-[#4A231B] text-[#FFF8E7] rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 border border-[#FFF1A6]/25 shadow-xl">
+      <div className="bg-[#1C130E] text-[#FAF6EE] rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 border border-[#C89B3C]/30 shadow-xl">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-[#FFF1A6] text-[#4A231B] flex items-center justify-center font-serif font-black text-xl shadow-md shrink-0">
+          <div className="w-12 h-12 rounded-xl bg-[#2A1D17] text-[#C89B3C] border border-[#C89B3C]/30 flex items-center justify-center font-serif font-black text-xl shadow-md shrink-0">
             🌾
           </div>
           <div>
-            <h3 className="font-serif text-base sm:text-lg font-bold text-[#FFF1A6]">
+            <h3 className="font-serif text-base sm:text-lg font-bold text-[#FAF6EE]">
               Handcrafted in Village Nandsiya, Moth, Jhansi
             </h3>
-            <p className="text-xs text-[#FFF8E7]/90 mt-0.5">
+            <p className="text-xs text-[#FAF6EE]/75 mt-0.5">
               Operating with active FSSAI License No. {BRAND.fssaiNumber} under strict food hygiene standards.
             </p>
           </div>
         </div>
 
         <div className="flex items-center gap-3 shrink-0">
-          <span className="bg-[#6B352A] text-[#FFF1A6] text-xs font-semibold px-4 py-2 rounded-xl border border-[#FFF1A6]/20">
+          <span className="bg-[#2A1D17] text-[#C89B3C] text-xs font-semibold px-4 py-2 rounded-full border border-[#C89B3C]/30">
             No Artificial Shortcuts
           </span>
         </div>
