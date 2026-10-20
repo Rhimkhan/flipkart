@@ -70,56 +70,56 @@ function NavbarContent() {
             <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium text-[#FFF8E7]">
               <Link
                 href="/"
-                className="hover:text-[#FFF1A6] transition-colors py-1 relative group"
+                className={`hover:text-[#FFF1A6] transition-colors py-1 relative group ${pathname === '/' ? 'text-[#FFF1A6] underline underline-offset-4' : ''}`}
               >
                 Home
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFF1A6] transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
                 href="/shop"
-                className="hover:text-[#FFF1A6] transition-colors py-1 relative group"
+                className={`hover:text-[#FFF1A6] transition-colors py-1 relative group ${pathname === '/shop' ? 'text-[#FFF1A6] underline underline-offset-4' : ''}`}
               >
                 Shop
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFF1A6] transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
                 href="/our-story"
-                className="hover:text-[#FFF1A6] transition-colors py-1 relative group"
+                className={`hover:text-[#FFF1A6] transition-colors py-1 relative group ${pathname === '/our-story' ? 'text-[#FFF1A6] underline underline-offset-4' : ''}`}
               >
                 Our Story
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFF1A6] transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
                 href="/gallery"
-                className="hover:text-[#FFF1A6] transition-colors py-1 relative group"
+                className={`hover:text-[#FFF1A6] transition-colors py-1 relative group ${pathname === '/gallery' ? 'text-[#FFF1A6] underline underline-offset-4' : ''}`}
               >
                 Gallery
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFF1A6] transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
                 href="/faq"
-                className="hover:text-[#FFF1A6] transition-colors py-1 relative group"
+                className={`hover:text-[#FFF1A6] transition-colors py-1 relative group ${pathname === '/faq' ? 'text-[#FFF1A6] underline underline-offset-4' : ''}`}
               >
                 FAQ
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFF1A6] transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
                 href="/certificates"
-                className="hover:text-[#FFF1A6] transition-colors py-1 relative group"
+                className={`hover:text-[#FFF1A6] transition-colors py-1 relative group ${pathname === '/certificates' ? 'text-[#FFF1A6] underline underline-offset-4' : ''}`}
               >
                 Certificates
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFF1A6] transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
                 href="/contact"
-                className="hover:text-[#FFF1A6] transition-colors py-1 relative group"
+                className={`hover:text-[#FFF1A6] transition-colors py-1 relative group ${pathname === '/contact' ? 'text-[#FFF1A6] underline underline-offset-4' : ''}`}
               >
                 Contact
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFF1A6] transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
                 href="/track-order"
-                className="hover:text-[#FFF1A6] transition-colors py-1 relative group text-[#FFF1A6]/90"
+                className={`hover:text-[#FFF1A6] transition-colors py-1 relative group ${pathname === '/track-order' ? 'text-[#FFF1A6] underline underline-offset-4' : ''} text-[#FFF1A6]/90`}
               >
                 Track Order
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFF1A6] transition-all duration-300 group-hover:w-full"></span>

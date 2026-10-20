@@ -33,11 +33,11 @@ export default function HeroProductCard() {
 
       {/* Top Header Strip with Badges */}
       <div className="relative z-10 flex items-center justify-between gap-2">
-        <span className="bg-[#6B352A]/90 backdrop-blur-md text-[#FFF1A6] text-[11px] font-bold px-3.5 py-1.5 rounded-full border border-[#FFF1A6]/30 shadow-md inline-flex items-center gap-1.5">
+        <span className="bg-[#6B352A]/90 backdrop-blur-md text-[#FFF1A6] text-body font-bold px-3.5 py-1.5 rounded-full border border-[#FFF1A6]/30 shadow-md inline-flex items-center gap-1.5">
           <Sparkles className="w-3.5 h-3.5 text-[#FFF1A6]" />
           <span>Signature 400g Glass Jar</span>
         </span>
-        <span className="bg-emerald-950/80 backdrop-blur-md text-emerald-300 text-[11px] font-semibold px-3 py-1 rounded-full border border-emerald-500/30 flex items-center gap-1">
+        <span className="bg-emerald-950/80 backdrop-blur-md text-emerald-300 text-body font-semibold px-3 py-1 rounded-full border border-emerald-500/30 flex items-center gap-1">
           <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
           <span>FSSAI Certified</span>
         </span>
@@ -61,7 +61,7 @@ export default function HeroProductCard() {
 
       {/* Product Highlights & Badges */}
       <div className="relative z-10 space-y-3">
-        <div className="flex flex-wrap items-center justify-center gap-2 text-[11px] text-[#FFF8E7]/90">
+        <div className="flex flex-wrap items-center justify-center gap-2 text-body text-[#FFF8E7]/90">
           <span className="bg-white/10 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-white/10 flex items-center gap-1">
             <CheckCircle2 className="w-3 h-3 text-[#FFF1A6]" />
             100% Pure Mustard Oil
@@ -81,9 +81,9 @@ export default function HeroProductCard() {
           <div>
             <div className="flex items-baseline gap-2">
               <span className="font-serif text-2xl font-extrabold text-[#4A231B]">₹399</span>
-              <span className="text-[11px] text-stone-500 font-medium">MRP incl. taxes</span>
+              <span className="text-body text-stone-500 font-medium">MRP incl. taxes</span>
             </div>
-            <p className="text-[11px] text-[#6B352A] font-semibold">
+            <p className="text-body text-[#6B352A] font-semibold">
               Net Quantity: 400g • Free Pan-India Delivery over ₹500
             </p>
           </div>

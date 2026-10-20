@@ -68,6 +68,18 @@ body {
   color: #FFF1A6;
 }
 
+/* --------------------------------------------------------------
+   Body‑copy token – ensures a minimum readable size
+   -------------------------------------------------------------- */
+@layer utilities {
+  /* Minimum readable body text */
+  .text-body { @apply text-xs; }   /* ≈ 12 px */
+  /* Reusable button styles */
+  .btn-primary { @apply bg-[#6B352A] text-[#FFF1A6] hover:bg-[#4A231B] font-bold py-2 px-4 rounded-xl text-xs border border-[#6B352A] transition-all; }
+  .btn-outline { @apply border border-[#6B352A] text-[#6B352A] hover:bg-[#6B352A] hover:text-[#FFF1A6] font-bold py-2 px-4 rounded-xl text-xs transition-all; }
+  .btn-icon { @apply flex items-center justify-center p-2 rounded-full bg-[#FFF1A6] text-[#4A231B] hover:bg-[#FFF9D6] transition-all; }
+}
+
 /* Custom scrollbar in Deep Burgundy and Mocha */
 ::-webkit-scrollbar {
   width: 8px;

@@ -262,7 +262,7 @@ export default function Footer() {
                 />
                 <button
                   type="submit"
-                  className="w-full py-2.5 rounded-xl bg-[#FFF1A6] hover:bg-[#FFF9D6] text-[#4A231B] font-semibold text-xs transition-colors shadow-sm"
+                  className="btn-primary"
                 >
                   Join Tasting Club
                 </button>
