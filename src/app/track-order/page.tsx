@@ -2,16 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import {
   Search,
   CheckCircle2,
-  Clock,
-  Truck,
   ShieldAlert,
-  ArrowRight,
   MessageCircle,
-  Package,
 } from "lucide-react";
 import { Order } from "@/lib/types";
 import { BRAND } from "@/lib/brand";
@@ -108,19 +103,19 @@ export default function TrackOrderPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         {/* Header */}
         <div className="text-center max-w-xl mx-auto space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#A8553F] bg-[#FFF1A6] px-4 py-1.5 rounded-full border border-[#6B352A]/15 shadow-sm">
+          <span className="text-xs font-bold text-[#A8553F] bg-[#FFF1A6] px-4 py-1.5 rounded-xl border border-[#6B352A]/15 shadow-sm">
             Live Consignment Status
           </span>
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#4A231B]">
             Track Your Pickle Shipment
           </h1>
-          <p className="text-xs sm:text-sm text-[#2B1B17]/75 font-sans">
+          <p className="text-sm text-[#2B1B17]/80 font-sans">
             Enter your Order Number (e.g. <strong>AF-8921</strong>) or your 10-digit mobile number used during checkout.
           </p>
         </div>
 
         {/* Search Bar */}
-        <div className="bg-white p-4 sm:p-6 rounded-[32px] border border-[#6B352A]/15 shadow-md max-w-2xl mx-auto">
+        <div className="bg-white p-4 sm:p-6 rounded-2xl border border-[#6B352A]/15 shadow-md max-w-2xl mx-auto">
           <form onSubmit={handleSearch} className="flex gap-2">
             <div className="relative flex-1">
               <Search className="w-4 h-4 text-stone-400 absolute left-3.5 top-3.5" />
@@ -130,13 +125,13 @@ export default function TrackOrderPage() {
                 placeholder="Enter Order # (AF-XXXX) or 10-digit Phone"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 rounded-2xl border border-[#6B352A]/25 text-xs text-[#2B1B17] font-mono focus:outline-none focus:ring-2 focus:ring-[#6B352A]"
+                className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#6B352A]/25 text-sm text-[#2B1B17] font-mono focus:outline-none focus:ring-2 focus:ring-[#6B352A]"
               />
             </div>
             <button
               type="submit"
               disabled={loading}
-              className="px-7 py-3 rounded-2xl bg-[#6B352A] hover:bg-[#4A231B] text-[#FFF1A6] font-bold text-xs transition-colors shadow-sm disabled:opacity-50"
+              className="px-7 py-3 rounded-xl bg-[#6B352A] hover:bg-[#4A231B] text-[#FFF1A6] font-bold text-sm transition-colors shadow-sm disabled:opacity-50"
             >
               {loading ? "Locating..." : "Track Order"}
             </button>
@@ -147,10 +142,10 @@ export default function TrackOrderPage() {
         {searched && (
           <div className="space-y-6">
             {results.length === 0 ? (
-              <div className="bg-white p-8 sm:p-10 rounded-[32px] border border-[#6B352A]/15 text-center space-y-4 max-w-md mx-auto shadow-md">
+              <div className="bg-white p-8 sm:p-10 rounded-2xl border border-[#6B352A]/15 text-center space-y-4 max-w-md mx-auto shadow-md">
                 <ShieldAlert className="w-12 h-12 text-[#A8553F] mx-auto" />
-                <h3 className="font-serif text-xl font-bold text-[#4A231B]">No Matching Order Found</h3>
-                <p className="text-xs text-[#2B1B17]/70 font-sans leading-relaxed">
+                <h2 className="font-serif text-xl font-bold text-[#4A231B]">No Matching Order Found</h2>
+                <p className="text-sm text-[#2B1B17]/80 font-sans leading-relaxed">
                   We could not find an order matching &ldquo;{query}&rdquo;. Please verify your 10-digit phone number or order reference.
                 </p>
                 <div className="pt-2">
@@ -158,7 +153,7 @@ export default function TrackOrderPage() {
                     href={`https://wa.me/${BRAND.whatsappNumber}?text=Hi%20Akhil%20Foods!%20Need%20help%20tracking%20my%20order:%20${query}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#25D366] text-white text-xs font-semibold shadow-md hover:scale-105 transition-all"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#25D366] text-white text-sm font-semibold shadow-md hover:scale-105 transition-all"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span>Ask Customer Desk on WhatsApp</span>
@@ -169,25 +164,25 @@ export default function TrackOrderPage() {
               results.map((order) => (
                 <div
                   key={order.id}
-                  className="bg-white p-6 sm:p-8 rounded-[32px] border border-[#6B352A]/15 shadow-lg space-y-6"
+                  className="bg-white p-6 sm:p-8 rounded-2xl border border-[#6B352A]/15 shadow-lg space-y-6"
                 >
                   {/* Order Header Ribbon */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-stone-100 gap-3">
                     <div>
-                      <span className="text-xs font-bold text-[#A8553F] uppercase tracking-wider font-mono">
+                      <span className="text-xs font-bold text-[#A8553F] font-mono">
                         Consignment #{order.orderNumber}
                       </span>
-                      <h3 className="font-serif text-xl font-bold text-[#4A231B]">{order.customerName}</h3>
-                      <p className="text-[11px] text-stone-500">
+                      <h2 className="font-serif text-xl font-bold text-[#4A231B]">{order.customerName}</h2>
+                      <p className="text-xs text-stone-500">
                         Booked on {new Date(order.createdAt).toLocaleDateString("en-IN", { dateStyle: "medium" })}
                       </p>
                     </div>
 
                     <div className="text-left sm:text-right">
-                      <span className="inline-block px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#FFF1A6] text-[#4A231B] border border-[#6B352A]/20">
+                      <span className="inline-block px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#FFF1A6] text-[#4A231B] border border-[#6B352A]/20">
                         Status: {order.orderStatus}
                       </span>
-                      <p className="text-xs font-serif font-bold text-[#6B352A] mt-1.5">
+                      <p className="text-sm font-serif font-bold text-[#6B352A] mt-1.5">
                         ₹{order.total} • {order.paymentMethod}
                       </p>
                     </div>
@@ -226,7 +221,7 @@ export default function TrackOrderPage() {
 
                   {/* Courier Tracking Details */}
                   {order.trackingNumber && (
-                    <div className="p-4 rounded-2xl bg-[#FFF1A6]/50 border border-[#6B352A]/20 flex items-center justify-between text-xs">
+                    <div className="p-4 rounded-xl bg-[#FFF1A6]/50 border border-[#6B352A]/20 flex items-center justify-between text-xs">
                       <div>
                         <span className="text-stone-600 font-medium">Logistics Partner:</span>{" "}
                         <strong className="text-[#6B352A]">{order.courierName || "Express Courier"}</strong>
@@ -235,7 +230,7 @@ export default function TrackOrderPage() {
                           <strong className="font-mono text-[#2B1B17]">{order.trackingNumber}</strong>
                         </p>
                       </div>
-                      <span className="bg-emerald-100 text-emerald-900 text-[10px] font-bold px-3 py-1 rounded-full border border-emerald-300">
+                      <span className="bg-emerald-100 text-emerald-900 text-xs font-bold px-3 py-1 rounded-xl border border-emerald-300">
                         In Transit
                       </span>
                     </div>
@@ -243,21 +238,21 @@ export default function TrackOrderPage() {
 
                   {/* Items in this order */}
                   <div className="space-y-2 pt-2 border-t border-stone-100">
-                    <h4 className="text-xs font-bold text-stone-600 uppercase tracking-wider">
-                      Jars In This Consignment:
-                    </h4>
+                    <h3 className="text-xs font-bold text-stone-700">
+                      Jars in This Consignment:
+                    </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {order.items?.map((i, index) => (
                         <div
                           key={index}
-                          className="flex items-center gap-3 bg-[#FFFBEF] p-3 rounded-2xl border border-[#6B352A]/15 text-xs"
+                          className="flex items-center gap-3 bg-[#FFF8E7] p-3 rounded-xl border border-[#6B352A]/15 text-sm"
                         >
                           <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-white shrink-0 border border-stone-200">
                             <Image src={i.image} alt={i.name} fill className="object-cover" />
                           </div>
                           <div>
                             <p className="font-bold text-[#2B1B17] truncate">{i.name}</p>
-                            <p className="text-stone-500 text-[11px]">
+                            <p className="text-stone-600 text-xs">
                               {i.size} × {i.quantity} (₹{i.price * i.quantity})
                             </p>
                           </div>
@@ -267,7 +262,7 @@ export default function TrackOrderPage() {
                   </div>
 
                   {/* Delivery Location */}
-                  <div className="text-xs text-stone-600 bg-stone-50 p-4 rounded-2xl">
+                  <div className="text-sm text-stone-700 bg-stone-50 p-4 rounded-xl border border-stone-100">
                     <span className="font-semibold text-[#2B1B17]">Delivering to:</span>{" "}
                     {order.address}, {order.city}, {order.state} - {order.pincode}
                   </div>

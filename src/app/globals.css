@@ -1,46 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  /* Original Clay & Earthy Theme */
+  /* Clay Palette (#6B352A, #4A231B, #A8553F, #FFF1A6, #FFF8E7) */
   --color-clay-brown: #6B352A;
-  --color-soft-butter: #FFF1A6;
   --color-deep-clay: #4A231B;
   --color-terracotta: #A8553F;
+  --color-soft-butter: #FFF1A6;
   --color-warm-cream: #FFF8E7;
   --color-charcoal: #2B1B17;
 
-  /* Deep Burgundy Shades */
-  --color-burgundy: #4E111B;
-  --color-burgundy-dark: #34080F;
-  --color-burgundy-deep: #28050B;
-  --color-burgundy-light: #6E1B29;
-  --color-burgundy-rose: #8C2D3C;
-
-  /* Cosmic Latte & Creams */
-  --color-cosmic-latte: #FFFBEF;
-  --color-cosmic-pure: #FFFDF5;
-  --color-cosmic-dark: #F7EEDB;
-
-  /* Mocha Cream Shades */
-  --color-mocha-cream: #E5D3C0;
-  --color-mocha-light: #F2E7DC;
-  --color-mocha-medium: #D1B89F;
-  --color-mocha-dark: #9E7459;
-  --color-mocha-espresso: #2A1713;
-
   /* Semantic Theme Aliases */
-  --color-clay: #4E111B;
-  --color-clay-light: #6E1B29;
-  --color-clay-dark: #34080F;
-  --color-butter: #E5D3C0;
-  --color-butter-light: #F2E7DC;
-  --color-butter-dark: #D1B89F;
-  --color-cream: #FFFBEF;
-  --color-cream-light: #FFFDF5;
-  --color-espresso: #28050B;
-  --color-mocha: #9E7459;
-  --color-stone: #E5D3C0;
-  --color-gold: #C99757;
+  --color-clay: #6B352A;
+  --color-clay-light: #A8553F;
+  --color-clay-dark: #4A231B;
+  --color-butter: #FFF1A6;
+  --color-cream: #FFF8E7;
 
   /* Typography */
   --font-serif: var(--font-playfair), Georgia, serif;
@@ -69,30 +43,61 @@ body {
 }
 
 /* --------------------------------------------------------------
-   Body‑copy token – ensures a minimum readable size
+   Accessibility: Visible focus states (Issue #15)
    -------------------------------------------------------------- */
-@layer utilities {
-  /* Minimum readable body text */
-  .text-body { @apply text-xs; }   /* ≈ 12 px */
-  /* Reusable button styles */
-  .btn-primary { @apply bg-[#6B352A] text-[#FFF1A6] hover:bg-[#4A231B] font-bold py-2 px-4 rounded-xl text-xs border border-[#6B352A] transition-all; }
-  .btn-outline { @apply border border-[#6B352A] text-[#6B352A] hover:bg-[#6B352A] hover:text-[#FFF1A6] font-bold py-2 px-4 rounded-xl text-xs transition-all; }
-  .btn-icon { @apply flex items-center justify-center p-2 rounded-full bg-[#FFF1A6] text-[#4A231B] hover:bg-[#FFF9D6] transition-all; }
+:focus-visible {
+  outline: 2px solid #6B352A;
+  outline-offset: 2px;
 }
 
-/* Custom scrollbar in Deep Burgundy and Mocha */
+.bg-\[\#4A231B\] :focus-visible,
+.bg-\[\#6B352A\] :focus-visible,
+.bg-\[\#2B1B17\] :focus-visible,
+header :focus-visible {
+  outline: 2px solid #FFF1A6;
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------
+   Issue #12 & #14: Typography & Reusable Consistent Controls
+   -------------------------------------------------------------- */
+@layer utilities {
+  /* Body copy: 14px (Issue #12) */
+  .text-body {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+  /* Caption & Badges: at least 12px (Issue #12) */
+  .text-caption {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+  }
+
+  /* One consistent button radius across the site: rounded-xl (Issue #14) */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-[#6B352A] text-[#FFF1A6] hover:bg-[#4A231B] font-bold py-2.5 px-5 rounded-xl text-sm border border-[#6B352A] transition-all shadow-sm hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFF1A6];
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border-2 border-[#6B352A] text-[#6B352A] hover:bg-[#6B352A] hover:text-[#FFF1A6] font-bold py-2.5 px-5 rounded-xl text-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B352A];
+  }
+  .btn-icon {
+    @apply flex items-center justify-center p-2 rounded-xl bg-[#FFF1A6] text-[#4A231B] hover:bg-[#FFF9D6] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4A231B];
+  }
+}
+
+/* Custom scrollbar in Clay Palette */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #FFFBEF;
+  background: #FFF8E7;
 }
 ::-webkit-scrollbar-thumb {
-  background: #8C2D3C;
+  background: #A8553F;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #4E111B;
+  background: #6B352A;
 }
 
 /* Smooth interactive transitions */
@@ -104,26 +109,27 @@ button, a {
   font-family: var(--font-playfair), Georgia, serif;
 }
 
+/* One consistent card radius across the site: rounded-2xl (Issue #14) */
 .clay-card {
-  border-radius: 24px;
+  border-radius: 1rem; /* 16px = rounded-2xl */
   background-color: #ffffff;
-  border: 1px solid rgba(78, 17, 27, 0.08);
-  box-shadow: 0 10px 30px -10px rgba(78, 17, 27, 0.07);
+  border: 1px solid rgba(107, 53, 42, 0.12);
+  box-shadow: 0 10px 30px -10px rgba(107, 53, 42, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .clay-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 35px -10px rgba(78, 17, 27, 0.12);
+  box-shadow: 0 20px 35px -10px rgba(107, 53, 42, 0.14);
 }
 
 .clay-pill {
   border-radius: 9999px;
-  padding: 0.5rem 1.25rem;
+  padding: 0.375rem 1rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.75rem; /* 12px text-caption */
+  font-weight: 600;
   transition: all 0.2s ease;
 }

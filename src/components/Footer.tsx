@@ -81,7 +81,7 @@ export default function Footer() {
               <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#FFF1A6]/80 bg-[#2B1B17]">
                 <Image
                   src={BRAND.logo}
-                  alt={BRAND.name}
+                  alt={`${BRAND.name} Handcrafted Pickle Emblem`}
                   fill
                   className="object-cover"
                 />
@@ -90,10 +90,10 @@ export default function Footer() {
                 <span className="font-serif text-2xl font-bold tracking-wider text-[#FFF1A6]">
                   {BRAND.name}
                 </span>
-                <p className="text-xs text-[#FFF8E7]/80 uppercase tracking-widest">{BRAND.tagline}</p>
+                <p className="text-sm text-[#FFF8E7]/90 font-medium tracking-wide">{BRAND.tagline}</p>
               </div>
             </div>
-            <p className="text-sm text-[#FFF8E7]/80 leading-relaxed max-w-sm">
+            <p className="text-sm text-[#FFF8E7]/85 leading-relaxed max-w-sm">
               Artisanal oyster mushroom pickles handcrafted with love in Village Nandsiya, Moth, Jhansi, Uttar Pradesh. Dedicated to honesty, safety, and authentic Indian taste.
             </p>
 
@@ -104,9 +104,9 @@ export default function Footer() {
                   <ShieldCheck className="w-4 h-4 text-[#FFF1A6]" />
                   <span>FSSAI Lic. No. {FSSAI_NUMBER}</span>
                 </span>
-                <span className="text-[11px] text-[#FFF8E7]/80">(Valid till {FSSAI_VALIDITY})</span>
+                <span className="text-caption text-[#FFF8E7]/90">(Valid till {FSSAI_VALIDITY})</span>
               </div>
-              <div className="flex flex-wrap gap-2 text-[11px] font-mono text-[#FFF8E7]/90">
+              <div className="flex flex-wrap gap-2 text-caption font-mono text-[#FFF8E7]/90">
                 <span className="bg-[#6B352A]/50 px-3 py-1.5 rounded-lg border border-[#FFF1A6]/20">
                   GSTIN: <strong className="text-[#FFF1A6]">{GST_NUMBER}</strong>
                 </span>
@@ -118,7 +118,7 @@ export default function Footer() {
 
             {/* Social Icons */}
             <div className="pt-2">
-              <p className="text-xs font-semibold text-[#FFF1A6] mb-2 uppercase tracking-wider">Connect With Us:</p>
+              <p className="text-sm font-semibold text-[#FFF1A6] mb-2">Connect with Us:</p>
               <div className="flex items-center gap-2.5">
                 {/* WhatsApp */}
                 <a
@@ -242,7 +242,7 @@ export default function Footer() {
           {/* Newsletter Form */}
           <div className="space-y-3">
             <h4 className="font-serif text-lg font-semibold text-[#FFF1A6]">Stay in the Loop</h4>
-            <p className="text-xs text-[#FFF8E7]/70">
+            <p className="text-sm text-[#FFF8E7]/85">
               Subscribe for harvest drops, fresh batch alerts, and secret discount coupons.
             </p>
             {subscribed ? (
@@ -262,7 +262,7 @@ export default function Footer() {
                 />
                 <button
                   type="submit"
-                  className="btn-primary"
+                  className="btn-primary w-full"
                 >
                   Join Tasting Club
                 </button>
@@ -272,7 +272,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom copyright */}
-        <div className="pt-8 border-t border-[#6B352A]/60 flex flex-col sm:flex-row items-center justify-between text-xs text-[#FFF8E7]/60 gap-4">
+        <div className="pt-8 border-t border-[#6B352A]/60 flex flex-col sm:flex-row items-center justify-between text-xs text-[#FFF8E7]/90 gap-4">
           <p>© 2026 {BRAND.name}. All rights reserved. Handcrafted in Jhansi, Uttar Pradesh.</p>
           <div className="flex gap-4">
             <Link href="/certificates" className="hover:text-[#FFF1A6]">Licenses & FSSAI</Link>

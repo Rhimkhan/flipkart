@@ -208,7 +208,7 @@ function ProductDetailContent() {
             </div>
 
             {/* Price Box with Live Recalculation */}
-            <div className="p-5 rounded-3xl bg-white border border-[#6B352A]/15 shadow-md flex items-baseline justify-between">
+            <div className="p-5 rounded-2xl bg-white border border-[#6B352A]/15 shadow-md flex items-baseline justify-between">
               <div className="flex items-baseline gap-3">
                 <span className="font-serif text-3xl sm:text-4xl font-extrabold text-[#4A231B]">
                   ₹{currentSizeOption.price * quantity}
@@ -218,22 +218,22 @@ function ProductDetailContent() {
                     <span className="text-sm text-stone-400 line-through">
                       ₹{currentSizeOption.originalPrice * quantity}
                     </span>
-                    <span className="text-xs font-bold text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-xl">
+                    <span className="text-caption font-bold text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-xl">
                       Save ₹{(currentSizeOption.originalPrice - currentSizeOption.price) * quantity}
                     </span>
                   </>
                 )}
               </div>
-              <span className="text-[11px] text-stone-500">MRP Inclusive of all taxes</span>
+              <span className="text-caption text-stone-500 font-medium">MRP Inclusive of all taxes</span>
             </div>
 
             {/* Size Selector Switcher */}
             <div className="space-y-2">
               <div className="flex justify-between items-center text-xs">
-                <span className="font-bold text-[#2B1B17] uppercase tracking-wider">
+                <span className="font-semibold text-[#2B1B17] text-sm">
                   Select Weight / Jar Size:
                 </span>
-                <span className="text-[#6B352A] font-semibold">Active: {selectedSize}</span>
+                <span className="text-[#6B352A] font-semibold text-xs">Active: {selectedSize}</span>
               </div>
               <div className="flex flex-wrap gap-3">
                 {product.sizes?.map((s) => (
@@ -241,7 +241,7 @@ function ProductDetailContent() {
                     key={s.size}
                     type="button"
                     onClick={() => setSelectedSize(s.size)}
-                    className={`py-3 px-6 rounded-2xl border-2 text-center transition-all flex items-center gap-3 ${
+                    className={`py-2.5 px-5 rounded-xl border-2 text-center transition-all flex items-center gap-3 ${
                       selectedSize === s.size
                         ? "border-[#6B352A] bg-[#6B352A] text-[#FFF1A6] shadow-md scale-[1.02]"
                         : "border-[#6B352A]/20 bg-white text-[#2B1B17] hover:border-[#6B352A]"
@@ -256,10 +256,10 @@ function ProductDetailContent() {
 
             {/* Quantity Selector */}
             <div className="flex items-center gap-4 pt-1">
-              <span className="text-xs font-bold text-[#2B1B17] uppercase tracking-wider">
+              <span className="text-sm font-semibold text-[#2B1B17]">
                 Quantity:
               </span>
-              <div className="flex items-center border-2 border-[#6B352A]/30 rounded-full bg-white px-3 py-1.5 shadow-sm">
+              <div className="flex items-center border-2 border-[#6B352A]/30 rounded-xl bg-white px-3 py-1.5 shadow-sm">
                 <button
                   type="button"
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
@@ -287,7 +287,7 @@ function ProductDetailContent() {
               <button
                 type="button"
                 onClick={() => addToCart(product, selectedSize, quantity, true)}
-                className="py-4 px-6 rounded-full border-2 border-[#6B352A] text-[#6B352A] hover:bg-[#6B352A] hover:text-[#FFF1A6] font-bold text-sm transition-all text-center shadow-sm flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95"
+                className="py-3.5 px-6 rounded-xl border-2 border-[#6B352A] text-[#6B352A] hover:bg-[#6B352A] hover:text-[#FFF1A6] font-bold text-sm transition-all text-center shadow-sm flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95"
               >
                 <ShoppingBag className="w-4 h-4" />
                 <span>Add to Cart • ₹{currentSizeOption.price * quantity}</span>
@@ -296,7 +296,7 @@ function ProductDetailContent() {
               <button
                 type="button"
                 onClick={() => buyNow(product, selectedSize, quantity)}
-                className="py-4 px-6 rounded-full bg-[#6B352A] hover:bg-[#4A231B] text-[#FFF1A6] font-bold text-sm shadow-xl transition-all text-center flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95"
+                className="py-3.5 px-6 rounded-xl bg-[#6B352A] hover:bg-[#4A231B] text-[#FFF1A6] font-bold text-sm shadow-xl transition-all text-center flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95"
               >
                 <Zap className="w-4 h-4 text-[#FFF1A6]" />
                 <span>Buy Now (Express Checkout)</span>
@@ -309,7 +309,7 @@ function ProductDetailContent() {
                 href={whatsappOrderUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 px-6 rounded-full bg-[#FFF1A6] hover:bg-[#FFF9D6] text-[#4A231B] border border-[#6B352A]/30 font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-sm"
+                className="w-full py-3.5 px-6 rounded-xl bg-[#FFF1A6] hover:bg-[#FFF9D6] text-[#4A231B] border border-[#6B352A]/30 font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-sm"
               >
                 <MessageCircle className="w-4 h-4 text-[#25D366]" />
                 <span>Order on WhatsApp ({PHONE_DISPLAY})</span>
@@ -348,18 +348,18 @@ function ProductDetailContent() {
         </div>
 
         {/* Extended Product Tabs */}
-        <div className="bg-white rounded-[32px] p-6 sm:p-10 border border-[#6B352A]/15 shadow-md space-y-8">
+        <div className="bg-white rounded-2xl p-6 sm:p-10 border border-[#6B352A]/15 shadow-md space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-3">
               <h3 className="font-serif text-xl font-bold text-[#4A231B]">Product Overview</h3>
-              <p className="text-xs sm:text-sm text-[#2B1B17]/80 leading-relaxed font-sans">
+              <p className="text-sm text-[#2B1B17]/85 leading-relaxed font-sans">
                 {product.description}
               </p>
             </div>
 
             <div className="space-y-3">
               <h3 className="font-serif text-xl font-bold text-[#4A231B]">Ingredients from Label</h3>
-              <ul className="space-y-2 text-xs sm:text-sm text-[#2B1B17]/80 font-sans">
+              <ul className="space-y-2 text-sm text-[#2B1B17]/85 font-sans">
                 {product.ingredients?.map((ing, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="text-[#A8553F] font-bold">•</span>
@@ -371,10 +371,10 @@ function ProductDetailContent() {
 
             <div className="space-y-3">
               <h3 className="font-serif text-xl font-bold text-[#4A231B]">Storage & Care</h3>
-              <p className="text-xs sm:text-sm text-[#2B1B17]/80 leading-relaxed font-sans">
+              <p className="text-sm text-[#2B1B17]/85 leading-relaxed font-sans">
                 <strong>{product.shelfLife}</strong>
               </p>
-              <div className="bg-[#FFFBEF] p-4 rounded-2xl border border-[#6B352A]/20 text-xs text-[#2B1B17] space-y-1.5 font-sans">
+              <div className="bg-[#FFFBEF] p-4 rounded-xl border border-[#6B352A]/20 text-sm text-[#2B1B17] space-y-1.5 font-sans">
                 <p>🏺 <strong>Pro Tip:</strong> Always use a clean dry spoon.</p>
                 <p>☀️ Keep away from direct sunlight.</p>
               </div>
@@ -392,7 +392,7 @@ function ProductDetailContent() {
               {REVIEWS.map((rev) => (
                 <div
                   key={rev.id}
-                  className="bg-white p-6 rounded-3xl border border-[#6B352A]/15 shadow-sm space-y-3"
+                  className="bg-white p-6 rounded-2xl border border-[#6B352A]/15 shadow-sm space-y-3"
                 >
                   <div className="flex text-amber-500">
                     {[...Array(rev.rating)].map((_, i) => (

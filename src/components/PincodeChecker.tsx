@@ -50,9 +50,9 @@ export default function PincodeChecker() {
   };
 
   return (
-    <div className="bg-[#FFFBEF] p-4 rounded-2xl border border-[#4E111B]/15 text-xs">
-      <div className="flex items-center gap-1.5 text-[#4E111B] font-semibold mb-2">
-        <MapPin className="w-4 h-4 text-[#8C2D3C]" />
+    <div className="bg-[#FFF8E7] p-4 rounded-2xl border border-[#6B352A]/20 text-sm">
+      <div className="flex items-center gap-1.5 text-[#4A231B] font-semibold mb-2">
+        <MapPin className="w-4 h-4 text-[#A8553F]" />
         <span>Check Delivery Availability & Estimated Time</span>
       </div>
 
@@ -63,34 +63,34 @@ export default function PincodeChecker() {
           placeholder="Enter 6-digit Pincode"
           value={pincode}
           onChange={(e) => setPincode(e.target.value.replace(/\D/g, ""))}
-          className="flex-1 px-3 py-2 rounded-xl bg-white border border-[#4E111B]/25 text-[#1F0E12] font-mono focus:outline-none focus:ring-2 focus:ring-[#4E111B]"
+          className="flex-1 px-3 py-2 rounded-xl bg-white border border-[#6B352A]/25 text-[#4A231B] font-mono text-sm focus:outline-none focus:ring-2 focus:ring-[#6B352A]"
         />
         <button
           type="submit"
           disabled={loading}
-          className="px-4 py-2 rounded-xl bg-[#4E111B] hover:bg-[#34080F] text-[#FFFBEF] font-semibold transition-colors disabled:opacity-50 flex items-center gap-1"
+          className="px-4 py-2 rounded-xl bg-[#6B352A] hover:bg-[#4A231B] text-[#FFF1A6] font-semibold text-sm transition-colors disabled:opacity-50 flex items-center gap-1.5"
         >
-          {loading && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
+          {loading && <Loader2 className="w-4 h-4 animate-spin" />}
           <span>Check</span>
         </button>
       </form>
 
       {result && (
-        <div className="mt-2.5 pt-2 border-t border-[#4E111B]/10">
+        <div className="mt-2.5 pt-2 border-t border-[#6B352A]/15">
           {result.valid ? (
-            <div className="flex items-start gap-2 text-emerald-800">
+            <div className="flex items-start gap-2 text-emerald-800 text-sm">
               <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
               <div>
-                <p className="font-semibold">
+                <p className="font-semibold text-sm">
                   Express Delivery Available for {result.city} {result.state ? `(${result.state})` : ""}
                 </p>
-                <p className="text-[11px] text-stone-600">
+                <p className="text-xs text-stone-600 mt-0.5">
                   Estimated arrival: <strong>{result.days}</strong>. Cash on Delivery is enabled.
                 </p>
               </div>
             </div>
           ) : (
-            <div className="flex items-center gap-1.5 text-red-600">
+            <div className="flex items-center gap-1.5 text-red-600 text-sm">
               <AlertCircle className="w-4 h-4 shrink-0" />
               <span>{result.message}</span>
             </div>

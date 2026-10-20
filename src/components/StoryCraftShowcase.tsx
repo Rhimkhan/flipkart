@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Sparkles, CheckCircle2, ShieldCheck, Heart } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 
 export default function StoryCraftShowcase() {
@@ -32,7 +32,7 @@ export default function StoryCraftShowcase() {
         {steps.map((item) => (
           <div
             key={item.step}
-            className="clay-card rounded-[28px] overflow-hidden bg-white border border-[#6B352A]/15 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col group"
+            className="clay-card rounded-2xl overflow-hidden bg-white border border-[#6B352A]/15 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col group"
           >
             <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#2B1B17]">
               <Image
@@ -43,7 +43,7 @@ export default function StoryCraftShowcase() {
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#2B1B17]/80 via-transparent to-transparent" />
-              <span className="absolute top-3.5 left-3.5 bg-[#FFF1A6] text-[#4A231B] text-xs font-black px-3 py-1 rounded-full shadow-md border border-[#6B352A]/20">
+              <span className="absolute top-3.5 left-3.5 bg-[#FFF1A6] text-[#4A231B] text-xs font-black px-3 py-1 rounded-xl shadow-md border border-[#6B352A]/20">
                 Step {item.step}
               </span>
             </div>
@@ -52,12 +52,12 @@ export default function StoryCraftShowcase() {
                 <h3 className="font-serif text-lg font-bold text-[#4A231B] group-hover:text-[#6B352A] transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-stone-600 mt-2 leading-relaxed">
+                <p className="text-sm text-stone-600 mt-2 leading-relaxed">
                   {item.desc}
                 </p>
               </div>
-              <div className="pt-2 flex items-center gap-1.5 text-[11px] font-semibold text-[#6B352A]">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+              <div className="pt-2 flex items-center gap-1.5 text-xs font-semibold text-[#6B352A]">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                 <span>100% Homemade Process</span>
               </div>
             </div>
@@ -66,16 +66,16 @@ export default function StoryCraftShowcase() {
       </div>
 
       {/* Trust & Craft Banner */}
-      <div className="bg-[#4A231B] text-[#FFF8E7] rounded-[24px] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 border border-[#FFF1A6]/25 shadow-xl">
+      <div className="bg-[#4A231B] text-[#FFF8E7] rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 border border-[#FFF1A6]/25 shadow-xl">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-[#FFF1A6] text-[#4A231B] flex items-center justify-center font-serif font-black text-xl shadow-md shrink-0">
+          <div className="w-12 h-12 rounded-xl bg-[#FFF1A6] text-[#4A231B] flex items-center justify-center font-serif font-black text-xl shadow-md shrink-0">
             🌾
           </div>
           <div>
-            <h4 className="font-serif text-base sm:text-lg font-bold text-[#FFF1A6]">
+            <h3 className="font-serif text-base sm:text-lg font-bold text-[#FFF1A6]">
               Handcrafted in Village Nandsiya, Moth, Jhansi
-            </h4>
-            <p className="text-xs text-[#FFF8E7]/80 mt-0.5">
+            </h3>
+            <p className="text-xs text-[#FFF8E7]/90 mt-0.5">
               Operating with active FSSAI License No. {BRAND.fssaiNumber} under strict food hygiene standards.
             </p>
           </div>

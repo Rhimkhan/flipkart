@@ -101,12 +101,12 @@ export default function CartDrawer() {
                   <ShoppingBag className="w-8 h-8" />
                 </div>
                 <h3 className="font-serif text-lg font-bold text-[#4A231B]">Your basket is empty</h3>
-                <p className="text-xs text-[#2B1B17]/70 max-w-xs mx-auto">
+                <p className="text-sm text-[#2B1B17]/80 max-w-xs mx-auto">
                   Add our signature 400g Mushroom Mela Oyster Mushroom Pickle to your basket.
                 </p>
                 <button
                   onClick={() => setIsDrawerOpen(false)}
-                  className="px-6 py-2.5 rounded-full bg-[#6B352A] hover:bg-[#4A231B] text-[#FFF1A6] text-xs font-semibold shadow-md transition-all"
+                  className="px-6 py-2.5 rounded-xl bg-[#6B352A] hover:bg-[#4A231B] text-[#FFF1A6] text-sm font-semibold shadow-md transition-all"
                 >
                   Explore Artisanal Pickles
                 </button>
@@ -120,7 +120,7 @@ export default function CartDrawer() {
                   <div className="relative w-20 h-20 rounded-xl overflow-hidden bg-[#FFFBEF] shrink-0 border border-[#6B352A]/15">
                     <Image
                       src={item.image}
-                      alt={item.name}
+                      alt={`${item.name} - Handcrafted Pickle Jar`}
                       fill
                       className="object-cover"
                     />
@@ -140,7 +140,7 @@ export default function CartDrawer() {
                           <Trash2 className="w-4 h-4" />
                         </button>
                       </div>
-                      <span className="inline-block text-[11px] font-semibold text-[#4A231B] bg-[#FFF1A6] px-2 py-0.5 rounded-full mt-1 border border-[#6B352A]/15">
+                      <span className="inline-block text-caption font-semibold text-[#4A231B] bg-[#FFF1A6] px-2 py-0.5 rounded-full mt-1 border border-[#6B352A]/15">
                         Jar Size: {item.size}
                       </span>
                     </div>
@@ -184,34 +184,34 @@ export default function CartDrawer() {
               {/* Coupon Form */}
               <form onSubmit={handleApplyCoupon} className="flex gap-2">
                 <div className="relative flex-1">
-                  <Tag className="w-3.5 h-3.5 absolute left-3 top-3 text-stone-400" />
+                  <Tag className="w-4 h-4 absolute left-3 top-3 text-stone-400" />
                   <input
                     type="text"
                     placeholder="Coupon (try AKHIL10)"
                     value={couponInput}
                     onChange={(e) => setCouponInput(e.target.value)}
-                    className="w-full pl-8 pr-3 py-2 text-xs rounded-xl border border-[#6B352A]/25 uppercase font-mono focus:outline-none focus:ring-1 focus:ring-[#6B352A]"
+                    className="w-full pl-9 pr-3 py-2 text-sm rounded-xl border border-[#6B352A]/25 uppercase font-mono focus:outline-none focus:ring-1 focus:ring-[#6B352A]"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="px-3.5 py-2 rounded-xl bg-[#6B352A] text-[#FFF1A6] text-xs font-semibold hover:bg-[#4A231B] transition-colors shadow-sm"
+                  className="px-4 py-2 rounded-xl bg-[#6B352A] text-[#FFF1A6] text-sm font-semibold hover:bg-[#4A231B] transition-colors shadow-sm"
                 >
                   Apply
                 </button>
               </form>
 
               {appliedCoupon && (
-                <div className="flex items-center justify-between text-xs bg-[#FFF1A6] p-2 rounded-xl text-[#4A231B] border border-[#6B352A]/20">
+                <div className="flex items-center justify-between text-xs bg-[#FFF1A6] p-2.5 rounded-xl text-[#4A231B] border border-[#6B352A]/20">
                   <span>Code <strong>{appliedCoupon}</strong> active</span>
-                  <button onClick={removeCoupon} className="text-red-700 font-semibold underline text-[11px]">
+                  <button onClick={removeCoupon} className="text-red-700 font-semibold underline text-xs">
                     Remove
                   </button>
                 </div>
               )}
 
               {couponStatus && (
-                <p className={`text-[11px] ${couponStatus.isError ? "text-red-600" : "text-emerald-700"} font-medium`}>
+                <p className={`text-xs ${couponStatus.isError ? "text-red-600" : "text-emerald-700"} font-medium`}>
                   {couponStatus.message}
                 </p>
               )}
@@ -243,17 +243,17 @@ export default function CartDrawer() {
                 <Link
                   href="/cart"
                   onClick={() => setIsDrawerOpen(false)}
-                  className="py-3 px-4 rounded-xl border-2 border-[#6B352A] text-[#6B352A] font-semibold text-xs text-center hover:bg-[#6B352A] hover:text-[#FFF1A6] transition-all"
+                  className="py-3 px-4 rounded-xl border-2 border-[#6B352A] text-[#6B352A] font-semibold text-sm text-center hover:bg-[#6B352A] hover:text-[#FFF1A6] transition-all"
                 >
                   View Cart Page
                 </Link>
                 <Link
                   href="/checkout"
                   onClick={() => setIsDrawerOpen(false)}
-                  className="py-3 px-4 rounded-xl bg-[#6B352A] hover:bg-[#4A231B] text-[#FFF1A6] font-semibold text-xs text-center flex items-center justify-center gap-1.5 shadow-md transition-all"
+                  className="py-3 px-4 rounded-xl bg-[#6B352A] hover:bg-[#4A231B] text-[#FFF1A6] font-semibold text-sm text-center flex items-center justify-center gap-1.5 shadow-md transition-all"
                 >
                   <span>Checkout</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
 
@@ -266,9 +266,9 @@ export default function CartDrawer() {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all"
+                className="w-full py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-sm transition-all"
               >
-                <MessageCircle className="w-3.5 h-3.5 fill-white" />
+                <MessageCircle className="w-4 h-4 fill-white" />
                 <span>Order on WhatsApp</span>
               </a>
             </div>
