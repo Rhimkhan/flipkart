@@ -6,7 +6,7 @@ import { BRAND } from "@/lib/brand";
 export const metadata: Metadata = {
   title: "Contact Us & Location in Jhansi | AKHIL FOODS",
   description:
-    "Get in touch with AKHIL FOODS in Village Nandsiya, Moth, Jhansi, Uttar Pradesh - 284303. Order inquiries, customer support, and direct WhatsApp ordering on 6966558899.",
+    "Get in touch with AKHIL FOODS in Village Nandsiya, Moth, Jhansi, Uttar Pradesh - 284303. Order inquiries, customer support, and direct WhatsApp ordering on 916386423865.",
   keywords: [
     "contact akhil foods",
     "akhil foods jhansi",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Us & Location | AKHIL FOODS",
     description:
-      "Reach out to AKHIL FOODS in Village Nandsiya, Moth, Jhansi, Uttar Pradesh. Quick WhatsApp support on 6966558899.",
+      "Reach out to AKHIL FOODS in Village Nandsiya, Moth, Jhansi, Uttar Pradesh. Quick WhatsApp support on 916386423865.",
     url: "https://akhilfoods.com/contact",
     siteName: "AKHIL FOODS",
     images: [

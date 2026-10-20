@@ -1,8 +1,8 @@
 // Centralized store contact and WhatsApp configuration
-export const WHATSAPP_NUMBER = "916966558899";
-export const PHONE_DISPLAY = "+91 69665 58899";
-export const PHONE_RAW = "+916966558899";
-export const TEL_LINK = "tel:+916966558899";
+export const WHATSAPP_NUMBER = "916386423865";
+export const PHONE_DISPLAY = "+91 63864 23865";
+export const PHONE_RAW = "+916386423865";
+export const TEL_LINK = "tel:+916386423865";
 export const WHATSAPP_DEFAULT_MESSAGE = "Hi, I want to order mushroom pickle";
 export const WHATSAPP_ORDER_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE)}`;
 

@@ -54,13 +54,6 @@ function NavbarContent() {
 
   return (
     <>
-      {/* Top understated luxury atelier strip */}
-      <div className="bg-[#1A110D] text-[#EADBB6] text-xs py-1.5 px-4 text-center font-serif tracking-[0.28em] uppercase flex items-center justify-center gap-3 border-b border-[#C89B3C]/20">
-        <span>Jhansi Atelier</span>
-        <span className="text-[#C89B3C]/40">•</span>
-        <span>Artisanal Oyster Mushroom Pickle</span>
-      </div>
-
       {/* Main Luxury Navigation Bar with Centered Gold & Espresso Logo */}
       <header
         className={`sticky top-0 w-full transition-all duration-500 z-40 ${

@@ -14,7 +14,7 @@ export async function sendOrderNotificationEmail(order: Order): Promise<EmailRes
     process.env.ADMIN_NOTIFICATION_EMAIL ||
     process.env.STORE_OWNER_EMAIL ||
     BRAND.adminEmail ||
-    "orders@akhilfoods.com";
+    "abhishekkumarnandsiya@gmail.com";
 
   const subject = `🍄 [NEW ORDER #${order.orderNumber}] - ₹${order.total} from ${order.customerName} (${order.paymentMethod.includes("Cash") ? "COD" : "Online"})`;
 
@@ -155,7 +155,7 @@ export async function sendOrderNotificationEmail(order: Order): Promise<EmailRes
           Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
         },
         body: JSON.stringify({
-          from: process.env.RESEND_FROM_EMAIL || "Akhil Foods <orders@akhilfoods.com>",
+          from: process.env.RESEND_FROM_EMAIL || "Akhil Foods <abhishekkumarnandsiya@gmail.com>",
           to: [recipientEmail],
           subject: subject,
           html: htmlBody,

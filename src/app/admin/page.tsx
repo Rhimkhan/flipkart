@@ -44,7 +44,7 @@ export default function AdminPage() {
   const [adminUser, setAdminUser] = useState<string | null>(null);
 
   // Auth form
-  const [emailInput, setEmailInput] = useState("admin@akhilfoods.com");
+  const [emailInput, setEmailInput] = useState("abhishekkumarnandsiya@gmail.com");
   const [passwordInput, setPasswordInput] = useState("");
   const [authError, setAuthError] = useState<string | null>(null);
   const [authLoading, setAuthLoading] = useState(false);
@@ -453,7 +453,7 @@ If you have any questions, reply here.
                 required
                 value={emailInput}
                 onChange={(e) => setEmailInput(e.target.value)}
-                placeholder="admin@akhilfoods.com"
+                placeholder="abhishekkumarnandsiya@gmail.com"
                 className="w-full px-4 py-3 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-xs text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
               />
             </div>

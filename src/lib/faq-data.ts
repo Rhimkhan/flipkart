@@ -63,6 +63,6 @@ export const FAQ_DATA: FAQItem[] = [
     category: "shipping",
     question: "Can I order directly on WhatsApp?",
     answer:
-      "Yes! You can message us on WhatsApp at 6966558899 to place your order directly with our team.",
+      "Yes! You can message us on WhatsApp at 916386423865 (+91 63864 23865) to place your order directly with our team.",
   },
 ];

@@ -11,7 +11,7 @@
 - **FSSAI Lic. No.:** 22726293000001
 - **GSTIN:** 09FTOPD3011E1ZZ
 - **Udyam Reg. No.:** UDYAM-UP-39-0059446
-- **WhatsApp / Phone:** 6966558899
+- **WhatsApp / Phone:** 916386423865 (+91 63864 23865)
 
 ---
 

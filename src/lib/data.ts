@@ -77,7 +77,7 @@ export const FAQS = [
   {
     question: "Can I order directly on WhatsApp?",
     answer:
-      "Yes! You can click the 'Order on WhatsApp' button on any page to chat directly with us on 6966558899 and place your order.",
+      "Yes! You can click the 'Order on WhatsApp' button on any page to chat directly with us on 916386423865 (+91 63864 23865) and place your order.",
   },
 ];
 

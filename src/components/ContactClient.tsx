@@ -133,7 +133,7 @@ export default function ContactClient() {
                 rel="noopener noreferrer"
                 className="block text-center py-2.5 rounded-full bg-[#25D366] text-white font-bold hover:bg-[#20ba59] transition-colors shadow-md text-sm"
               >
-                Chat on WhatsApp (+91 69665 58899)
+                Chat on WhatsApp ({PHONE_DISPLAY})
               </a>
             </div>
 
@@ -222,7 +222,7 @@ export default function ContactClient() {
                     <input
                       type="tel"
                       required
-                      placeholder="e.g. 6966558899"
+                      placeholder="e.g. 6386423865"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border border-[#E8DEC8] focus:outline-none focus:ring-2 focus:ring-[#211612] bg-[#FAF6EE] text-sm text-[#211612]"
