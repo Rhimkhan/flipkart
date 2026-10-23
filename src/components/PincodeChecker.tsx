@@ -43,7 +43,7 @@ export default function PincodeChecker() {
           valid: true,
           city: "Verified Pincode",
           state: "All India Delivery",
-          days: "3-5 business days via BlueDart / Delhivery Express",
+          days: "Depends on courier and location",
         });
       }
     }, 400);

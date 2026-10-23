@@ -15,7 +15,6 @@ import {
   UDYAM_NUMBER,
 } from "@/lib/config";
 import {
-  Mail,
   Phone,
   MapPin,
   CheckCircle2,
@@ -54,8 +53,8 @@ export default function Footer() {
             <div className="w-12 h-12 rounded-2xl bg-[#2A1D17] flex items-center justify-center text-[#D4AF37] mb-3 shadow-sm border border-[#C89B3C]/25">
               <Sparkles className="w-6 h-6" />
             </div>
-            <h3 className="font-serif font-semibold text-sm text-[#FAF6EE]">Pure Spices & Oil</h3>
-            <p className="text-xs text-[#EADBB6]/70 mt-1 font-light">Cold-pressed mustard oil & whole spices</p>
+            <h3 className="font-serif font-semibold text-sm text-[#FAF6EE]">Spices & Mustard Oil</h3>
+            <p className="text-xs text-[#EADBB6]/70 mt-1 font-light">Mustard oil & whole spices</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-12 h-12 rounded-2xl bg-[#2A1D17] flex items-center justify-center text-[#D4AF37] mb-3 shadow-sm border border-[#C89B3C]/25">
@@ -217,12 +216,6 @@ export default function Footer() {
                   {PHONE_DISPLAY}
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                <a href={`mailto:${BRAND.email}`} className="hover:text-[#D4AF37]">
-                  {BRAND.email}
-                </a>
-              </li>
               <li className="pt-2">
                 <Link
                   href="/track-order"
@@ -266,17 +259,21 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom copyright */}
-        <div className="pt-8 border-t border-[#C89B3C]/20 flex flex-col sm:flex-row items-center justify-between text-xs text-[#EADBB6]/70 gap-4 font-light">
+        {/* Bottom copyright & Policy Links */}
+        <div className="pt-8 border-t border-[#C89B3C]/20 flex flex-col md:flex-row items-center justify-between text-xs text-[#EADBB6]/70 gap-4 font-light">
           <p>© 2026 {BRAND.name}. All rights reserved. Handcrafted in Jhansi, Uttar Pradesh.</p>
-          <div className="flex gap-4">
-            <Link href="/certificates" className="hover:text-[#D4AF37]">Provenance & FSSAI</Link>
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-3 gap-y-1.5">
+            <Link href="/privacy-policy" className="hover:text-[#D4AF37] transition-colors">Privacy Policy</Link>
             <span>•</span>
-            <Link href="/faq" className="hover:text-[#D4AF37]">Shipping & Care</Link>
+            <Link href="/terms" className="hover:text-[#D4AF37] transition-colors">Terms</Link>
             <span>•</span>
-            <Link href="/contact" className="hover:text-[#D4AF37]">Concierge</Link>
+            <Link href="/shipping-policy" className="hover:text-[#D4AF37] transition-colors">Shipping Policy</Link>
             <span>•</span>
-            <Link href="/admin" className="hover:text-[#D4AF37]">Atelier Admin</Link>
+            <Link href="/refund-policy" className="hover:text-[#D4AF37] transition-colors">Refund Policy</Link>
+            <span>•</span>
+            <Link href="/certificates" className="hover:text-[#D4AF37] transition-colors">FSSAI & Purity</Link>
+            <span>•</span>
+            <Link href="/contact" className="hover:text-[#D4AF37] transition-colors">Contact</Link>
           </div>
         </div>
       </div>

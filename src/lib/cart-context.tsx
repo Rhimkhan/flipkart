@@ -153,7 +153,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setAppliedCoupon("FREESHIP");
       setDiscountPercent(0);
       localStorage.setItem("akhil_foods_coupon", "FREESHIP");
-      return { success: true, message: "Coupon applied! Enjoy 100% Free Shipping." };
+      return { success: true, message: "Coupon applied! Enjoy Free Shipping." };
     } else {
       return { success: false, message: "Invalid coupon code. Try AKHIL10 or FREESHIP" };
     }

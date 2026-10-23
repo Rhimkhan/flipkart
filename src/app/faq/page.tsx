@@ -6,20 +6,13 @@ import { FAQ_DATA } from "@/lib/faq-data";
 export const metadata: Metadata = {
   title: "Frequently Asked Questions (FAQ) | AKHIL FOODS",
   description:
-    "Got questions about our Oyster Mushroom Pickle? Learn about our real ingredients, FSSAI registration, storage instructions, and pan-India delivery from Jhansi, Uttar Pradesh.",
-  keywords: [
-    "akhil foods faq",
-    "mushroom mela pickle",
-    "oyster mushroom pickle ingredients",
-    "how to store mushroom pickle",
-    "akhil foods delivery time",
-    "fssai license akhil foods",
-  ],
+    "Got questions about our Oyster Mushroom Pickle? Learn about our real ingredients, FSSAI registration, storage instructions, and delivery details from Jhansi, Uttar Pradesh.",
+  keywords: ["AKHIL FOODS", "FAQ", "Mushroom Pickle"],
   openGraph: {
     title: "Frequently Asked Questions | AKHIL FOODS",
     description:
       "All answers about our Mushroom Mela Oyster Mushroom Pickle, genuine ingredients, packaging safety, and delivery.",
-    url: "https://akhilfoods.com/faq",
+    url: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/faq`,
     siteName: "AKHIL FOODS",
     images: [
       {
@@ -35,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "FAQ | AKHIL FOODS Oyster Mushroom Pickles",
-    description: "Learn about Mushroom Mela ingredients, purity, and shelf life.",
+    description: "Learn about Mushroom Mela ingredients, storage, and shelf life.",
     images: ["/images/products/mushroom-mela-front.jpg"],
   },
   alternates: {

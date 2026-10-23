@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { getLocalProducts, saveLocalProducts } from "@/lib/store";
 import { INITIAL_PRODUCTS } from "@/lib/data";
 import { Product } from "@/lib/types";
-import { supabase } from "@/lib/supabase";
+import { supabase } from "@/lib/supabase-server";
+import { verifyAdminSession } from "@/lib/admin-auth";
 
 // Normalize database row to application Product interface
 function normalizeProductRow(row: any): Product {
@@ -58,6 +59,13 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
+    if (!verifyAdminSession(request)) {
+      return NextResponse.json(
+        { success: false, error: "Unauthorized. Admin session required." },
+        { status: 401 }
+      );
+    }
+
     const body = await request.json();
 
     // 1. If Supabase is connected, insert/update in Supabase
@@ -136,5 +144,35 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Products POST error:", error);
     return NextResponse.json({ success: false, error: "Failed to save product" }, { status: 500 });
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    if (!verifyAdminSession(request)) {
+      return NextResponse.json(
+        { success: false, error: "Unauthorized. Admin session required." },
+        { status: 401 }
+      );
+    }
+
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get("id");
+    if (!id) {
+      return NextResponse.json({ success: false, error: "Product ID required" }, { status: 400 });
+    }
+
+    if (supabase) {
+      await supabase.from("products").delete().eq("id", id);
+    }
+
+    const current = getLocalProducts();
+    const updated = current.filter((p) => p.id !== id);
+    saveLocalProducts(updated);
+
+    return NextResponse.json({ success: true, message: "Product deleted" });
+  } catch (error) {
+    console.error("Products DELETE error:", error);
+    return NextResponse.json({ success: false, error: "Failed to delete product" }, { status: 500 });
   }
 }

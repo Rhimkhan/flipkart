@@ -21,26 +21,65 @@ export default function ContactClient() {
     phone: "",
     subject: "Order Inquiry",
     message: "",
+    website_url: "", // Honeypot bot protection
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage("");
 
-    if (!formData.name.trim() || !formData.phone.trim() || !formData.message.trim()) {
-      setErrorMessage("Please fill in all required fields (Name, Phone, and Message).");
+    const rawName = formData.name.trim();
+    if (rawName.length < 2 || rawName.length > 60) {
+      setErrorMessage("Please enter your name (between 2 and 60 characters).");
+      return;
+    }
+
+    const cleanPhone = formData.phone.replace(/\D/g, "");
+    if (!/^[6-9]\d{9}$/.test(cleanPhone)) {
+      setErrorMessage("Please enter a valid 10-digit mobile number starting with 6, 7, 8, or 9.");
+      return;
+    }
+
+    const rawEmail = formData.email.trim();
+    if (rawEmail) {
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (rawEmail.length > 100 || !emailRegex.test(rawEmail)) {
+        setErrorMessage("Please enter a valid email address (e.g. yourname@example.com).");
+        return;
+      }
+    }
+
+    const rawMessage = formData.message.trim();
+    if (rawMessage.length < 10 || rawMessage.length > 2000) {
+      setErrorMessage("Please enter a message (between 10 and 2000 characters).");
       return;
     }
 
     setLoading(true);
-    // Simulate contact dispatch
-    setTimeout(() => {
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        setErrorMessage(data.error || "Failed to submit message. Please try again.");
+        setLoading(false);
+        return;
+      }
+
       setLoading(false);
       setSubmitted(true);
-    }, 600);
+    } catch {
+      setErrorMessage("Network error. Please check your connection and try again.");
+      setLoading(false);
+    }
   };
 
   return (
@@ -184,6 +223,7 @@ export default function ContactClient() {
                         phone: "",
                         subject: "Order Inquiry",
                         message: "",
+                        website_url: "",
                       });
                     }}
                     className="px-6 py-2.5 rounded-full bg-[#211612] text-[#FAF6EE] border border-[#C89B3C]/40 text-sm font-bold hover:bg-[#1C130E] transition-colors"
@@ -194,6 +234,18 @@ export default function ContactClient() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4 text-sm">
+                {/* Anti-spam Honeypot */}
+                <input
+                  type="text"
+                  name="website_url"
+                  value={formData.website_url}
+                  onChange={(e) => setFormData({ ...formData, website_url: e.target.value })}
+                  style={{ display: "none" }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
+
                 {errorMessage && (
                   <div className="p-3 bg-red-50 border border-red-200 text-red-700 rounded-xl text-sm">
                     {errorMessage}

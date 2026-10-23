@@ -27,24 +27,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const title = `${product.name} | AKHIL FOODS`;
-  const description = `${product.subtitle || product.description.slice(0, 150)}. Handcrafted in Jhansi, Uttar Pradesh by AKHIL FOODS with pure mustard oil.`;
+  const description = `${product.subtitle || product.description.slice(0, 150)}. Handcrafted in Jhansi, Uttar Pradesh by AKHIL FOODS with mustard oil.`;
 
   return {
     title,
     description,
-    keywords: [
-      product.name,
-      product.flavour,
-      "mushroom pickle",
-      "akhil foods",
-      "mushroom mela",
-      "jhansi uttar pradesh",
-      "buy pickle online",
-    ],
+    keywords: [product.name, "AKHIL FOODS"],
     openGraph: {
       title,
       description,
-      url: `https://akhilfoods.com/product/${product.slug}`,
+      url: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/product/${product.slug}`,
       siteName: "AKHIL FOODS",
       images: [
         {
@@ -82,7 +74,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
-    image: `https://akhilfoods.com${product.image}`,
+    image: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}${product.image}`,
     description: product.description,
     sku: product.id,
     brand: {

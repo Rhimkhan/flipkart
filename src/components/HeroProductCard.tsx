@@ -14,12 +14,12 @@ export default function HeroProductCard() {
         {/* Ambient warm gold aura behind the jar */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#C89B3C]/10 rounded-full blur-3xl pointer-events-none" />
 
-        {/* Card Header: ATELIER HARVEST • BATCH NO. 01 and 400G GLASS JAR in tiny, elegant gold lettering */}
+        {/* Card Header: MUSHROOM MELA • HANDCRAFTED IN JHANSI and 400G GLASS JAR in tiny, elegant gold lettering */}
         <div className="relative z-10 flex items-center justify-between pb-3.5 border-b border-[#C89B3C]/20">
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-[#C89B3C]" />
             <span className="font-serif text-xs tracking-[0.25em] uppercase text-[#D4AF37] font-semibold">
-              ATELIER HARVEST • BATCH NO. 01
+              MUSHROOM MELA • JHANSI
             </span>
           </div>
           <span className="font-serif text-xs tracking-[0.25em] uppercase text-[#D4AF37] font-semibold">
@@ -73,7 +73,7 @@ export default function HeroProductCard() {
               ₹399
             </span>
             <span className="text-xs text-[#EADBB6]/80 font-serif italic">
-              Artisanal Collector&apos;s Jar • 400g
+              Artisanal Glass Jar • 400g
             </span>
           </div>
 

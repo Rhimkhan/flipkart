@@ -8,7 +8,6 @@ import confetti from "canvas-confetti";
 import { CheckCircle, MessageSquare, Printer, MapPin, Loader2 } from "lucide-react";
 import { Order } from "@/lib/types";
 import { BRAND } from "@/lib/brand";
-import { getLocalOrders } from "@/lib/store";
 
 function OrderSuccessContent() {
   const params = useParams();
@@ -16,33 +15,70 @@ function OrderSuccessContent() {
   const [order, setOrder] = useState<Order | null>(null);
 
   useEffect(() => {
-    // Fire confetti celebration with photo palette
-    try {
-      confetti({
-        particleCount: 80,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ["#211612", "#C89B3C", "#A87B28", "#FAF6EE", "#D4AF37"],
-      });
-    } catch {
-      // ignore
-    }
+    // Only show details for the order just placed in that browser
+    if (typeof window !== "undefined") {
+      try {
+        const sessionKey = "akhil_placed_order_" + orderId;
+        const storedOrder = sessionStorage.getItem(sessionKey) || sessionStorage.getItem("akhil_last_placed_order");
+        if (storedOrder) {
+          const parsed = JSON.parse(storedOrder);
+          if (parsed && (parsed.id === orderId || parsed.orderNumber === orderId)) {
+            setOrder(parsed);
 
-    // Fetch order details from local store or API
-    const orders = getLocalOrders();
-    const found = orders.find((o) => o.id === orderId || o.orderNumber === orderId);
-    if (found) {
-      setOrder(found);
-    } else {
-      fetch(`/api/orders?q=${orderId}`)
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.orders && data.orders.length > 0) {
-            setOrder(data.orders[0]);
+            // Fire celebration confetti
+            try {
+              confetti({
+                particleCount: 80,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ["#211612", "#C89B3C", "#A87B28", "#FAF6EE", "#D4AF37"],
+              });
+            } catch {
+              // ignore
+            }
+            return;
           }
-        });
+        }
+      } catch (err) {
+        console.warn("Session retrieval error:", err);
+      }
     }
   }, [orderId]);
+
+  if (!order) {
+    return (
+      <div className="py-20 bg-[#FAF6EE] min-h-screen">
+        <div className="max-w-md mx-auto px-4 text-center space-y-5 bg-[#FDFBF7] p-8 sm:p-10 rounded-3xl border border-[#E8DEC8] shadow-sm">
+          <div className="w-14 h-14 rounded-2xl bg-stone-100 text-[#A87B28] flex items-center justify-center mx-auto">
+            <CheckCircle className="w-8 h-8 text-[#A87B28]" />
+          </div>
+          <h1 className="font-serif text-2xl font-bold text-[#211612]">
+            Order Receipt Unavailable
+          </h1>
+          <p className="text-sm text-[#3D2C24]/80 leading-relaxed">
+            For customer data privacy, detailed order receipts are only displayed immediately after placing an order in your active browser.
+          </p>
+          <p className="text-xs text-stone-500">
+            You can verify and follow live consignment progress using your Order Number and Mobile Number.
+          </p>
+          <div className="pt-2 flex flex-col gap-2.5">
+            <Link
+              href="/track-order"
+              className="px-6 py-3 rounded-full bg-[#211612] text-[#FAF6EE] font-bold text-sm hover:bg-[#1C130E] transition-all"
+            >
+              Go to Order Tracking
+            </Link>
+            <Link
+              href="/shop"
+              className="px-6 py-2.5 rounded-full border border-[#E8DEC8] text-[#211612] font-semibold text-xs hover:bg-[#FAF6EE] transition-all"
+            >
+              Continue to Catalog
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const handlePrint = () => {
     if (typeof window !== "undefined") {

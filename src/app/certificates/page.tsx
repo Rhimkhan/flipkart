@@ -54,13 +54,13 @@ export default function CertificatesPage() {
               <span>An Unhurried Heritage Ritual</span>
             </span>
             <h2 className="headline-luxury text-2xl sm:text-3xl lg:text-4xl text-[#FAF6EE] font-normal">
-              Cultivated in Jhansi. Cured in Cold-Pressed Mustard Oil.
+              Cultivated in Jhansi. Cured in Mustard Oil.
             </h2>
             <p className="editorial-body text-[#EADBB6]/90 leading-relaxed max-w-3xl font-light">
               In the heart of the Bundelkhand plains, tender oyster mushrooms are hand-harvested at dawn, carefully inspected, gently washed, and trimmed to preserve their naturally succulent, meaty texture.
             </p>
             <p className="editorial-body text-[#EADBB6]/90 leading-relaxed max-w-3xl font-light">
-              We steep the mushrooms in cold-pressed virgin mustard oil, blending them with freshly crushed coriander, whole mustard seeds, fenugreek, fennel, cumin, and fragrant ajwain. Slow-cured under the Indian sun, each small batch develops an unforgettable depth of umami, pungency, and tangy perfection without industrial shortcuts.
+              We steep the mushrooms in mustard oil, blending them with freshly crushed coriander, whole mustard seeds, fenugreek, fennel, cumin, and fragrant ajwain. Slow-cured under the Indian sun, each small batch develops an unforgettable depth of umami, pungency, and tangy perfection.
             </p>
           </div>
 
@@ -238,7 +238,7 @@ export default function CertificatesPage() {
           </div>
           <div className="space-y-2">
             <h2 className="headline-luxury text-2xl sm:text-3xl text-[#FAF6EE] font-normal">
-              A Guarantee of Pure Taste & Integrity
+              A Commitment to Authenticity & Integrity
             </h2>
             <p className="editorial-body text-[#EADBB6]/90 max-w-xl mx-auto font-light">
               Every 400g jar of Mushroom Mela is sealed with airtight freshness, verified against strict safety parameters, and dispatched direct from Jhansi.

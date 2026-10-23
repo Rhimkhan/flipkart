@@ -5,9 +5,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     id: "prod-mushroom-mela",
     name: "Mushroom Mela Oyster Mushroom Pickle",
     slug: "mushroom-mela-oyster-mushroom-pickle",
-    subtitle: "Artisanal handcrafted oyster mushroom pickle in pure mustard oil & spices",
+    subtitle: "Artisanal handcrafted oyster mushroom pickle in mustard oil & spices",
     description:
-      "Authentic handcrafted oyster mushroom pickle by AKHIL FOODS, prepared in Village Nandsiya, Moth, Jhansi, Uttar Pradesh. Made with tender oyster mushrooms steeped in pure mustard oil, vinegar, and traditional stone-ground Indian spices for a rich, delicious taste.",
+      "Authentic handcrafted oyster mushroom pickle by AKHIL FOODS, prepared in Village Nandsiya, Moth, Jhansi, Uttar Pradesh. Made with tender oyster mushrooms steeped in mustard oil, vinegar, and traditional Indian spices.",
     flavour: "Oyster Mushroom",
     rating: 0,
     reviewsCount: 0,
@@ -57,7 +57,7 @@ export const FAQS = [
   {
     question: "What ingredients are used in Mushroom Mela Oyster Mushroom Pickle?",
     answer:
-      "Our pickle is made with Mushroom, mustard oil, vinegar, salt, red chilli, coriander, mustard, fennel, fenugreek, cumin, turmeric, ajwain, ginger, garlic, and permitted additives. Net quantity is 400g.",
+      "As stated on the label: Mushroom, Mustard Oil, Vinegar, Salt, Red Chilli, Coriander, Mustard, Fennel, Fenugreek, Cumin, Turmeric, Ajwain, Ginger, Garlic, and Permitted Additives. Net quantity is 400g.",
   },
   {
     question: "How should I store the pickle?",
@@ -70,26 +70,26 @@ export const FAQS = [
       "Yes, AKHIL FOODS holds FSSAI Lic. No. 22726293000001 (valid till 31-12-2026), GSTIN 09FTOPD3011E1ZZ, and Udyam Reg. No. UDYAM-UP-39-0059446.",
   },
   {
-    question: "Do you deliver across India?",
+    question: "Do you deliver across India and how long does it take?",
     answer:
-      "Yes! We deliver across India via reliable courier partners. Standard delivery takes 2 to 5 business days.",
+      "Yes, we ship across India. We do not promise fixed delivery days; delivery time depends on the courier partner and your delivery location and pin code.",
   },
   {
-    question: "Can I order directly on WhatsApp?",
+    question: "How can I place an order?",
     answer:
-      "Yes! You can click the 'Order on WhatsApp' button on any page to chat directly with us on 916386423865 (+91 63864 23865) and place your order.",
+      "You can order directly on our website checkout (Cash on Delivery, Pay by UPI QR, or Online Payment) or message us directly on WhatsApp at +91 63864 23865 (wa.me/916386423865).",
   },
 ];
 
 export const PINCODES_INFO: Record<string, { city: string; state: string; days: string }> = {
-  "284303": { city: "Moth, Jhansi", state: "Uttar Pradesh", days: "1-2 business days (Local Delivery)" },
-  "284001": { city: "Jhansi", state: "Uttar Pradesh", days: "1-2 business days" },
-  "208001": { city: "Kanpur", state: "Uttar Pradesh", days: "2-3 business days" },
-  "226001": { city: "Lucknow", state: "Uttar Pradesh", days: "2-3 business days" },
-  "110001": { city: "New Delhi", state: "Delhi", days: "2-3 business days" },
-  "400001": { city: "Mumbai", state: "Maharashtra", days: "3-4 business days" },
-  "560001": { city: "Bengaluru", state: "Karnataka", days: "3-4 business days" },
-  "700001": { city: "Kolkata", state: "West Bengal", days: "3-4 business days" },
-  "600001": { city: "Chennai", state: "Tamil Nadu", days: "3-4 business days" },
-  "500001": { city: "Hyderabad", state: "Telangana", days: "3-4 business days" },
+  "284303": { city: "Moth, Jhansi", state: "Uttar Pradesh", days: "Dispatches locally from Moth kitchen" },
+  "284001": { city: "Jhansi", state: "Uttar Pradesh", days: "Dispatches from Jhansi district" },
+  "208001": { city: "Kanpur", state: "Uttar Pradesh", days: "Depends on courier transit and location" },
+  "226001": { city: "Lucknow", state: "Uttar Pradesh", days: "Depends on courier transit and location" },
+  "110001": { city: "New Delhi", state: "Delhi", days: "Depends on courier transit and location" },
+  "400001": { city: "Mumbai", state: "Maharashtra", days: "Depends on courier transit and location" },
+  "560001": { city: "Bengaluru", state: "Karnataka", days: "Depends on courier transit and location" },
+  "700001": { city: "Kolkata", state: "West Bengal", days: "Depends on courier transit and location" },
+  "600001": { city: "Chennai", state: "Tamil Nadu", days: "Depends on courier transit and location" },
+  "500001": { city: "Hyderabad", state: "Telangana", days: "Depends on courier transit and location" },
 };

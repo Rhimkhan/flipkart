@@ -95,7 +95,7 @@ export default function StoryVideoCard() {
             <div className="absolute inset-0 bg-[#4A231B]/40 flex items-center justify-center p-6 text-center">
               <div className="bg-[#2B1B17]/90 backdrop-blur-md px-6 py-4 rounded-2xl border border-[#FFF1A6]/20 text-[#FFF8E7] text-xs max-w-md">
                 <p className="font-semibold text-[#FFF1A6] mb-1">Traditional Preparation Process</p>
-                <p className="text-[#FFF8E7]/80">Motion reduced per system settings. Fresh oyster mushrooms slow-steeped in pure mustard oil and authentic spices in Jhansi, Uttar Pradesh.</p>
+                <p className="text-[#FFF8E7]/80">Motion reduced per system settings. Fresh oyster mushrooms slow-steeped in mustard oil and authentic spices in Jhansi, Uttar Pradesh.</p>
               </div>
             </div>
           </div>
@@ -165,7 +165,7 @@ export default function StoryVideoCard() {
           Artisanal Kitchen Craft in Motion
         </h3>
         <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-          See how our small-batch kitchen prepares tender oyster mushrooms, mixes aromatic whole spices in pure mustard oil, and bottles each jar with care in Village Nandsiya, Moth, Jhansi, Uttar Pradesh.
+          See how our small-batch kitchen prepares tender oyster mushrooms, mixes aromatic whole spices in mustard oil, and bottles each jar with care in Village Nandsiya, Moth, Jhansi, Uttar Pradesh.
         </p>
       </div>
     </div>

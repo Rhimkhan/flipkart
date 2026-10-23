@@ -30,7 +30,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-2",
     title: "Jar Profile & Product Presentation (Side View)",
-    subtitle: "Generous chunks of tender oyster mushrooms steeped in golden mustard oil with stone-ground Indian spices.",
+    subtitle: "Generous chunks of tender oyster mushrooms steeped in golden mustard oil with traditional Indian spices.",
     category: "jars",
     categoryLabel: "Product Jar",
     image: "/images/products/mushroom-mela-side.jpg",
@@ -59,12 +59,12 @@ const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "gal-5",
-    title: "Cold-Pressed Mustard Oil & Roasted Spices",
-    subtitle: "Pure mustard oil infused with roasted mustard, fenugreek, cumin, and whole spices.",
+    title: "Mustard Oil & Whole Spices",
+    subtitle: "Mustard oil infused with roasted mustard, fenugreek, cumin, and whole spices.",
     category: "ingredients",
     categoryLabel: "Ingredients & Label",
     image: "/images/spices-mustard-oil.jpg",
-    alt: "Pure mustard oil pouring over whole spices in artisanal bowl",
+    alt: "Mustard oil pouring over whole spices in artisanal bowl",
   },
 ];
 

@@ -85,7 +85,7 @@ export default function ShopClient() {
             Authentic Mushroom Pickles
           </h1>
           <p className="text-sm sm:text-base text-[#3D2C24] font-sans font-light leading-relaxed">
-            Prepared with tender oyster mushrooms, cold-pressed mustard oil, natural vinegar, and traditional stone-ground Indian spices.
+            Prepared with tender oyster mushrooms, mustard oil, vinegar, and traditional Indian spices.
           </p>
         </div>
 

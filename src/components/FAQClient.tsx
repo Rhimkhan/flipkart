@@ -13,7 +13,7 @@ export default function FAQClient() {
 
   const categories = [
     { key: "all", label: "All Questions" },
-    { key: "ingredients", label: "Ingredients & Purity" },
+    { key: "ingredients", label: "Ingredients & Label" },
     { key: "preparation", label: "Preparation & Location" },
     { key: "storage", label: "Shelf Life & Care" },
     { key: "shipping", label: "Packaging & Delivery" },

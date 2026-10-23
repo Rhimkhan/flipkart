@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
 import { getLocalOrders, saveLocalOrders } from "@/lib/store";
-import { supabase, isSupabaseConfigured } from "@/lib/supabase";
+import { supabase, isSupabaseConfigured } from "@/lib/supabase-server";
 
 export async function POST(request: NextRequest) {
   try {
@@ -21,26 +21,32 @@ export async function POST(request: NextRequest) {
     }
 
     const keySecret = process.env.RAZORPAY_KEY_SECRET;
-    let isValid = false;
+    if (!keySecret || keySecret.includes("YourRazorpaySecretKeyHere") || keySecret.trim() === "") {
+      return NextResponse.json(
+        { success: false, error: "Razorpay key secret is not configured on server" },
+        { status: 500 }
+      );
+    }
 
-    // 1. Signature Verification with Secret
-    if (keySecret && !keySecret.includes("YourRazorpaySecretKeyHere")) {
-      const generatedSignature = crypto
-        .createHmac("sha256", keySecret)
-        .update(`${razorpay_order_id}|${razorpay_payment_id}`)
-        .digest("hex");
+    if (!razorpay_signature) {
+      return NextResponse.json(
+        { success: false, error: "Missing razorpay_signature for cryptographic verification" },
+        { status: 400 }
+      );
+    }
 
-      isValid = generatedSignature === razorpay_signature;
-      if (!isValid) {
-        console.warn(`[RAZORPAY SIGNATURE MISMATCH] Expected ${generatedSignature}, received ${razorpay_signature}`);
-        return NextResponse.json(
-          { success: false, error: "Invalid payment signature verification failed" },
-          { status: 400 }
-        );
-      }
-    } else {
-      // 2. Test simulation mode verification
-      isValid = true;
+    // Cryptographic HMAC SHA256 Signature Verification
+    const generatedSignature = crypto
+      .createHmac("sha256", keySecret)
+      .update(`${razorpay_order_id}|${razorpay_payment_id}`)
+      .digest("hex");
+
+    if (generatedSignature !== razorpay_signature) {
+      console.warn(`[RAZORPAY SIGNATURE MISMATCH] Expected ${generatedSignature}, received ${razorpay_signature}`);
+      return NextResponse.json(
+        { success: false, error: "Cryptographic payment signature verification failed" },
+        { status: 400 }
+      );
     }
 
     // 3. Mark the Order as "Paid" in Supabase & Local Store

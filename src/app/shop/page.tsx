@@ -6,19 +6,13 @@ import { INITIAL_PRODUCTS } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Shop Handcrafted Oyster Mushroom Pickle | AKHIL FOODS",
   description:
-    "Buy authentic Mushroom Mela Oyster Mushroom Pickle (400g) handcrafted by AKHIL FOODS, Jhansi, Uttar Pradesh. Prepared with pure mustard oil and traditional stone-ground spices.",
-  keywords: [
-    "buy mushroom pickle online",
-    "mushroom mela oyster mushroom pickle",
-    "oyster mushroom aachar",
-    "akhil foods shop",
-    "jhansi mushroom pickle",
-  ],
+    "Buy authentic Mushroom Mela Oyster Mushroom Pickle (400g) handcrafted by AKHIL FOODS, Jhansi, Uttar Pradesh. Prepared with mustard oil and traditional spices.",
+  keywords: ["AKHIL FOODS", "Mushroom Pickle"],
   openGraph: {
     title: "Shop Handcrafted Oyster Mushroom Pickle | AKHIL FOODS",
     description:
-      "Handcrafted in Jhansi, Uttar Pradesh with pure mustard oil and authentic spices. Fast pan-India delivery.",
-    url: "https://akhilfoods.com/shop",
+      "Handcrafted in Jhansi, Uttar Pradesh with mustard oil and authentic spices.",
+    url: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/shop`,
     siteName: "AKHIL FOODS",
     images: [
       {
@@ -34,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Shop Handcrafted Oyster Mushroom Pickle | AKHIL FOODS",
-    description: "Handcrafted in Jhansi, UP with pure mustard oil and stone-ground spices.",
+    description: "Handcrafted in Jhansi, UP with mustard oil and traditional spices.",
     images: ["/images/products/mushroom-mela-front.jpg"],
   },
   alternates: {
@@ -55,7 +49,7 @@ export default function ShopPage() {
       item: {
         "@type": "Product",
         name: prod.name,
-        image: `https://akhilfoods.com${prod.image}`,
+        image: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}${prod.image}`,
         description: prod.description,
         sku: prod.id,
         offers: {

@@ -304,13 +304,13 @@ export default function ScrollVideo() {
         >
           <div className="max-w-2xl bg-[#2B1B17]/85 backdrop-blur-md p-6 sm:p-12 rounded-[28px] sm:rounded-[32px] border border-[#FFF1A6]/25 shadow-2xl space-y-3 sm:space-y-4">
             <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#FFF1A6] bg-[#6B352A] px-3.5 sm:px-4 py-1.5 rounded-full border border-[#FFF1A6]/20 inline-block shadow-sm">
-              Pure Ingredients
+              Quality Ingredients
             </span>
             <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl font-extrabold text-[#FFF8E7] leading-tight">
               Fresh Mushrooms, Real Spices
             </h2>
             <p className="text-xs sm:text-base text-[#FFF8E7]/85 leading-relaxed font-sans max-w-lg mx-auto">
-              Steeped in cold-pressed mustard oil, vinegar, red chilli, coriander, fennel, fenugreek, cumin, turmeric, ajwain, fresh ginger, and garlic. Zero synthetic shortcuts.
+              Steeped in mustard oil, vinegar, red chilli, coriander, fennel, fenugreek, cumin, turmeric, ajwain, fresh ginger, and garlic as stated on our label.
             </p>
           </div>
         </div>

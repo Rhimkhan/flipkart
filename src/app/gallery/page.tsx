@@ -6,19 +6,12 @@ export const metadata: Metadata = {
   title: "Artisanal Gallery | AKHIL FOODS Mushroom Pickles",
   description:
     "Explore our visual chronicle — real Mushroom Mela Oyster Mushroom Pickle jars, ingredients, nutrition label, and small-batch packaging in Jhansi, Uttar Pradesh.",
-  keywords: [
-    "akhil foods gallery",
-    "mushroom pickle photos",
-    "mushroom mela jar photos",
-    "jhansi pickle jars",
-    "oyster mushroom pickle",
-    "artisanal food packaging",
-  ],
+  keywords: ["AKHIL FOODS", "Mushroom Pickle"],
   openGraph: {
     title: "Artisanal Gallery | AKHIL FOODS Mushroom Pickles",
     description:
       "A photographic journey through our real 400g Mushroom Mela Oyster Mushroom Pickle jars, label ingredients, and artisanal packing in Jhansi, Uttar Pradesh.",
-    url: "https://akhilfoods.com/gallery",
+    url: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/gallery`,
     siteName: "AKHIL FOODS",
     images: [
       {

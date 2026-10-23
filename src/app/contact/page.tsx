@@ -7,18 +7,12 @@ export const metadata: Metadata = {
   title: "Contact Us & Location in Jhansi | AKHIL FOODS",
   description:
     "Get in touch with AKHIL FOODS in Village Nandsiya, Moth, Jhansi, Uttar Pradesh - 284303. Order inquiries, customer support, and direct WhatsApp ordering on 916386423865.",
-  keywords: [
-    "contact akhil foods",
-    "akhil foods jhansi",
-    "mushroom pickle moth jhansi",
-    "mushroom mela contact",
-    "akhil foods customer care",
-  ],
+  keywords: ["AKHIL FOODS", "Contact", "Jhansi"],
   openGraph: {
     title: "Contact Us & Location | AKHIL FOODS",
     description:
       "Reach out to AKHIL FOODS in Village Nandsiya, Moth, Jhansi, Uttar Pradesh. Quick WhatsApp support on 916386423865.",
-    url: "https://akhilfoods.com/contact",
+    url: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/contact`,
     siteName: "AKHIL FOODS",
     images: [
       {
@@ -47,10 +41,10 @@ export default function ContactPage() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: BRAND.name,
-    image: "https://akhilfoods.com/images/products/mushroom-mela-front.jpg",
+    image: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/images/products/mushroom-mela-front.jpg`,
     telephone: BRAND.phone,
     email: BRAND.email,
-    url: "https://akhilfoods.com",
+    url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
     taxID: BRAND.gstNumber,
     address: {
       "@type": "PostalAddress",

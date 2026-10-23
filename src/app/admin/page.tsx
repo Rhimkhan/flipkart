@@ -28,7 +28,7 @@ import {
   ExternalLink,
   Eye,
 } from "lucide-react";
-import { Order, OrderStatus, Product, ProductSize } from "@/lib/types";
+import { Order, OrderStatus, Product, ProductSize, PaymentStatus } from "@/lib/types";
 import {
   getLocalOrders,
   getLocalProducts,
@@ -37,7 +37,7 @@ import {
 } from "@/lib/store";
 import { INITIAL_PRODUCTS } from "@/lib/data";
 import { BRAND } from "@/lib/brand";
-import { supabase, isSupabaseConfigured } from "@/lib/supabase";
+import { isSupabaseConfigured } from "@/lib/supabase";
 
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -71,7 +71,7 @@ export default function AdminPage() {
   const [prodDescription, setProdDescription] = useState("");
   const [prodFlavour, setProdFlavour] = useState("Classic Masala");
   const [prodIngredients, setProdIngredients] = useState(
-    "Fresh Mushrooms, Cold-Pressed Mustard Oil, Rock Salt, Whole Spices"
+    "Fresh Mushrooms, Mustard Oil, Salt, Whole Spices"
   );
   const [prodShelfLife, setProdShelfLife] = useState(
     "12 Months (Store in a cool, dry place. Keep submerged in mustard oil)"
@@ -83,16 +83,19 @@ export default function AdminPage() {
   const [prodStock, setProdStock] = useState(50);
   const [prodImage, setProdImage] = useState("/images/hero-pickle.jpg");
 
-  // Check existing session
+  // Check existing session on server
   useEffect(() => {
-    if (isSupabaseConfigured && supabase) {
-      supabase.auth.getSession().then(({ data }) => {
-        if (data?.session?.user) {
+    fetch("/api/admin/me")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.authenticated) {
           setIsAuthenticated(true);
-          setAdminUser(data.session.user.email || "Supabase Admin");
+          setAdminUser("Master Administrator");
         }
+      })
+      .catch((err) => {
+        console.warn("Session check error:", err);
       });
-    }
   }, []);
 
   // Load Data
@@ -136,54 +139,47 @@ export default function AdminPage() {
     }
   }, [isAuthenticated]);
 
-  // Handle Login via Supabase Auth or Master Passkey
+  // Handle Login via Server-side Verification & httpOnly Cookie Session
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setAuthError(null);
     setAuthLoading(true);
 
     try {
-      if (isSupabaseConfigured && supabase) {
-        const { data, error } = await supabase.auth.signInWithPassword({
+      const res = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           email: emailInput.trim(),
           password: passwordInput,
-        });
+        }),
+      });
 
-        if (!error && data?.session?.user) {
-          setIsAuthenticated(true);
-          setAdminUser(data.session.user.email || "Supabase Admin");
-          setAuthLoading(false);
-          return;
-        }
-      }
+      const data = await res.json();
 
-      const configuredPass = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "admin123";
-      if (
-        passwordInput === configuredPass ||
-        passwordInput === "admin" ||
-        passwordInput === "admin123"
-      ) {
-        setIsAuthenticated(true);
-        setAdminUser(emailInput.trim() || "Akhil Foods Admin");
+      if (!res.ok || !data.success) {
+        setAuthError(data.error || "Authentication failed. Check your password.");
         setAuthLoading(false);
         return;
       }
 
-      setAuthError("Invalid credentials. Please enter the correct admin password.");
+      setIsAuthenticated(true);
+      setAdminUser(emailInput.trim() || "Master Administrator");
+      setPasswordInput("");
+      setFeedbackMsg("Welcome to Akhil Foods Admin Portal");
+      setTimeout(() => setFeedbackMsg(null), 3000);
     } catch (err: any) {
-      setAuthError(err?.message || "Authentication failed. Check credentials.");
+      setAuthError(err?.message || "Server connection error. Please try again.");
     } finally {
       setAuthLoading(false);
     }
   };
 
   const handleLogout = async () => {
-    if (isSupabaseConfigured && supabase) {
-      try {
-        await supabase.auth.signOut();
-      } catch {
-        // ignore
-      }
+    try {
+      await fetch("/api/admin/logout", { method: "POST" });
+    } catch {
+      // ignore
     }
     setIsAuthenticated(false);
     setAdminUser(null);
@@ -250,6 +246,31 @@ If you have any questions, reply here.
       setTimeout(() => setFeedbackMsg(null), 3000);
     } catch (err) {
       console.error("Failed to update status", err);
+    }
+  };
+
+  // Mark Payment as Paid
+  const handleMarkAsPaid = async (orderId: string) => {
+    try {
+      updateLocalOrderStatus(orderId, undefined, undefined, undefined, "Paid");
+      await fetch("/api/orders", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ orderId, paymentStatus: "Paid" }),
+      });
+
+      setOrders((prev) =>
+        prev.map((o) => (o.id === orderId ? { ...o, paymentStatus: "Paid" } : o))
+      );
+
+      setSelectedOrderForView((prev) =>
+        prev && prev.id === orderId ? { ...prev, paymentStatus: "Paid" } : prev
+      );
+
+      setFeedbackMsg(`Order #${orderId} payment marked as Paid!`);
+      setTimeout(() => setFeedbackMsg(null), 3000);
+    } catch (err) {
+      console.error("Failed to mark order payment as paid", err);
     }
   };
 
@@ -728,14 +749,27 @@ If you have any questions, reply here.
                           <td className="p-4">
                             <span
                               className={`px-2.5 py-1 rounded-full text-[10px] font-bold ${
-                                order.paymentMethod.includes("Cash")
+                                order.paymentStatus === "Paid"
+                                  ? "bg-emerald-100 text-emerald-800 border border-emerald-200"
+                                  : order.paymentStatus === "Awaiting verification"
+                                  ? "bg-amber-100 text-amber-900 border border-amber-300"
+                                  : order.paymentMethod.includes("Cash")
                                   ? "bg-amber-100 text-amber-800 border border-amber-200"
-                                  : "bg-emerald-100 text-emerald-800 border border-emerald-200"
+                                  : "bg-stone-100 text-stone-700 border border-stone-200"
                               }`}
                             >
-                              {order.paymentMethod.includes("Cash") ? "COD" : "Online"} (
-                              {order.paymentStatus})
+                              {order.paymentMethod.includes("Cash")
+                                ? "COD"
+                                : order.paymentMethod.includes("UPI")
+                                ? "UPI QR"
+                                : "Online"}{" "}
+                              ({order.paymentStatus})
                             </span>
+                            {order.utr && (
+                              <div className="text-[10px] font-mono text-[#A87B28] font-bold mt-1">
+                                UTR: {order.utr}
+                              </div>
+                            )}
                           </td>
 
                           {/* Order Status Select (New, Packed, Shipped, Delivered) */}
@@ -757,6 +791,18 @@ If you have any questions, reply here.
                           {/* Direct WhatsApp Button & Action tools */}
                           <td className="p-4 text-right">
                             <div className="flex items-center justify-end gap-2">
+                              {/* Mark as Paid button for orders not yet paid */}
+                              {order.paymentStatus !== "Paid" && (
+                                <button
+                                  onClick={() => handleMarkAsPaid(order.id)}
+                                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-sm transition-all hover:scale-105 active:scale-95 shrink-0"
+                                  title="Mark Payment as Paid"
+                                >
+                                  <CheckCircle2 className="w-3.5 h-3.5" />
+                                  <span>Mark as Paid</span>
+                                </button>
+                              )}
+
                               {/* Prominent WhatsApp Customer Button */}
                               <a
                                 href={waUrl}
@@ -955,6 +1001,11 @@ If you have any questions, reply here.
                   <strong>Payment:</strong> {selectedOrderForView.paymentMethod} (
                   {selectedOrderForView.paymentStatus})
                 </p>
+                {selectedOrderForView.utr && (
+                  <p className="font-mono text-[#A87B28] font-bold">
+                    <strong>Transaction UTR:</strong> {selectedOrderForView.utr}
+                  </p>
+                )}
               </div>
 
               {/* Items */}
@@ -982,8 +1033,21 @@ If you have any questions, reply here.
                 </div>
               </div>
 
+              {/* Mark as Paid Action if not yet Paid */}
+              {selectedOrderForView.paymentStatus !== "Paid" && (
+                <div className="pt-2">
+                  <button
+                    onClick={() => handleMarkAsPaid(selectedOrderForView.id)}
+                    className="w-full py-3 px-6 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md hover:scale-105 transition-all"
+                  >
+                    <CheckCircle2 className="w-4 h-4" />
+                    <span>Verify & Mark Payment as Paid</span>
+                  </button>
+                </div>
+              )}
+
               {/* Pre-filled WhatsApp button */}
-              <div className="pt-2">
+              <div className="pt-1">
                 <a
                   href={`https://wa.me/91${selectedOrderForView.phone.replace(
                     /\D/g,

@@ -23,26 +23,18 @@ const poppins = Poppins({
   display: "swap",
 });
 
+const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://akhilfoods.com"),
+  metadataBase: new URL(appUrl),
   title: {
     default: "AKHIL FOODS | Artisanal Handcrafted Mushroom Pickles",
     template: "%s | AKHIL FOODS",
   },
   description:
-    "Experience authentic artisanal oyster mushroom pickles handcrafted in Village Nandsiya, Moth, Jhansi, Uttar Pradesh by AKHIL FOODS with fresh mushrooms, pure mustard oil, and traditional spices. Great Food, Better Life.",
-  keywords: [
-    "mushroom pickle",
-    "akhil foods",
-    "mushroom mela",
-    "oyster mushroom pickle",
-    "jhansi pickles",
-    "uttar pradesh pickle",
-    "pure mustard oil pickle",
-    "handcrafted pickle online",
-    "fssai registered pickle",
-  ],
-  authors: [{ name: "AKHIL FOODS", url: "https://akhilfoods.com" }],
+    "Experience authentic artisanal oyster mushroom pickles handcrafted in Village Nandsiya, Moth, Jhansi, Uttar Pradesh by AKHIL FOODS with fresh mushrooms, mustard oil, and traditional spices. Great Food, Better Life.",
+  keywords: ["AKHIL FOODS", "Mushroom Pickle"],
+  authors: [{ name: "AKHIL FOODS", url: appUrl }],
   creator: "AKHIL FOODS",
   publisher: "AKHIL FOODS",
   formatDetection: {
@@ -52,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AKHIL FOODS | Artisanal Handcrafted Mushroom Pickles",
     description: "Great Food, Better Life. Authentic handcrafted oyster mushroom pickles from Village Nandsiya, Moth, Jhansi, Uttar Pradesh.",
-    url: "https://akhilfoods.com",
+    url: appUrl,
     siteName: "AKHIL FOODS",
     images: [
       {

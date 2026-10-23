@@ -38,8 +38,8 @@ export interface CartItem {
 }
 
 export type OrderStatus = "New" | "Packed" | "Shipped" | "Delivered";
-export type PaymentMethod = "Cash on Delivery" | "Razorpay Online (UPI / Cards / Netbanking)";
-export type PaymentStatus = "Pending" | "Paid" | "Failed";
+export type PaymentMethod = "Cash on Delivery" | "Pay by UPI QR" | "Razorpay Online (UPI / Cards / Netbanking)";
+export type PaymentStatus = "Pending" | "Paid" | "Failed" | "Awaiting verification";
 
 export interface OrderItem {
   productId: string;
@@ -73,6 +73,7 @@ export interface Order {
   trackingNumber?: string;
   courierName?: string;
   notes?: string;
+  utr?: string;
   userId?: string;
   createdAt: string;
 }

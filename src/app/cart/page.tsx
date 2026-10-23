@@ -86,7 +86,7 @@ export default function CartPage() {
           {amountNeeded === 0 || appliedCoupon === "FREESHIP" ? (
             <div className="flex items-center gap-2 font-serif font-bold text-emerald-900">
               <Sparkles className="w-4 h-4 text-[#A87B28]" />
-              <span>Congratulations! Your order qualifies for 100% FREE Express Shipping!</span>
+              <span>Congratulations! Your order qualifies for FREE Express Shipping!</span>
             </div>
           ) : (
             <div className="space-y-1.5">

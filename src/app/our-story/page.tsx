@@ -9,20 +9,13 @@ import StoryCraftShowcase from "@/components/StoryCraftShowcase";
 export const metadata: Metadata = {
   title: "Our Story & Craft | AKHIL FOODS - Handcrafted Mushroom Pickles",
   description:
-    "Learn about AKHIL FOODS, based in Village Nandsiya, Moth, Jhansi, Uttar Pradesh. We handcraft authentic Oyster Mushroom Pickles using pure mustard oil, vinegar, and traditional Indian spices.",
-  keywords: [
-    "akhil foods story",
-    "mushroom pickle jhansi",
-    "oyster mushroom pickle",
-    "mushroom mela pickle",
-    "handcrafted mushroom pickle uttar pradesh",
-    "fssai registered pickle",
-  ],
+    "Learn about AKHIL FOODS, based in Village Nandsiya, Moth, Jhansi, Uttar Pradesh. We handcraft authentic Oyster Mushroom Pickles using mustard oil, vinegar, and traditional Indian spices.",
+  keywords: ["AKHIL FOODS", "Mushroom Pickle"],
   openGraph: {
     title: "Our Story & Craft | AKHIL FOODS",
     description:
       "Handcrafted Oyster Mushroom Pickles from Village Nandsiya, Moth, Jhansi, Uttar Pradesh. Great Food, Better Life.",
-    url: "https://akhilfoods.com/our-story",
+    url: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/our-story`,
     siteName: "AKHIL FOODS",
     images: [
       {
@@ -56,8 +49,8 @@ export default function OurStoryPage() {
     publisher: {
       "@type": "Organization",
       name: BRAND.name,
-      url: "https://akhilfoods.com",
-      logo: "https://akhilfoods.com/images/akhil-foods-logo.png",
+      url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+      logo: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/images/akhil-foods-logo.png`,
       taxID: BRAND.gstNumber,
       identifier: [
         {
@@ -93,8 +86,8 @@ export default function OurStoryPage() {
       desc: "Selected oyster mushrooms hand-trimmed, washed, and dried to retain their distinct meaty texture and rich flavor.",
     },
     {
-      title: "Pure Mustard Oil & Whole Spices",
-      desc: "Cured in genuine mustard oil with crushed coriander, mustard seeds, fennel, fenugreek, cumin, turmeric, and ajwain.",
+      title: "Mustard Oil & Whole Spices",
+      desc: "Cured in mustard oil with crushed coriander, mustard seeds, fennel, fenugreek, cumin, turmeric, and ajwain.",
     },
     {
       title: "Clean & Certified Kitchen",
@@ -159,7 +152,7 @@ export default function OurStoryPage() {
               AKHIL FOODS began with a straightforward idea: bring the wonderful nutritional qualities and meaty texture of oyster mushrooms into the cherished tradition of Indian pickles.
             </p>
             <p className="text-sm sm:text-base text-[#3D2C24]/85 leading-relaxed">
-              In our facility in Moth, Jhansi, we handcraft each batch of our signature &ldquo;Mushroom Mela&rdquo; pickle. Fresh oyster mushrooms are carefully sliced, dried, and blended with pure mustard oil, natural vinegar, and roasted aromatic spices like fenugreek, coriander, fennel, and cumin.
+              In our facility in Moth, Jhansi, we handcraft each batch of our signature &ldquo;Mushroom Mela&rdquo; pickle. Fresh oyster mushrooms are carefully sliced, dried, and blended with mustard oil, natural vinegar, and roasted aromatic spices like fenugreek, coriander, fennel, and cumin.
             </p>
             <div className="grid grid-cols-2 gap-4 pt-2">
               <div className="bg-[#FDFBF7] p-4 rounded-2xl border border-[#E8DEC8]">
@@ -167,7 +160,7 @@ export default function OurStoryPage() {
                 <p className="text-xs text-[#3D2C24]/80 mt-0.5">Glass Jar Packaging</p>
               </div>
               <div className="bg-[#FDFBF7] p-4 rounded-2xl border border-[#E8DEC8]">
-                <span className="font-serif text-2xl font-bold text-[#211612]">100% Real</span>
+                <span className="font-serif text-2xl font-bold text-[#211612]">Authentic</span>
                 <p className="text-xs text-[#3D2C24]/80 mt-0.5">Mustard Oil & Spices</p>
               </div>
             </div>
@@ -185,7 +178,7 @@ export default function OurStoryPage() {
               The Artisanal Pickling Process
             </h2>
             <p className="text-sm text-[#3D2C24]/80">
-              How our pickles are hand-cured with pure mustard oil and stone-ground spices in Village Nandsiya, Moth, Jhansi.
+              How our pickles are hand-cured with mustard oil and traditional spices in Village Nandsiya, Moth, Jhansi.
             </p>
           </div>
           <div className="max-w-5xl mx-auto">
@@ -206,14 +199,14 @@ export default function OurStoryPage() {
                 Simple, Honest Ingredients
               </h2>
               <p className="text-sm sm:text-base text-[#FAF6EE]/85 leading-relaxed">
-                We believe in full transparency. Look at our back label: tender oyster mushrooms, pure mustard oil, vinegar, salt, red chilli, coriander, mustard, fennel, fenugreek, cumin, turmeric, ajwain, ginger, and garlic.
+                We believe in full transparency. Look at our back label: tender oyster mushrooms, mustard oil, vinegar, salt, red chilli, coriander, mustard, fennel, fenugreek, cumin, turmeric, ajwain, ginger, and garlic.
               </p>
               <p className="text-sm sm:text-base text-[#FAF6EE]/85 leading-relaxed">
                 Every batch is crafted in controlled quantities, tested for optimal taste and shelf stability, and packed in secure glass jars for delivery across the nation.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <span className="bg-[#2A1D17] text-[#C89B3C] text-xs font-semibold px-3.5 py-1.5 rounded-full border border-[#C89B3C]/30">
-                  Pure Mustard Oil
+                  Mustard Oil
                 </span>
                 <span className="bg-[#2A1D17] text-[#C89B3C] text-xs font-semibold px-3.5 py-1.5 rounded-full border border-[#C89B3C]/30">
                   Tender Oyster Mushrooms

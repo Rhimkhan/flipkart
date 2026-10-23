@@ -70,7 +70,7 @@ export default function HomePage() {
 
               {/* Narrative-Style Paragraph in Refined Deep Espresso-Brown */}
               <p className="editorial-body text-base text-[#3D2C24] max-w-xl mx-auto lg:mx-0 leading-[1.8] font-sans font-light">
-                From the fertile lands of Jhansi, we slowly cure hand-selected oyster mushrooms in cold-pressed mustard oil. From the fertile lands of Jhansi, we slowly cure hand-selected oyster mushrooms in cold-pressed mustard oil and stone-ground spices. A heritage of flavor, patient batch by patient batch.
+                From the fertile lands of Jhansi, we slowly cure hand-selected oyster mushrooms in mustard oil and traditional spices. A heritage of flavor, patient batch by patient batch.
               </p>
 
               {/* Action Buttons: Unified btn-primary and btn-outline */}
@@ -137,18 +137,18 @@ export default function HomePage() {
             </div>
             <div className="space-y-1.5">
               <div className="font-serif text-4xl lg:text-5xl font-light text-[#211612]">
-                100%
+                400g
               </div>
               <p className="text-xs font-serif tracking-wider text-[#A87B28] font-medium">
-                Pure Mustard Oil & Spices
+                Net Quantity
               </p>
             </div>
             <div className="space-y-1.5">
               <div className="font-serif text-4xl lg:text-5xl font-light text-[#211612]">
-                0%
+                Vegetarian
               </div>
               <p className="text-xs font-serif tracking-wider text-[#A87B28] font-medium">
-                Chemical Shortcuts
+                Label Ingredients
               </p>
             </div>
             <div className="space-y-1.5">
@@ -179,28 +179,28 @@ export default function HomePage() {
             Why Akhil Foods Tastes Unbelievably Authentic
           </h2>
           <p className="text-sm sm:text-base text-[#3D2C24] leading-relaxed font-light">
-            Crafted with real care in Village Nandsiya, Moth, Jhansi, Uttar Pradesh. We use tender oyster mushrooms, pungent cold-pressed mustard oil, and time-honoured whole spices.
+            Crafted with real care in Village Nandsiya, Moth, Jhansi, Uttar Pradesh. We use tender oyster mushrooms, mustard oil, and traditional whole spices.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Card 1: 100% Homemade */}
+          {/* Card 1: Handcrafted in Jhansi */}
           <div className="clay-card p-8 bg-[#FDFBF7] rounded-2xl space-y-5 hover:-translate-y-1.5 transition-all duration-300 shadow-sm hover:shadow-xl border border-[#E8DEC8]">
             <div className="w-14 h-14 rounded-2xl bg-[#EFE8DD] border border-[#DDD3C4] flex items-center justify-center text-2xl shadow-inner">
               🏡
             </div>
-            <h3 className="font-serif text-xl font-bold text-[#211612]">100% Homemade</h3>
+            <h3 className="font-serif text-xl font-bold text-[#211612]">Handcrafted in Jhansi</h3>
             <p className="text-sm text-[#3D2C24] leading-relaxed font-sans font-light">
-              Handcrafted in artisanal batches in Jhansi, Uttar Pradesh with authentic family care and clean, hygienic preparation.
+              Handcrafted in small batches in Jhansi, Uttar Pradesh with authentic family care and clean, hygienic preparation.
             </p>
           </div>
 
-          {/* Card 2: Pure Ingredients */}
+          {/* Card 2: Mustard Oil & Spices */}
           <div className="clay-card p-8 bg-[#FDFBF7] rounded-2xl space-y-5 hover:-translate-y-1.5 transition-all duration-300 shadow-sm hover:shadow-xl border border-[#E8DEC8]">
             <div className="w-14 h-14 rounded-2xl bg-[#EFE8DD] border border-[#DDD3C4] flex items-center justify-center text-2xl shadow-inner">
               🌿
             </div>
-            <h3 className="font-serif text-xl font-bold text-[#211612]">Pure Mustard Oil & Spices</h3>
+            <h3 className="font-serif text-xl font-bold text-[#211612]">Mustard Oil & Spices</h3>
             <p className="text-sm text-[#3D2C24] leading-relaxed font-sans font-light">
               Real mustard oil, vinegar, red chilli, coriander, mustard seeds, fennel, fenugreek, cumin, turmeric, ajwain, fresh ginger, and garlic.
             </p>
@@ -398,7 +398,7 @@ export default function HomePage() {
               </h2>
 
               <p className="text-sm sm:text-base text-[#EADBB6]/90 leading-relaxed font-sans font-light">
-                {BRAND.name} was founded in Village Nandsiya, Moth, Jhansi with a clear vision: {BRAND.tagline}. We set out to prepare pure, delicious, and honest pickles made with tender oyster mushrooms, cold-pressed mustard oil, and time-honoured whole spices.
+                {BRAND.name} was founded in Village Nandsiya, Moth, Jhansi with a clear vision: {BRAND.tagline}. We set out to prepare authentic, delicious, and honest pickles made with tender oyster mushrooms, mustard oil, and traditional whole spices.
               </p>
 
               <p className="text-sm sm:text-base text-[#EADBB6]/90 leading-relaxed font-sans font-light">
@@ -441,9 +441,6 @@ export default function HomePage() {
             <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#211612]">
               Real Customer Feedback
             </h2>
-            <p className="text-sm sm:text-base text-[#3D2C24] font-light">
-              We value complete honesty. We never publish fake testimonials or invented reviews.
-            </p>
           </div>
 
           <div className="max-w-2xl mx-auto">
@@ -544,7 +541,7 @@ export default function HomePage() {
               Authentic Jhansi Quality
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#FAF6EE] leading-tight">
-              Taste The Pure Goodness of Mushroom Mela
+              Taste The Authentic Goodness of Mushroom Mela
             </h2>
             <p className="text-sm sm:text-base text-[#EADBB6]/90 leading-relaxed font-sans font-light">
               Handcrafted by {BRAND.name} in Village Nandsiya, Moth, Jhansi, UP. 400g of flavourful oyster mushrooms steeped in mustard oil and traditional spices.

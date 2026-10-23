@@ -1,4 +1,4 @@
-import { Product, Order, OrderStatus } from "./types";
+import { Product, Order, OrderStatus, PaymentStatus } from "./types";
 import { INITIAL_PRODUCTS } from "./data";
 
 const LOCAL_STORAGE_PRODUCTS_KEY = "akhil_foods_products_v2";
@@ -137,15 +137,22 @@ export function addLocalOrder(newOrder: Order): Order {
   return newOrder;
 }
 
-export function updateLocalOrderStatus(orderId: string, status: OrderStatus, trackingNumber?: string, courierName?: string): Order | null {
+export function updateLocalOrderStatus(
+  orderId: string,
+  status?: OrderStatus,
+  trackingNumber?: string,
+  courierName?: string,
+  paymentStatus?: PaymentStatus
+): Order | null {
   const current = getLocalOrders();
   const index = current.findIndex((o) => o.id === orderId);
   if (index === -1) return null;
   const updatedOrder = {
     ...current[index],
-    orderStatus: status,
-    ...(trackingNumber ? { trackingNumber } : {}),
-    ...(courierName ? { courierName } : {}),
+    ...(status ? { orderStatus: status } : {}),
+    ...(trackingNumber !== undefined ? { trackingNumber } : {}),
+    ...(courierName !== undefined ? { courierName } : {}),
+    ...(paymentStatus ? { paymentStatus } : {}),
   };
   current[index] = updatedOrder;
   saveLocalOrders(current);

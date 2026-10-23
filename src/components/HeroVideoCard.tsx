@@ -145,7 +145,7 @@ export default function HeroVideoCard() {
                 Watch The Artisanal Craft
               </span>
               <p className="text-xs text-[#FFF8E7]/90 mt-1 max-w-xs font-light">
-                From fresh oyster harvest to stone-ground spices infusion in Village Nandsiya, Moth, Jhansi
+                From fresh oyster harvest to traditional spices infusion in Village Nandsiya, Moth, Jhansi
               </p>
             </div>
           )}

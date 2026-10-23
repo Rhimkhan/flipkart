@@ -13,8 +13,8 @@ export default function StoryCraftShowcase() {
     },
     {
       step: "02",
-      title: "Pure Mustard Oil & Whole Spices",
-      desc: "Steeped in pure cold-pressed mustard oil with roasted coriander seeds, mustard, fennel, fenugreek, cumin, turmeric, ajwain, fresh ginger, and garlic.",
+      title: "Mustard Oil & Whole Spices",
+      desc: "Steeped in mustard oil with coriander seeds, mustard, fennel, fenugreek, cumin, turmeric, ajwain, ginger, and garlic.",
       image: "/images/spices-mustard-oil.jpg",
     },
     {
@@ -58,7 +58,7 @@ export default function StoryCraftShowcase() {
               </div>
               <div className="pt-2 flex items-center gap-1.5 text-xs font-semibold text-[#A87B28]">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                <span>100% Homemade Process</span>
+                <span>Handcrafted in Small Batches</span>
               </div>
             </div>
           </div>
