@@ -4,7 +4,6 @@ import React, { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Star,
   Filter,
   ArrowUpDown,
   Search,
@@ -23,10 +22,7 @@ export default function ShopClient() {
   const [sortBy, setSortBy] = useState<string>("recommended");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedSizes, setSelectedSizes] = useState<Record<string, ProductSize>>({
-    "prod-1": "250g",
-    "prod-2": "250g",
-    "prod-3": "250g",
-    "prod-4": "250g",
+    "prod-mushroom-mela": "400g",
   });
 
   // Fetch updated products from API endpoint
@@ -41,7 +37,7 @@ export default function ShopClient() {
       .catch((err) => console.log("Using cached products:", err));
   }, []);
 
-  const flavours = ["All", "Classic Masala", "Garlic", "Mustard Oil", "Spicy Red Chilli"];
+  const flavours = ["All", "Oyster Mushroom"];
 
   const handleSizeChange = (productId: string, size: ProductSize) => {
     setSelectedSizes((prev) => ({ ...prev, [productId]: size }));
@@ -61,14 +57,13 @@ export default function ShopClient() {
         return matchesFlavour && matchesSearch;
       })
       .sort((a, b) => {
-        const sizeA = selectedSizes[a.id] || "250g";
-        const sizeB = selectedSizes[b.id] || "250g";
+        const sizeA = selectedSizes[a.id] || "400g";
+        const sizeB = selectedSizes[b.id] || "400g";
         const priceA = (a.sizes?.find((s) => s.size === sizeA) || a.sizes?.[0])?.price || 0;
         const priceB = (b.sizes?.find((s) => s.size === sizeB) || b.sizes?.[0])?.price || 0;
 
         if (sortBy === "price-low") return priceA - priceB;
         if (sortBy === "price-high") return priceB - priceA;
-        if (sortBy === "rating") return (b.rating || 5) - (a.rating || 5);
         return 0; // recommended
       });
   }, [productsList, selectedFlavour, searchQuery, sortBy, selectedSizes]);
@@ -77,30 +72,30 @@ export default function ShopClient() {
     <div className="py-10 sm:py-16 bg-[#FAF6EE]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         {/* Page Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-3">
-          <span className="text-xs font-serif font-bold uppercase tracking-[0.25em] text-[#A87B28] bg-[#EFE8DD] px-4 py-1.5 rounded-full border border-[#DDD3C4] shadow-sm">
-            Handcrafted in Jhansi, Uttar Pradesh
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <span className="text-xs font-serif font-bold uppercase tracking-wider text-[#A87B28] block">
+            Village Nandsiya, Moth, Jhansi
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl font-normal text-[#211612]">
-            Authentic Mushroom Pickles
+            Shop Mushroom Pickles
           </h1>
           <p className="text-sm sm:text-base text-[#3D2C24] font-sans font-light leading-relaxed">
-            Prepared with tender oyster mushrooms, mustard oil, vinegar, and traditional Indian spices.
+            Prepared with oyster mushrooms, mustard oil, vinegar, and traditional Indian spices.
           </p>
         </div>
 
         {/* Filter, Search & Sort Control Panel */}
-        <div className="bg-[#FDFBF7] p-5 sm:p-7 rounded-2xl border border-[#E8DEC8] shadow-sm space-y-5">
+        <div className="bg-[#FDFBF7] p-4 sm:p-6 rounded-[6px] border border-[#E8DEC8] shadow-sm space-y-4">
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
             {/* Search Input */}
             <div className="relative w-full md:w-80">
-              <Search className="w-4 h-4 text-[#A87B28] absolute left-3.5 top-3.5" />
+              <Search className="w-4 h-4 text-[#A87B28] absolute left-3.5 top-3" />
               <input
                 type="text"
-                placeholder="Search flavour, ingredient, mushroom..."
+                placeholder="Search pickle, ingredients..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#FAF6EE] border border-[#E8DEC8] text-sm text-[#211612] placeholder-stone-400 focus:outline-none focus:ring-1 focus:ring-[#C89B3C]"
+                className="w-full pl-10 pr-4 py-2 rounded-[6px] bg-[#FAF6EE] border border-[#E8DEC8] text-xs text-[#211612] placeholder-stone-400 focus:outline-none focus:ring-1 focus:ring-[#211612]"
               />
             </div>
 
@@ -111,30 +106,29 @@ export default function ShopClient() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-3.5 py-2 rounded-xl bg-[#FAF6EE] border border-[#E8DEC8] text-xs font-serif text-[#211612] focus:outline-none focus:ring-1 focus:ring-[#C89B3C]"
+                className="px-3 py-1.5 rounded-[6px] bg-[#FAF6EE] border border-[#E8DEC8] text-xs font-serif text-[#211612] focus:outline-none focus:ring-1 focus:ring-[#211612]"
               >
-                <option value="recommended">Featured / Recommended</option>
+                <option value="recommended">Featured</option>
                 <option value="price-low">Price: Low to High</option>
                 <option value="price-high">Price: High to Low</option>
-                <option value="rating">Highest Customer Rating</option>
               </select>
             </div>
           </div>
 
-          {/* Flavour Filter Pills */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-2 scrollbar-none">
+          {/* Flavour Filter */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-1">
             <span className="text-xs font-serif font-bold uppercase tracking-wider text-[#211612] flex items-center gap-1.5 shrink-0">
-              <Filter className="w-3.5 h-3.5 text-[#A87B28]" /> Flavours:
+              <Filter className="w-3.5 h-3.5 text-[#A87B28]" /> Variety:
             </span>
             {flavours.map((flavour) => (
               <button
                 key={flavour}
                 type="button"
                 onClick={() => setSelectedFlavour(flavour)}
-                className={`px-4 py-2 rounded-xl text-xs font-serif tracking-wider uppercase shrink-0 transition-all ${
+                className={`px-3 py-1.5 rounded-[6px] text-xs font-serif tracking-wider uppercase shrink-0 transition-colors ${
                   selectedFlavour === flavour
-                    ? "bg-[#211612] text-[#FAF6EE] shadow-sm border border-[#211612]"
-                    : "bg-[#FAF6EE] text-[#3D2C24] hover:bg-[#EFE8DD] hover:text-[#211612] border border-[#E8DEC8]"
+                    ? "bg-[#211612] text-[#FAF6EE] border border-[#211612]"
+                    : "bg-[#FAF6EE] text-[#3D2C24] hover:bg-[#EFE8DD] border border-[#E8DEC8]"
                 }`}
               >
                 {flavour}
@@ -143,63 +137,45 @@ export default function ShopClient() {
           </div>
         </div>
 
-        {/* Products Grid with semantic h2 heading */}
+        {/* Products Grid */}
         <div>
-          <h2 className="sr-only">Our Handcrafted Mushroom Pickles</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <h2 className="sr-only">Mushroom Pickles Catalog</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-center">
           {filteredProducts.map((product) => {
-            const currentSize = selectedSizes[product.id] || "250g";
+            const currentSize = selectedSizes[product.id] || "400g";
             const sizeOption =
               product.sizes?.find((s) => s.size === currentSize) || product.sizes?.[0] || {
-                size: "250g",
-                price: 299,
-                originalPrice: 350,
+                size: "400g",
+                price: 399,
+                originalPrice: 399,
                 inStock: true,
               };
 
             return (
               <div
                 key={product.id}
-                className="clay-card rounded-2xl overflow-hidden flex flex-col justify-between group bg-[#FDFBF7] border border-[#E8DEC8] hover:border-[#C89B3C]/50 hover:shadow-2xl transition-all duration-300"
+                className="clay-card rounded-[6px] overflow-hidden flex flex-col justify-between bg-[#FDFBF7] border border-[#E8DEC8] shadow-sm hover:shadow-md transition-shadow"
               >
                 <div>
-                  {/* Product Image Frame with lazy load and rich alt */}
+                  {/* Product Image Frame */}
                   <div className="relative aspect-square overflow-hidden bg-[#FAF6EE] border-b border-[#E8DEC8]">
                     <Image
-                      src={product.image || "/images/hero-pickle.jpg"}
-                      alt={`${product.name} - Handcrafted clay aged mushroom pickle from Akhil Foods`}
+                      src={product.image || "/images/products/mushroom-mela-front.jpg"}
+                      alt={`${product.name} from Akhil Foods Jhansi`}
                       fill
                       loading="lazy"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                      className="object-contain p-3 group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-contain p-4"
                     />
-                    {product.badges?.[0] && (
-                      <span className="absolute top-3.5 left-3.5 bg-[#211612] text-[#FAF6EE] text-caption font-serif tracking-wider px-3 py-1 rounded-full shadow-md border border-[#C89B3C]/30">
-                        {product.badges[0]}
-                      </span>
-                    )}
-                    <span className="absolute top-3.5 right-3.5 bg-[#EFE8DD] text-[#211612] text-caption font-serif font-bold px-2.5 py-1 rounded-full shadow-md border border-[#DDD3C4]">
+                    <span className="absolute top-3.5 right-3.5 bg-[#EFE8DD] text-[#211612] text-xs font-serif font-bold px-2 py-0.5 rounded-[4px] border border-[#DDD3C4]">
                       {product.flavour}
                     </span>
                   </div>
 
                   {/* Card Content Details */}
-                  <div className="p-5 sm:p-6 space-y-3">
-                    {product.reviewsCount > 0 ? (
-                      <div className="flex items-center gap-1.5 text-caption text-[#A87B28] font-semibold">
-                        <Star className="w-3.5 h-3.5 fill-[#C89B3C] text-[#C89B3C]" />
-                        <span>{product.rating}</span>
-                        <span className="text-stone-400">({product.reviewsCount} reviews)</span>
-                      </div>
-                    ) : (
-                      <div className="flex items-center gap-1.5 text-caption text-stone-500 font-medium">
-                        <Star className="w-3.5 h-3.5 text-[#C89B3C]" />
-                        <span className="italic font-serif">Atelier Micro-Batch</span>
-                      </div>
-                    )}
-
+                  <div className="p-5 space-y-3">
                     <Link href={`/product/${product.slug}`} className="block">
-                      <h3 className="font-serif text-lg font-bold text-[#211612] group-hover:text-[#A87B28] transition-colors leading-snug">
+                      <h3 className="font-serif text-lg font-bold text-[#211612] hover:text-[#A87B28] transition-colors leading-snug">
                         {product.name}
                       </h3>
                     </Link>
@@ -208,26 +184,11 @@ export default function ShopClient() {
                       {product.subtitle || product.description}
                     </p>
 
-                    {/* Size Selector Switcher */}
+                    {/* Size display */}
                     <div className="pt-2">
-                      <label className="text-xs font-serif font-bold text-[#211612] block mb-1.5 uppercase tracking-wider">
-                        Net Quantity / Size:
-                      </label>
-                      <div className="flex flex-wrap gap-1.5 bg-[#FAF6EE] p-1.5 rounded-xl border border-[#E8DEC8]">
-                        {product.sizes?.map((s) => (
-                          <button
-                            key={s.size}
-                            type="button"
-                            onClick={() => handleSizeChange(product.id, s.size)}
-                            className={`px-3 py-1.5 text-xs font-serif font-semibold rounded-lg transition-all ${
-                              currentSize === s.size
-                                ? "bg-[#211612] text-[#FAF6EE] shadow-sm"
-                                : "text-stone-600 hover:text-[#211612]"
-                            }`}
-                          >
-                            {s.size} (MRP ₹{s.price})
-                          </button>
-                        ))}
+                      <div className="py-2 px-3 rounded-[6px] bg-[#FAF6EE] border border-[#E8DEC8] text-xs font-serif text-[#211612] flex justify-between">
+                        <span className="font-semibold text-[#A87B28] uppercase">Net Quantity:</span>
+                        <span className="font-bold">{sizeOption.size} (MRP ₹{sizeOption.price})</span>
                       </div>
                     </div>
 
@@ -236,37 +197,30 @@ export default function ShopClient() {
                       <span className="font-serif text-2xl font-bold text-[#211612]">
                         ₹{sizeOption.price}
                       </span>
-                      {sizeOption.originalPrice > sizeOption.price && (
-                        <>
-                          <span className="text-caption text-stone-400 line-through">
-                            ₹{sizeOption.originalPrice}
-                          </span>
-                          <span className="text-caption font-serif font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full">
-                            Save ₹{sizeOption.originalPrice - sizeOption.price}
-                          </span>
-                        </>
-                      )}
+                      <span className="text-xs text-[#3D2C24]/70">
+                        (All taxes included)
+                      </span>
                     </div>
                   </div>
                 </div>
 
-                {/* Card Action Buttons: Add to Cart and Buy Now */}
-                <div className="p-5 sm:p-6 pt-0 grid grid-cols-2 gap-2.5">
+                {/* Card Action Buttons */}
+                <div className="p-5 pt-0 grid grid-cols-2 gap-2.5">
                   <button
                     type="button"
                     onClick={() => addToCart(product, currentSize, 1)}
-                    className="py-3 px-3 rounded-xl border border-[#211612] text-[#211612] hover:bg-[#211612] hover:text-[#FAF6EE] text-xs font-serif tracking-[0.16em] uppercase font-bold transition-all text-center flex items-center justify-center gap-1.5"
+                    className="btn-outline !py-2.5 !px-3"
                   >
                     <ShoppingBag className="w-3.5 h-3.5" />
-                    <span>Add to Bag</span>
+                    <span>Add to Cart</span>
                   </button>
                   <button
                     type="button"
                     onClick={() => buyNow(product, currentSize, 1)}
-                    className="py-3 px-3 rounded-xl bg-[#211612] hover:bg-[#34221A] text-[#FAF6EE] text-xs font-serif tracking-[0.16em] uppercase font-bold transition-all text-center shadow-md flex items-center justify-center gap-1.5 border border-[#211612]"
+                    className="btn-primary !py-2.5 !px-3"
                   >
                     <Zap className="w-3.5 h-3.5 text-[#C89B3C]" />
-                    <span>Acquire</span>
+                    <span>Buy Now</span>
                   </button>
                 </div>
               </div>
@@ -275,8 +229,8 @@ export default function ShopClient() {
         </div>
         </div>
 
-        {/* Delivery Checker Module */}
-        <div className="max-w-xl mx-auto pt-8">
+        {/* Pincode Availability Checker */}
+        <div className="max-w-xl mx-auto pt-6">
           <PincodeChecker />
         </div>
       </div>

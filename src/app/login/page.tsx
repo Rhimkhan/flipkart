@@ -21,7 +21,7 @@ export default function LoginPage() {
       <div className="text-center space-y-3">
         <div className="w-8 h-8 border-2 border-[#211612] border-t-transparent rounded-full animate-spin mx-auto" />
         <p className="font-serif text-sm tracking-widest uppercase text-[#A87B28]">
-          Opening Atelier Login...
+          Opening Login...
         </p>
       </div>
     </div>

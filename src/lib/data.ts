@@ -5,9 +5,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     id: "prod-mushroom-mela",
     name: "Mushroom Mela Oyster Mushroom Pickle",
     slug: "mushroom-mela-oyster-mushroom-pickle",
-    subtitle: "Artisanal handcrafted oyster mushroom pickle in mustard oil & spices",
+    subtitle: "Oyster mushroom pickle in mustard oil and spices",
     description:
-      "Authentic handcrafted oyster mushroom pickle by AKHIL FOODS, prepared in Village Nandsiya, Moth, Jhansi, Uttar Pradesh. Made with tender oyster mushrooms steeped in mustard oil, vinegar, and traditional Indian spices.",
+      "Oyster mushroom pickle prepared by AKHIL FOODS in Village Nandsiya, Moth, Jhansi, Uttar Pradesh. Prepared with oyster mushrooms steeped in mustard oil, vinegar, and spices.",
     flavour: "Oyster Mushroom",
     rating: 0,
     reviewsCount: 0,
@@ -42,7 +42,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     sizes: [
       { size: "400g", price: 399, originalPrice: 399, inStock: true },
     ],
-    badges: ["Artisanal", "Oyster Mushroom", "400g Jar", "FSSAI Registered"],
+    badges: ["Oyster Mushroom", "400g Jar", "FSSAI Registered"],
   },
 ];
 
@@ -52,7 +52,7 @@ export const FAQS = [
   {
     question: "Where is AKHIL FOODS located?",
     answer:
-      "AKHIL FOODS is based in Village Nandsiya, Karguwan Road, Near Ambedkar Murti, Moth, Jhansi, Uttar Pradesh - 284303. All our mushroom pickles are handcrafted and packed right here.",
+      "AKHIL FOODS is based in Village Nandsiya, Karguwan Road, Near Ambedkar Murti, Moth, Jhansi, Uttar Pradesh 284303. All our mushroom pickles are prepared and packed right here.",
   },
   {
     question: "What ingredients are used in Mushroom Mela Oyster Mushroom Pickle?",

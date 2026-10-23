@@ -14,7 +14,7 @@ export async function sendOrderNotificationEmail(order: Order): Promise<EmailRes
     process.env.ADMIN_NOTIFICATION_EMAIL ||
     "abhishekkumarnandsiya@gmail.com";
 
-  const subject = `🍄 [NEW ORDER #${order.orderNumber}] - ₹${order.total} from ${order.customerName} (${order.paymentMethod.includes("Cash") ? "COD" : "Online"})`;
+  const subject = `[NEW ORDER #${order.orderNumber}] - ₹${order.total} from ${order.customerName} (${order.paymentMethod.includes("Cash") ? "COD" : "Online"})`;
 
   // HTML Email Template with Photo Palette Aesthetics
   const htmlBody = `
@@ -25,7 +25,7 @@ export async function sendOrderNotificationEmail(order: Order): Promise<EmailRes
   <title>New Order Received - ${BRAND.name}</title>
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #FAF6EE; margin: 0; padding: 24px; color: #211612;">
-  <div style="max-width: 600px; margin: 0 auto; background-color: #FDFBF7; border-radius: 24px; overflow: hidden; border: 1px solid #E8DEC8; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
+  <div style="max-width: 600px; margin: 0 auto; background-color: #FDFBF7; border-radius: 6px; overflow: hidden; border: 1px solid #E8DEC8; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
     
     <!-- Header Banner -->
     <div style="background-color: #1C130E; padding: 24px; text-align: center; color: #C89B3C;">
@@ -35,7 +35,7 @@ export async function sendOrderNotificationEmail(order: Order): Promise<EmailRes
 
     <!-- Alert Strip -->
     <div style="background-color: #2A1D17; padding: 12px 24px; text-align: center; font-size: 13px; font-weight: bold; color: #C89B3C; border-bottom: 1px solid rgba(200,155,60,0.2);">
-      🎉 Fresh Order Received! Please prepare batch for dispatch.
+      Order Received. Please prepare order for dispatch.
     </div>
 
     <div style="padding: 24px;">
@@ -124,9 +124,9 @@ export async function sendOrderNotificationEmail(order: Order): Promise<EmailRes
       <!-- Action Buttons in Email -->
       <div style="text-align: center; padding-top: 10px;">
         <a href="https://wa.me/91${order.phone.replace(/\D/g, "")}?text=${encodeURIComponent(
-          `Hi ${order.customerName}! We have received your order #${order.orderNumber} for ₹${order.total} at Akhil Foods. Preparing your artisanal mushroom pickles for dispatch now!`
-        )}" style="display: inline-block; background-color: #25D366; color: #FFFFFF; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 13px; margin-right: 8px;">
-          💬 Chat with Customer on WhatsApp
+          `Hi ${order.customerName}, We have received your order #${order.orderNumber} for ₹${order.total} at Akhil Foods. Preparing your mushroom pickles for dispatch.`
+        )}" style="display: inline-block; background-color: #25D366; color: #FFFFFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 13px; margin-right: 8px;">
+          Chat with Customer on WhatsApp
         </a>
       </div>
 
@@ -146,6 +146,7 @@ export async function sendOrderNotificationEmail(order: Order): Promise<EmailRes
   // 1. If Resend API key is present
   if (process.env.RESEND_API_KEY) {
     try {
+      const fromEmail = process.env.EMAIL_FROM || process.env.RESEND_FROM_EMAIL || "Akhil Foods <onboarding@resend.dev>";
       const res = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
@@ -153,7 +154,7 @@ export async function sendOrderNotificationEmail(order: Order): Promise<EmailRes
           Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
         },
         body: JSON.stringify({
-          from: process.env.RESEND_FROM_EMAIL || "Akhil Foods <onboarding@resend.dev>",
+          from: fromEmail,
           to: [recipientEmail],
           subject: subject,
           html: htmlBody,
@@ -176,7 +177,7 @@ export async function sendOrderNotificationEmail(order: Order): Promise<EmailRes
 
   // 2. Local / Development fallback: Log simulation with full details
   console.log(`\n======================================================`);
-  console.log(`📧 [ORDER NOTIFICATION EMAIL SENT TO STORE OWNER]`);
+  console.log(`[ORDER NOTIFICATION EMAIL SENT TO STORE OWNER]`);
   console.log(`To: ${recipientEmail}`);
   console.log(`Subject: ${subject}`);
   console.log(`Customer: ${order.customerName} (${order.phone})`);

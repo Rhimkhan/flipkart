@@ -28,12 +28,12 @@ const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(appUrl),
   title: {
-    default: "AKHIL FOODS | Artisanal Handcrafted Mushroom Pickles",
+    default: "AKHIL FOODS | Mushroom Mela oyster mushroom pickle",
     template: "%s | AKHIL FOODS",
   },
   description:
-    "Experience authentic artisanal oyster mushroom pickles handcrafted in Village Nandsiya, Moth, Jhansi, Uttar Pradesh by AKHIL FOODS with fresh mushrooms, mustard oil, and traditional spices. Great Food, Better Life.",
-  keywords: ["AKHIL FOODS", "Mushroom Pickle"],
+    "Mushroom Mela oyster mushroom pickle made by Akhil Foods in Village Nandsiya, Moth, Jhansi, Uttar Pradesh. 400 g jar, Rs 399. FSSAI registered.",
+  keywords: ["AKHIL FOODS", "Mushroom Mela", "Mushroom Pickle", "Jhansi"],
   authors: [{ name: "AKHIL FOODS", url: appUrl }],
   creator: "AKHIL FOODS",
   publisher: "AKHIL FOODS",
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
     email: false,
   },
   openGraph: {
-    title: "AKHIL FOODS | Artisanal Handcrafted Mushroom Pickles",
-    description: "Great Food, Better Life. Authentic handcrafted oyster mushroom pickles from Village Nandsiya, Moth, Jhansi, Uttar Pradesh.",
+    title: "AKHIL FOODS | Mushroom Mela oyster mushroom pickle",
+    description: "Mushroom Mela oyster mushroom pickle made by Akhil Foods in Nandsiya, Moth, Jhansi. 400 g jar, Rs 399. FSSAI registered.",
     url: appUrl,
     siteName: "AKHIL FOODS",
     images: [
@@ -59,8 +59,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AKHIL FOODS | Artisanal Mushroom Pickles",
-    description: "Authentic handcrafted oyster mushroom pickles from Jhansi, Uttar Pradesh.",
+    title: "AKHIL FOODS | Mushroom Mela oyster mushroom pickle",
+    description: "Mushroom Mela oyster mushroom pickle made by Akhil Foods in Nandsiya, Moth, Jhansi. 400 g jar, Rs 399.",
     images: ["/images/products/mushroom-mela-front.jpg"],
   },
   robots: {
@@ -84,7 +84,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${poppins.variable} scroll-smooth`}>
       <head>
-        <link rel="icon" href="/images/akhil-foods-logo.png" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
       <body className="min-h-screen flex flex-col bg-[#FAF6EE] text-[#211612] antialiased selection:bg-[#211612] selection:text-[#FAF6EE]">
         <AuthProvider>

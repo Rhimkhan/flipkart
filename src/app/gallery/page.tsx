@@ -2,16 +2,18 @@ import React from "react";
 import { Metadata } from "next";
 import GalleryClient from "@/components/GalleryClient";
 
+const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+
 export const metadata: Metadata = {
-  title: "Artisanal Gallery | AKHIL FOODS Mushroom Pickles",
+  title: "Gallery | AKHIL FOODS Mushroom Pickles",
   description:
-    "Explore our visual chronicle — real Mushroom Mela Oyster Mushroom Pickle jars, ingredients, nutrition label, and small-batch packaging in Jhansi, Uttar Pradesh.",
+    "Product photos of Mushroom Mela oyster mushroom pickle jars, ingredients, nutrition label, and packaging in Village Nandsiya, Moth, Jhansi, Uttar Pradesh.",
   keywords: ["AKHIL FOODS", "Mushroom Pickle"],
   openGraph: {
-    title: "Artisanal Gallery | AKHIL FOODS Mushroom Pickles",
+    title: "Gallery | AKHIL FOODS Mushroom Pickles",
     description:
-      "A photographic journey through our real 400g Mushroom Mela Oyster Mushroom Pickle jars, label ingredients, and artisanal packing in Jhansi, Uttar Pradesh.",
-    url: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/gallery`,
+      "Photos of 400 g Mushroom Mela oyster mushroom pickle jars, label ingredients, and packaging in Jhansi, Uttar Pradesh.",
+    url: `${appUrl}/gallery`,
     siteName: "AKHIL FOODS",
     images: [
       {
@@ -26,12 +28,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Artisanal Gallery | AKHIL FOODS",
-    description: "Visual chronicle of handcrafted mushroom pickling in Jhansi, Uttar Pradesh.",
+    title: "Gallery | AKHIL FOODS",
+    description: "Product photos of mushroom pickles in Jhansi, Uttar Pradesh.",
     images: ["/images/products/mushroom-mela-front.jpg"],
   },
   alternates: {
-    canonical: "/gallery",
+    canonical: `${appUrl}/gallery`,
   },
 };
 

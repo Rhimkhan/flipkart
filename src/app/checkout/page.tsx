@@ -137,15 +137,15 @@ export default function CheckoutPage() {
   if (items.length === 0) {
     return (
       <div className="py-24 text-center max-w-md mx-auto px-4 space-y-4 bg-[#FAF6EE] min-h-screen">
-        <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#211612]">Your Basket is Empty</h1>
+        <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#211612]">Your cart is empty</h1>
         <p className="text-sm text-[#3D2C24]/80 font-sans">
-          Please add items to your basket before proceeding to checkout.
+          Please add items to your cart before proceeding to checkout.
         </p>
         <Link
           href="/shop"
-          className="inline-block px-7 py-3 rounded-full bg-[#211612] text-[#FAF6EE] border border-[#C89B3C]/40 text-sm font-semibold shadow-md hover:bg-[#1C130E] transition-all"
+          className="inline-block px-7 py-3 rounded-[6px] bg-[#211612] text-[#FAF6EE] border border-[#211612] text-sm font-semibold shadow-sm hover:bg-[#1C130E] transition-colors"
         >
-          Explore Artisanal Pickles
+          Shop now
         </Link>
       </div>
     );
@@ -208,7 +208,7 @@ export default function CheckoutPage() {
       const orderPayload = {
         orderNumber,
         customerName: formData.customerName.trim(),
-        email: formData.email.trim() || `${cleanPhone}@akhilfoods.customer`,
+        email: formData.email.trim() || `${cleanPhone}@customer.order`,
         phone: cleanPhone,
         address: formData.address.trim(),
         landmark: formData.landmark.trim(),
@@ -326,7 +326,7 @@ export default function CheckoutPage() {
         amount: rzpOrder.amount,
         currency: rzpOrder.currency,
         name: BRAND.name,
-        description: "Artisanal Handcrafted Mushroom Pickles",
+        description: "Mushroom Mela oyster mushroom pickle",
         image: BRAND.logo,
         order_id: rzpOrder.orderId,
         prefill: {
@@ -393,21 +393,21 @@ export default function CheckoutPage() {
         <div>
           <Link
             href="/cart"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#211612] hover:text-[#A87B28] mb-3"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#211612] hover:text-[#A87B28] mb-3 uppercase tracking-wider"
           >
             <ArrowLeft className="w-4 h-4 text-[#A87B28]" />
-            <span>Return to Basket</span>
+            <span>Return to cart</span>
           </Link>
           <h1 className="font-serif text-3xl sm:text-4xl font-extrabold text-[#211612]">
             Checkout & Payment
           </h1>
           <p className="text-sm text-[#3D2C24]/80 mt-1 font-sans">
-            Choose your preferred payment method: Cash on Delivery (COD) or Instant Direct UPI QR.
+            Choose your payment method: Cash on Delivery (COD) or Instant Direct UPI QR.
           </p>
         </div>
 
         {errorMsg && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-2xl text-sm flex items-center gap-2">
+          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-[6px] text-sm flex items-center gap-2">
             <AlertCircle className="w-4 h-4 shrink-0" />
             <span>{errorMsg}</span>
           </div>
@@ -427,12 +427,12 @@ export default function CheckoutPage() {
           />
 
           {/* Customer & Shipping Form */}
-          <div className="lg:col-span-7 bg-[#FDFBF7] p-6 sm:p-8 rounded-2xl border border-[#E8DEC8] shadow-sm space-y-6">
+          <div className="lg:col-span-7 bg-[#FDFBF7] p-6 sm:p-8 rounded-[6px] border border-[#E8DEC8] shadow-sm space-y-6">
             <div className="flex items-center justify-between pb-3 border-b border-[#E8DEC8]">
               <h2 className="font-serif text-xl font-bold text-[#211612]">
                 1. Delivery Address
               </h2>
-              <span className="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full flex items-center gap-1 border border-emerald-200">
+              <span className="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-[4px] flex items-center gap-1 border border-emerald-200">
                 <Lock className="w-3.5 h-3.5 text-emerald-600" />
                 256-Bit SSL Encrypted
               </span>
@@ -450,7 +450,7 @@ export default function CheckoutPage() {
                   placeholder="e.g. Ramesh Kumar"
                   value={formData.customerName}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-sm text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
+                  className="w-full px-4 py-2.5 rounded-[6px] border border-[#E8DEC8] bg-[#FAF6EE] text-sm text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
                 />
               </div>
 
@@ -465,7 +465,7 @@ export default function CheckoutPage() {
                   placeholder="10-digit mobile number"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-sm text-[#211612] font-mono focus:outline-none focus:ring-2 focus:ring-[#211612]"
+                  className="w-full px-4 py-2.5 rounded-[6px] border border-[#E8DEC8] bg-[#FAF6EE] text-sm text-[#211612] font-mono focus:outline-none focus:ring-2 focus:ring-[#211612]"
                 />
               </div>
             </div>
@@ -481,7 +481,7 @@ export default function CheckoutPage() {
                 placeholder="House / Flat No., Street, Colony, Village..."
                 value={formData.address}
                 onChange={handleChange}
-                className="w-full px-4 py-2.5 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-sm text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
+                className="w-full px-4 py-2.5 rounded-[6px] border border-[#E8DEC8] bg-[#FAF6EE] text-sm text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
               />
             </div>
 
@@ -494,7 +494,7 @@ export default function CheckoutPage() {
                   placeholder="e.g. Near Temple"
                   value={formData.landmark}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-sm text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
+                  className="w-full px-4 py-2.5 rounded-[6px] border border-[#E8DEC8] bg-[#FAF6EE] text-sm text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
                 />
               </div>
 
@@ -506,7 +506,7 @@ export default function CheckoutPage() {
                   placeholder="e.g. Jhansi"
                   value={formData.city}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-sm text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
+                  className="w-full px-4 py-2.5 rounded-[6px] border border-[#E8DEC8] bg-[#FAF6EE] text-sm text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
                 />
               </div>
 
@@ -522,7 +522,7 @@ export default function CheckoutPage() {
                   placeholder="6 Digits"
                   value={formData.pincode}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-sm text-[#211612] font-mono focus:outline-none focus:ring-2 focus:ring-[#211612]"
+                  className="w-full px-4 py-2.5 rounded-[6px] border border-[#E8DEC8] bg-[#FAF6EE] text-sm text-[#211612] font-mono focus:outline-none focus:ring-2 focus:ring-[#211612]"
                 />
               </div>
             </div>
@@ -533,7 +533,7 @@ export default function CheckoutPage() {
                 name="state"
                 value={formData.state}
                 onChange={handleChange}
-                className="w-full px-4 py-2.5 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-sm text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
+                className="w-full px-4 py-2.5 rounded-[6px] border border-[#E8DEC8] bg-[#FAF6EE] text-sm text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
               >
                 {indianStates.map((st) => (
                   <option key={st} value={st}>
@@ -552,9 +552,9 @@ export default function CheckoutPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {/* Cash on Delivery (COD) */}
                 <label
-                  className={`p-4 rounded-2xl border cursor-pointer flex items-center gap-3 transition-all ${
+                  className={`p-4 rounded-[6px] border cursor-pointer flex items-center gap-3 transition-all ${
                     paymentMethod === "Cash on Delivery"
-                      ? "border-[#211612] bg-[#FAF6EE] shadow-sm ring-2 ring-[#211612]/20"
+                      ? "border-[#211612] bg-[#FAF6EE] shadow-sm ring-1 ring-[#211612]"
                       : "border-[#E8DEC8] bg-[#FDFBF7] hover:border-[#211612]/40"
                   }`}
                 >
@@ -577,9 +577,9 @@ export default function CheckoutPage() {
 
                 {/* Pay by UPI QR (Direct Bank Transfer) */}
                 <label
-                  className={`p-4 rounded-2xl border cursor-pointer flex items-center gap-3 transition-all ${
+                  className={`p-4 rounded-[6px] border cursor-pointer flex items-center gap-3 transition-all ${
                     paymentMethod === "Pay by UPI QR"
-                      ? "border-[#211612] bg-[#FAF6EE] shadow-sm ring-2 ring-[#211612]/20"
+                      ? "border-[#211612] bg-[#FAF6EE] shadow-sm ring-1 ring-[#211612]"
                       : "border-[#E8DEC8] bg-[#FDFBF7] hover:border-[#211612]/40"
                   }`}
                 >
@@ -603,9 +603,9 @@ export default function CheckoutPage() {
                 {/* Razorpay Online (Only visible if real Razorpay keys are configured) */}
                 {isRazorpayConfigured && (
                   <label
-                    className={`p-4 rounded-2xl border cursor-pointer flex items-center gap-3 transition-all sm:col-span-2 ${
+                    className={`p-4 rounded-[6px] border cursor-pointer flex items-center gap-3 transition-all sm:col-span-2 ${
                       paymentMethod.includes("Razorpay")
-                        ? "border-[#211612] bg-[#FAF6EE] shadow-sm ring-2 ring-[#211612]/20"
+                        ? "border-[#211612] bg-[#FAF6EE] shadow-sm ring-1 ring-[#211612]"
                         : "border-[#E8DEC8] bg-[#FDFBF7] hover:border-[#211612]/40"
                     }`}
                   >
@@ -630,7 +630,7 @@ export default function CheckoutPage() {
 
               {/* PAY BY UPI QR SECTION */}
               {paymentMethod === "Pay by UPI QR" && (
-                <div className="mt-4 p-5 sm:p-6 rounded-2xl bg-[#FAF6EE] border border-[#C89B3C]/40 space-y-4">
+                <div className="mt-4 p-5 sm:p-6 rounded-[6px] bg-[#FAF6EE] border border-[#C89B3C]/40 space-y-4">
                   <div className="flex items-center justify-between pb-3 border-b border-[#E8DEC8]">
                     <div className="flex items-center gap-2">
                       <QrCode className="w-5 h-5 text-[#A87B28]" />
@@ -638,7 +638,7 @@ export default function CheckoutPage() {
                         Direct UPI Payment
                       </h3>
                     </div>
-                    <span className="text-xs font-bold text-[#A87B28] bg-[#EFE8DD] px-3 py-1 rounded-full border border-[#DDD3C4]">
+                    <span className="text-xs font-bold text-[#A87B28] bg-[#EFE8DD] px-3 py-1 rounded-[4px] border border-[#DDD3C4]">
                       Amount: ₹{total}
                     </span>
                   </div>
@@ -649,14 +649,14 @@ export default function CheckoutPage() {
 
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-6 py-2">
                     {/* Rendered QR Code */}
-                    <div className="bg-white p-3 rounded-2xl border border-[#E8DEC8] shadow-sm text-center">
+                    <div className="bg-white p-3 rounded-[6px] border border-[#E8DEC8] shadow-sm text-center">
                       {qrCodeDataUrl ? (
                         <Image
                           src={qrCodeDataUrl}
                           alt="Akhil Foods UPI Payment QR Code"
                           width={200}
                           height={200}
-                          className="mx-auto rounded-lg"
+                          className="mx-auto rounded-[4px]"
                         />
                       ) : (
                         <div className="w-48 h-48 flex items-center justify-center text-xs text-stone-400">
@@ -672,7 +672,7 @@ export default function CheckoutPage() {
                     <div className="space-y-3.5 w-full sm:w-auto text-center sm:text-left">
                       <div>
                         <span className="text-xs text-stone-500 block">Beneficiary UPI ID:</span>
-                        <div className="inline-flex items-center gap-2 bg-[#FDFBF7] px-3 py-1.5 rounded-xl border border-[#E8DEC8] mt-1 font-mono text-xs font-bold text-[#211612]">
+                        <div className="inline-flex items-center gap-2 bg-[#FDFBF7] px-3 py-1.5 rounded-[4px] border border-[#E8DEC8] mt-1 font-mono text-xs font-bold text-[#211612]">
                           <span>{upiId}</span>
                           <button
                             type="button"
@@ -693,7 +693,7 @@ export default function CheckoutPage() {
                       {/* Pay with UPI App button for mobile */}
                       <a
                         href={upiDeepLink}
-                        className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-5 py-2.5 rounded-full bg-[#211612] text-[#FAF6EE] font-serif text-xs font-bold tracking-wider uppercase hover:bg-[#34221A] transition-all shadow-md"
+                        className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-5 py-2.5 rounded-[6px] bg-[#211612] text-[#FAF6EE] text-xs font-bold tracking-wider uppercase hover:bg-[#34221A] transition-colors shadow-sm"
                       >
                         <span>Pay with UPI App</span>
                         <ExternalLink className="w-3.5 h-3.5 text-[#C89B3C]" />
@@ -703,7 +703,7 @@ export default function CheckoutPage() {
 
                   {/* 12-digit UTR Input */}
                   <div className="pt-3 border-t border-[#E8DEC8] space-y-1.5">
-                    <label className="text-xs font-serif font-bold text-[#211612] block">
+                    <label className="text-xs font-bold text-[#211612] block">
                       Enter 12-Digit UPI Reference Number (UTR / Transaction ID) <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -713,7 +713,7 @@ export default function CheckoutPage() {
                       placeholder="e.g. 428192837465"
                       value={utrNumber}
                       onChange={(e) => setUtrNumber(e.target.value.replace(/\D/g, ""))}
-                      className="w-full px-4 py-2.5 rounded-xl border border-[#E8DEC8] bg-white text-sm font-mono tracking-widest text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
+                      className="w-full px-4 py-2.5 rounded-[6px] border border-[#E8DEC8] bg-white text-sm font-mono tracking-widest text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
                     />
                     <p className="text-[11px] text-[#3D2C24]/70">
                       You will find this 12-digit number in Google Pay, PhonePe, or Paytm under transaction details.
@@ -725,7 +725,7 @@ export default function CheckoutPage() {
           </div>
 
           {/* Order Review & Placement Sidebar */}
-          <div className="lg:col-span-5 bg-[#FDFBF7] p-6 sm:p-8 rounded-2xl border border-[#E8DEC8] shadow-sm space-y-6">
+          <div className="lg:col-span-5 bg-[#FDFBF7] p-6 sm:p-8 rounded-[6px] border border-[#E8DEC8] shadow-sm space-y-6">
             <h2 className="font-serif text-xl font-bold text-[#211612] pb-3 border-b border-[#E8DEC8]">
               Order Items ({items.reduce((s, i) => s + i.quantity, 0)})
             </h2>
@@ -737,8 +737,8 @@ export default function CheckoutPage() {
                   className="flex items-center justify-between text-sm py-2 border-b border-[#E8DEC8]/60"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-[#FAF6EE] shrink-0 border border-[#E8DEC8]">
-                      <Image src={item.image} alt={item.name} fill className="object-cover" />
+                    <div className="relative w-12 h-12 rounded-[4px] overflow-hidden bg-[#FAF6EE] shrink-0 border border-[#E8DEC8]">
+                      <Image src={item.image} alt={item.name} fill className="object-contain p-0.5" />
                     </div>
                     <div>
                       <h3 className="font-bold text-[#211612] text-sm line-clamp-1">{item.name}</h3>
@@ -765,7 +765,7 @@ export default function CheckoutPage() {
                 </div>
               )}
               <div className="flex justify-between">
-                <span>Express Shipping</span>
+                <span>Delivery charge</span>
                 <span>{shipping === 0 ? <strong className="text-emerald-800 font-bold">FREE</strong> : `₹${shipping}`}</span>
               </div>
               <div className="flex justify-between text-base font-bold text-[#211612] pt-3 border-t border-[#E8DEC8]">
@@ -778,7 +778,7 @@ export default function CheckoutPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 rounded-full bg-[#211612] hover:bg-[#1C130E] text-[#FAF6EE] border border-[#C89B3C]/40 font-bold text-sm shadow-xl transition-all flex items-center justify-center gap-2 disabled:opacity-50 hover:scale-[1.01] active:scale-95"
+              className="w-full py-3.5 rounded-[6px] bg-[#211612] hover:bg-[#1C130E] text-[#FAF6EE] border border-[#211612] font-bold text-sm shadow-md transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
             >
               {loading ? (
                 <>
@@ -805,25 +805,37 @@ export default function CheckoutPage() {
               )}
             </button>
 
+            {/* Terms and Privacy policy agreement */}
+            <p className="text-xs text-[#3D2C24]/80 text-center leading-relaxed">
+              By placing this order you agree to the{" "}
+              <Link href="/terms" className="underline hover:text-[#211612]">
+                Terms and Conditions
+              </Link>{" "}
+              and{" "}
+              <Link href="/privacy-policy" className="underline hover:text-[#211612]">
+                Privacy Policy
+              </Link>.
+            </p>
+
             {/* FSSAI License & Trust Line near checkout */}
-            <div className="bg-[#FAF6EE] p-3.5 rounded-2xl border border-[#E8DEC8] text-center space-y-1">
+            <div className="bg-[#FAF6EE] p-3.5 rounded-[6px] border border-[#E8DEC8] text-center space-y-1">
               <div className="text-xs font-mono font-bold text-[#211612] flex items-center justify-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
                 <span>FSSAI Lic. No. {FSSAI_NUMBER}</span>
               </div>
               <p className="text-xs text-[#3D2C24]/70">
-                {BRAND.legalName} • Village Nandsiya, Moth, Jhansi, UP - 284303
+                {BRAND.legalName}, Village Nandsiya, Moth, Jhansi, UP 284303
               </p>
             </div>
 
             <div className="space-y-2 text-xs text-[#3D2C24]/70 text-center">
               <div className="flex items-center justify-center gap-1.5">
                 <Truck className="w-4 h-4 text-[#A87B28]" />
-                <span>Dispatches within 24 hours in sealed 400g glass jar</span>
+                <span>Packed in sealed 400 g jar</span>
               </div>
               <div className="flex items-center justify-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                <span>Authentic Mushroom Mela Quality Guarantee</span>
+                <span>Mushroom Mela oyster mushroom pickle</span>
               </div>
             </div>
           </div>

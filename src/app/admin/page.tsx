@@ -189,27 +189,27 @@ export default function AdminPage() {
   // Pre-filled WhatsApp Customer Message Generator
   const getWhatsAppCustomerMessage = (order: Order): string => {
     const itemsText = order.items
-      ?.map((i) => `• ${i.name} (${i.size}) x${i.quantity}`)
+      ?.map((i) => `* ${i.name} (${i.size}) x${i.quantity}`)
       .join("\n");
 
+    const appUrl = typeof window !== "undefined" ? window.location.origin : (process.env.NEXT_PUBLIC_APP_URL || "");
     const trackingText = order.trackingNumber
-      ? `\n\n🚚 *Courier Dispatch Details:*\n- Logistics Partner: ${order.courierName || "Express Courier"}\n- Air Waybill (AWB) Tracking: ${order.trackingNumber}\n- Online Track Link: http://localhost:3000/track-order?q=${order.orderNumber}`
-      : `\n\n🚚 *Status:* Packaging your fresh Mushroom Mela pickle jar in Village Nandsiya, Moth, Jhansi.`;
+      ? `\n\nCourier Dispatch Details:\n- Logistics Partner: ${order.courierName || "Courier"}\n- Tracking Number: ${order.trackingNumber}\n- Track Order: ${appUrl}/track-order?q=${order.orderNumber}`
+      : `\n\nStatus: Preparing your Mushroom Mela pickle order in Village Nandsiya, Moth, Jhansi.`;
 
-    return `Hi ${order.customerName}! 👋 Greetings from Akhil Foods.
+    return `Hi ${order.customerName}, greetings from Akhil Foods.
 
-Thank you for your order *#${order.orderNumber}*!
+Thank you for your order *#${order.orderNumber}*.
 
-📦 *Items in your parcel:*
+Items in your parcel:
 ${itemsText}
 
-💰 *Total Amount:* ₹${order.total} (${order.paymentMethod})
-📍 *Shipping Destination:* ${order.address}, ${order.city} - ${order.pincode}
-✨ *Current Status:* ${order.orderStatus}${trackingText}
+Total Amount: Rs ${order.total} (${order.paymentMethod})
+Shipping Destination: ${order.address}, ${order.city} - ${order.pincode}
+Current Status: ${order.orderStatus}${trackingText}
 
-We will ensure your handcrafted mushroom pickles reach you with maximum freshness!
 If you have any questions, reply here.
-- Akhil Foods (Great Food, Better Life) 🍄`;
+- Akhil Foods, Village Nandsiya, Moth, Jhansi`;
   };
 
   // Image Upload Handler
@@ -439,13 +439,13 @@ If you have any questions, reply here.
   if (!isAuthenticated) {
     return (
       <div className="min-h-[80vh] flex items-center justify-center px-4 py-16 bg-[#FAF6EE]">
-        <div className="bg-[#FDFBF7] p-8 sm:p-10 rounded-3xl border border-[#E8DEC8] shadow-2xl max-w-md w-full space-y-6 text-center">
-          <div className="w-16 h-16 rounded-2xl bg-[#1C130E] text-[#FAF6EE] border border-[#C89B3C]/40 flex items-center justify-center mx-auto shadow-inner">
+        <div className="bg-[#FDFBF7] p-8 sm:p-10 rounded-[6px] border border-[#E8DEC8] shadow-sm max-w-md w-full space-y-6 text-center">
+          <div className="w-16 h-16 rounded-[6px] bg-[#1C130E] text-[#FAF6EE] border border-[#C89B3C]/40 flex items-center justify-center mx-auto shadow-inner">
             <Lock className="w-8 h-8 text-[#C89B3C]" />
           </div>
 
           <div className="space-y-1">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#FAF6EE] bg-[#1C130E] border border-[#C89B3C]/30 px-3 py-1 rounded-full">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#FAF6EE] bg-[#1C130E] border border-[#C89B3C]/30 px-3 py-1 rounded-[4px]">
               Restricted Area
             </span>
             <h1 className="font-serif text-2xl sm:text-3xl font-extrabold text-[#211612] pt-2">
@@ -457,7 +457,7 @@ If you have any questions, reply here.
           </div>
 
           {authError && (
-            <div className="bg-red-50 border border-red-200 text-red-700 p-3 rounded-2xl text-xs flex items-center gap-2">
+            <div className="bg-red-50 border border-red-200 text-red-700 p-3 rounded-[6px] text-xs flex items-center gap-2">
               <AlertCircle className="w-4 h-4 shrink-0" />
               <span>{authError}</span>
             </div>
@@ -475,7 +475,7 @@ If you have any questions, reply here.
                 value={emailInput}
                 onChange={(e) => setEmailInput(e.target.value)}
                 placeholder="abhishekkumarnandsiya@gmail.com"
-                className="w-full px-4 py-3 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-xs text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
+                className="w-full px-4 py-3 rounded-[6px] border border-[#E8DEC8] bg-[#FAF6EE] text-xs text-[#211612] focus:outline-none focus:ring-1 focus:ring-[#211612]"
               />
             </div>
 
@@ -490,14 +490,14 @@ If you have any questions, reply here.
                 placeholder="Enter password or passkey"
                 value={passwordInput}
                 onChange={(e) => setPasswordInput(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-xs text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
+                className="w-full px-4 py-3 rounded-[6px] border border-[#E8DEC8] bg-[#FAF6EE] text-xs text-[#211612] focus:outline-none focus:ring-1 focus:ring-[#211612]"
               />
             </div>
 
             <button
               type="submit"
               disabled={authLoading}
-              className="w-full py-3.5 rounded-full bg-[#211612] hover:bg-[#1C130E] text-[#FAF6EE] border border-[#C89B3C]/40 font-bold text-xs shadow-xl transition-all flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 disabled:opacity-50"
+              className="w-full py-3.5 rounded-[6px] bg-[#211612] hover:bg-[#1C130E] text-[#FAF6EE] border border-[#211612] font-bold text-xs shadow-sm transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
             >
               <Unlock className="w-4 h-4 text-[#C89B3C]" />
               <span>{authLoading ? "Authenticating..." : "Unlock Store Admin"}</span>
@@ -506,12 +506,12 @@ If you have any questions, reply here.
 
           <div className="pt-2 border-t border-[#E8DEC8] space-y-1 text-[11px] text-[#3D2C24]/60 text-center">
             <p>
-              🔒 Authorized personnel only. Enter your administrator password to proceed.
+              Authorized personnel only. Enter your administrator password to proceed.
             </p>
             <p className="text-[10px] text-stone-400">
               {isSupabaseConfigured
-                ? "⚡ Supabase Auth is enabled"
-                : "🔒 Operating in secured local-mode"}
+                ? "Supabase Auth is enabled"
+                : "Operating in secured local-mode"}
             </p>
           </div>
         </div>
@@ -540,7 +540,7 @@ If you have any questions, reply here.
         <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#E8DEC8] gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="w-2 h-2 rounded-sm bg-emerald-600"></span>
               <span className="text-xs font-bold text-[#A87B28] uppercase tracking-wider">
                 Store Operations • {adminUser}
               </span>
@@ -549,13 +549,13 @@ If you have any questions, reply here.
               Store Management Portal
             </h1>
             <div className="flex flex-wrap items-center gap-2 pt-1.5 text-[11px] font-mono text-[#211612]">
-              <span className="bg-[#FAF6EE] px-2.5 py-0.5 rounded-lg border border-[#E8DEC8] shadow-xs">
+              <span className="bg-[#FAF6EE] px-2.5 py-0.5 rounded-[4px] border border-[#E8DEC8] shadow-xs">
                 FSSAI: <strong>{BRAND.fssaiNumber}</strong> (till {BRAND.fssaiValidity})
               </span>
-              <span className="bg-[#FAF6EE] px-2.5 py-0.5 rounded-lg border border-[#E8DEC8] shadow-xs">
+              <span className="bg-[#FAF6EE] px-2.5 py-0.5 rounded-[4px] border border-[#E8DEC8] shadow-xs">
                 GSTIN: <strong>{BRAND.gstNumber}</strong>
               </span>
-              <span className="bg-[#FAF6EE] px-2.5 py-0.5 rounded-lg border border-[#E8DEC8] shadow-xs">
+              <span className="bg-[#FAF6EE] px-2.5 py-0.5 rounded-[4px] border border-[#E8DEC8] shadow-xs">
                 Udyam: <strong>{BRAND.udyamNumber}</strong>
               </span>
             </div>
@@ -564,7 +564,7 @@ If you have any questions, reply here.
           <div className="flex items-center gap-3">
             <button
               onClick={loadData}
-              className="px-4 py-2.5 rounded-full bg-[#FDFBF7] border border-[#E8DEC8] text-xs font-semibold text-[#211612] hover:bg-[#FAF6EE] flex items-center gap-1.5 shadow-sm transition-all"
+              className="px-4 py-2.5 rounded-[6px] bg-[#FDFBF7] border border-[#E8DEC8] text-xs font-semibold text-[#211612] hover:bg-[#FAF6EE] flex items-center gap-1.5 shadow-sm transition-colors"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin" : ""}`} />
               <span>Refresh Data</span>
@@ -572,7 +572,7 @@ If you have any questions, reply here.
 
             <button
               onClick={handleLogout}
-              className="px-4 py-2.5 rounded-full bg-stone-200 hover:bg-stone-300 text-stone-700 text-xs font-semibold flex items-center gap-1.5 transition-all"
+              className="px-4 py-2.5 rounded-[6px] bg-stone-200 hover:bg-stone-300 text-stone-700 text-xs font-semibold flex items-center gap-1.5 transition-colors"
             >
               <LogOut className="w-3.5 h-3.5" />
               <span>Sign Out</span>
@@ -748,7 +748,7 @@ If you have any questions, reply here.
 
                           <td className="p-4">
                             <span
-                              className={`px-2.5 py-1 rounded-full text-[10px] font-bold ${
+                              className={`px-2.5 py-1 rounded-[4px] text-[10px] font-bold ${
                                 order.paymentStatus === "Paid"
                                   ? "bg-emerald-100 text-emerald-800 border border-emerald-200"
                                   : order.paymentStatus === "Awaiting verification"
@@ -779,7 +779,7 @@ If you have any questions, reply here.
                               onChange={(e) =>
                                 handleStatusChange(order.id, e.target.value as OrderStatus)
                               }
-                              className="px-3 py-1.5 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-xs font-semibold text-[#211612] focus:outline-none focus:ring-1 focus:ring-[#211612]"
+                              className="px-3 py-1.5 rounded-[6px] border border-[#E8DEC8] bg-[#FAF6EE] text-xs font-semibold text-[#211612] focus:outline-none focus:ring-1 focus:ring-[#211612]"
                             >
                               <option value="New">New</option>
                               <option value="Packed">Packed</option>
@@ -795,7 +795,7 @@ If you have any questions, reply here.
                               {order.paymentStatus !== "Paid" && (
                                 <button
                                   onClick={() => handleMarkAsPaid(order.id)}
-                                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-sm transition-all hover:scale-105 active:scale-95 shrink-0"
+                                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[6px] bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-sm transition-colors shrink-0"
                                   title="Mark Payment as Paid"
                                 >
                                   <CheckCircle2 className="w-3.5 h-3.5" />
@@ -808,7 +808,7 @@ If you have any questions, reply here.
                                 href={waUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold shadow-sm transition-all hover:scale-105 active:scale-95 shrink-0"
+                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[6px] bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold shadow-sm transition-colors shrink-0"
                                 title="Open WhatsApp chat with pre-filled order receipt & dispatch updates"
                               >
                                 <MessageCircle className="w-3.5 h-3.5 fill-white" />
@@ -830,7 +830,7 @@ If you have any questions, reply here.
                                     handleUpdateTracking(order.id, trk, cour || "BlueDart Express");
                                   }
                                 }}
-                                className="p-2 rounded-full bg-stone-100 text-stone-700 hover:bg-stone-200 transition-colors"
+                                className="p-2 rounded-[6px] bg-stone-100 text-stone-700 hover:bg-stone-200 transition-colors"
                                 title="Add/Edit Courier Tracking"
                               >
                                 <Truck className="w-4 h-4" />
@@ -885,7 +885,7 @@ If you have any questions, reply here.
                     setProdImage("/images/products/mushroom-mela-front.jpg");
                     setShowProductModal(true);
                   }}
-                  className="px-5 py-2.5 rounded-full bg-[#211612] hover:bg-[#1C130E] text-[#FAF6EE] border border-[#C89B3C]/40 text-xs font-bold flex items-center gap-1.5 shadow-md transition-all hover:scale-105 shrink-0"
+                  className="px-5 py-2.5 rounded-[6px] bg-[#211612] hover:bg-[#1C130E] text-[#FAF6EE] border border-[#211612] text-xs font-bold flex items-center gap-1.5 shadow-sm transition-colors shrink-0"
                 >
                   <Plus className="w-4 h-4 text-[#C89B3C]" />
                   <span>Add New Pickle</span>
@@ -897,7 +897,7 @@ If you have any questions, reply here.
               {filteredProducts.map((p) => (
                 <div
                   key={p.id}
-                  className="bg-[#FDFBF7] rounded-[32px] border border-[#E8DEC8] shadow-sm overflow-hidden flex flex-col justify-between group"
+                  className="bg-[#FDFBF7] rounded-[6px] border border-[#E8DEC8] shadow-sm overflow-hidden flex flex-col justify-between"
                 >
                   <div>
                     <div className="relative aspect-square bg-[#FAF6EE]">
@@ -905,15 +905,15 @@ If you have any questions, reply here.
                         src={p.image || "/images/products/mushroom-mela-front.jpg"}
                         alt={p.name}
                         fill
-                        className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                        className="object-contain p-2"
                       />
-                      <span className="absolute top-3 left-3 bg-[#1C130E] text-[#FAF6EE] text-[10px] font-bold px-2.5 py-1 rounded-full shadow-md border border-[#C89B3C]/40">
+                      <span className="absolute top-3 left-3 bg-[#1C130E] text-[#FAF6EE] text-[10px] font-bold px-2.5 py-1 rounded-[4px] shadow-sm border border-[#C89B3C]/40">
                         Stock: {p.stockCount} jars
                       </span>
                     </div>
 
                     <div className="p-5 space-y-2.5">
-                      <span className="text-[10px] font-bold text-[#C89B3C] bg-[#1C130E] px-2.5 py-0.5 rounded-full border border-[#C89B3C]/30">
+                      <span className="text-[10px] font-bold text-[#C89B3C] bg-[#1C130E] px-2.5 py-0.5 rounded-[4px] border border-[#C89B3C]/30">
                         {p.flavour}
                       </span>
                       <h4 className="font-serif text-base font-bold text-[#211612] line-clamp-1 leading-snug">
@@ -921,7 +921,7 @@ If you have any questions, reply here.
                       </h4>
 
                       {/* Prices for sizes */}
-                      <div className="space-y-1 pt-1 text-xs text-[#3D2C24]/80 bg-[#FAF6EE] p-3 rounded-2xl border border-[#E8DEC8]">
+                      <div className="space-y-1 pt-1 text-xs text-[#3D2C24]/80 bg-[#FAF6EE] p-3 rounded-[6px] border border-[#E8DEC8]">
                         {p.sizes?.map((s) => (
                           <div key={s.size} className="flex justify-between items-center">
                             <span className="font-medium">{s.size}:</span>
@@ -937,14 +937,14 @@ If you have any questions, reply here.
                   <div className="p-5 pt-0 grid grid-cols-2 gap-2 border-t border-[#E8DEC8] pt-3">
                     <button
                       onClick={() => openEditModal(p)}
-                      className="py-2.5 rounded-full bg-[#FAF6EE] hover:bg-[#E8DEC8] text-[#211612] text-xs font-bold flex items-center justify-center gap-1 transition-colors border border-[#E8DEC8]"
+                      className="py-2.5 rounded-[6px] bg-[#FAF6EE] hover:bg-[#E8DEC8] text-[#211612] text-xs font-bold flex items-center justify-center gap-1 transition-colors border border-[#E8DEC8]"
                     >
                       <Edit className="w-3.5 h-3.5" />
                       <span>Edit & Stock</span>
                     </button>
                     <button
                       onClick={() => handleDeleteProduct(p.id)}
-                      className="py-2.5 rounded-full bg-red-50 hover:bg-red-100 text-red-700 text-xs font-bold flex items-center justify-center gap-1 transition-colors"
+                      className="py-2.5 rounded-[6px] bg-red-50 hover:bg-red-100 text-red-700 text-xs font-bold flex items-center justify-center gap-1 transition-colors border border-red-200"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                       <span>Delete</span>
@@ -959,7 +959,7 @@ If you have any questions, reply here.
         {/* MODAL: VIEW ORDER DETAILS WITH WHATSAPP DISPATCH */}
         {selectedOrderForView && (
           <div className="fixed inset-0 z-50 bg-[#1C130E]/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-            <div className="bg-[#FDFBF7] rounded-[32px] max-w-xl w-full p-6 sm:p-8 space-y-6 border border-[#E8DEC8] shadow-2xl relative my-8">
+            <div className="bg-[#FDFBF7] rounded-[6px] max-w-xl w-full p-6 sm:p-8 space-y-6 border border-[#E8DEC8] shadow-2xl relative my-8">
               <button
                 onClick={() => setSelectedOrderForView(null)}
                 className="absolute top-5 right-5 text-stone-400 hover:text-stone-700 p-1"
@@ -977,7 +977,7 @@ If you have any questions, reply here.
                     #{selectedOrderForView.orderNumber}
                   </h3>
                 </div>
-                <span className="text-xs font-bold bg-[#FAF6EE] text-[#211612] px-3 py-1 rounded-full border border-[#E8DEC8]">
+                <span className="text-xs font-bold bg-[#FAF6EE] text-[#211612] px-3 py-1 rounded-[4px] border border-[#E8DEC8]">
                   {selectedOrderForView.orderStatus}
                 </span>
               </div>
@@ -1038,7 +1038,7 @@ If you have any questions, reply here.
                 <div className="pt-2">
                   <button
                     onClick={() => handleMarkAsPaid(selectedOrderForView.id)}
-                    className="w-full py-3 px-6 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md hover:scale-105 transition-all"
+                    className="w-full py-3 px-6 rounded-[6px] bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-colors"
                   >
                     <CheckCircle2 className="w-4 h-4" />
                     <span>Verify & Mark Payment as Paid</span>
@@ -1057,7 +1057,7 @@ If you have any questions, reply here.
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 px-6 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg hover:scale-105 transition-all"
+                  className="w-full py-3.5 px-6 rounded-[6px] bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-colors"
                 >
                   <MessageCircle className="w-4 h-4 fill-white" />
                   <span>Open WhatsApp with Pre-filled Order Update</span>
@@ -1070,7 +1070,7 @@ If you have any questions, reply here.
         {/* MODAL: ADD / EDIT PRODUCT WITH IMAGE UPLOAD */}
         {showProductModal && (
           <div className="fixed inset-0 z-50 bg-[#1C130E]/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-            <div className="bg-[#FDFBF7] rounded-[32px] max-w-lg w-full p-6 sm:p-8 space-y-5 border border-[#E8DEC8] shadow-2xl relative my-8">
+            <div className="bg-[#FDFBF7] rounded-[6px] max-w-lg w-full p-6 sm:p-8 space-y-5 border border-[#E8DEC8] shadow-2xl relative my-8">
               <button
                 onClick={() => setShowProductModal(false)}
                 className="absolute top-5 right-5 text-stone-400 hover:text-stone-700 p-1"
@@ -1090,12 +1090,12 @@ If you have any questions, reply here.
 
               <form onSubmit={handleSaveProduct} className="space-y-4 text-xs">
                 {/* Image Upload & Preview Section */}
-                <div className="space-y-2 p-3.5 rounded-2xl bg-[#FAF6EE] border border-[#E8DEC8]">
+                <div className="space-y-2 p-3.5 rounded-[6px] bg-[#FAF6EE] border border-[#E8DEC8]">
                   <label className="font-bold text-[#211612] block">
                     Product Image & Visual
                   </label>
                   <div className="flex items-center gap-4">
-                    <div className="relative w-16 h-16 rounded-2xl overflow-hidden bg-white border border-[#E8DEC8] shrink-0">
+                    <div className="relative w-16 h-16 rounded-[6px] overflow-hidden bg-white border border-[#E8DEC8] shrink-0">
                       <Image
                         src={prodImage}
                         alt="Product preview"
@@ -1104,7 +1104,7 @@ If you have any questions, reply here.
                       />
                     </div>
                     <div className="flex-1 space-y-1">
-                      <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#211612] text-[#FAF6EE] border border-[#C89B3C]/40 text-xs font-semibold hover:bg-[#1C130E] shadow-sm">
+                      <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[6px] bg-[#211612] text-[#FAF6EE] border border-[#211612] text-xs font-semibold hover:bg-[#1C130E] shadow-sm">
                         <Upload className="w-3.5 h-3.5 text-[#C89B3C]" />
                         <span>Upload New Image</span>
                         <input
@@ -1129,7 +1129,7 @@ If you have any questions, reply here.
                     placeholder="e.g. Kashmiri Morel Morchella Mushroom Pickle"
                     value={prodName}
                     onChange={(e) => setProdName(e.target.value)}
-                    className="w-full px-3.5 py-2 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
+                    className="w-full px-3.5 py-2 rounded-[6px] border border-[#E8DEC8] bg-[#FAF6EE] text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
                   />
                 </div>
 
@@ -1140,7 +1140,7 @@ If you have any questions, reply here.
                     placeholder="e.g. Infused with wild mountain spices and raw mustard oil"
                     value={prodSubtitle}
                     onChange={(e) => setProdSubtitle(e.target.value)}
-                    className="w-full px-3.5 py-2 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
+                    className="w-full px-3.5 py-2 rounded-[6px] border border-[#E8DEC8] bg-[#FAF6EE] text-[#211612] focus:outline-none focus:ring-2 focus:ring-[#211612]"
                   />
                 </div>
 
@@ -1150,7 +1150,7 @@ If you have any questions, reply here.
                     <select
                       value={prodFlavour}
                       onChange={(e) => setProdFlavour(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl border border-[#E8DEC8] focus:outline-none bg-[#FAF6EE] text-[#211612]"
+                      className="w-full px-3 py-2 rounded-[6px] border border-[#E8DEC8] focus:outline-none bg-[#FAF6EE] text-[#211612]"
                     >
                       <option value="Classic Masala">Classic Masala</option>
                       <option value="Garlic">Garlic</option>
@@ -1167,7 +1167,7 @@ If you have any questions, reply here.
                       onChange={(e) =>
                         setProdSpice(e.target.value as "Mild" | "Medium" | "Hot")
                       }
-                      className="w-full px-3 py-2 rounded-xl border border-[#E8DEC8] focus:outline-none bg-[#FAF6EE] text-[#211612]"
+                      className="w-full px-3 py-2 rounded-[6px] border border-[#E8DEC8] focus:outline-none bg-[#FAF6EE] text-[#211612]"
                     >
                       <option value="Mild">Mild</option>
                       <option value="Medium">Medium</option>
@@ -1191,7 +1191,7 @@ If you have any questions, reply here.
                         required
                         value={prodPrice250}
                         onChange={(e) => setProdPrice250(Number(e.target.value))}
-                        className="w-full px-2.5 py-1.5 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] font-bold font-serif text-[#211612]"
+                        className="w-full px-2.5 py-1.5 rounded-[6px] border border-[#E8DEC8] bg-[#FAF6EE] font-bold font-serif text-[#211612]"
                       />
                     </div>
                     <div>
@@ -1203,7 +1203,7 @@ If you have any questions, reply here.
                         required
                         value={prodPrice500}
                         onChange={(e) => setProdPrice500(Number(e.target.value))}
-                        className="w-full px-2.5 py-1.5 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] font-bold font-serif text-[#211612]"
+                        className="w-full px-2.5 py-1.5 rounded-[6px] border border-[#E8DEC8] bg-[#FAF6EE] font-bold font-serif text-[#211612]"
                       />
                     </div>
                     <div>
@@ -1215,7 +1215,7 @@ If you have any questions, reply here.
                         required
                         value={prodPrice1kg}
                         onChange={(e) => setProdPrice1kg(Number(e.target.value))}
-                        className="w-full px-2.5 py-1.5 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] font-bold font-serif text-[#211612]"
+                        className="w-full px-2.5 py-1.5 rounded-[6px] border border-[#E8DEC8] bg-[#FAF6EE] font-bold font-serif text-[#211612]"
                       />
                     </div>
                   </div>
@@ -1231,7 +1231,7 @@ If you have any questions, reply here.
                     required
                     value={prodStock}
                     onChange={(e) => setProdStock(Number(e.target.value))}
-                    className="w-full px-3 py-2 rounded-xl border border-[#E8DEC8] bg-[#FAF6EE] text-[#211612]"
+                    className="w-full px-3 py-2 rounded-[6px] border border-[#E8DEC8] bg-[#FAF6EE] text-[#211612]"
                   />
                 </div>
 
@@ -1239,13 +1239,13 @@ If you have any questions, reply here.
                   <button
                     type="button"
                     onClick={() => setShowProductModal(false)}
-                    className="px-4 py-2.5 rounded-full border border-[#E8DEC8] text-stone-600 font-bold hover:bg-[#FAF6EE]"
+                    className="px-4 py-2.5 rounded-[6px] border border-[#E8DEC8] text-stone-600 font-bold hover:bg-[#FAF6EE]"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="px-7 py-2.5 rounded-full bg-[#211612] hover:bg-[#1C130E] text-[#FAF6EE] border border-[#C89B3C]/40 font-bold shadow-md hover:scale-105 transition-all"
+                    className="px-7 py-2.5 rounded-[6px] bg-[#211612] hover:bg-[#1C130E] text-[#FAF6EE] border border-[#211612] font-bold shadow-sm transition-colors"
                   >
                     Save Pickle
                   </button>

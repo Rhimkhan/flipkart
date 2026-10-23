@@ -21,7 +21,7 @@ export const FAQ_DATA: FAQItem[] = [
     category: "preparation",
     question: "Where is AKHIL FOODS based and where is the pickle made?",
     answer:
-      "AKHIL FOODS is located in Village Nandsiya, Karguwan Road, Near Ambedkar Murti, Moth, Jhansi, Uttar Pradesh - 284303. All our mushroom pickles are handcrafted and packed right here.",
+      "AKHIL FOODS is located in Village Nandsiya, Karguwan Road, Near Ambedkar Murti, Moth, Jhansi, Uttar Pradesh 284303. All our mushroom pickles are prepared and packed right here.",
   },
   {
     category: "ingredients",
@@ -43,9 +43,9 @@ export const FAQ_DATA: FAQItem[] = [
   },
   {
     category: "shipping",
-    question: "How do you pack glass jars so they don't break during courier transit?",
+    question: "How do you pack jars so they don't break during courier transit?",
     answer:
-      "Every 400g glass jar is packed with multi-layered protective cushioning in sturdy cartons to help prevent breakage during courier transit.",
+      "Every 400g jar is packed with protective cushioning in sturdy cartons to help prevent damage during courier transit.",
   },
   {
     category: "shipping",

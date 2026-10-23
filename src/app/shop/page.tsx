@@ -3,16 +3,18 @@ import { Metadata } from "next";
 import ShopClient from "@/components/ShopClient";
 import { INITIAL_PRODUCTS } from "@/lib/data";
 
+const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+
 export const metadata: Metadata = {
-  title: "Shop Handcrafted Oyster Mushroom Pickle | AKHIL FOODS",
+  title: "Shop Mushroom Mela Oyster Mushroom Pickle | AKHIL FOODS",
   description:
-    "Buy authentic Mushroom Mela Oyster Mushroom Pickle (400g) handcrafted by AKHIL FOODS, Jhansi, Uttar Pradesh. Prepared with mustard oil and traditional spices.",
+    "Buy Mushroom Mela Oyster Mushroom Pickle (400g) by AKHIL FOODS, Village Nandsiya, Moth, Jhansi, Uttar Pradesh. Prepared with mustard oil and spices.",
   keywords: ["AKHIL FOODS", "Mushroom Pickle"],
   openGraph: {
-    title: "Shop Handcrafted Oyster Mushroom Pickle | AKHIL FOODS",
+    title: "Shop Mushroom Mela Oyster Mushroom Pickle | AKHIL FOODS",
     description:
-      "Handcrafted in Jhansi, Uttar Pradesh with mustard oil and authentic spices.",
-    url: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/shop`,
+      "Made in Village Nandsiya, Moth, Jhansi, Uttar Pradesh with mustard oil and spices.",
+    url: `${appUrl}/shop`,
     siteName: "AKHIL FOODS",
     images: [
       {
@@ -27,12 +29,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shop Handcrafted Oyster Mushroom Pickle | AKHIL FOODS",
-    description: "Handcrafted in Jhansi, UP with mustard oil and traditional spices.",
+    title: "Shop Mushroom Mela Oyster Mushroom Pickle | AKHIL FOODS",
+    description: "Made in Moth, Jhansi, UP with mustard oil and spices.",
     images: ["/images/products/mushroom-mela-front.jpg"],
   },
   alternates: {
-    canonical: "/shop",
+    canonical: `${appUrl}/shop`,
   },
 };
 
@@ -40,8 +42,8 @@ export default function ShopPage() {
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "AKHIL FOODS Handcrafted Mushroom Pickle Collection",
-    description: "Authentic Oyster Mushroom Pickle handcrafted in Jhansi, UP.",
+    name: "AKHIL FOODS Mushroom Pickle Catalog",
+    description: "Oyster Mushroom Pickle made in Jhansi, UP.",
     numberOfItems: INITIAL_PRODUCTS.length,
     itemListElement: INITIAL_PRODUCTS.map((prod, index) => ({
       "@type": "ListItem",

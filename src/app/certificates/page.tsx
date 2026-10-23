@@ -11,16 +11,19 @@ import {
   Sparkles,
   ArrowRight,
   Leaf,
+  Building2,
+  FileText,
+  Factory,
 } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 import { FSSAI_NUMBER, FSSAI_VALIDITY, GST_NUMBER, UDYAM_NUMBER } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: `Provenance & Authenticity | ${BRAND.name} - FSSAI, GST, Udyam`,
-  description: `The story of provenance, slow-curing, and official government certifications for ${BRAND.name}, Village Nandsiya, Moth, Jhansi, Uttar Pradesh. FSSAI Lic. No. ${FSSAI_NUMBER}, GSTIN ${GST_NUMBER}, Udyam ${UDYAM_NUMBER}.`,
+  description: `Official government certifications for ${BRAND.name}, Village Nandsiya, Moth, Jhansi, Uttar Pradesh. FSSAI Lic. No. ${FSSAI_NUMBER}, GSTIN ${GST_NUMBER}, Udyam ${UDYAM_NUMBER}.`,
   openGraph: {
     title: `Provenance & Government Accreditations | ${BRAND.name}`,
-    description: `Discover how our oyster mushroom pickles are hand-cured in Moth, Jhansi, backed by verified FSSAI, GST, and Udyam certifications.`,
+    description: `Verified FSSAI, GST, and Udyam certifications for Mushroom Mela oyster mushroom pickle, Moth, Jhansi.`,
     url: `${BRAND.url}/certificates`,
     type: "website",
   },
@@ -30,100 +33,97 @@ export default function CertificatesPage() {
   return (
     <div className="bg-[#FAF6EE] min-h-screen py-14 sm:py-24">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-20">
-        {/* Luxury Editorial Header */}
+        {/* Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <span className="eyebrow-luxury text-[#A87B28] bg-[#EFE8DD] px-4 py-1.5 rounded-full border border-[#DDD3C4] inline-flex items-center gap-1.5 shadow-sm">
+          <span className="text-xs font-bold text-[#A87B28] bg-[#EFE8DD] px-3.5 py-1.5 rounded-[6px] border border-[#DDD3C4] inline-flex items-center gap-1.5 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#A87B28]" />
-            <span>Provenance, Craft & Official Integrity</span>
+            <span>Official Government Registrations</span>
           </span>
-          <h1 className="headline-luxury text-3xl sm:text-5xl md:text-6xl text-[#211612] font-normal">
-            The Provenance of Purity
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#211612] font-normal">
+            Certifications & Food Safety
           </h1>
-          <p className="editorial-body text-[#3D2C24] max-w-2xl mx-auto font-light">
-            Before a jar of <strong>Mushroom Mela</strong> reaches your table, it begins as an unhurried culinary tradition in Village Nandsiya, Moth, Jhansi. Our government registrations are the ultimate seals of our uncompromising quality and food safety.
+          <p className="text-sm sm:text-base text-[#3D2C24] max-w-2xl mx-auto font-light leading-relaxed">
+            Mushroom Mela is made by Akhil Foods in Village Nandsiya, Moth, Jhansi, Uttar Pradesh. Our operations are fully registered with the relevant statutory authorities.
           </p>
         </div>
 
-        {/* Immersive Narrative Chapter: The Harvest & Curing Tradition */}
-        <div className="bg-[#1C130E] text-[#FAF6EE] rounded-3xl p-8 sm:p-12 border border-[#C89B3C]/30 shadow-2xl space-y-6 relative overflow-hidden">
-          <div className="absolute -top-16 -right-16 w-64 h-64 bg-[#C89B3C]/10 rounded-full blur-3xl pointer-events-none" />
-          
-          <div className="relative z-10 space-y-4">
-            <span className="eyebrow-luxury text-[#D4AF37] flex items-center gap-1.5">
+        {/* Narrative Box */}
+        <div className="bg-[#1C130E] text-[#FAF6EE] rounded-xl p-8 sm:p-12 border border-[#C89B3C]/30 shadow-xl space-y-6">
+          <div className="space-y-4">
+            <span className="text-xs font-bold text-[#D4AF37] flex items-center gap-1.5">
               <Leaf className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>An Unhurried Heritage Ritual</span>
+              <span>Cultivation & Preparation</span>
             </span>
-            <h2 className="headline-luxury text-2xl sm:text-3xl lg:text-4xl text-[#FAF6EE] font-normal">
-              Cultivated in Jhansi. Cured in Mustard Oil.
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white font-normal">
+              Cultivated in Jhansi. Cured in Pure Mustard Oil.
             </h2>
-            <p className="editorial-body text-[#EADBB6]/90 leading-relaxed max-w-3xl font-light">
-              In the heart of the Bundelkhand plains, tender oyster mushrooms are hand-harvested at dawn, carefully inspected, gently washed, and trimmed to preserve their naturally succulent, meaty texture.
+            <p className="text-sm sm:text-base text-[#FAF6EE]/90 leading-relaxed max-w-3xl font-light">
+              In Bundelkhand, oyster mushrooms are harvested, inspected, washed, and trimmed to maintain texture and cleanliness.
             </p>
-            <p className="editorial-body text-[#EADBB6]/90 leading-relaxed max-w-3xl font-light">
-              We steep the mushrooms in mustard oil, blending them with freshly crushed coriander, whole mustard seeds, fenugreek, fennel, cumin, and fragrant ajwain. Slow-cured under the Indian sun, each small batch develops an unforgettable depth of umami, pungency, and tangy perfection.
+            <p className="text-sm sm:text-base text-[#FAF6EE]/90 leading-relaxed max-w-3xl font-light">
+              We blend the mushrooms with pure virgin mustard oil, coriander, mustard seeds, fenugreek, fennel, cumin, turmeric, ajwain, ginger, and garlic per the registered formula.
             </p>
           </div>
 
-          {/* Understated Legal Entity Provenance Strip */}
-          <div className="relative z-10 pt-6 border-t border-[#C89B3C]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs">
+          <div className="pt-6 border-t border-[#C89B3C]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs">
             <div className="flex items-center gap-2 text-[#EADBB6]/80 font-light">
               <MapPin className="w-4 h-4 text-[#D4AF37] shrink-0" />
-              <span>{BRAND.legalName} • {BRAND.address}</span>
+              <span>{BRAND.legalName}, {BRAND.address}</span>
             </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#2A1D17] text-[#D4AF37] border border-[#C89B3C]/30 font-serif font-semibold text-caption tracking-wider uppercase">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[6px] bg-[#2A1D17] text-[#D4AF37] border border-[#C89B3C]/30 font-medium">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Registered & Verified Agro-Kitchen</span>
+              <span>Registered Food Processing Unit</span>
             </div>
           </div>
         </div>
 
-        {/* 3 Illuminated Seals of Government Integrity & Compliance */}
+        {/* 3 Seals of Government Integrity & Compliance */}
         <div className="space-y-8">
           <div className="text-center space-y-2 max-w-xl mx-auto">
-            <span className="eyebrow-luxury text-[#A87B28]">Official Accreditations</span>
-            <h2 className="headline-luxury text-2xl sm:text-3xl text-[#211612] font-normal">
-              Seals of Authenticity & Food Safety
+            <span className="text-xs font-bold uppercase tracking-wider text-[#A87B28]">Official Accreditations</span>
+            <h2 className="font-serif text-2xl sm:text-3xl text-[#211612] font-normal">
+              Government Registrations
             </h2>
-            <p className="editorial-body text-[#3D2C24] text-sm font-light">
-              Our registered certifications are held to the highest national food safety and commercial compliance standards.
+            <p className="text-sm text-[#3D2C24] font-light">
+              All registrations are verified and active under Government of India departments.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Seal 1: FSSAI Food Safety */}
-            <div className="bg-[#FDFBF7] rounded-2xl p-7 sm:p-8 border border-[#E8DEC8] hover:border-[#C89B3C]/40 shadow-sm flex flex-col justify-between hover:shadow-xl transition-all relative overflow-hidden group">
+            <div className="bg-[#FDFBF7] rounded-xl p-7 sm:p-8 border border-[#E8DEC8] shadow-sm flex flex-col justify-between">
               <div className="space-y-5">
-                <div className="w-14 h-14 rounded-2xl bg-[#EFE8DD] border border-[#DDD3C4] flex items-center justify-center text-2xl shadow-inner">
-                  🏛️
+                <div className="w-12 h-12 rounded-[6px] bg-[#EFE8DD] border border-[#DDD3C4] flex items-center justify-center text-[#211612]">
+                  <Building2 className="w-6 h-6 text-[#A87B28]" />
                 </div>
                 <div className="space-y-1">
-                  <span className="eyebrow-luxury text-[#A87B28] block text-caption">
-                    Food Safety & Purity
+                  <span className="text-xs text-[#A87B28] font-bold block uppercase tracking-wider">
+                    Food Safety
                   </span>
                   <h3 className="font-serif text-xl font-bold text-[#211612]">
-                    FSSAI License
+                    FSSAI Registration
                   </h3>
                 </div>
 
-                <div className="bg-[#FAF6EE] p-3.5 rounded-xl border border-[#E8DEC8] space-y-1">
-                  <p className="text-caption font-serif font-semibold text-stone-500 uppercase tracking-wider">
-                    License Number
+                <div className="bg-[#FAF6EE] p-3.5 rounded-[6px] border border-[#E8DEC8] space-y-1">
+                  <p className="text-xs text-stone-500 uppercase tracking-wider font-semibold">
+                    Registration Number
                   </p>
-                  <p className="font-mono text-base font-extrabold text-[#211612] tracking-wide select-all">
+                  <p className="font-mono text-base font-bold text-[#211612] select-all">
                     {FSSAI_NUMBER}
                   </p>
                 </div>
 
-                <div className="space-y-2 editorial-body text-xs sm:text-sm text-[#3D2C24] font-sans leading-relaxed font-light">
+                <div className="space-y-2 text-xs sm:text-sm text-[#3D2C24] leading-relaxed font-light">
                   <p>
-                    <strong className="text-[#211612] font-serif">Authority:</strong> Food Safety & Standards Authority of India, Ministry of Health & Family Welfare.
+                    <strong className="text-[#211612] font-medium">Authority:</strong> Food Safety and Standards Authority of India, Ministry of Health and Family Welfare.
                   </p>
                   <div className="flex items-center gap-1.5 text-stone-600 text-xs">
                     <Calendar className="w-3.5 h-3.5 text-[#A87B28]" />
                     <span>Valid through: <strong>{FSSAI_VALIDITY}</strong></span>
                   </div>
                   <p className="text-stone-600 text-xs pt-1">
-                    Licensed for small-batch artisanal mushroom pickle curing, sterile glass bottling, and all-India courier fulfillment.
+                    Registered for mushroom pickle preparation, packaging in sealed 400 g jars, and courier fulfillment.
                   </p>
                 </div>
               </div>
@@ -133,123 +133,135 @@ export default function CertificatesPage() {
                   href="/certificates/fssai-certificate.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#211612] hover:bg-[#34221A] text-[#FAF6EE] font-serif font-bold text-xs tracking-wider uppercase shadow-md transition-all border border-[#211612]"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-[6px] bg-[#211612] hover:bg-[#34221A] text-[#FAF6EE] text-xs font-semibold uppercase tracking-wider transition-colors border border-[#211612]"
                 >
-                  <span>View Official FSSAI PDF</span>
+                  <span>View FSSAI Certificate (PDF)</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>
 
             {/* Seal 2: GST Commercial Compliance */}
-            <div className="bg-[#FDFBF7] rounded-2xl p-7 sm:p-8 border border-[#E8DEC8] hover:border-[#C89B3C]/40 shadow-sm flex flex-col justify-between hover:shadow-xl transition-all">
+            <div className="bg-[#FDFBF7] rounded-xl p-7 sm:p-8 border border-[#E8DEC8] shadow-sm flex flex-col justify-between">
               <div className="space-y-5">
-                <div className="w-14 h-14 rounded-2xl bg-[#EFE8DD] border border-[#DDD3C4] flex items-center justify-center text-2xl shadow-inner">
-                  📑
+                <div className="w-12 h-12 rounded-[6px] bg-[#EFE8DD] border border-[#DDD3C4] flex items-center justify-center text-[#211612]">
+                  <FileText className="w-6 h-6 text-[#A87B28]" />
                 </div>
                 <div className="space-y-1">
-                  <span className="eyebrow-luxury text-[#A87B28] block text-caption">
-                    Commercial Integrity
+                  <span className="text-xs text-[#A87B28] font-bold block uppercase tracking-wider">
+                    Commercial Tax
                   </span>
                   <h3 className="font-serif text-xl font-bold text-[#211612]">
                     GST Registration
                   </h3>
                 </div>
 
-                <div className="bg-[#FAF6EE] p-3.5 rounded-xl border border-[#E8DEC8] space-y-1">
-                  <p className="text-caption font-serif font-semibold text-stone-500 uppercase tracking-wider">
-                    GSTIN Identification
+                <div className="bg-[#FAF6EE] p-3.5 rounded-[6px] border border-[#E8DEC8] space-y-1">
+                  <p className="text-xs text-stone-500 uppercase tracking-wider font-semibold">
+                    GSTIN
                   </p>
-                  <p className="font-mono text-base font-extrabold text-[#211612] tracking-wide select-all">
+                  <p className="font-mono text-base font-bold text-[#211612] select-all">
                     {GST_NUMBER}
                   </p>
                 </div>
 
-                <div className="space-y-2 editorial-body text-xs sm:text-sm text-[#3D2C24] font-sans leading-relaxed font-light">
+                <div className="space-y-2 text-xs sm:text-sm text-[#3D2C24] leading-relaxed font-light">
                   <p>
-                    <strong className="text-[#211612] font-serif">Authority:</strong> Goods & Services Tax Network, Department of Revenue, Ministry of Finance.
+                    <strong className="text-[#211612] font-medium">Authority:</strong> Goods and Services Tax Network, Department of Revenue, Ministry of Finance.
                   </p>
                   <p className="text-stone-600 text-xs">
-                    <strong className="text-[#211612] font-serif">Jurisdiction:</strong> Uttar Pradesh (State Code 09).
+                    <strong className="text-[#211612] font-medium">Jurisdiction:</strong> Uttar Pradesh (State Code 09).
                   </p>
                   <p className="text-stone-600 text-xs pt-1">
-                    Verified entity ensuring lawful, transparent taxation, official invoices, and genuine pan-India consignment transit.
+                    Verified entity ensuring compliant billing and nationwide courier shipments.
                   </p>
                 </div>
               </div>
 
               <div className="pt-6 border-t border-[#E8DEC8] mt-6">
-                <div className="w-full py-2.5 px-4 rounded-xl bg-[#FAF6EE] text-[#211612] font-semibold text-xs text-center border border-[#E8DEC8] tracking-wider font-mono">
-                  GSTIN Active • State Code 09
-                </div>
+                <a
+                  href="/certificates/gst-certificate.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-[6px] bg-[#211612] hover:bg-[#34221A] text-[#FAF6EE] text-xs font-semibold uppercase tracking-wider transition-colors border border-[#211612]"
+                >
+                  <span>View GST Certificate (PDF)</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
               </div>
             </div>
 
             {/* Seal 3: Udyam MSME Recognition */}
-            <div className="bg-[#FDFBF7] rounded-2xl p-7 sm:p-8 border border-[#E8DEC8] hover:border-[#C89B3C]/40 shadow-sm flex flex-col justify-between hover:shadow-xl transition-all">
+            <div className="bg-[#FDFBF7] rounded-xl p-7 sm:p-8 border border-[#E8DEC8] shadow-sm flex flex-col justify-between">
               <div className="space-y-5">
-                <div className="w-14 h-14 rounded-2xl bg-[#EFE8DD] border border-[#DDD3C4] flex items-center justify-center text-2xl shadow-inner">
-                  🏭
+                <div className="w-12 h-12 rounded-[6px] bg-[#EFE8DD] border border-[#DDD3C4] flex items-center justify-center text-[#211612]">
+                  <Factory className="w-6 h-6 text-[#A87B28]" />
                 </div>
                 <div className="space-y-1">
-                  <span className="eyebrow-luxury text-[#A87B28] block text-caption">
-                    Enterprise Recognition
+                  <span className="text-xs text-[#A87B28] font-bold block uppercase tracking-wider">
+                    MSME Enterprise
                   </span>
                   <h3 className="font-serif text-xl font-bold text-[#211612]">
-                    Udyam MSME Reg.
+                    Udyam Registration
                   </h3>
                 </div>
 
-                <div className="bg-[#FAF6EE] p-3.5 rounded-xl border border-[#E8DEC8] space-y-1">
-                  <p className="text-caption font-serif font-semibold text-stone-500 uppercase tracking-wider">
+                <div className="bg-[#FAF6EE] p-3.5 rounded-[6px] border border-[#E8DEC8] space-y-1">
+                  <p className="text-xs text-stone-500 uppercase tracking-wider font-semibold">
                     Udyam Certificate No.
                   </p>
-                  <p className="font-mono text-base font-extrabold text-[#211612] tracking-wide select-all">
+                  <p className="font-mono text-base font-bold text-[#211612] select-all">
                     {UDYAM_NUMBER}
                   </p>
                 </div>
 
-                <div className="space-y-2 editorial-body text-xs sm:text-sm text-[#3D2C24] font-sans leading-relaxed font-light">
+                <div className="space-y-2 text-xs sm:text-sm text-[#3D2C24] leading-relaxed font-light">
                   <p>
-                    <strong className="text-[#211612] font-serif">Authority:</strong> Ministry of Micro, Small & Medium Enterprises, Govt. of India.
+                    <strong className="text-[#211612] font-medium">Authority:</strong> Ministry of Micro, Small and Medium Enterprises, Government of India.
                   </p>
                   <p className="text-stone-600 text-xs">
-                    <strong className="text-[#211612] font-serif">Classification:</strong> Micro Agro-Processing Enterprise.
+                    <strong className="text-[#211612] font-medium">Classification:</strong> Micro Enterprise (Food Processing).
                   </p>
                   <p className="text-stone-600 text-xs pt-1">
-                    Honouring our local agrarian heritage and empowering cottage food craft in rural Jhansi, Uttar Pradesh.
+                    Registered rural production unit located in Village Nandsiya, Moth, Jhansi, Uttar Pradesh.
                   </p>
                 </div>
               </div>
 
               <div className="pt-6 border-t border-[#E8DEC8] mt-6">
-                <div className="w-full py-2.5 px-4 rounded-xl bg-[#FAF6EE] text-[#211612] font-semibold text-xs text-center border border-[#E8DEC8] tracking-wider font-mono">
-                  Udyam Registered Agro Unit
-                </div>
+                <a
+                  href="/certificates/udyam-certificate.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-[6px] bg-[#211612] hover:bg-[#34221A] text-[#FAF6EE] text-xs font-semibold uppercase tracking-wider transition-colors border border-[#211612]"
+                >
+                  <span>View Udyam Certificate (PDF)</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
               </div>
             </div>
           </div>
         </div>
 
-        {/* The Atelier Guarantee & Call to Acquire */}
-        <div className="bg-[#1C130E] rounded-3xl p-8 sm:p-12 text-[#FAF6EE] text-center space-y-5 border border-[#C89B3C]/35 shadow-2xl relative overflow-hidden">
-          <div className="w-14 h-14 rounded-2xl bg-[#2A1D17] text-[#D4AF37] border border-[#C89B3C]/30 flex items-center justify-center mx-auto text-2xl font-bold shadow-md">
-            ✓
+        {/* Commitment Box */}
+        <div className="bg-[#1C130E] rounded-xl p-8 sm:p-12 text-[#FAF6EE] text-center space-y-5 border border-[#C89B3C]/30 shadow-xl">
+          <div className="w-12 h-12 rounded-[6px] bg-[#2A1D17] text-[#D4AF37] border border-[#C89B3C]/30 flex items-center justify-center mx-auto">
+            <CheckCircle2 className="w-6 h-6 text-[#D4AF37]" />
           </div>
           <div className="space-y-2">
-            <h2 className="headline-luxury text-2xl sm:text-3xl text-[#FAF6EE] font-normal">
-              A Commitment to Authenticity & Integrity
+            <h2 className="font-serif text-2xl sm:text-3xl text-white font-normal">
+              Direct from Nandsiya, Moth, Jhansi
             </h2>
-            <p className="editorial-body text-[#EADBB6]/90 max-w-xl mx-auto font-light">
-              Every 400g jar of Mushroom Mela is sealed with airtight freshness, verified against strict safety parameters, and dispatched direct from Jhansi.
+            <p className="text-sm sm:text-base text-[#EADBB6]/90 max-w-xl mx-auto font-light">
+              Every 400 g jar of Mushroom Mela is packed in a sealed jar and dispatched directly from our unit in Jhansi.
             </p>
           </div>
           <div className="pt-2">
             <Link
               href="/shop"
-              className="inline-flex items-center gap-2 px-9 py-4 rounded-xl bg-[#C89B3C] hover:bg-[#D4AF37] text-[#211612] font-serif font-bold text-xs tracking-[0.2em] uppercase shadow-xl hover:scale-105 transition-all"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-[6px] bg-[#C89B3C] hover:bg-[#D4AF37] text-[#211612] font-bold text-xs uppercase tracking-wider transition-colors"
             >
-              <span>Explore The Collection (₹399)</span>
+              <span>Shop now (Rs 399)</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

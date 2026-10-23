@@ -113,31 +113,31 @@ export default function AccountPage() {
         <div className="text-center space-y-4">
           <div className="w-10 h-10 border-2 border-[#211612] border-t-transparent rounded-full animate-spin mx-auto" />
           <p className="font-serif text-sm tracking-widest uppercase text-[#A87B28]">
-            Loading Atelier Account...
+            Loading Account...
           </p>
         </div>
       </div>
     );
   }
 
-  // Logged-out State: Elegant Invitation to Sign In
+  // Logged-out State: Sign In
   if (!user) {
     return (
       <div className="min-h-[80vh] flex items-center justify-center py-16 px-4 bg-[#FAF6EE]">
-        <div className="max-w-md w-full bg-[#FDFBF7] rounded-3xl border border-[#C89B3C]/35 shadow-xl p-8 sm:p-10 text-center space-y-6">
-          <div className="w-16 h-16 rounded-full bg-[#EFE8DD] border border-[#DDD3C4] flex items-center justify-center mx-auto text-[#A87B28] shadow-sm">
+        <div className="max-w-md w-full bg-[#FDFBF7] rounded-[6px] border border-[#C89B3C]/35 shadow-sm p-8 sm:p-10 text-center space-y-6">
+          <div className="w-16 h-16 rounded-[6px] bg-[#EFE8DD] border border-[#DDD3C4] flex items-center justify-center mx-auto text-[#A87B28] shadow-sm">
             <UserIcon className="w-8 h-8" />
           </div>
 
           <div className="space-y-2">
             <span className="font-serif text-[10px] sm:text-[11px] tracking-[0.3em] uppercase text-[#A87B28] font-bold block">
-              AKHIL FOODS • ATELIER MEMBER PORTAL
+              AKHIL FOODS • CUSTOMER PORTAL
             </span>
             <h1 className="font-serif text-3xl font-normal text-[#211612]">
               Customer Account
             </h1>
             <p className="text-xs sm:text-sm text-[#3D2C24]/80 font-light leading-relaxed">
-              Sign in to view your past handcrafted oyster mushroom pickle orders, monitor active shipments, and manage your delivery details.
+              Sign in to view your past oyster mushroom pickle orders, monitor active shipments, and manage your delivery details.
             </p>
           </div>
 
@@ -145,14 +145,14 @@ export default function AccountPage() {
             <button
               type="button"
               onClick={() => openAuthModal("signin")}
-              className="w-full py-3.5 rounded-xl bg-[#211612] hover:bg-[#34221A] text-[#FAF6EE] font-serif font-bold text-xs tracking-[0.2em] uppercase transition-all shadow-md border border-[#211612]"
+              className="w-full py-3.5 rounded-[6px] bg-[#211612] hover:bg-[#34221A] text-[#FAF6EE] font-serif font-bold text-xs tracking-[0.2em] uppercase transition-colors shadow-sm border border-[#211612]"
             >
-              Sign In to Atelier
+              Sign In
             </button>
             <button
               type="button"
               onClick={() => openAuthModal("signup")}
-              className="w-full py-3 rounded-xl bg-transparent hover:bg-[#EDE3C8] text-[#211612] font-serif font-medium text-xs tracking-[0.16em] uppercase transition-all border border-[#DDD3C4]"
+              className="w-full py-3 rounded-[6px] bg-transparent hover:bg-[#EDE3C8] text-[#211612] font-serif font-medium text-xs tracking-[0.16em] uppercase transition-colors border border-[#DDD3C4]"
             >
               Create New Account
             </button>
@@ -179,17 +179,17 @@ export default function AccountPage() {
     <div className="min-h-screen bg-[#FAF6EE] py-10 sm:py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Account Header Banner */}
-        <div className="bg-[#FDFBF7] rounded-3xl border border-[#E8DEC8] p-6 sm:p-8 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="bg-[#FDFBF7] rounded-[6px] border border-[#E8DEC8] p-6 sm:p-8 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-full bg-[#211612] text-[#FAF6EE] flex items-center justify-center text-xl font-serif font-bold uppercase shadow-md border border-[#C89B3C]/50">
+            <div className="w-16 h-16 rounded-[6px] bg-[#211612] text-[#FAF6EE] flex items-center justify-center text-xl font-serif font-bold uppercase shadow-sm border border-[#C89B3C]/50">
               {displayName.charAt(0)}
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-serif text-[10px] tracking-[0.25em] uppercase text-[#A87B28] font-bold">
-                  Jhansi Atelier Member
+                  Account Member
                 </span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C89B3C]" />
+                <span className="w-1.5 h-1.5 rounded-sm bg-[#C89B3C]" />
                 <span className="text-xs text-emerald-700 font-medium">Active</span>
               </div>
               <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#211612] capitalize mt-0.5">
@@ -206,7 +206,7 @@ export default function AccountPage() {
               type="button"
               onClick={handleManualRefresh}
               disabled={refreshing}
-              className="px-4 py-2 rounded-xl bg-[#FAF6EE] hover:bg-[#EDE3C8] text-xs font-serif text-[#211612] border border-[#DDD3C4] transition-colors flex items-center gap-1.5"
+              className="px-4 py-2 rounded-[6px] bg-[#FAF6EE] hover:bg-[#EDE3C8] text-xs font-serif text-[#211612] border border-[#DDD3C4] transition-colors flex items-center gap-1.5"
               title="Refresh Orders"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${refreshing ? "animate-spin" : ""}`} />
@@ -215,7 +215,7 @@ export default function AccountPage() {
 
             <Link
               href="/shop"
-              className="px-5 py-2.5 rounded-xl bg-[#211612] hover:bg-[#34221A] text-[#FAF6EE] text-xs font-serif tracking-wider uppercase font-bold transition-all shadow-sm border border-[#211612]"
+              className="px-5 py-2.5 rounded-[6px] bg-[#211612] hover:bg-[#34221A] text-[#FAF6EE] text-xs font-serif tracking-wider uppercase font-bold transition-colors shadow-sm border border-[#211612]"
             >
               Order Pickles
             </Link>
@@ -223,7 +223,7 @@ export default function AccountPage() {
             <button
               type="button"
               onClick={() => signOut()}
-              className="px-4 py-2.5 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 text-xs font-serif transition-colors border border-red-200 flex items-center gap-1.5"
+              className="px-4 py-2.5 rounded-[6px] bg-red-50 hover:bg-red-100 text-red-700 text-xs font-serif transition-colors border border-red-200 flex items-center gap-1.5"
               title="Log out"
             >
               <LogOut className="w-3.5 h-3.5" />
@@ -240,7 +240,7 @@ export default function AccountPage() {
               <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#211612]">
                 My Orders
               </h2>
-              <span className="text-xs font-serif font-bold bg-[#EFE8DD] text-[#211612] px-2.5 py-0.5 rounded-full border border-[#DDD3C4]">
+              <span className="text-xs font-serif font-bold bg-[#EFE8DD] text-[#211612] px-2.5 py-0.5 rounded-[4px] border border-[#DDD3C4]">
                 {orders.length}
               </span>
             </div>
@@ -255,13 +255,13 @@ export default function AccountPage() {
           </div>
 
           {loadingOrders ? (
-            <div className="p-12 text-center bg-[#FDFBF7] rounded-3xl border border-[#E8DEC8]">
+            <div className="p-12 text-center bg-[#FDFBF7] rounded-[6px] border border-[#E8DEC8]">
               <div className="w-8 h-8 border-2 border-[#211612] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
               <p className="text-xs font-serif text-[#3D2C24]">Loading your order history...</p>
             </div>
           ) : orders.length === 0 ? (
-            <div className="p-12 sm:p-16 text-center bg-[#FDFBF7] rounded-3xl border border-[#E8DEC8] space-y-4 shadow-sm">
-              <div className="w-16 h-16 rounded-full bg-[#EFE8DD] border border-[#DDD3C4] flex items-center justify-center mx-auto text-[#211612]/60">
+            <div className="p-12 sm:p-16 text-center bg-[#FDFBF7] rounded-[6px] border border-[#E8DEC8] space-y-4 shadow-sm">
+              <div className="w-16 h-16 rounded-[6px] bg-[#EFE8DD] border border-[#DDD3C4] flex items-center justify-center mx-auto text-[#211612]/60">
                 <ShoppingBag className="w-8 h-8" />
               </div>
               <div className="space-y-1">
@@ -275,9 +275,9 @@ export default function AccountPage() {
               <div className="pt-2">
                 <Link
                   href="/shop"
-                  className="inline-block px-7 py-3 rounded-xl bg-[#211612] hover:bg-[#34221A] text-[#FAF6EE] text-xs font-serif tracking-[0.2em] uppercase font-bold shadow-md transition-all border border-[#211612]"
+                  className="inline-block px-7 py-3 rounded-[6px] bg-[#211612] hover:bg-[#34221A] text-[#FAF6EE] text-xs font-serif tracking-[0.2em] uppercase font-bold shadow-sm transition-colors border border-[#211612]"
                 >
-                  Explore The Collection ➔
+                  Explore Collection
                 </Link>
               </div>
             </div>
@@ -293,7 +293,7 @@ export default function AccountPage() {
                 return (
                   <div
                     key={order.id}
-                    className="bg-[#FDFBF7] rounded-3xl border border-[#E8DEC8] shadow-sm hover:shadow-md transition-all overflow-hidden"
+                    className="bg-[#FDFBF7] rounded-[6px] border border-[#E8DEC8] shadow-sm hover:shadow-md transition-shadow overflow-hidden"
                   >
                     {/* Order Card Header */}
                     <div className="bg-[#FAF6EE] px-5 sm:px-7 py-4 border-b border-[#E8DEC8] flex flex-wrap items-center justify-between gap-3">
@@ -303,7 +303,7 @@ export default function AccountPage() {
                             #{order.orderNumber}
                           </span>
                           <span
-                            className={`px-3 py-0.5 rounded-full text-[11px] font-serif tracking-wider uppercase font-semibold border ${getStatusBadge(
+                            className={`px-3 py-0.5 rounded-[4px] text-[11px] font-serif tracking-wider uppercase font-semibold border ${getStatusBadge(
                               order.orderStatus
                             )}`}
                           >
@@ -346,9 +346,9 @@ export default function AccountPage() {
                             className="py-3.5 first:pt-0 last:pb-0 flex items-center justify-between gap-4"
                           >
                             <div className="flex items-center gap-3.5">
-                              <div className="relative w-14 h-14 rounded-xl overflow-hidden bg-[#1C130E] border border-[#C89B3C]/25 shrink-0">
+                              <div className="relative w-14 h-14 rounded-[6px] overflow-hidden bg-[#1C130E] border border-[#C89B3C]/25 shrink-0">
                                 <Image
-                                  src={item.image || "/images/mushroom-mela-jar-luxury.jpg"}
+                                  src={item.image || "/images/products/mushroom-mela-front.jpg"}
                                   alt={item.name}
                                   fill
                                   sizes="56px"
@@ -372,7 +372,7 @@ export default function AccountPage() {
                       </div>
 
                       {/* Shipping & Delivery Info Bar */}
-                      <div className="bg-[#FAF6EE] p-4 rounded-2xl border border-[#E8DEC8] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                      <div className="bg-[#FAF6EE] p-4 rounded-[6px] border border-[#E8DEC8] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
                         <div className="space-y-0.5">
                           <p className="font-serif font-bold text-[#211612] flex items-center gap-1.5">
                             <Truck className="w-3.5 h-3.5 text-[#A87B28]" />
@@ -394,7 +394,7 @@ export default function AccountPage() {
                           </div>
                         ) : (
                           <div className="text-xs text-[#3D2C24]/60 italic font-serif">
-                            Dispatching from Jhansi Atelier
+                            Dispatching from Moth, Jhansi
                           </div>
                         )}
                       </div>
@@ -404,7 +404,7 @@ export default function AccountPage() {
                         <div className="flex items-center gap-2">
                           <Link
                             href={`/track-order?q=${encodeURIComponent(order.orderNumber)}`}
-                            className="px-4 py-2 rounded-xl bg-[#211612] hover:bg-[#34221A] text-[#FAF6EE] font-serif text-xs tracking-wider uppercase font-bold transition-all shadow-sm"
+                            className="px-4 py-2 rounded-[6px] bg-[#211612] hover:bg-[#34221A] text-[#FAF6EE] font-serif text-xs tracking-wider uppercase font-bold transition-colors shadow-sm"
                           >
                             Live Tracking
                           </Link>
@@ -415,7 +415,7 @@ export default function AccountPage() {
                             )}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-4 py-2 rounded-xl bg-[#FAF6EE] hover:bg-[#EDE3C8] text-[#211612] font-serif text-xs transition-colors border border-[#DDD3C4] flex items-center gap-1.5"
+                            className="px-4 py-2 rounded-[6px] bg-[#FAF6EE] hover:bg-[#EDE3C8] text-[#211612] font-serif text-xs transition-colors border border-[#DDD3C4] flex items-center gap-1.5"
                           >
                             <MessageSquare className="w-3.5 h-3.5 text-[#211612]" />
                             <span>Order Help</span>

@@ -210,7 +210,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       // ignore
     }
     closeAuthModal();
-    return { error: null, message: "Welcome to Akhil Foods Atelier!" };
+    return { error: null, message: "Welcome to Akhil Foods!" };
   };
 
   const signInWithGoogle = async (): Promise<{ error: string | null }> => {
